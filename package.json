@@ -13,6 +13,9 @@
   },
   "author": "Cameron Bytheway <cameron@nujii.com>",
   "readmeFilename": "README.md",
+  "engines": {
+    "node": "0.8.x"
+  },
   "dependencies": {
     "stack-angular": "~0.0.1",
     "startup": "~0.0.1",
