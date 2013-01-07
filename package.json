@@ -1,0 +1,26 @@
+{
+  "name": "flokk-ui",
+  "version": "0.0.1",
+  "description": "The Flokk UI",
+  "main": "app.js",
+  "scripts": {
+    "start": "node_modules/.bin/startup start",
+    "test": "NODE_ENV=test mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CamShaft/flokk-ui.git"
+  },
+  "author": "Cameron Bytheway <cameron@nujii.com>",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "stack-angular": "~0.0.1",
+    "startup": "~0.0.1",
+    "express": "~3.0.6"
+  },
+  "devDependencies": {
+    "should": "~1.2.1",
+    "supertest": "~0.5.1",
+    "mocha": "~1.7.4"
+  }
+}

@@ -1,0 +1,91 @@
+@import url(http://fonts.googleapis.com/css?family=Marcellus+SC);
+
+body {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: #EEE no-repeat center center;
+  -webkit-transition: background .3s linear;  
+  -moz-transition: background .3s linear;  
+  -o-transition: background .3s linear;  
+  -ms-transition: background .3s linear;  
+  transition: background .3s linear;
+}
+body.woman {
+  /*background: #C8C8C8 url(http://www.designscene.net/wp-content/gallery/082012/freja-beha-erichsen-zara-fall-winter-2012-13-01.jpg) no-repeat center center;*/
+}
+body.man {
+  /*background: #C8C8C8 url(http://www.designscene.net/wp-content/gallery/082012/freja-beha-erichsen-zara-fall-winter-2012-13-07.jpg) no-repeat center center;*/
+}
+
+footer {
+  color: #777;
+}
+
+a {
+  -webkit-transition: color .2s linear;  
+  -moz-transition: color .2s linear;  
+  -o-transition: color .2s linear;  
+  -ms-transition: color .2s linear;  
+  transition: color .2s linear;
+  color: #333;
+}
+a:hover {
+  color: #111;
+  text-decoration: none;
+}
+
+.logo a {
+  font-family: 'Marcellus SC', serif;
+  color: #333;
+  -webkit-transition: color .3s linear;  
+  -moz-transition: color .3s linear;  
+  -o-transition: color .3s linear;  
+  -ms-transition: color .3s linear;  
+  transition: color .3s linear;
+  text-shadow: 1px 1px white, -1px -1px #444;
+}
+.logo:hover a {
+  color: #111;
+  text-decoration: none;
+}
+
+.nav-list {
+  padding-left: 0;
+}
+.nav-list .nav-header {
+  font-size: 16px;
+}
+.nav-list .nav-subcategory {
+  padding-left: 10px;
+}
+.nav-list > li > a {
+  text-shadow: none;
+}
+.nav-list > li > a:hover {
+  background: none;
+}
+
+.thumbnail {
+  border: none;
+  padding: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+@media (min-width: 767px) {
+
+  .navbar {
+    background: #EEE;
+    position: fixed;
+    padding-bottom: 20px;
+  }
+  #main {
+    margin-top: 90px;
+  }
+  .sidebar-nav {
+    position: fixed;
+  }
+}
