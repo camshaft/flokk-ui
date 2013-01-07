@@ -55,6 +55,17 @@ c.controller("SidenavController", [
           {title: "Accessories", rel: "accessories"},
           {title: "Homewear", rel: "homewear"}
         ]
+      },
+      {
+        title: "KIDS",
+        show: false,
+        rel: "kids",
+        subcategories: [
+          {title: "Girl", rel: "girl"},
+          {title: "Boy", rel: "boy"},
+          {title: "Baby Girl", rel: "baby-girl"},
+          {title: "Baby Boy", rel: "baby-boy"}
+        ]
       }
     ]
   }
