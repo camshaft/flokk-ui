@@ -32,7 +32,8 @@ var stack = pack({
     "/partials",
     "/js",
     "/css",
-    "/img"
+    "/img",
+    "/api"
   ]
 });
 

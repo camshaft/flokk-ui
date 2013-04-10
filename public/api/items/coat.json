@@ -1,0 +1,8 @@
+{
+  "_links": {
+    "self": {"href": "/api/items/coat.json"},
+    "thumbnail": {"href": "http://static.zara.net/photos//2012/I/0/2/p/0367/347/801/1/0367347801_1_1_4.jpg?timestamp=1348837387016"}
+  },
+  "title": "Trench Coat with Detachable Lining",
+  "price": "79.99"
+}

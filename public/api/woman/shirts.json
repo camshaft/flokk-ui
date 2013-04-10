@@ -1,0 +1,9 @@
+{
+  "_links": {
+    "self": {"href": "/api/woman/shirts.json"}
+  },
+  "_embedded": {
+    "items": [
+    ]
+  }
+}

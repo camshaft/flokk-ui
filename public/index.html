@@ -2,7 +2,7 @@
 <html lang="en" data-ng-app="flokk">
   <head>
     <meta charset="utf-8">
-    <title>Flokk</title>
+    <title>flokk</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Flokk">
     <meta name="description" content="">
@@ -32,10 +32,10 @@
 
             <ul class="nav pull-right ng-cloak account-links">
               <li data-ng-class="{active: nav=='account'}">
-                <a href="/account">Account</a>
+                <a href="/account" data-bind-i18n="'account_link'"></a>
               </li>
               <li data-ng-class="{active: nav=='cart'}" data-ng-controller="CartController">
-                <a href="/cart">Cart ({{cart.items.length}})</a>
+                <a href="/cart" data-bind-i18n="{'key':'cart', 'smart_count': cart._embedded.items}"></a>
               </li>
             </ul>
             
@@ -53,12 +53,12 @@
           <div class="span2">
             <div class="sidebar-nav" data-ng-controller="SidenavController">
               <ul class="nav nav-list">
-                <li class="nav-header"><a href="/">Sales</a></li>
+                <li class="nav-header"><a href="/" data-bind-i18n="'category.sales'"></a></li>
                 <li class="divider"></li>
               </ul>
-              <ul data-ng-repeat="category in categories" class="nav nav-list">
-                <li class="nav-header"><a data-ng-bind="category.title" data-ng-click="changeCategory(category.rel)"></a></li>
-                <li class="nav-subcategory" data-ng-show="category.show" data-ng-repeat="subcategory in category.subcategories"><a data-ng-bind="subcategory.title" data-ng-href="/products/{{category.rel}}/{{subcategory.rel}}"></a></li>
+              <ul data-ng-repeat="category in categories._embedded.categories" class="nav nav-list">
+                <li class="nav-header"><a data-bind-i18n="{key: 'category.'+category.rel, _:category.title}" data-ng-href="/products/{{category.rel}}"></a></li>
+                <li class="nav-subcategory" data-ng-show="category.show" data-ng-repeat="subcategory in category._embedded.subcategories"><a data-bind-i18n="{key: 'category.'+subcategory.rel, _:subcategory.title}" data-ng-href="/products/{{category.rel}}/{{subcategory.rel}}"></a></li>
               </ul>
             </div>
           </div>
@@ -80,5 +80,6 @@
     <script type="text/javascript" src="/js/directives.js"></script>
     <script type="text/javascript" src="/js/filters.js"></script>
     <script type="text/javascript" src="/js/services.js"></script>
+    <script src="https://raw.github.com/airbnb/polyglot.js/master/build/polyglot.js"></script>
   </body>
 </html>

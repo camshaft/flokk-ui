@@ -1,0 +1,10 @@
+<ul class="media-list">
+  <li class="media" data-ng-repeat="item in items">
+    <a class="pull-left" href="#">
+      <img class="media-object" width="90" height="90" data-ng-src="{{item._links.thumbnail.href}}">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading" data-bind-i18n="{key: 'item.title.'+item.sku, _: item.title}"></h4>
+    </div>
+  </li>
+</ul>

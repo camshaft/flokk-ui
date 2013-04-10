@@ -1,0 +1,30 @@
+{
+  "_links": {
+    "self": {"href": "/api/categories.json"}
+  },
+  "_embedded": {
+    "categories": [
+      {
+        "_links": {
+          "self": {"href": "/api/woman.json"}
+        },
+        "rel": "woman",
+        "title": "Woman"
+      },
+      {
+        "_links": {
+          "self": {"href": "/api/man.json"}
+        },
+        "rel": "man",
+        "title": "Man"
+      },
+      {
+        "_links": {
+          "self": {"href": "/api/kids.json"}
+        },
+        "rel": "kids",
+        "title": "Kids"
+      }
+    ]
+  }
+}

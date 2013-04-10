@@ -99,3 +99,9 @@ a:hover {
     position: fixed;
   }
 }
+
+[contenteditable="true"] ,
+[contenteditable="true"]:active ,
+[contenteditable="true"]:blur { 
+  outline: 2px dashed #999;
+}

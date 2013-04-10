@@ -22,6 +22,10 @@ flokk.config([
         templateUrl: "/partials/account.html",
         controller: "AccountController"
       })
+      .when("/products/:category",{
+        templateUrl: "/partials/category.html",
+        controller: "CategoryController"
+      })
       .when("/products/:category/:subcategory",{
         templateUrl: "/partials/products.html",
         controller: "ProductsController"

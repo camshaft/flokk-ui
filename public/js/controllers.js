@@ -3,71 +3,32 @@ var c = angular.module("flokk.controllers", []);
 c.controller("SidenavController", [
   "$rootScope",
   "$scope",
-  "$location",
+  "$routeParams",
+  "$http",
+  "categories",
+  "request",
 
-  function SidenavController($rootScope, $scope, $location) {
-    $scope.$watch('$location.path()', function(hash) {
-      $scope.openCategory = hash;
-    });
-
-    $scope.changeCategory = function(rel) {
-      $scope.categories.forEach(function(cat) {
-        cat.show = ($rootScope.page == rel)?false:(cat.rel == rel);
+  function SidenavController($rootScope, $scope, $routeParams, $http, categories, request) {
+    $scope.$routeParams = $routeParams;
+    $scope.$watch("$routeParams", function() {
+      var rel = $routeParams.category;
+      if (!$scope.categories) return;
+      angular.forEach($scope.categories._embedded.categories, function(cat) {
+        cat.show = cat.rel == rel;
       });
-      $rootScope.page = ($rootScope.page == rel)?null:rel;
-    };
+    }, true);
 
-    $scope.categories = [
-      {
-        title: "WOMAN",
-        show: false,
-        rel: "woman",
-        subcategories: [
-          {title: "Coats", rel: "coats"},
-          {title: "Blazers", rel: "blazers"},
-          {title: "Dresses", rel: "dresses"},
-          {title: "Shirts", rel: "shirts"},
-          {title: "Trousers", rel: "trousers"},
-          {title: "Jeans", rel: "jeans"},
-          {title: "Skirts", rel: "skirts"},
-          {title: "Knitwear", rel: "knitwear"},
-          {title: "T-shirts", rel: "t-shirts"},
-          {title: "Shoes", rel: "shoes"},
-          {title: "Handbags", rel: "handbags"},
-          {title: "Accessories", rel: "accessories"}
-        ]
-      },
-      {
-        title: "MAN",
-        show: false,
-        rel: "man",
-        subcategories: [
-          {title: "Coats", rel: "coats"},
-          {title: "Jackets", rel: "jackets"},
-          {title: "Blazers", rel: "blazers"},
-          {title: "Trousers", rel: "trousers"},
-          {title: "Jeans", rel: "jeans"},
-          {title: "T-shirts", rel: "t-shirts"},
-          {title: "Shirts", rel: "shirts"},
-          {title: "Knitwear", rel: "knitwear"},
-          {title: "Shoes", rel: "shoes"},
-          {title: "Bags", rel: "bags"},
-          {title: "Accessories", rel: "accessories"},
-          {title: "Homewear", rel: "homewear"}
-        ]
-      },
-      {
-        title: "KIDS",
-        show: false,
-        rel: "kids",
-        subcategories: [
-          {title: "Girl", rel: "girl"},
-          {title: "Boy", rel: "boy"},
-          {title: "Baby Girl", rel: "baby-girl"},
-          {title: "Baby Boy", rel: "baby-boy"}
-        ]
-      }
-    ]
+    categories(function(err, cats) {
+      $scope.categories = cats;
+      cats._embedded.categories.forEach(function(category) {
+        category._embedded = category._embedded || {};
+        request(category, function(err, subs) {
+          if (subs && subs._embedded && subs._embedded.subcategories) {
+            category._embedded.subcategories = subs._embedded.subcategories;
+          };
+        });
+      })
+    });
   }
 ]);
 
@@ -160,12 +121,19 @@ c.controller("ProductsController", [
 
 c.controller("CartController", [
   "$scope",
+  "cart",
+  "request",
 
-  function CartController($scope) {
-
-    $scope.cart = {
-      items: []
-    }
+  function CartController($scope, cart, request) {
+    cart(function(err, cart) {
+      $scope.cart = cart;
+      $scope.items = [];
+      cart._embedded.items.forEach(function(itemLink, idx) {
+        request(itemLink, function(err, item) {
+          $scope.items[idx] = item;
+        })
+      });
+    });
   }
 ]);
 
@@ -177,13 +145,20 @@ c.controller("AccountController", [
   }
 ]);
 
+c.controller("CategoryController", [
+  "$scope",
+
+  function CategoryController($scope) {
+
+  }
+]);
+
 c.controller("RootController", [
   "$scope",
   "$location",
 
   function RootController($scope, $location) {
     $scope.$watch('$location.path()', function(path) {
-      console.log($location.path());
 
       switch($location.path()) {
         case "/cart":
