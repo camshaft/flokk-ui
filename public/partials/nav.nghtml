@@ -1,21 +1,15 @@
-<div class="">
+<div class="container" data-ng-controller="NavController">
+  <a href="/" class="brand brand-flokk">flokk</a>
 
-  <div class="container" data-ng-controller="NavController">
-
-    <a href="/" class="brand brand-flokk">flokk</a>
-
-    <ul class="pull-right nav ng-cloak account-links">
-      <li data-ng-show="account" data-ng-class="{active: nav=='account'}">
-        <a href="/account" data-bind-i18n="{key: 'account_link', _:'Account'}"></a>
-      </li>
-      <li data-ng-hide="account">
-        <a href="/login" target="_self" data-bind-i18n="{key: 'login', _:'Login'}"></a>
-      </li>
-      <li data-ng-class="{active: nav=='cart'}" data-ng-controller="CartController">
-        <a href="/cart" data-bind-i18n="{'key':'cart', 'smart_count': cart.items}"></a>
-      </li>
-    </ul>
-
-  </div>
-
+  <ul class="pull-right nav ng-cloak account-links">
+    <li data-ng-show="account" data-ng-class="{active: nav=='account'}">
+      <a href="/account" data-bind-i18n="{key: 'account_link', _:'Account'}"></a>
+    </li>
+    <li data-ng-hide="account">
+      <a href="/login" target="_self" data-bind-i18n="{key: 'login', _:'Login'}"></a>
+    </li>
+    <li data-ng-class="{active: nav=='cart'}" data-ng-controller="CartController">
+      <a href="/cart" data-bind-i18n="{'key':'cart', 'smart_count': cart.items}"></a>
+    </li>
+  </ul>
 </div>

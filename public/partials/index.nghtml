@@ -1,1 +1,1 @@
-<h3 data-bind-i18n="'no_sales'"></h3>
+<h3 data-bind-i18n="{key: 'no_sales', _:'There are no sales right now. Go ahead and start one!'}"></h3>

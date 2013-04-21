@@ -13,7 +13,8 @@
     "CamShaft/bootstrap-responsive": "*",
     "component/moment": "*",
     "CamShaft/pivot": "*",
-    "component/pad": "*"
+    "component/pad": "*",
+    "component/pie": "*"
   },
   "development": {},
   "license": "MIT",
@@ -29,7 +30,8 @@
     "public/javascripts/controllers/nav.js",
     "public/javascripts/controllers/sidenav.js",
     "public/javascripts/directives/i18n.js",
-    "public/javascripts/directives/moment.js",
+    "public/javascripts/directives/remaining.js",
+    "public/javascripts/directives/pie.js",
     "public/javascripts/services/pivot.js"
   ],
   "styles": [

@@ -3,7 +3,8 @@
  */
 var app = require("..")
   , angular = require("angular")
-  , moment = require("../directives/moment");
+  , remaining = require("../directives/remaining")
+  , pie = require("../directives/pie");
 
 var images = [
   "http://i47.tinypic.com/mack5g.jpg",
@@ -34,10 +35,19 @@ function CategoryController($scope, $routeParams) {
     var item = angular.copy(_item);
     item.id = "item_"+i;
     item.thumbnail = images[Math.floor(Math.random() * images.length)];
-    item.remaining = Math.floor(Date.now()/1000+Math.random()*36000);
+    item.remaining = Math.floor(Math.random()*60);
     
     $scope.items.push(item);
   };
+
+  $scope.items.forEach(function(item) {
+    var timer = setInterval(function() {
+      $scope.$apply(function() {
+        if(item.remaining === 0) return clearInterval(timer);
+        item.remaining--;
+      });
+    }, 1000);
+  });
 };
 
 /*
