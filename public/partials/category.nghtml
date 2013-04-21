@@ -6,9 +6,10 @@
       </a>
       <h6 class="pull-left">
         <a data-bind-i18n="{key: 'item.title'+item.sku, _:item.title}" href="/items/{{item.id}}"></a>
-        <div>
-          <span data-bind-i18n="{key: 'ending_in', _:'Sale ending in'}"></span> <span data-ng-model="item.remaining" data-remaining></span>
+        <div data-ng-show="item.remaining">
+          <span data-bind-i18n="{key: 'item.ending_in', _:'Sale ending in'}"></span> <span data-ng-model="item.remaining" data-remaining></span>
         </div>
+        <div data-ng-hide="item.remaining" data-bind-i18n="{key: 'item.ended', _:'This sale has ended'}"></div>
       </h6>
       <p class="ng-cloak pull-right price" data-bind-i18n="{key: 'item.price', price: item.price, _: '$'+item.price}"></p>
 
