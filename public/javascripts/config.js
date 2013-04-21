@@ -17,8 +17,7 @@ var AccountController = require("./controllers/account")
 /**
  * Initialize the directives used outside of the controllers
  */
-var moment = require("./directives/moment")
-  , i18n = require("./directives/i18n");
+var i18n = require("./directives/i18n");
 
 /*
  * Configure the app

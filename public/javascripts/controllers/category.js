@@ -2,7 +2,8 @@
  * Module dependencies
  */
 var app = require("..")
-  , angular = require("angular");
+  , angular = require("angular")
+  , moment = require("../directives/moment");
 
 var images = [
   "http://i47.tinypic.com/mack5g.jpg",
