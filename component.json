@@ -5,8 +5,8 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "CamShaft/component-angular": "*",
     "flokk/theme-origami": "*",
+    "CamShaft/component-angular": "*",
     "CamShaft/bootstrap-navs": "*",
     "CamShaft/bootstrap-thumbnails": "*",
     "component/moment": "*",
