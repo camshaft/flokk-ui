@@ -11,7 +11,11 @@
         </div>
         <div data-ng-hide="item.remaining" data-bind-i18n="{key: 'item.ended', _:'This sale has ended'}"></div>
       </h6>
-      <p class="ng-cloak pull-right price" data-bind-i18n="{key: 'item.price', price: item.price, _: '$'+item.price}"></p>
+      <p class="ng-cloak pull-right price">
+        <!-- TODO firgure out watching with i18n -->
+        $<span data-ng-bind="item.price"></span>
+      </p>
+      <p data-ng-bind="item.purchases+' people have bought this item'"></p>
 
       <div data-pie="{size: 50}" data-ng-model="item.remaining"></div>
       

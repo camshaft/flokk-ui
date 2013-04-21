@@ -28,14 +28,14 @@ function CategoryController($scope, $routeParams) {
   $scope.category = $routeParams.category;
   $scope.subcategory = $routeParams.subcategory;
 
-  var _item = {title: "Thingy", price: 49.99};
+  var _item = {title: "Thingy", price: 49.99, purchases: 0};
 
   $scope.items = [];
   for (var i = 0; i < ($scope.subcategory ? 4 : 12); i++) {
     var item = angular.copy(_item);
     item.id = "item_"+i;
     item.thumbnail = images[Math.floor(Math.random() * images.length)];
-    item.remaining = Math.floor(Math.random()*60);
+    item.remaining = Math.floor(Math.random()*360);
     
     $scope.items.push(item);
   };
@@ -47,8 +47,22 @@ function CategoryController($scope, $routeParams) {
         item.remaining--;
       });
     }, 1000);
+    mockSale(item, $scope);
   });
 };
+
+
+function mockSale (item, $scope) {
+  setTimeout(function() {
+    $scope.$apply(function() {
+      if(item.remaining === 0) return;
+      item.price -= Math.random();
+      item.price = item.price.toFixed(2);
+      item.purchases++;
+    });
+    mockSale(item, $scope);
+  }, Math.floor(Math.random()*10000));
+}
 
 /*
  * Register it with angular

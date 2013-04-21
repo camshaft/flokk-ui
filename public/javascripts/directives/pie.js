@@ -4,7 +4,7 @@
 var app = require("..")
   , Pie = require("pie");
 
-var TOTAL = 60;
+var TOTAL = 360;
 
 /*
  * pie

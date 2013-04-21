@@ -8,7 +8,7 @@ var app = require("..");
  */
 function bindI18n() {
   return function($scope, elem, attrs) {
-    var options = $scope.$eval(attrs.bindI18n)
+    var options = $scope.$eval(attrs.bindI18n);
     elem.text(options._ ? options._ : options);
   };
 };
