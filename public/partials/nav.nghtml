@@ -1,0 +1,27 @@
+<div class="">
+
+  <div class="container" data-ng-controller="NavController">
+    <div class="row">
+
+      <h1 class="logo span2">
+        <a href="/"><img src="/public/flokk-theme-origami/assets/images/logo.png"></a>
+      </h1>
+
+      <div class="span10 nav">
+        <ul class="pull-right nav nav-pills ng-cloak account-links">
+          <li data-ng-show="account" data-ng-class="{active: nav=='account'}">
+            <a href="/account" data-bind-i18n="{key: 'account_link', _:'Account'}"></a>
+          </li>
+          <li data-ng-hide="account">
+            <a href="/login" target="_self" data-bind-i18n="{key: 'login', _:'Login'}"></a>
+          </li>
+          <li data-ng-class="{active: nav=='cart'}" data-ng-controller="CartController">
+            <a href="/cart" data-bind-i18n="{'key':'cart', 'smart_count': cart.items}"></a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>

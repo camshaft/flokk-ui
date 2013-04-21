@@ -1,0 +1,1 @@
+<div data-bind-i18n="{key: 'item.'+item, _:item}"></div>

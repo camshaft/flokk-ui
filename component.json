@@ -1,0 +1,46 @@
+{
+  "name": "flokk-ui",
+  "repo": "CamShaft/flokk-ui",
+  "description": "The Flokk UI",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "CamShaft/component-angular": "*",
+    "flokk/theme-origami": "*",
+    "CamShaft/bootstrap-navs": "*",
+    "CamShaft/bootstrap-thumbnails": "*",
+    "component/moment": "*",
+    "CamShaft/pivot": "*",
+    "component/pad": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "public/javascripts/config.js",
+  "scripts": [
+    "public/javascripts/index.js",
+    "public/javascripts/config.js",
+    "public/javascripts/controllers/account.js",
+    "public/javascripts/controllers/index.js",
+    "public/javascripts/controllers/cart.js",
+    "public/javascripts/controllers/category.js",
+    "public/javascripts/controllers/item.js",
+    "public/javascripts/controllers/nav.js",
+    "public/javascripts/controllers/sidenav.js",
+    "public/javascripts/directives/i18n.js",
+    "public/javascripts/directives/moment.js",
+    "public/javascripts/services/pivot.js"
+  ],
+  "styles": [
+    "public/stylesheets/category.css",
+    "public/stylesheets/main.css",
+    "public/stylesheets/nav.css",
+    "public/stylesheets/sidenav.css"
+  ],
+  "templates": [
+    "public/partials/404.nghtml",
+    "public/partials/account.nghtml",
+    "public/partials/cart.nghtml",
+    "public/partials/category.nghtml",
+    "public/partials/index.nghtml"
+  ]
+}
