@@ -7,8 +7,10 @@
   "dependencies": {
     "flokk/theme-origami": "*",
     "CamShaft/component-angular": "*",
+    "CamShaft/bootstrap-navbar": "*",
     "CamShaft/bootstrap-navs": "*",
     "CamShaft/bootstrap-thumbnails": "*",
+    "CamShaft/bootstrap-responsive": "*",
     "component/moment": "*",
     "CamShaft/pivot": "*",
     "component/pad": "*"
