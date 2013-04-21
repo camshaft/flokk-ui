@@ -1,9 +1,9 @@
 
 build: components
-	@component build --dev --standalone flokk
+	@./node_modules/.bin/component build --dev --standalone flokk
 
 components: component.json
-	@component install --dev
+	@./node_modules/.bin/component install --dev
 
 clean:
 	rm -fr build components
