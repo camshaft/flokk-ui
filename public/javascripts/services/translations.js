@@ -8,8 +8,15 @@ var app = require("..")
  * Translations service
  */
 function translations() {
+  // TODO pull the browser locale
   // TODO send off workflow when key is not found
-  return new Polyglot;
+  var polyglot = new Polyglot({locale: "en"});
+
+  polyglot.extend({
+    num_purchases: "%{smart_count} person has purchased this item |||| %{smart_count} people have purchased this item"
+  });
+
+  return polyglot;
 };
 
 /**

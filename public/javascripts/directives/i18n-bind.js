@@ -14,7 +14,7 @@ function i18nBind(translations) {
     // TODO Enable editing mode
     // TODO add translations to backend
 
-    elem.addClass('ce-binding').data('$binding', attrs.i18nBind);
+    elem.addClass('i18n-binding').data('$binding', attrs.i18nBind);
     $scope.$watch(attrs.i18nBind, function i18nBindWatchAction(val) {
       elem.text(val == undefined ? '' : val);
     });

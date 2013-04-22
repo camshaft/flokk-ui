@@ -14,7 +14,7 @@
       <p class="ng-cloak pull-right price">
         <span data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.price}"></span>
       </p>
-      <p data-i18n-bind="'%{purchaes} people have bought this item' | i18n:'num_purchases':{purchaes:item.purchases}"></p>
+      <p data-i18n-bind="'%{smart_count} people have bought this item' | i18n:'num_purchases':{smart_count:item.purchases}"></p>
 
       <div data-pie="{size: 50}" data-ng-model="item.remaining"></div>
 
