@@ -4,7 +4,7 @@
 var app = require("..")
   , moment = require("moment")
   , pad = require("pad")
-  , pivot = require("../services/pivot");
+  , experiments = require("../services/experiments");
 
 /*
  * remaining
@@ -50,7 +50,7 @@ function exp_updateDisplayText (end, elem) {
  * Register it with angular
  */
 app.directive(remaining.name, [
-  pivot,
+  experiments,
   remaining
 ]);
 

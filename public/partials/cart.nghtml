@@ -4,7 +4,7 @@
       <img class="media-object" width="90" height="90" data-ng-src="{{item._links.thumbnail.href}}">
     </a>
     <div class="media-body">
-      <h4 class="media-heading" data-bind-i18n="{key: 'item.title.'+item.sku, _: item.title}"></h4>
+      <h4 class="media-heading" data-i18n-bind="item.title | i18n:'item.title.'+item.sku"></h4>
     </div>
   </li>
 </ul>

@@ -14,7 +14,8 @@
     "component/moment": "*",
     "CamShaft/pivot": "*",
     "component/pad": "*",
-    "component/pie": "*"
+    "component/pie": "*",
+    "airbnb/polyglot.js": "*"
   },
   "development": {},
   "license": "MIT",
@@ -29,10 +30,13 @@
     "public/javascripts/controllers/item.js",
     "public/javascripts/controllers/nav.js",
     "public/javascripts/controllers/sidenav.js",
-    "public/javascripts/directives/i18n.js",
-    "public/javascripts/directives/remaining.js",
+    "public/javascripts/directives/i18n-bind.js",
     "public/javascripts/directives/pie.js",
-    "public/javascripts/services/pivot.js"
+    "public/javascripts/directives/remaining.js",
+    "public/javascripts/filters/i18n.js",
+    "public/javascripts/services/api.js",
+    "public/javascripts/services/experiments.js",
+    "public/javascripts/services/translations.js"
   ],
   "styles": [
     "public/stylesheets/category.css",

@@ -3,13 +3,13 @@
 
   <ul class="pull-right nav ng-cloak account-links">
     <li data-ng-show="account" data-ng-class="{active: nav=='account'}">
-      <a href="/account" data-bind-i18n="{key: 'account_link', _:'Account'}"></a>
+      <a href="/account" data-i18n-bind="'Account' | i18n:'account_link'"></a>
     </li>
     <li data-ng-hide="account">
-      <a href="/login" target="_self" data-bind-i18n="{key: 'login', _:'Login'}"></a>
+      <a href="/login" target="_self" data-i18n-bind="'Login' | i18n:'login'"></a>
     </li>
     <li data-ng-class="{active: nav=='cart'}" data-ng-controller="CartController">
-      <a href="/cart" data-bind-i18n="{'key':'cart', 'smart_count': cart.items}"></a>
+      <a href="/cart" data-i18n-bind="'Cart (%{count})' | i18n:'cart':{'count':cart.items||0}"></a>
     </li>
   </ul>
 </div>

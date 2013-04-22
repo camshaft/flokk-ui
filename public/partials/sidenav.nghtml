@@ -1,14 +1,14 @@
 <div class="sidenav" data-ng-controller="SidenavController">
   <ul class="nav nav-list">
-    <li class="nav-header" data-ng-class="{active: path=='/'}"><a href="/" data-bind-i18n="{key: 'category.sales', _:'Current Sales'}"></a></li>
+    <li class="nav-header" data-ng-class="{active: path=='/'}"><a href="/" data-i18n-bind="'Current Sales' | i18n:'category.sales'"></a></li>
     <li class="divider"></li>
   </ul>
   <ul data-ng-repeat="category in categories" class="nav nav-list">
     <li class="nav-header" data-ng-class="{active: category.rel==current}">
-      <a data-bind-i18n="{key: 'category.'+category.rel, _:category.title}" data-ng-href="/categories/{{category.rel}}"></a>
+      <a data-i18n-bind="category.title | i18n:'category.'+category.rel" data-ng-href="/categories/{{category.rel}}"></a>
     </li>
     <li class="nav-subcategory" data-ng-show="category.rel==current" data-ng-repeat="subcategory in category.subcategories" data-ng-class="{active: subcategory.rel==currentSub}">
-      <a data-bind-i18n="{key: 'category.'+subcategory.rel, _:subcategory.title}" data-ng-href="/categories/{{category.rel}}/{{subcategory.rel}}"></a>
+      <a data-i18n-bind="subcategory.title | i18n:'category.'+subcategory.rel" data-ng-href="/categories/{{category.rel}}/{{subcategory.rel}}"></a>
     </li>
   </ul>
 </div>

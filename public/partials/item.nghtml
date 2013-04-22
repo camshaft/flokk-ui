@@ -1,1 +1,1 @@
-<div data-bind-i18n="{key: 'item.'+item, _:item}"></div>
+<div data-i18n-bind="item | i18n:'item.'+item"></div>

@@ -17,7 +17,12 @@ var AccountController = require("./controllers/account")
 /**
  * Initialize the directives used outside of the controllers
  */
-var i18n = require("./directives/i18n");
+var i18nBind = require("./directives/i18n-bind");
+
+/**
+ * Initialize the directives used outside of the controllers
+ */
+var i18n = require("./filters/i18n");
 
 /*
  * Configure the app
