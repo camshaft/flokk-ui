@@ -28,7 +28,12 @@ function CategoryController($scope, $routeParams) {
   $scope.category = $routeParams.category;
   $scope.subcategory = $routeParams.subcategory;
 
-  var _item = {title: "Thingy", price: 49.99, purchases: 0};
+  var _item = {
+    title: "Thingy",
+    price: 49.99,
+    purchases: Math.floor(Math.random()*5),
+    quantity: Math.floor(Math.random()*20+5)
+  };
 
   $scope.items = [];
   for (var i = 0; i < ($scope.subcategory ? 4 : 12); i++) {
@@ -59,6 +64,9 @@ function mockSale (item, $scope) {
       item.price -= Math.random();
       item.price = item.price.toFixed(2);
       item.purchases++;
+      item.quantity--;
+      // We're all out
+      if(!item.quantity) item.remaining = 0;
     });
     mockSale(item, $scope);
   }, Math.floor(Math.random()*10000));

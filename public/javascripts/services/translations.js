@@ -13,7 +13,8 @@ function translations() {
   var polyglot = new Polyglot({locale: "en"});
 
   polyglot.extend({
-    num_purchases: "%{smart_count} person has purchased this item |||| %{smart_count} people have purchased this item"
+    num_purchases: "%{smart_count} person has purchased this item |||| %{smart_count} people have purchased this item",
+    remaining_items: "%{smart_count} item remaining |||| %{smart_count} items remaining"
   });
 
   return polyglot;
