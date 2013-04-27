@@ -21,14 +21,16 @@ var images = [
 /*
  * ItemController
  */
-function ItemController($scope, $rootScope, $routeParams) {
+function ItemController($scope, $rootScope, $routeParams, $location) {
   // TODO set the page title once we have an actual response from the server
   // $rootScope.title = $scope.category;
-
+  var itemId = $routeParams.item;
   $scope.image = $routeParams.image || 0;
 
+  $scope.image = parseInt(($location.hash() || "").replace("image-", "") || "0");
+
   $scope.item = {
-    id: $routeParams.item,
+    id: itemId,
     title: "Lame print",
     vendor: {name: "Scott n' Dave", rel: "scott-n-dave"},
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehen- derit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -50,6 +52,7 @@ app.controller(ItemController.name, [
   '$scope',
   '$rootScope',
   '$routeParams',
+  '$location',
   ItemController
 ]);
 

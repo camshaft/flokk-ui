@@ -4,8 +4,8 @@
   </div>
   <div class="span1">
     <ul class="thumbnails">
-      <li class="thumbnail span12" data-ng-repeat="thumbnail in item.thumbnails" data-ng-class="{active: image == $index}">
-        <a data-ng-href="/items/{{item.id}}/images/{{$index}}">
+      <li class="span12" data-ng-repeat="thumbnail in item.thumbnails" data-ng-class="{active: image == $index}">
+        <a data-ng-href="#image-{{$index}}">
           <img data-ng-src="{{thumbnail}}" />
         </a>
       </li>
