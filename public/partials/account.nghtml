@@ -1,6 +1,6 @@
 <div class="media">
   <a class="pull-left" href="#">
-    <img class="media-object" data-ng-src="{{account.avatar}}">
+    <img class="media-object" data-ng-src="{{account.avatar}}" />
   </a>
   <div class="media-body">
     <h3 data-ng-bind="account.name"></h3>

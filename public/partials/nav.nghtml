@@ -2,13 +2,13 @@
   <a href="/" class="brand brand-flokk">flokk</a>
 
   <ul class="pull-right nav ng-cloak account-links">
-    <li data-ng-show="account" data-ng-class="{active: nav=='account'}">
+    <li data-ng-show="account" data-ng-class="{active: path=='/account'}">
       <a href="/account" data-i18n-bind="'Account' | i18n:'account_link'"></a>
     </li>
-    <li data-ng-hide="account">
+    <li data-ng-hide="account" data-ng-class="{active: path=='/login'}">
       <a href="/login" target="_self" data-i18n-bind="'Login' | i18n:'login'"></a>
     </li>
-    <li data-ng-class="{active: nav=='cart'}" data-ng-controller="CartController">
+    <li data-ng-class="{active: path=='/cart'}" data-ng-controller="CartController">
       <a href="/cart" data-i18n-bind="'Cart (%{count})' | i18n:'cart':{'count':cart.items||0}"></a>
     </li>
   </ul>

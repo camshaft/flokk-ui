@@ -1,27 +1,33 @@
-<ul class="thumbnails">
-  <li class="span5" data-ng-repeat="item in items">
-    <div class="item">
-      <a href="/items/{{item.id}}">
-        <img data-ng-src="{{item.thumbnail}}" alt="">
-      </a>
-      <h6 class="pull-left">
-        <a data-i18n-bind="item.title | i18n:'item.title'+item.sku" href="/items/{{item.id}}"></a>
-        <div data-ng-show="item.remaining">
-          <span data-i18n-bind="'Sale ending in %{remaining}' | i18n:'item.ending_in':{remaining:item.remaining}"></span>
+<div class="row-fluid">
+  <ul class="thumbnails items">
+    <li class="span4 item" data-ng-repeat="item in items">
+      <div class="thumbnail">
+
+        <a href="/items/{{item.id}}">
+          <img class="image" data-ng-src="{{item.thumbnail}}" alt="">
+        </a>
+        <div data-ng-show="item.onSale" class="row-fluid item-info">
+          <div class="span3 price">
+            <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.price}"></p>
+            <p class="no-sale" data-i18n-bind="'For now...' | i18n:'item.no_sale'"></p>
+          </div>
+          <div class="span6 time-remaining" data-remaining data-ng-model="item.remaining">
+          </div>
+          <div class="span3">
+            <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'BUY' | i18n:'item.start_sale'"></button>
+          </div>
         </div>
-        <div data-ng-hide="item.remaining" data-i18n-bind="'This sale has ended' | i18n:'item.ended'"></div>
-      </h6>
-      <p class="ng-cloak pull-right price">
-        <span data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.price}"></span>
-      </p>
-      <p data-i18n-bind="'%{smart_count} people have bought this item' | i18n:'num_purchases':{smart_count:item.purchases}"></p>
-      <p data-i18n-bind="'%{smart_count} items remaining' | i18n:'remaining_items':{smart_count:item.quantity}"></p>
+        <div data-ng-hide="item.onSale"  class="row-fluid item-info">
+          <div class="span6 price">
+            <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.price}"></p>
+            <p class="retail-price" data-i18n-bind="'$%{price} retail' | i18n:'item.retail':{price:item.retail}"></p>
+          </div>
+          <div class="span6">
+            <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'START A SALE' | i18n:'item.start_sale'"></button>
+          </div>
+        </div>
 
-      <div data-pie="{size: 50}" data-ng-model="item.remaining"></div>
-
-      <button data-ng-click="">Purchase</button>
-      <button data-ng-click="">Watch</button>
-      
-    </div>
-  </li>
-</ul>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -3,8 +3,7 @@
  */
 var app = require("..")
   , angular = require("angular")
-  , remaining = require("../directives/remaining")
-  , pie = require("../directives/pie");
+  , remaining = require("../directives/remaining");
 
 var images = [
   "http://i47.tinypic.com/mack5g.jpg",
@@ -31,8 +30,7 @@ function CategoryController($scope, $routeParams) {
   var _item = {
     title: "Thingy",
     price: 49.99,
-    purchases: Math.floor(Math.random()*5),
-    quantity: Math.floor(Math.random()*20+5)
+    retail: 49.99
   };
 
   $scope.items = [];
@@ -41,6 +39,10 @@ function CategoryController($scope, $routeParams) {
     item.id = "item_"+i;
     item.thumbnail = images[Math.floor(Math.random() * images.length)];
     item.remaining = Math.floor(Math.random()*360);
+
+    item.purchases = Math.floor(Math.random()*5);
+    item.quantity = Math.floor(Math.random()*20+5);
+    item.onSale = !!Math.floor(Math.random()*2);
     
     $scope.items.push(item);
   };

@@ -1,3 +1,56 @@
-.item {
-  padding: 50px;
+/* We want to control our own spacing */
+.row-fluid .span4.item {
+  margin-left: 0;
+}
+
+.items .item {
+  padding: 20px;
+}
+
+/* Make the radius sqaure */
+.items .item .thumbnail {
+  border: 1px solid #eee;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
+
+.items .item .image {
+  border-bottom: #eee 1px solid;
+}
+
+.items .item .item-info {
+  margin-top: 10px;
+}
+
+.items .item .item-info .time-remaining {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 8px;
+}
+
+.items .item .item-info .time-remaining .seconds {
+  color: #E01533;
+}
+
+.items .item .item-info .btn {
+  margin-top: 4px;
+}
+
+.items .item .item-info .price p {
+  margin: 0;
+}
+
+.items .item .item-info .price .sale-price {
+  font-size: 1.1em;
+}
+
+.items .item .item-info .price .no-sale,
+.items .item .item-info .price .retail-price {
+  font-size: .9em;
+  color: #CCCCCC;
+}
+
+.items .item .item-info .price .retail-price {
+  text-decoration: line-through;
 }

@@ -3,23 +3,25 @@
  */
 var app = require("..")
   , moment = require("moment")
-  , pad = require("pad")
+  , pad = require("../filters/pad")
   , experiments = require("../services/experiments");
 
 /*
  * remaining
  */
 function remaining(experiments) {
-  return function($scope, elem, attrs) {
-    $scope.$watch(attrs.ngModel, function(remaining) {
-      if(experiments.features['time-remaining'] === "text") {
-        exp_updateDisplayText(remaining, elem);
-      }
-      else {
-        updateDisplay(remaining, elem);
-      }
-    });
-  };
+  return {
+    template: '<span class="hours" data-ng-bind="hours | pad:2:0"></span>:<span class="minutes" data-ng-bind="minutes | pad:2:0"></span>:<span class="seconds" data-ng-bind="seconds | pad:2:0"></span>',
+    replace: false,
+    scope: true,
+    link: function($scope, elem, attrs) {
+      $scope.$watch(attrs.ngModel, function(remaining) {
+        $scope.seconds = remaining % 60;
+        $scope.minutes = Math.floor((remaining / 60) % 60);
+        $scope.hours = Math.floor(remaining / 60 / 60);
+      });
+    }
+  }
 };
 
 function updateDisplay (remaining, elem) {

@@ -14,7 +14,6 @@
     "component/moment": "*",
     "CamShaft/pivot": "*",
     "component/pad": "*",
-    "component/pie": "*",
     "airbnb/polyglot.js": "*"
   },
   "development": {},
@@ -31,9 +30,9 @@
     "public/javascripts/controllers/nav.js",
     "public/javascripts/controllers/sidenav.js",
     "public/javascripts/directives/i18n-bind.js",
-    "public/javascripts/directives/pie.js",
     "public/javascripts/directives/remaining.js",
     "public/javascripts/filters/i18n.js",
+    "public/javascripts/filters/pad.js",
     "public/javascripts/services/api.js",
     "public/javascripts/services/experiments.js",
     "public/javascripts/services/translations.js"
@@ -41,6 +40,7 @@
   "styles": [
     "public/stylesheets/category.css",
     "public/stylesheets/main.css",
+    "public/stylesheets/button.css",
     "public/stylesheets/nav.css",
     "public/stylesheets/sidenav.css"
   ],
