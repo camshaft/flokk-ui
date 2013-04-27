@@ -51,6 +51,7 @@ function CategoryController($scope, $rootScope, $routeParams) {
   };
 
   $scope.items.forEach(function(item) {
+    if(!item.onSale) return;
     var timer = setInterval(function() {
       $scope.$apply(function() {
         if(item.remaining === 0) return clearInterval(timer);
