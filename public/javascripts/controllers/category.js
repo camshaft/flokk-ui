@@ -23,9 +23,12 @@ var images = [
 /*
  * CategoryController
  */
-function CategoryController($scope, $routeParams) {
+function CategoryController($scope, $rootScope, $routeParams) {
   $scope.category = $routeParams.category;
   $scope.subcategory = $routeParams.subcategory;
+
+  // TODO set the page title once we have an actual response from the server
+  // $rootScope.title = $scope.category;
 
   var _item = {
     title: "Thingy",
@@ -79,6 +82,7 @@ function mockSale (item, $scope) {
  */
 app.controller(CategoryController.name, [
   '$scope',
+  '$rootScope',
   '$routeParams',
   CategoryController
 ]);

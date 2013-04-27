@@ -6,11 +6,14 @@ var app = require("..");
 /*
  * AccountController
  */
-function AccountController($scope) {
+function AccountController($scope, $rootScope) {
   $scope.account = {
     name: "Cameron Bytheway",
     avatar: "http://www.gravatar.com/avatar/dafd213c94afdd64f9dc4fa92f9710ea?s=64"
   };
+
+  // TODO set the page title once we have an actual response from the server
+  // $rootScope.title = $scope.category;
 };
 
 /*
@@ -18,6 +21,7 @@ function AccountController($scope) {
  */
 app.controller(AccountController.name, [
   '$scope',
+  '$rootScope',
   AccountController
 ]);
 

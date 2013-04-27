@@ -14,6 +14,9 @@
      -moz-border-radius: 0px;
           border-radius: 0px;
 }
+.items .item .thumbnail:hover {
+  border: 1px solid #ccc;
+}
 
 .items .item .image {
   border-bottom: #eee 1px solid;

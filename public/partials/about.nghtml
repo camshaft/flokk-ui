@@ -1,0 +1,1 @@
+<h2 data-i18n-bind="'About' | i18n:'about'"></h2>

@@ -1,0 +1,1 @@
+<h2 data-i18n-bind="'Copyright' | i18n:'copyright'"></h2>

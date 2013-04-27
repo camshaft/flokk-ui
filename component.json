@@ -28,6 +28,8 @@
     "public/javascripts/controllers/item.js",
     "public/javascripts/controllers/nav.js",
     "public/javascripts/controllers/sidenav.js",
+    "public/javascripts/controllers/vendors.js",
+    "public/javascripts/controllers/vendor.js",
     "public/javascripts/directives/i18n-bind.js",
     "public/javascripts/directives/remaining.js",
     "public/javascripts/filters/i18n.js",
@@ -37,11 +39,13 @@
     "public/javascripts/services/translations.js"
   ],
   "styles": [
-    "public/stylesheets/category.css",
     "public/stylesheets/main.css",
-    "public/stylesheets/button.css",
     "public/stylesheets/nav.css",
-    "public/stylesheets/sidenav.css"
+    "public/stylesheets/sidenav.css",
+    "public/stylesheets/footer.css",
+    "public/stylesheets/button.css",
+    "public/stylesheets/category.css",
+    "public/stylesheets/item.css"
   ],
   "templates": [
     "public/partials/404.nghtml",

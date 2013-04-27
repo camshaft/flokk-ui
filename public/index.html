@@ -2,7 +2,7 @@
 <html lang="en" data-ng-app="flokk">
   <head>
     <meta charset="utf-8">
-    <title>flokk</title>
+    <title data-ng-bind="'flokk | '+title">flokk</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Flokk">
     <meta name="description" content="">
@@ -10,8 +10,8 @@
   </head>
   <body>
     <div class="navbar navbar-fixed-top" data-ng-include="" src="'/partials/nav.nghtml'"></div>
-    <div id="wrap" data-ng-controller="IndexController">
 
+    <div id="wrap" data-ng-controller="IndexController">
       <div class="container" id="main">
         <div class="row">
           <div class="span2" data-ng-include="" src="'/partials/sidenav.nghtml'"></div>
@@ -21,13 +21,7 @@
       <div id="push"></div>
     </div>
 
-    <footer>
-      <div class="container">
-        <div class="span5">
-          <p></p>
-        </div>
-      </div>
-    </footer>
+    <footer data-ng-include="" src="'/partials/footer.nghtml'"></footer>
 
     <script type="text/javascript" src="/public/build.js"></script>
   </body>

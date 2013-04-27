@@ -1,0 +1,34 @@
+.item-info .title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.item-info .title a {
+  color: #333;
+}
+.item-info .title a:hover {
+  text-decoration: none;
+  color: #222;
+}
+
+.item-info .vendor {
+  margin-top: -15px;
+  margin-bottom: 30px;
+}
+.item-info .vendor a:hover {
+  text-decoration: none;
+  color: #bbb;
+}
+
+.item-info .title,
+.item-info .vendor {
+  text-transform: uppercase;
+  font-weight: initial;
+}
+
+.item-info .description {
+  margin-bottom: 50px;
+}
+
+.thumbnail.active {
+  border: 1px solid #ccc;
+}

@@ -1,1 +1,39 @@
-<div data-i18n-bind="item | i18n:'item.'+item"></div>
+<div class="row-fluid item">
+  <div class="span6">
+    <img data-ng-src="{{item.image}}" />
+  </div>
+  <div class="span1">
+    <ul class="thumbnails">
+      <li class="thumbnail span12" data-ng-repeat="thumbnail in item.thumbnails" data-ng-class="{active: image == $index}">
+        <a data-ng-href="/items/{{item.id}}/images/{{$index}}">
+          <img data-ng-src="{{thumbnail}}" />
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="span5 item-info">
+    <h2 class="title"><a href="/items/{{item.id}}" data-i18n-bind="item.title | i18n:'item.'+item.id+'.title'"></a></h2>
+    <h3 class="vendor"><a href="/vendors/{{item.vendor.rel}}" data-i18n-bind="item.vendor.name"></a></h3>
+    <p class="description" data-i18n-bind="item.description | i18n:'item.'+item.id+'.description'"></p>
+    <div class="controls">
+      <div class="price">
+        <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.price}"></p>
+        <p class="retail-price" data-i18n-bind="'$%{price} retail' | i18n:'item.retail':{price:item.retail}"></p>
+      </div>
+
+      <div class="purchased" data-i18n-bind="'%{smart_count} purchased' | i18n:'item.purchased':{smart_count: item.purchases}"></div>
+
+      <div class="in-stock" data-i18n-bind="'%{smart_count} left' | i18n:'item.in_stock':{smart_count: item.quantity}"></div>
+
+      <form>
+        <div class="control" data-ng-repeat="field in item.fields">
+          <label for="field.id" data-i18n-bind="field.name | i18n:'item.'+item.id+'.field.'+field.id"></label>
+          <select>
+            <option data-ng-repeat="option in field.options" data-i18n-bind="option.name | i18n:'item.'+item.id+'.field.'+field.id+'.option.'+option.id"></option>
+          </select>
+        </div>
+        <button class="btn btn-large btn-action" data-i18n-bind="'Add to cart' | i18n:'add_to_cart'"></button>
+      </form>
+    </div>
+  </div>
+</div>

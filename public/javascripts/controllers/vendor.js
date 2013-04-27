@@ -4,9 +4,9 @@
 var app = require("..");
 
 /*
- * CartController
+ * VendorController
  */
-function CartController($scope, $rootScope) {
+function VendorController($scope, $rootScope) {
   // TODO set the page title once we have an actual response from the server
   // $rootScope.title = $scope.category;
 };
@@ -14,13 +14,13 @@ function CartController($scope, $rootScope) {
 /*
  * Register it with angular
  */
-app.controller(CartController.name, [
+app.controller(VendorController.name, [
   '$scope',
   '$rootScope',
-  CartController
+  VendorController
 ]);
 
 /*
  * Let others know where to find it
  */
-module.exports = CartController.name;
+module.exports = VendorController.name;
