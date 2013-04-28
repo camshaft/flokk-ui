@@ -19,6 +19,25 @@
   color: #bbb;
 }
 
+.item-info .price {
+  text-align: left;
+}
+.item-info .price .sale-price {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+.item-info .price .retail-price {
+  font-size: .9em;
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.item-info .time-remaining {
+  font-size: 1.5em;
+  margin-top: 4px;
+  text-align: center;
+}
+
 .item-info .title,
 .item-info .vendor {
   text-transform: uppercase;

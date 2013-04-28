@@ -44,6 +44,7 @@
     "public/stylesheets/sidenav.css",
     "public/stylesheets/footer.css",
     "public/stylesheets/button.css",
+    "public/stylesheets/time-remaining.css",
     "public/stylesheets/category.css",
     "public/stylesheets/item.css"
   ],

@@ -67,6 +67,9 @@ app.config([
         templateUrl: "/partials/item.nghtml",
         controller: ItemController
       })
+      .when("/login", {
+        templateUrl: "/partials/login.nghtml"
+      })
       .when("/contact", {
         templateUrl: "/partials/contact.nghtml"
       })

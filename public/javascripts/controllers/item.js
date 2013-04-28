@@ -29,7 +29,7 @@ function ItemController($scope, $rootScope, $routeParams, $location) {
 
   $scope.image = parseInt(($location.hash() || "").replace("image-", "") || "0");
 
-  $scope.item = {
+  var item = $scope.item = {
     id: itemId,
     title: "Lame print",
     vendor: {name: "Scott n' Dave", rel: "scott-n-dave"},
@@ -41,8 +41,33 @@ function ItemController($scope, $rootScope, $routeParams, $location) {
     quantity: Math.floor(Math.random()*20+5),
     price: 45.46,
     retail: 49.99,
-    onSale: !!Math.floor(Math.random()*2)
+    onSale: !!Math.floor(Math.random()*2),
+    addToCart: {
+      target: "/",
+      fields: [
+        {name: "color", prompt: "Color", value: "black", options: [
+          {value: "black", prompt: "Black"},
+          {value: "white", prompt: "White"},
+          {value: "red", prompt: "Red"},
+          {value: "green", prompt: "Green"}
+        ]},
+        {name: "size", prompt: "Size", value: "xlarge", options: [
+          {value: "small", prompt: "Small"},
+          {value: "medium", prompt: "Medium"},
+          {value: "large", prompt: "Large"},
+          {value: "xlarge", prompt: "X-Large"}
+        ]}
+      ]
+    }
   };
+
+  if(!item.onSale) return;
+  var timer = setInterval(function() {
+    $scope.$apply(function() {
+      if(item.remaining === 0) return clearInterval(timer);
+      item.remaining--;
+    });
+  }, 1000);
 };
 
 /*
