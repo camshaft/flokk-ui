@@ -6,6 +6,7 @@ var app = require("..")
   , accessToken = require("../lib/access-token")
   , loading = require("../lib/loading")
   , subscribe = require("../lib/subscribe")
+  , timer = require("../lib/timer")
   , superagent = require("superagent")
   , Batch = require("batch");
 
@@ -78,19 +79,34 @@ function CategoryController($scope, $routeParams) {
 
             // Fetch the sale info
             superagent
-              .get(item.sale)
+              .get(item.sale.href)
               .set(accessToken.auth())
               .on("error", onError)
               .end(function(res) {
                 // The item isn't on sale
-                if(!res.body.onSale) return;
+                if(!res.body.ending) return;
 
                 // Update the sale info
                 function updatePrice(sale) {
                   $scope.$apply(function() {
-                    item.sale = sale;
+                    item.saleInfo = sale;
                   });
                 };
+
+                // Update the remaining time
+                function updateRemaining (time) {
+                  $scope.$apply(function() {
+                    item.sale.remaining = item.sale.ending - time;
+                  });
+                };
+
+                // Listen to the global timer
+                timer.on("update", updateRemaining);
+
+                // Unsubscribe from timer changes when we're done here
+                $scope.$on('$destroy', function() {
+                  timer.off("update", updateRemaining);
+                });
 
                 // Initially display the sale info
                 updatePrice(res.body);

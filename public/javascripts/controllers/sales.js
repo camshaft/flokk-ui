@@ -65,7 +65,7 @@ function SalesController($scope) {
 
             // Fetch the sale info
             superagent
-              .get(item.sale)
+              .get(item.sale.href)
               .set(accessToken.auth())
               .on("error", onError)
               .end(function(res) {

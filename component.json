@@ -19,7 +19,8 @@
     "visionmedia/batch": "*",
     "component/cookie": "*",
     "component/piecon": "*",
-    "component/favicon": "*"
+    "component/favicon": "*",
+    "component/emitter": "*"
   },
   "development": {},
   "license": "MIT",
@@ -44,6 +45,7 @@
     "public/javascripts/lib/access-token.js",
     "public/javascripts/lib/loading.js",
     "public/javascripts/lib/subscribe.js",
+    "public/javascripts/lib/timer.js",
     "public/javascripts/lib/url-param.js",
     "public/javascripts/services/api.js",
     "public/javascripts/services/experiments.js",
