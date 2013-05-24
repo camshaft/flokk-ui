@@ -8,7 +8,6 @@ var app = require(".");
  */
 var AccountController = require("./controllers/account")
   , IndexController = require("./controllers/index")
-  , CartController = require("./controllers/cart")
   , CategoryController = require("./controllers/category")
   , ItemController = require("./controllers/item")
   , NavController = require("./controllers/nav")
@@ -24,7 +23,8 @@ var i18nBind = require("./directives/i18n-bind");
 /**
  * Initialize the directives used outside of the controllers
  */
-var i18n = require("./filters/i18n");
+var i18n = require("./filters/i18n")
+  , base64 = require("./filters/param");
 
 /*
  * Configure the app
@@ -42,10 +42,6 @@ app.config([
       .when("/account", {
         templateUrl: "/partials/account.nghtml",
         controller: AccountController
-      })
-      .when("/cart", {
-        templateUrl: "/partials/cart.nghtml",
-        controller: CartController
       })
       .when("/categories/:category", {
         templateUrl: "/partials/category.nghtml",

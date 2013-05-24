@@ -2,13 +2,15 @@
  * Module dependencies
  */
 var app = require("..")
-  , hal = require("hal");
+  , superagent = require("superagent");
 
 /*
  * API Interaction layer
  */
 function api() {
-  return new hal("http://localhost:5001");
+  return function(path) {
+    superagent.get(path || "/api");
+  };
 };
 
 /*

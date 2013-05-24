@@ -11,7 +11,12 @@ function IndexController($scope, $location) {
     return $location.path()
   }, function(val) {
     $scope.path = val;
-  })
+  });
+
+  // TODO expose an easy way to submit a form
+  $scope.submit = function() {
+    
+  };
 };
 
 /*

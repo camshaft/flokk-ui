@@ -1,14 +1,37 @@
 /*
  * Module dependencies
  */
-var app = require("..");
+var app = require("..")
+  , accessToken = require("../lib/access-token")
+  , superagent = require("superagent");
 
 /*
  * VendorsController
  */
 function VendorsController($scope, $rootScope) {
-  // TODO set the page title once we have an actual response from the server
-  // $rootScope.title = $scope.category;
+  function onError(err) {
+    console.error(err);
+  };
+
+  superagent
+    .get("/api")
+    .set(accessToken.auth())
+    .on("error", onError)
+    .end(function(res) {
+      // We can't see the vendors
+      if(!res.body.vendors) return onError(new Error("Couldn't find vendors"));
+
+      superagent
+        .get(res.body.vendors.href)
+        .set(accessToken.auth())
+        .on("error", onError)
+        .end(function(res) {
+          $scope.$apply(function() {
+            $scope.body = res.body;
+          });
+        });
+
+    });
 };
 
 /*

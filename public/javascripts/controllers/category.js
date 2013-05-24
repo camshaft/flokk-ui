@@ -2,81 +2,107 @@
  * Module dependencies
  */
 var app = require("..")
-  , angular = require("angular")
-  , remaining = require("../directives/remaining");
+  , param = require("../lib/url-param")
+  , accessToken = require("../lib/access-token")
+  , subscribe = require("../lib/subscribe")
+  , superagent = require("superagent")
+  , Batch = require("batch");
 
-var images = [
-  "http://i47.tinypic.com/mack5g.jpg",
-  "http://i47.tinypic.com/259bsqd.jpg",
-  "http://i46.tinypic.com/17s8pw.jpg",
-  "http://i45.tinypic.com/2dlmzyw.jpg",
-  "http://oi49.tinypic.com/20h0d8z.jpg",
-  "http://i47.tinypic.com/34fzp5u.jpg",
-  "http://i48.tinypic.com/30szvbl.jpg",
-  "http://i50.tinypic.com/344pkbl.jpg",
-  "http://i47.tinypic.com/23u6dxy.jpg",
-  "http://i45.tinypic.com/3520mky.jpg",
-  "http://i46.tinypic.com/2hg7gbk.jpg",
-  "http://i49.tinypic.com/2lx5xu.jpg"
-];
+/**
+ * Directives
+ */
+require("../directives/remaining");
 
 /*
  * CategoryController
  */
 function CategoryController($scope, $rootScope, $routeParams) {
-  $scope.category = $routeParams.category;
-  $scope.subcategory = $routeParams.subcategory;
+  var categoryUrl = param.decode($routeParams.category);
 
-  // TODO set the page title once we have an actual response from the server
-  // $rootScope.title = $scope.category;
-
-  var _item = {
-    title: "Thingy",
-    price: 49.99,
-    retail: 49.99
+  function onError(err) {
+    // TODO show a graceful error to the user
+    console.error(err);
   };
 
-  $scope.items = [];
-  for (var i = 0; i < ($scope.subcategory ? 4 : 12); i++) {
-    var item = angular.copy(_item);
-    item.id = "item_"+i;
-    item.thumbnail = images[Math.floor(Math.random() * images.length)];
-    item.remaining = Math.floor(Math.random()*360);
-
-    item.purchases = Math.floor(Math.random()*5);
-    item.quantity = Math.floor(Math.random()*20+5);
-    item.onSale = !!Math.floor(Math.random()*2);
-    
-    $scope.items.push(item);
-  };
-
-  $scope.items.forEach(function(item) {
-    if(!item.onSale) return;
-    var timer = setInterval(function() {
+  // Get the category information
+  superagent
+    .get(categoryUrl)
+    .set(accessToken.auth())
+    .on("error", onError)
+    .end(function(res) {
       $scope.$apply(function() {
-        if(item.remaining === 0) return clearInterval(timer);
-        item.remaining--;
+        $scope.categoryRes = res.body;
       });
-    }, 1000);
-    mockSale(item, $scope);
-  });
-};
 
+      // Get the category items listing
+      superagent
+        .get(res.body.items.href)
+        .set(accessToken.auth())
+        .on("error", onError)
+        .end(function(res) {
+          $scope.$apply(function() {
+            $scope.itemsRes = res.body;
+          });
 
-function mockSale (item, $scope) {
-  setTimeout(function() {
-    $scope.$apply(function() {
-      if(item.remaining === 0) return;
-      item.price -= Math.random();
-      item.price = item.price.toFixed(2);
-      item.purchases++;
-      item.quantity--;
-      // We're all out
-      if(!item.quantity) item.remaining = 0;
+          // Fetch the item info
+          var batch = new Batch;
+          res.body.items.forEach(function(item) {
+            batch.push(function(done) {
+              superagent
+                .get(item.href)
+                .set(accessToken.auth())
+                .on("error", done)
+                .end(function(res) {
+                  done(null, res.body);
+                });
+            });
+          });
+
+          // Update the view as results come in
+          batch.on("progress", function(progress) {
+            // TODO Should we show progress of loading?
+            var item = progress.value
+              , idx = progress.index;
+
+            // Display it to the view
+            $scope.$apply(function() {
+              $scope.itemsRes.items[idx] = item;
+            });
+
+            // We can't see any sales for the item
+            if(!item.sale) return;
+
+            // Fetch the sale info
+            superagent
+              .get(item.sale)
+              .set(accessToken.auth())
+              .on("error", onError)
+              .end(function(res) {
+                // The item isn't on sale
+                if(!res.body.onSale) return;
+
+                // Update the sale info
+                function updatePrice(sale) {
+                  $scope.$apply(function() {
+                    item.sale = sale;
+                  });
+                };
+
+                // Initially display the sale info
+                updatePrice(res.body);
+
+                // subscribe to price changes
+                subscribe(res.body.href, updatePrice);
+              });
+          });
+
+          // Execute the batch
+          batch.end(function(err) {
+            if(err) onError(err);
+          });
+        });
     });
-    mockSale(item, $scope);
-  }, Math.floor(Math.random()*10000));
-}
+};
 
 /*
  * Register it with angular

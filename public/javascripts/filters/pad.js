@@ -7,7 +7,7 @@ var app = require("..")
 /**
  * pad
  */
-function pad(polygot) {
+function pad() {
   return function(value, length, padding) {
     return _pad(""+value, length, ""+padding);
   };

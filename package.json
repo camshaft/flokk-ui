@@ -25,6 +25,7 @@
   "devDependencies": {
     "should": "~1.2.1",
     "supertest": "~0.5.1",
-    "mocha": "~1.7.4"
+    "mocha": "~1.7.4",
+    "simple-http-proxy": "~0.5.2"
   }
 }

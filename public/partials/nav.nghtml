@@ -8,8 +8,5 @@
     <li data-ng-hide="account" data-ng-class="{active: path=='/login'}">
       <a href="/login" target="_self" data-i18n-bind="'Login' | i18n:'login'"></a>
     </li>
-    <li data-ng-class="{active: path=='/cart'}" data-ng-controller="CartController">
-      <a href="/cart" data-i18n-bind="'Cart (%{count})' | i18n:'cart':{'count':cart.items||0}"></a>
-    </li>
   </ul>
 </div>

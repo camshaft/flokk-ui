@@ -1,7 +1,13 @@
 /**
  * Module dependencies
  */
-var stack = require("simple-stack-common");
+var stack = require("simple-stack-common")
+  , proxy = require("simple-http-proxy");
+
+/**
+ * Defines
+ */
+var API_URL = process.env.API_URL || "http://localhost:5001";
 
 /**
  * Expose the app
@@ -13,6 +19,7 @@ app.configure(function() {
 });
 
 app.configure("development", function() {
+  app.useBefore("base", "/api", "api-proxy", proxy(API_URL, {xforward: true}));
   app.useBefore("router", "/partials", function partialContentType(req, res, next) {
     res.type("html");
     next();

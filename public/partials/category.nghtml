@@ -1,33 +1,7 @@
 <div class="row-fluid">
   <ul class="thumbnails items">
-    <li class="span4 item" data-ng-repeat="item in items">
-      <div class="thumbnail">
-
-        <a href="/items/{{item.id}}">
-          <img class="image" data-ng-src="{{item.thumbnail}}" alt="">
-        </a>
-        <div data-ng-show="item.onSale" class="row-fluid item-info">
-          <div class="span3 price">
-            <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.price}"></p>
-            <p class="retail-price" data-i18n-bind="'$%{price}' | i18n:'item.retail':{price:item.retail}"></p>
-          </div>
-          <div class="span6 time-remaining" data-remaining data-ng-model="item.remaining">
-          </div>
-          <div class="span3">
-            <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'BUY' | i18n:'item.start_sale'"></button>
-          </div>
-        </div>
-        <div data-ng-hide="item.onSale"  class="row-fluid item-info">
-          <div class="span6 price">
-            <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.price}"></p>
-            <p class="no-sale" data-i18n-bind="'For now...' | i18n:'item.no_sale'"></p>
-          </div>
-          <div class="span6">
-            <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'START A SALE' | i18n:'item.start_sale'"></button>
-          </div>
-        </div>
-
-      </div>
+    <li class="span4 item" data-ng-repeat="item in itemsRes.items">
+      <div data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
     </li>
   </ul>
 </div>

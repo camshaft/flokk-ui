@@ -1,1 +1,8 @@
-<h2 data-i18n-bind="'Vendor Page' | i18n:'vendor_page'"></h2>
+<h3 data-ng-bind="vendorRes.title"></h3>
+<div class="row-fluid">
+  <ul class="thumbnails items">
+    <li class="span4 item" data-ng-repeat="item in itemsRes.items">
+      <div data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
+    </li>
+  </ul>
+</div>
