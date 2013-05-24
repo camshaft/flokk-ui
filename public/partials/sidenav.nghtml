@@ -4,11 +4,8 @@
     <li class="divider"></li>
   </ul>
   <ul data-ng-repeat="category in body.categories" class="nav nav-list">
-    <li class="nav-header" data-ng-class="{active: category.rel==current}">
-      <a data-i18n-bind="category.title | i18n:'category.'+category.rel" data-ng-href="/categories/{{category.href | param}}"></a>
-    </li>
-    <li class="nav-subcategory" data-ng-show="category.rel==current" data-ng-repeat="subcategory in category.subcategories" data-ng-class="{active: subcategory.rel==currentSub}">
-      <a data-i18n-bind="subcategory.title | i18n:'category.'+subcategory.rel" data-ng-href="/categories/{{category.rel}}/{{subcategory.rel}}"></a>
+    <li class="nav-header" data-ng-class="{active: category.href==current}">
+      <a data-i18n-bind="category.title | i18n:'category.'+category.href" data-ng-href="/categories/{{category.href | param}}"></a>
     </li>
   </ul>
 </div>

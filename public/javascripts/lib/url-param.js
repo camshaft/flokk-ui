@@ -7,9 +7,13 @@ var base64decode = require("base64-decode")
 // TODO make it url safe
 
 exports.encode = function(url) {
-  return base64encode(url);
+  return url
+    ? base64encode(url)
+    : '';
 };
 
 exports.decode = function(url) {
-  return base64decode(url);
+  return url
+    ? base64decode(url)
+    : '';
 };

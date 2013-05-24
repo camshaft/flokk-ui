@@ -3,6 +3,7 @@
  */
 var app = require("..")
   , accessToken = require("../lib/access-token")
+  , param = require("../lib/url-param")
   , superagent = require("superagent");
 
 /*
@@ -12,7 +13,7 @@ function SidenavController($scope, $routeParams) {
   $scope.$watch(function() {
     return $routeParams.category;
   }, function(val) {
-    $scope.current = val;
+    $scope.current = param.decode($routeParams.category);
   });
 
   function onError(err) {
