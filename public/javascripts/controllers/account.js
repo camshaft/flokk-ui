@@ -8,7 +8,7 @@ var app = require("..")
 /*
  * AccountController
  */
-function AccountController($scope, $rootScope) {
+function AccountController($scope) {
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err);
@@ -38,7 +38,6 @@ function AccountController($scope, $rootScope) {
  */
 app.controller(AccountController.name, [
   '$scope',
-  '$rootScope',
   AccountController
 ]);
 

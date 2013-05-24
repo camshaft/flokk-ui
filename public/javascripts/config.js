@@ -11,6 +11,7 @@ var AccountController = require("./controllers/account")
   , CategoryController = require("./controllers/category")
   , ItemController = require("./controllers/item")
   , NavController = require("./controllers/nav")
+  , SalesController = require("./controllers/sales")
   , SidenavController = require("./controllers/sidenav")
   , VendorsController = require("./controllers/vendors")
   , VendorController = require("./controllers/vendor");
@@ -24,7 +25,12 @@ var i18nBind = require("./directives/i18n-bind");
  * Initialize the directives used outside of the controllers
  */
 var i18n = require("./filters/i18n")
-  , base64 = require("./filters/param");
+  , param = require("./filters/param");
+
+/**
+ * Initialize the loading icon
+ */
+require("./lib/loading");
 
 /*
  * Configure the app
@@ -36,8 +42,8 @@ app.config([
   function($routeProvider, $locationProvider) {
     $routeProvider
       .when("/", {
-        templateUrl: "/partials/index.nghtml",
-        controller: IndexController
+        templateUrl: "/partials/sales.nghtml",
+        controller: SalesController
       })
       .when("/account", {
         templateUrl: "/partials/account.nghtml",

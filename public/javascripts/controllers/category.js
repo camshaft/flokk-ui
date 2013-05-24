@@ -4,6 +4,7 @@
 var app = require("..")
   , param = require("../lib/url-param")
   , accessToken = require("../lib/access-token")
+  , loading = require("../lib/loading")
   , subscribe = require("../lib/subscribe")
   , superagent = require("superagent")
   , Batch = require("batch");
@@ -16,13 +17,15 @@ require("../directives/remaining");
 /*
  * CategoryController
  */
-function CategoryController($scope, $rootScope, $routeParams) {
+function CategoryController($scope, $routeParams) {
   var categoryUrl = param.decode($routeParams.category);
 
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err);
   };
+
+  loading.start();
 
   // Get the category information
   superagent
@@ -60,9 +63,10 @@ function CategoryController($scope, $rootScope, $routeParams) {
 
           // Update the view as results come in
           batch.on("progress", function(progress) {
-            // TODO Should we show progress of loading?
             var item = progress.value
               , idx = progress.index;
+
+            loading.update(progress.percent);
 
             // Display it to the view
             $scope.$apply(function() {
@@ -99,6 +103,7 @@ function CategoryController($scope, $rootScope, $routeParams) {
           // Execute the batch
           batch.end(function(err) {
             if(err) onError(err);
+            loading.end();
           });
         });
     });
@@ -109,7 +114,6 @@ function CategoryController($scope, $rootScope, $routeParams) {
  */
 app.controller(CategoryController.name, [
   '$scope',
-  '$rootScope',
   '$routeParams',
   CategoryController
 ]);

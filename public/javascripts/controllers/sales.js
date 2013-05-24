@@ -2,42 +2,38 @@
  * Module dependencies
  */
 var app = require("..")
-  , param = require("../lib/url-param")
   , accessToken = require("../lib/access-token")
+  , loading = require("../lib/loading")
   , subscribe = require("../lib/subscribe")
   , superagent = require("superagent")
   , Batch = require("batch");
 
 /*
- * VendorController
+ * SalesController
  */
-function VendorController($scope, $routeParams) {
-  var vendorUrl = param.decode($routeParams.vendor);
-
+function SalesController($scope) {
   function onError(err) {
-    // TODO show a graceful error to the user
     console.error(err);
   };
 
-  // Get the vendor information
   superagent
-    .get(vendorUrl)
+    .get("/api")
     .set(accessToken.auth())
     .on("error", onError)
     .end(function(res) {
-      $scope.$apply(function() {
-        $scope.vendorRes = res.body;
-      });
+      // We can't see the sales
+      if(!res.body.sales) return onError(new Error("Couldn't find sales"));
 
-      // Get the vendor items listing
       superagent
-        .get(res.body.items.href)
+        .get(res.body.sales.href)
         .set(accessToken.auth())
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {
-            $scope.itemsRes = res.body;
+            $scope.itemRes = res.body;
           });
+
+          if(!res.body.items) return onError(new Error("No items on sales"));
 
           // Fetch the item info
           var batch = new Batch;
@@ -96,19 +92,19 @@ function VendorController($scope, $routeParams) {
             if(err) onError(err);
           });
         });
+
     });
 };
 
 /*
  * Register it with angular
  */
-app.controller(VendorController.name, [
+app.controller(SalesController.name, [
   '$scope',
-  '$routeParams',
-  VendorController
+  SalesController
 ]);
 
 /*
  * Let others know where to find it
  */
-module.exports = VendorController.name;
+module.exports = SalesController.name;

@@ -9,7 +9,7 @@ var app = require("..")
 /*
  * ItemController
  */
-function ItemController($scope, $rootScope, $routeParams, $location) {
+function ItemController($scope, $routeParams, $location) {
   var itemUrl = param.decode($routeParams.item);
 
   function onError(err) {
@@ -62,7 +62,6 @@ function ItemController($scope, $rootScope, $routeParams, $location) {
  */
 app.controller(ItemController.name, [
   '$scope',
-  '$rootScope',
   '$routeParams',
   '$location',
   ItemController

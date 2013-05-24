@@ -8,7 +8,7 @@ var app = require("..")
 /*
  * VendorsController
  */
-function VendorsController($scope, $rootScope) {
+function VendorsController($scope) {
   function onError(err) {
     console.error(err);
   };
@@ -39,7 +39,6 @@ function VendorsController($scope, $rootScope) {
  */
 app.controller(VendorsController.name, [
   '$scope',
-  '$rootScope',
   VendorsController
 ]);
 
