@@ -83,8 +83,8 @@ function CategoryController($scope, $routeParams) {
               .set(accessToken.auth())
               .on("error", onError)
               .end(function(res) {
-                // The item isn't on sale
-                if(!res.body.ending) return;
+                // The item isn't available
+                if(!res.body) return;
 
                 // Update the sale info
                 function updatePrice(sale) {
@@ -93,10 +93,16 @@ function CategoryController($scope, $routeParams) {
                   });
                 };
 
+                // Initially display the sale info
+                updatePrice(res.body);
+
+                // The item isn't on sale
+                if(!res.body.ending) return;
+
                 // Update the remaining time
                 function updateRemaining (time) {
                   $scope.$apply(function() {
-                    item.sale.remaining = item.sale.ending - time;
+                    item.saleInfo.remaining = item.saleInfo.ending - time;
                   });
                 };
 
@@ -107,9 +113,6 @@ function CategoryController($scope, $routeParams) {
                 $scope.$on('$destroy', function() {
                   timer.off("update", updateRemaining);
                 });
-
-                // Initially display the sale info
-                updatePrice(res.body);
 
                 // subscribe to price changes
                 subscribe(res.body.href, updatePrice);
