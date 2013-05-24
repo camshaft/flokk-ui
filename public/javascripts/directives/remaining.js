@@ -2,13 +2,12 @@
  * Module dependencies
  */
 var app = require("..")
-  , pad = require("../filters/pad")
-  , experiments = require("../services/experiments");
+  , pad = require("../filters/pad");
 
 /*
  * remaining
  */
-function remaining(experiments) {
+function remaining() {
   return {
     template: '<span class="hours" data-ng-bind="hours | pad:2:0"></span>:<span class="minutes" data-ng-bind="minutes | pad:2:0"></span>:<span class="seconds" data-ng-bind="seconds | pad:2:0"></span>',
     replace: false,
@@ -27,7 +26,6 @@ function remaining(experiments) {
  * Register it with angular
  */
 app.directive(remaining.name, [
-  experiments,
   remaining
 ]);
 

@@ -2,7 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
-  , Pivot = require("pivot");
+  // , Pivot = require("pivot");
 
 /*
  * API Interaction layer
