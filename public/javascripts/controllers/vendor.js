@@ -12,7 +12,7 @@ var app = require("..")
 function VendorController($scope, $routeParams) {
   function onError(err) {
     // TODO show a graceful error to the user
-    console.error(err);
+    console.error(err.stack || err.message || err);
   };
 
   // Get the vendor information

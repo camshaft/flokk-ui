@@ -10,7 +10,7 @@ var app = require("..")
  */
 function VendorsController($scope) {
   function onError(err) {
-    console.error(err);
+    console.error(err.stack || err.message || err);
   };
 
   superagent

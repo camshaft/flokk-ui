@@ -17,7 +17,7 @@ function SidenavController($scope, $routeParams) {
   });
 
   function onError(err) {
-    console.error(err);
+    console.error(err.stack || err.message || err);
   };
 
   superagent

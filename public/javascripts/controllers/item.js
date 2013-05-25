@@ -28,7 +28,7 @@ function ItemController($scope, $routeParams, $location) {
 function fetch (href, $scope) {
   function onError(err) {
     // TODO show a graceful error to the user
-    console.error(err);
+    console.error(err.stack || err.message || err);
   };
 
   superagent
