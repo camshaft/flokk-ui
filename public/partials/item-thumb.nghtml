@@ -1,25 +1,25 @@
-<div class="thumbnail">
+<div class="thumbnail" data-ng-show="item">
 
   <a href="/items/{{item.href | param}}">
     <img class="image" data-ng-src="{{item.thumbnail.src}}" alt="">
   </a>
-  <div data-ng-show="item.saleInfo.remaining > 0" class="row-fluid item-info">
+  <div data-ng-show="sale.remaining > 0" class="row-fluid item-info">
     <div class="span3 price">
-      <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.saleInfo.price}"></p>
+      <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:sale.price}"></p>
       <p class="retail-price" data-i18n-bind="'$%{price}' | i18n:'item.retail':{price:item.retail}"></p>
     </div>
-    <div class="span6 time-remaining" data-remaining data-ng-model="item.saleInfo.remaining">
+    <div class="span6 time-remaining" data-remaining data-ng-model="sale.remaining">
     </div>
-    <div class="span3" data-ng-show="item.saleInfo.purchase">
+    <div class="span3" data-ng-show="sale.purchase">
       <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'BUY' | i18n:'item.start_sale'"></button>
     </div>
   </div>
-  <div data-ng-hide="item.saleInfo.remaining > 0"  class="row-fluid item-info">
+  <div data-ng-hide="sale.remaining > 0"  class="row-fluid item-info">
     <div class="span6 price">
       <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.retail}"></p>
-      <p class="no-sale" data-ng-show="item.saleInfo.purchase" data-i18n-bind="'For now...' | i18n:'item.no_sale'"></p>
+      <p class="no-sale" data-ng-show="sale.purchase" data-i18n-bind="'For now...' | i18n:'item.no_sale'"></p>
     </div>
-    <div class="span6" data-ng-show="item.saleInfo.purchase">
+    <div class="span6" data-ng-show="sale.purchase">
       <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'START A SALE' | i18n:'item.start_sale'"></button>
     </div>
   </div>

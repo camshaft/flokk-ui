@@ -12,31 +12,31 @@
     </ul>
   </div>
   <div class="span5 item-info">
-    <h2 class="title"><a href="/items/{{item.href | param}}" data-i18n-bind="item.title | i18n:'item.'+item.id+'.title'"></a></h2>
+    <h2 class="title"><a href="/items/{{item.href | param}}" data-i18n-bind="item.title | i18n:'item.'+item.sku+'.title'"></a></h2>
     <h3 class="vendor"><a href="/vendors/{{item.vendor.href | param}}" data-i18n-bind="item.vendor.title"></a></h3>
-    <p class="description" data-i18n-bind="item.description | i18n:'item.'+item.id+'.description'"></p>
+    <p class="description" data-i18n-bind="item.description | i18n:'item.'+item.sku+'.description'"></p>
 
     <div class="controls">
 
-      <!-- <div class="in-stock" data-i18n-bind="'%{smart_count} left' | i18n:'item.in_stock':{smart_count: item.quantity}"></div> -->
+      <!-- <div class="in-stock" data-i18n-bind="'%{smart_count} left' | i18n:'item.in_stock':{smart_count: sale.quantity}"></div> -->
 
       <form class="form-horizontal">
         <div class="control-group">
           <div class="control-label price">
-            <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(item.price||item.retail)}"></p>
-            <p class="retail-price" data-ng-show="item.onSale" data-i18n-bind="'$%{price}' | i18n:'item.retail':{price:item.retail}"></p>
-            <p class="on-sale" data-ng-hide="item.onSale" data-i18n-bind="'For now...' | i18n:'item.no_sale'"></p>
+            <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(sale.price || item.retail)}"></p>
+            <p class="retail-price" data-ng-show="sale.onSale" data-i18n-bind="'$%{price}' | i18n:'item.retail':{price:item.retail}"></p>
+            <p class="on-sale" data-ng-hide="sale.onSale" data-i18n-bind="'For now...' | i18n:'item.no_sale'"></p>
           </div>
           <div class="controls">
-            <div data-ng-show="item.onSale" class="time-remaining" data-remaining data-ng-model="item.remaining"></div>
-            <div data-ng-hide="item.onSale" data-i18n-bind="'Go ahead and start a sale. Shipping is on us' | i18n:'why_start_sale'"></div>
+            <div data-ng-show="sale.onSale" class="time-remaining" data-remaining data-ng-model="sale.remaining"></div>
+            <div data-ng-hide="sale.onSale" data-i18n-bind="'Go ahead and start a sale. Shipping is on us' | i18n:'why_start_sale'"></div>
           </div>
         </div>
         <div class="control-group" data-ng-repeat="field in item.addToCart.fields">
-          <label class="control-label" for="field-{{field.prompt}}" data-i18n-bind="field.prompt | i18n:'item.'+item.id+'.field.'+field.id"></label>
+          <label class="control-label" for="field-{{field.prompt}}" data-i18n-bind="field.prompt | i18n:'item.'+item.sku+'.field.'+field.id"></label>
           <div class="controls">
             <select name="{{field.name}}">
-              <option data-ng-repeat="option in field.options" data-i18n-bind="option.prompt | i18n:'item.'+item.id+'.field.'+field.id+'.option.'+option.id"></option>
+              <option data-ng-repeat="option in field.options" data-i18n-bind="option.prompt | i18n:'item.'+item.sku+'.field.'+field.id+'.option.'+option.id"></option>
             </select>
           </div>
         </div>
@@ -50,8 +50,8 @@
         </div>
         <div class="control-group">
           <div class="controls">
-            <button type="submit" data-ng-show="item.onSale" class="btn btn-large btn-action" data-i18n-bind="'ADD TO CART' | i18n:'add_to_cart'"></button>
-            <button type="submit" data-ng-hide="item.onSale" class="btn btn-large btn-action" data-i18n-bind="'START A SALE' | i18n:'add_to_cart'"></button>
+            <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'ADD TO CART' | i18n:'add_to_cart'"></button>
+            <button type="submit" data-ng-hide="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'START A SALE' | i18n:'add_to_cart'"></button>
           </div>
         </div>
       </form>

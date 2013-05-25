@@ -4,33 +4,20 @@
 var app = require("..")
   , param = require("../lib/url-param")
   , accessToken = require("../lib/access-token")
-  , loading = require("../lib/loading")
-  , subscribe = require("../lib/subscribe")
-  , timer = require("../lib/timer")
-  , superagent = require("superagent")
-  , Batch = require("batch");
-
-/**
- * Directives
- */
-require("../directives/remaining");
+  , superagent = require("superagent");
 
 /*
  * CategoryController
  */
 function CategoryController($scope, $routeParams) {
-  var categoryUrl = param.decode($routeParams.category);
-
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err);
   };
 
-  loading.start();
-
   // Get the category information
   superagent
-    .get(categoryUrl)
+    .get(param.decode($routeParams.category))
     .set(accessToken.auth())
     .on("error", onError)
     .end(function(res) {
@@ -46,84 +33,6 @@ function CategoryController($scope, $routeParams) {
         .end(function(res) {
           $scope.$apply(function() {
             $scope.itemsRes = res.body;
-          });
-
-          // Fetch the item info
-          var batch = new Batch;
-          res.body.items.forEach(function(item) {
-            batch.push(function(done) {
-              superagent
-                .get(item.href)
-                .set(accessToken.auth())
-                .on("error", done)
-                .end(function(res) {
-                  done(null, res.body);
-                });
-            });
-          });
-
-          // Update the view as results come in
-          batch.on("progress", function(progress) {
-            var item = progress.value
-              , idx = progress.index;
-
-            loading.update(progress.percent);
-
-            // Display it to the view
-            $scope.$apply(function() {
-              $scope.itemsRes.items[idx] = item;
-            });
-
-            // We can't see any sales for the item
-            if(!item.sale) return;
-
-            // Fetch the sale info
-            superagent
-              .get(item.sale.href)
-              .set(accessToken.auth())
-              .on("error", onError)
-              .end(function(res) {
-                // The item isn't available
-                if(!res.body) return;
-
-                // Display the sale info
-                $scope.$apply(function() {
-                  item.saleInfo = res.body;
-                });
-
-                // The item isn't on sale
-                if(!res.body.ending) return;
-
-                // Update the remaining time
-                function updateRemaining (time) {
-                  $scope.$apply(function() {
-                    item.saleInfo.remaining = item.saleInfo.ending - time;
-                  });
-                };
-
-                // Listen to the global timer
-                timer.on("update", updateRemaining);
-
-                // subscribe to price changes
-                var subscription = subscribe(res.body.href, function(sale) {
-                  $scope.$apply(function() {
-                    item.saleInfo.price = sale.price;
-                    item.saleInfo.ending = sale.ending;
-                  });
-                });
-
-                // Unsubscribe from timer changes when we're done here
-                $scope.$on('$destroy', function() {
-                  timer.off("update", updateRemaining);
-                  subscribe.clear(subscription);
-                });
-              });
-          });
-
-          // Execute the batch
-          batch.end(function(err) {
-            if(err) onError(err);
-            loading.end();
           });
         });
     });

@@ -1,7 +1,7 @@
 <div class="row-fluid">
   <ul class="thumbnails items">
-    <li class="span4 item" data-ng-repeat="item in itemsRes.items">
-      <div data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
+    <li class="span4 item" data-ng-repeat="itemLink in itemsRes.items">
+      <div data-ng-controller="ItemController" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
     </li>
   </ul>
 </div>
