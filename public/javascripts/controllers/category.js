@@ -86,15 +86,10 @@ function CategoryController($scope, $routeParams) {
                 // The item isn't available
                 if(!res.body) return;
 
-                // Update the sale info
-                function updatePrice(sale) {
-                  $scope.$apply(function() {
-                    item.saleInfo = sale;
-                  });
-                };
-
-                // Initially display the sale info
-                updatePrice(res.body);
+                // Display the sale info
+                $scope.$apply(function() {
+                  item.saleInfo = res.body;
+                });
 
                 // The item isn't on sale
                 if(!res.body.ending) return;
@@ -109,13 +104,19 @@ function CategoryController($scope, $routeParams) {
                 // Listen to the global timer
                 timer.on("update", updateRemaining);
 
+                // subscribe to price changes
+                var subscription = subscribe(res.body.href, function(sale) {
+                  $scope.$apply(function() {
+                    item.saleInfo.price = sale.price;
+                    item.saleInfo.ending = sale.ending;
+                  });
+                });
+
                 // Unsubscribe from timer changes when we're done here
                 $scope.$on('$destroy', function() {
                   timer.off("update", updateRemaining);
+                  subscribe.clear(subscription);
                 });
-
-                // subscribe to price changes
-                subscribe(res.body.href, updatePrice);
               });
           });
 
