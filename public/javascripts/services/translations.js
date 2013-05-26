@@ -23,11 +23,11 @@ function translations() {
 /**
  * Register it with angular
  */
-app.factory(translations.name, [
+app.factory("translations", [
   translations
 ]);
 
 /**
  * Let others know where to find it
  */
-module.exports = translations.name;
+module.exports = "translations";

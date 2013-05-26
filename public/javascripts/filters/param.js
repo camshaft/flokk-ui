@@ -17,11 +17,11 @@ function param() {
 /**
  * Register it with angular
  */
-app.filter(param.name, [
+app.filter("param", [
   param
 ]);
 
 /**
  * Let others know where to find it
  */
-module.exports = param.name;
+module.exports = "param";

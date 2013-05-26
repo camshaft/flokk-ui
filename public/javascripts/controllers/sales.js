@@ -1,10 +1,10 @@
-/*
+/**
  * Module dependencies
  */
 var app = require("..")
   , client = require("../lib/client");
 
-/*
+/**
  * SalesController
  */
 function SalesController($scope) {
@@ -30,15 +30,15 @@ function SalesController($scope) {
     });
 };
 
-/*
+/**
  * Register it with angular
  */
-app.controller(SalesController.name, [
+app.controller("SalesController", [
   '$scope',
   SalesController
 ]);
 
-/*
+/**
  * Let others know where to find it
  */
-module.exports = SalesController.name;
+module.exports = "SalesController";

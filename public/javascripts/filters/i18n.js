@@ -19,7 +19,7 @@ function i18n(polygot) {
 /**
  * Register it with angular
  */
-app.filter(i18n.name, [
+app.filter("i18n", [
   translations,
   i18n
 ]);
@@ -27,4 +27,4 @@ app.filter(i18n.name, [
 /**
  * Let others know where to find it
  */
-module.exports = i18n.name;
+module.exports = "i18n";

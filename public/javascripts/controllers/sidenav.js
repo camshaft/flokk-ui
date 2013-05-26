@@ -1,4 +1,4 @@
-/*
+/**
  * Module dependencies
  */
 var app = require("..")
@@ -10,7 +10,7 @@ var app = require("..")
  */
 require("../../partials/sidenav.js");
 
-/*
+/**
  * SidenavController
  */
 function SidenavController($scope, $routeParams) {
@@ -45,16 +45,16 @@ function SidenavController($scope, $routeParams) {
     });
 };
 
-/*
+/**
  * Register it with angular
  */
-app.controller(SidenavController.name, [
+app.controller("SidenavController", [
   '$scope',
   '$routeParams',
   SidenavController
 ]);
 
-/*
+/**
  * Let others know where to find it
  */
-module.exports = SidenavController.name;
+module.exports = "SidenavController";

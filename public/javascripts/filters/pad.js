@@ -16,11 +16,11 @@ function pad() {
 /**
  * Register it with angular
  */
-app.filter(pad.name, [
+app.filter("pad", [
   pad
 ]);
 
 /**
  * Let others know where to find it
  */
-module.exports = pad.name;
+module.exports = "pad";

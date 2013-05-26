@@ -1,4 +1,4 @@
-/*
+/**
  * Module dependencies
  */
 var app = require("..")
@@ -22,7 +22,7 @@ require("../../partials/item-thumb.js");
  */
 clock.start();
 
-/*
+/**
  * ItemController
  */
 function ItemController($scope, $routeParams, $location) {
@@ -106,17 +106,17 @@ function fetch (href, $scope) {
     });
 }
 
-/*
+/**
  * Register it with angular
  */
-app.controller(ItemController.name, [
+app.controller("ItemController", [
   '$scope',
   '$routeParams',
   '$location',
   ItemController
 ]);
 
-/*
+/**
  * Let others know where to find it
  */
-module.exports = ItemController.name;
+module.exports = "ItemController";

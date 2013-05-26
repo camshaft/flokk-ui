@@ -1,4 +1,4 @@
-/*
+/**
  * Module dependencies
  */
 var app = require("..")
@@ -9,7 +9,7 @@ var app = require("..")
  */
 require("../../partials/nav.js");
 
-/*
+/**
  * HFController
  */
 function HFController($scope) {
@@ -26,15 +26,15 @@ function HFController($scope) {
     });
 };
 
-/*
+/**
  * Register it with angular
  */
-app.controller(HFController.name, [
+app.controller("HFController", [
   '$scope',
   HFController
 ]);
 
-/*
+/**
  * Let others know where to find it
  */
-module.exports = HFController.name;
+module.exports = "HFController";

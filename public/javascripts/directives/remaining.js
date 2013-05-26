@@ -33,11 +33,11 @@ function remaining() {
 /*
  * Register it with angular
  */
-app.directive(remaining.name, [
+app.directive("remaining", [
   remaining
 ]);
 
 /*
  * Let others know where to find it
  */
-module.exports = remaining.name;
+module.exports = "remaining";

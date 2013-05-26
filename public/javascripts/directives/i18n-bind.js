@@ -24,11 +24,11 @@ function i18nBind(translations) {
 /**
  * Register it with angular
  */
-app.directive(i18nBind.name, [
+app.directive("i18nBind", [
   i18nBind
 ]);
 
 /**
  * Let others know where to find it
  */
-module.exports = i18nBind.name;
+module.exports = "i18nBind";

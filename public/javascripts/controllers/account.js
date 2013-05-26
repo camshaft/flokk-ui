@@ -1,10 +1,10 @@
-/*
+/**
  * Module dependencies
  */
 var app = require("..")
   , client = require("../lib/client");
 
-/*
+/**
  * AccountController
  */
 function AccountController($scope) {
@@ -29,15 +29,15 @@ function AccountController($scope) {
     });
 };
 
-/*
+/**
  * Register it with angular
  */
-app.controller(AccountController.name, [
+app.controller("AccountController", [
   '$scope',
   AccountController
 ]);
 
-/*
+/**
  * Let others know where to find it
  */
-module.exports = AccountController.name;
+module.exports = "AccountController";

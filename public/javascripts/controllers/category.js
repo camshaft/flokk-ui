@@ -1,11 +1,11 @@
-/*
+/**
  * Module dependencies
  */
 var app = require("..")
   , param = require("../lib/url-param")
   , client = require("../lib/client");
 
-/*
+/**
  * CategoryController
  */
 function CategoryController($scope, $routeParams) {
@@ -35,16 +35,16 @@ function CategoryController($scope, $routeParams) {
     });
 };
 
-/*
+/**
  * Register it with angular
  */
-app.controller(CategoryController.name, [
+app.controller("CategoryController", [
   '$scope',
   '$routeParams',
   CategoryController
 ]);
 
-/*
+/**
  * Let others know where to find it
  */
-module.exports = CategoryController.name;
+module.exports = "CategoryController";

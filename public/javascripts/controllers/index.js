@@ -1,4 +1,4 @@
-/*
+/**
  * Module dependencies
  */
 var app = require("..");
@@ -8,7 +8,7 @@ var app = require("..");
  */
 require("../../partials/footer.js");
 
-/*
+/**
  * IndexController
  */
 function IndexController($scope, $location) {
@@ -24,16 +24,16 @@ function IndexController($scope, $location) {
   };
 };
 
-/*
+/**
  * Register it with angular
  */
-app.controller(IndexController.name, [
+app.controller("IndexController", [
   '$scope',
   '$location',
   IndexController
 ]);
 
-/*
+/**
  * Let others know where to find it
  */
-module.exports = IndexController.name;
+module.exports = "IndexController";
