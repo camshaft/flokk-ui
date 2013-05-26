@@ -5,7 +5,7 @@ var app = require("..")
   , param = require("../lib/url-param")
   , subscribe = require("../lib/subscribe")
   , clock = require("clock")
-  , superagent = require("../lib/superagent");
+  , client = require("../lib/client");
 
 /**
  * Directives
@@ -40,14 +40,14 @@ function fetch (href, $scope) {
     console.error(err.stack || err.message || err);
   };
 
-  superagent
+  client
     .get(href)
     .on("error", onError)
     .end(function(res) {
-      // We can't see this item
-      if(!res.body) return;
-
       var item = res.body;
+
+      // We can't see this item
+      if(!item) return;
 
       // Display it to the view
       $scope.$apply(function() {
@@ -58,8 +58,8 @@ function fetch (href, $scope) {
       if(!item.sale) return;
 
       // Fetch the sale info
-      superagent
-        .get(item.sale.href)
+      res
+        .follow("sale")
         .on("error", onError)
         .end(function(res) {
           // The sale isn't available
@@ -68,9 +68,7 @@ function fetch (href, $scope) {
           var sale = res.body;
 
           // Display the sale info
-          $scope.$apply(function() {
-            $scope.sale = sale;
-          });
+          $scope.sale = sale;
 
           // The item isn't on sale
           if(!sale.ending) return;

@@ -3,7 +3,7 @@
  */
 var app = require("..")
   , param = require("../lib/url-param")
-  , superagent = require("../lib/superagent");
+  , client = require("../lib/client");
 
 /*
  * CategoryController
@@ -15,17 +15,17 @@ function CategoryController($scope, $routeParams) {
   };
 
   // Get the category information
-  superagent
+  client
     .get(param.decode($routeParams.category))
     .on("error", onError)
     .end(function(res) {
-      $scope.$apply(function() {
-        $scope.categoryRes = res.body;
-      });
+
+      // Expose the category info to the view
+      $scope.categoryRes = res.body;
 
       // Get the category items listing
-      superagent
-        .get(res.body.items.href)
+      res
+        .follow('items')
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {

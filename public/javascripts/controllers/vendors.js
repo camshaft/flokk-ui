@@ -2,7 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
-  , superagent = require("../lib/superagent");
+  , client = require("../lib/client");
 
 /*
  * VendorsController
@@ -12,15 +12,14 @@ function VendorsController($scope) {
     console.error(err.stack || err.message || err);
   };
 
-  superagent
-    .get("/api")
+  client()
     .on("error", onError)
     .end(function(res) {
       // We can't see the vendors
-      if(!res.body.vendors) return onError(new Error("Couldn't find vendors"));
+      if(!res.body.vendors) return;
 
-      superagent
-        .get(res.body.vendors.href)
+      res
+        .follow("vendors")
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {

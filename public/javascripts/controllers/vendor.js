@@ -3,7 +3,7 @@
  */
 var app = require("..")
   , param = require("../lib/url-param")
-  , superagent = require("superagent");
+  , client = require("../lib/client");
 
 /*
  * VendorController
@@ -15,7 +15,7 @@ function VendorController($scope, $routeParams) {
   };
 
   // Get the vendor information
-  superagent
+  client
     .get(param.decode($routeParams.vendor))
     .on("error", onError)
     .end(function(res) {
@@ -24,8 +24,8 @@ function VendorController($scope, $routeParams) {
       });
 
       // Get the vendor items listing
-      superagent
-        .get(res.body.items.href)
+      res
+        .follow("items")
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {

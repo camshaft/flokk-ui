@@ -3,7 +3,7 @@
  */
 var app = require("..")
   , param = require("../lib/url-param")
-  , superagent = require("../lib/superagent");
+  , client = require("../lib/client");
 
 /**
  * Load the partials
@@ -24,13 +24,18 @@ function SidenavController($scope, $routeParams) {
     console.error(err.stack || err.message || err);
   };
 
-  superagent
-    .get("/api")
+  client()
     .on("error", onError)
     .end(function(res) {
 
-      superagent
-        .get(res.body.categories.href)
+      // Expose the root
+      $scope.$apply(function() {
+        $scope.root = res.body;
+      });
+
+      // Fetch the categories
+      res
+        .follow("categories")
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {

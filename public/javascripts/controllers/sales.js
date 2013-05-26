@@ -2,8 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
-  , loading = require("../lib/loading")
-  , superagent = require("../lib/superagent");
+  , client = require("../lib/client");
 
 /*
  * SalesController
@@ -13,20 +12,16 @@ function SalesController($scope) {
     console.error(err.stack || err.message || err);
   };
 
-  superagent
-    .get("/api")
+  client()
     .on("error", onError)
     .end(function(res) {
       // We can't see the sales
-      if(!res.body.sales) return onError(new Error("Couldn't find sales"));
+      if(!res.body.sales) return;
 
-      superagent
-        .get(res.body.sales.href)
+      res
+        .follow("sales")
         .on("error", onError)
         .end(function(res) {
-          // We can't get to the sales
-          if(!res.body) return onError(new Error("No items on sale"));
-
           $scope.$apply(function() {
             $scope.itemRes = res.body;
           });

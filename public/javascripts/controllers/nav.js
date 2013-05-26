@@ -2,7 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
-  , superagent = require("../lib/superagent");
+  , client = require("../lib/client");
 
 /**
  * Load the partials
@@ -17,12 +17,9 @@ function NavController($scope) {
     console.error(err.stack || err.message || err);
   };
 
-  superagent
-    .get("/api")
+  client()
     .on("error", onError)
     .end(function(res) {
-      if (!res.body) return;
-
       $scope.$apply(function() {
         $scope.body = res.body;
       });

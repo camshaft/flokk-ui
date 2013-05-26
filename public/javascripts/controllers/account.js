@@ -2,7 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
-  , superagent = require("../lib/superagent");
+  , client = require("../lib/client");
 
 /*
  * AccountController
@@ -13,14 +13,13 @@ function AccountController($scope) {
     console.error(err.stack || err.message || err);
   };
 
-  superagent
-    .get("/api")
+  client()
     .on("error", onError)
     .end(function(res) {
-      if(!res.body.account) return onError(new Error("Not Logged In"));
+      if(!res.body.account) return onError(new Error("No account found"));
 
-      superagent
-        .get(res.body.account)
+      res
+        .follow('account')
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {
