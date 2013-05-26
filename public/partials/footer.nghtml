@@ -1,15 +1,4 @@
 <div class="navbar container" data-ng-controller="HFController">
-  <ul class="nav">
-    <li>
-      <a href="/contact" data-i18n-bind="'Contact us' | i18n:'contact_us'"></a>
-    </li>
-    <li>
-      <a href="/about" data-i18n-bind="'How it works' | i18n:'how_it_works'"></a>
-    </li>
-    <li data-ng-show="root['vendor-invite']">
-      <a data-ng-href="{{root['vendor-invite'].href}}" data-i18n-bind="'Want to see your stuff on flokk?' | i18n:'vendor_invite'"></a>
-    </li>
-  </ul>
   <ul class="nav pull-right">
     <li>
       <a href="/copyright" data-i18n-bind="'© 2013 The Flokk, LLC. All rights reserved' | i18n:'copyright'"></a>

@@ -1,3 +1,4 @@
+<h2 data-i18n-bind="'My Account' | i18n:'account'"></h2>
 <div class="media">
   <a class="pull-left" href="#">
     <img class="media-object" data-ng-src="{{account.avatar}}" />
