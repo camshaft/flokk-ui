@@ -10,9 +10,9 @@ var app = require("..")
 require("../../partials/nav.js");
 
 /*
- * NavController
+ * HFController
  */
-function NavController($scope) {
+function HFController($scope) {
   function onError(err) {
     console.error(err.stack || err.message || err);
   };
@@ -21,7 +21,7 @@ function NavController($scope) {
     .on("error", onError)
     .end(function(res) {
       $scope.$apply(function() {
-        $scope.body = res.body;
+        $scope.root = res.body;
       });
     });
 };
@@ -29,12 +29,12 @@ function NavController($scope) {
 /*
  * Register it with angular
  */
-app.controller(NavController.name, [
+app.controller(HFController.name, [
   '$scope',
-  NavController
+  HFController
 ]);
 
 /*
  * Let others know where to find it
  */
-module.exports = NavController.name;
+module.exports = HFController.name;
