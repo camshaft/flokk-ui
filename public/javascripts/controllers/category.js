@@ -21,17 +21,9 @@ function CategoryController($scope, $routeParams) {
     .end(function(res) {
 
       // Expose the category info to the view
-      $scope.categoryRes = res.body;
-
-      // Get the category items listing
-      res
-        .follow('items')
-        .on("error", onError)
-        .end(function(res) {
-          $scope.$apply(function() {
-            $scope.itemsRes = res.body;
-          });
-        });
+      $scope.$apply(function() {
+        $scope.category = res.body;
+      });
     });
 };
 

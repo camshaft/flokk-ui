@@ -4,8 +4,8 @@
     <li class="divider"></li>
   </ul>
   <ul data-ng-show="root.categories" data-ng-repeat="category in body.categories" class="nav nav-list">
-    <li class="nav-header" data-ng-class="{active: category.href==current}">
-      <a data-i18n-bind="category.title | i18n:'category.'+category.href" data-ng-href="/categories/{{category.href | param}}"></a>
+    <li class="nav-header" data-ng-class="{active: category.items==current}">
+      <a data-i18n-bind="category.title | i18n:'category.'+category.href" data-ng-href="/categories/{{category.items | param}}"></a>
     </li>
   </ul>
   <ul class="nav nav-list" data-ng-show="root.vendors">

@@ -8,6 +8,7 @@ var superagent = require("superagent")
 // TODO come up with a retry strategy
 // TODO come up with a reasonable timeout
 // TODO should we cache things in localStorage?
+// TODO make it so we only call the root endpoint once
 
 module.exports = exports = function() {
   return exports.get("/api");
