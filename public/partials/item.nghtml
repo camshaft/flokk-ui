@@ -13,7 +13,7 @@
   </div>
   <div class="span5 item-info">
     <h2 class="title"><a href="/items/{{item.href | param}}" data-i18n-bind="item.title | i18n:'item.'+item.sku+'.title'"></a></h2>
-    <h3 class="vendor"><a href="/vendors/{{item.vendor.href | param}}" data-i18n-bind="item.vendor.title"></a></h3>
+    <h3 class="vendor"><a href="/brands/{{item.vendor.href | param}}" data-i18n-bind="item.vendor.title"></a></h3>
     <p class="description" data-i18n-bind="item.description | i18n:'item.'+item.sku+'.description'"></p>
 
     <div class="controls">
