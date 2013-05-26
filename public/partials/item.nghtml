@@ -50,7 +50,7 @@
         </div>
         <div class="control-group">
           <div class="controls">
-            <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'ADD TO CART' | i18n:'add_to_cart'"></button>
+            <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'BUY' | i18n:'add_to_cart'"></button>
             <button type="submit" data-ng-hide="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'START A SALE' | i18n:'add_to_cart'"></button>
           </div>
         </div>

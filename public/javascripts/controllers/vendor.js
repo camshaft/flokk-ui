@@ -3,7 +3,6 @@
  */
 var app = require("..")
   , param = require("../lib/url-param")
-  , accessToken = require("../lib/access-token")
   , superagent = require("superagent");
 
 /*
@@ -18,7 +17,6 @@ function VendorController($scope, $routeParams) {
   // Get the vendor information
   superagent
     .get(param.decode($routeParams.vendor))
-    .set(accessToken.auth())
     .on("error", onError)
     .end(function(res) {
       $scope.$apply(function() {
@@ -28,7 +26,6 @@ function VendorController($scope, $routeParams) {
       // Get the vendor items listing
       superagent
         .get(res.body.items.href)
-        .set(accessToken.auth())
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {

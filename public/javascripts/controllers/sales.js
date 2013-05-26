@@ -2,11 +2,8 @@
  * Module dependencies
  */
 var app = require("..")
-  , accessToken = require("../lib/access-token")
   , loading = require("../lib/loading")
-  , subscribe = require("../lib/subscribe")
-  , superagent = require("superagent")
-  , Batch = require("batch");
+  , superagent = require("../lib/superagent");
 
 /*
  * SalesController
@@ -18,7 +15,6 @@ function SalesController($scope) {
 
   superagent
     .get("/api")
-    .set(accessToken.auth())
     .on("error", onError)
     .end(function(res) {
       // We can't see the sales
@@ -26,7 +22,6 @@ function SalesController($scope) {
 
       superagent
         .get(res.body.sales.href)
-        .set(accessToken.auth())
         .on("error", onError)
         .end(function(res) {
           // We can't get to the sales

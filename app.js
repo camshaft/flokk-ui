@@ -15,19 +15,14 @@ var API_URL = process.env.API_URL || "http://localhost:5001";
 var app = module.exports = stack();
 
 app.configure(function() {
-  app.useBefore("router", "/public", "public", stack.middleware.static(__dirname+"/build"));
+  app.useBefore("router", "/public", "public", stack.middleware.static(__dirname+"/build", {maxAge: 3600}));
+  app.useBefore("router", "/partials", "partialNotFound", function(req, res) {
+    res.sendfile(__dirname+"/public/partials/404.nghtml");
+  });
 });
 
 app.configure("development", function() {
   app.useBefore("base", "/api", "api-proxy", proxy(API_URL, {xforward: true}));
-  app.useBefore("router", "/partials", function partialContentType(req, res, next) {
-    res.type("html");
-    next();
-  });
-  app.useBefore("router", "/partials", "partials", stack.middleware.static(__dirname+"/public/partials"));
-  app.useBefore("router", "/partials", "partialNotFound", function(req, res) {
-    res.sendfile(__dirname+"/public/partials/404.nghtml");
-  });
 });
 
 /**

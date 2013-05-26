@@ -2,9 +2,13 @@
  * Module dependencies
  */
 var app = require("..")
-  , accessToken = require("../lib/access-token")
   , param = require("../lib/url-param")
-  , superagent = require("superagent");
+  , superagent = require("../lib/superagent");
+
+/**
+ * Load the partials
+ */
+require("../../partials/sidenav.js");
 
 /*
  * SidenavController
@@ -22,20 +26,17 @@ function SidenavController($scope, $routeParams) {
 
   superagent
     .get("/api")
-    .set(accessToken.auth())
     .on("error", onError)
     .end(function(res) {
 
       superagent
         .get(res.body.categories.href)
-        .set(accessToken.auth())
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {
             $scope.body = res.body;
           });
         });
-
     });
 };
 

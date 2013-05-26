@@ -17,6 +17,21 @@ var AccountController = require("./controllers/account")
   , VendorController = require("./controllers/vendor");
 
 /**
+ * Load the partials
+ */
+var notFound = require("../partials/404.js")
+  , about = require("../partials/about.js")
+  , account = require("../partials/account.js")
+  , category = require("../partials/category.js")
+  , contact = require("../partials/contact.js")
+  , copyright = require("../partials/copyright.js")
+  , item = require("../partials/item.js")
+  , sales = require("../partials/sales.js")
+  , sidenav = require("../partials/sidenav.js")
+  , vendor = require("../partials/vendor.js")
+  , vendors = require("../partials/vendors.js")
+
+/**
  * Initialize the directives used outside of the controllers
  */
 var i18nBind = require("./directives/i18n-bind");
@@ -42,50 +57,40 @@ app.config([
   function($routeProvider, $locationProvider) {
     $routeProvider
       .when("/", {
-        templateUrl: "/partials/sales.nghtml",
+        templateUrl: sales,
         controller: SalesController
       })
       .when("/account", {
-        templateUrl: "/partials/account.nghtml",
+        templateUrl: account,
         controller: AccountController
       })
       .when("/categories/:category", {
-        templateUrl: "/partials/category.nghtml",
-        controller: CategoryController
-      })
-      .when("/categories/:category/:subcategory", {
-        templateUrl: "/partials/category.nghtml",
+        templateUrl: category,
         controller: CategoryController
       })
       .when("/vendors", {
-        templateUrl: "/partials/vendors.nghtml",
+        templateUrl: vendors,
         controller: VendorsController
       })
       .when("/vendors/:vendor", {
-        templateUrl: "/partials/vendor.nghtml",
+        templateUrl: vendor,
         controller: VendorController
       })
       .when("/items/:item", {
-        templateUrl: "/partials/item.nghtml",
+        templateUrl: item,
         controller: ItemController
       })
-      .when("/login", {
-        templateUrl: "/partials/login.nghtml"
-      })
       .when("/contact", {
-        templateUrl: "/partials/contact.nghtml"
+        templateUrl: contact,
       })
       .when("/about", {
-        templateUrl: "/partials/about.nghtml"
-      })
-      .when("/vendor-invite", {
-        templateUrl: "/partials/vendor-invite.nghtml"
+        templateUrl: about,
       })
       .when("/copyright", {
-        templateUrl: "/partials/copyright.nghtml"
+        templateUrl: copyright,
       })
       .otherwise({
-        templateUrl: "/partials/404.nghtml",
+        templateUrl: notFound,
         controller: IndexController
       });
 

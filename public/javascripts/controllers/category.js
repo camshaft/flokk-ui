@@ -3,8 +3,7 @@
  */
 var app = require("..")
   , param = require("../lib/url-param")
-  , accessToken = require("../lib/access-token")
-  , superagent = require("superagent");
+  , superagent = require("../lib/superagent");
 
 /*
  * CategoryController
@@ -18,7 +17,6 @@ function CategoryController($scope, $routeParams) {
   // Get the category information
   superagent
     .get(param.decode($routeParams.category))
-    .set(accessToken.auth())
     .on("error", onError)
     .end(function(res) {
       $scope.$apply(function() {
@@ -28,7 +26,6 @@ function CategoryController($scope, $routeParams) {
       // Get the category items listing
       superagent
         .get(res.body.items.href)
-        .set(accessToken.auth())
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {

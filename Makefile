@@ -1,9 +1,6 @@
 
 build: components
-	@./node_modules/.bin/component build --copy --standalone flokk --prefix "/public"
-
-build-dev: components
-	@./node_modules/.bin/component build --dev --standalone flokk
+	@./node_modules/.bin/component build --copy --use ./nghtml --standalone flokk --prefix "/public"
 
 components: component.json
 	@./node_modules/.bin/component install

@@ -20,7 +20,8 @@
     "component/cookie": "*",
     "component/piecon": "*",
     "component/favicon": "*",
-    "CamShaft/clock": "*"
+    "CamShaft/clock": "*",
+    "CamShaft/metric-log": "*"
   },
   "development": {},
   "license": "MIT",
@@ -44,7 +45,9 @@
     "public/javascripts/filters/pad.js",
     "public/javascripts/lib/access-token.js",
     "public/javascripts/lib/loading.js",
+    "public/javascripts/lib/log.js",
     "public/javascripts/lib/subscribe.js",
+    "public/javascripts/lib/superagent.js",
     "public/javascripts/lib/url-param.js",
     "public/javascripts/services/api.js",
     "public/javascripts/services/experiments.js",
@@ -62,9 +65,19 @@
   ],
   "templates": [
     "public/partials/404.nghtml",
+    "public/partials/about.nghtml",
     "public/partials/account.nghtml",
-    "public/partials/cart.nghtml",
     "public/partials/category.nghtml",
-    "public/partials/index.nghtml"
+    "public/partials/contact.nghtml",
+    "public/partials/copyright.nghtml",
+    "public/partials/footer.nghtml",
+    "public/partials/item-thumb.nghtml",
+    "public/partials/item.nghtml",
+    "public/partials/nav.nghtml",
+    "public/partials/remaining.nghtml",
+    "public/partials/sales.nghtml",
+    "public/partials/sidenav.nghtml",
+    "public/partials/vendor.nghtml",
+    "public/partials/vendors.nghtml"
   ]
 }

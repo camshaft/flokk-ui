@@ -1,12 +1,17 @@
 <div class="container" data-ng-controller="NavController">
   <a href="/" class="brand brand-flokk">flokk</a>
 
-  <ul class="pull-right nav ng-cloak account-links">
-    <li data-ng-show="account" data-ng-class="{active: path=='/account'}">
+  <ul class="pull-right nav ng-cloak account-links" data-ng-show="body.account">
+    <li data-ng-class="{active: path=='/account'}">
       <a href="/account" data-i18n-bind="'Account' | i18n:'account_link'"></a>
     </li>
-    <li data-ng-hide="account" data-ng-class="{active: path=='/login'}">
-      <a href="/login" target="_self" data-i18n-bind="'Login' | i18n:'login'"></a>
+    <li>
+      <a href="/logout" target="_self" data-i18n-bind="'Logout' | i18n:'logout'"></a>
+    </li>
+  </ul>
+  <ul class="pull-right nav ng-cloak account-links" data-ng-show="body.login">
+    <li>
+      <a data-ng-href="body.login.href" data-i18n-bind="'Login' | i18n:'login'"></a>
     </li>
   </ul>
 </div>

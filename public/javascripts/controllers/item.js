@@ -3,15 +3,19 @@
  */
 var app = require("..")
   , param = require("../lib/url-param")
-  , accessToken = require("../lib/access-token")
   , subscribe = require("../lib/subscribe")
   , clock = require("clock")
-  , superagent = require("superagent");
+  , superagent = require("../lib/superagent");
 
 /**
  * Directives
  */
 require("../directives/remaining");
+
+/**
+ * Load the partials
+ */
+require("../../partials/item-thumb.js");
 
 /**
  * Start the clock
@@ -38,7 +42,6 @@ function fetch (href, $scope) {
 
   superagent
     .get(href)
-    .set(accessToken.auth())
     .on("error", onError)
     .end(function(res) {
       // We can't see this item
@@ -57,7 +60,6 @@ function fetch (href, $scope) {
       // Fetch the sale info
       superagent
         .get(item.sale.href)
-        .set(accessToken.auth())
         .on("error", onError)
         .end(function(res) {
           // The sale isn't available

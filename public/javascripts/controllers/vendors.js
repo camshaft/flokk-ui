@@ -2,8 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
-  , accessToken = require("../lib/access-token")
-  , superagent = require("superagent");
+  , superagent = require("../lib/superagent");
 
 /*
  * VendorsController
@@ -15,7 +14,6 @@ function VendorsController($scope) {
 
   superagent
     .get("/api")
-    .set(accessToken.auth())
     .on("error", onError)
     .end(function(res) {
       // We can't see the vendors
@@ -23,7 +21,6 @@ function VendorsController($scope) {
 
       superagent
         .get(res.body.vendors.href)
-        .set(accessToken.auth())
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {

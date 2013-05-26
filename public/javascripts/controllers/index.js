@@ -3,6 +3,11 @@
  */
 var app = require("..");
 
+/**
+ * Load the partials
+ */
+require("../../partials/footer.js");
+
 /*
  * IndexController
  */

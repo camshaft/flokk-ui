@@ -2,8 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
-  , superagent = require("superagent")
-  , accessToken = require("../lib/access-token");
+  , superagent = require("../lib/superagent");
 
 /*
  * AccountController
@@ -16,18 +15,16 @@ function AccountController($scope) {
 
   superagent
     .get("/api")
-    .set(accessToken.auth())
     .on("error", onError)
     .end(function(res) {
-      if(!res.body.profile) return onError(new Error("Not Logged In"));
+      if(!res.body.account) return onError(new Error("Not Logged In"));
 
       superagent
-        .get(res.body.profile)
-        .set(accessToken.auth())
+        .get(res.body.account)
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {
-            $scope.profile = res.body;
+            $scope.account = res.body;
           });
         });
     });
