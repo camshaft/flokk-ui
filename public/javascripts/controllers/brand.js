@@ -6,24 +6,24 @@ var app = require("..")
   , client = require("../lib/client");
 
 /**
- * VendorController
+ * BrandController
  */
-function VendorController($scope, $routeParams) {
+function BrandController($scope, $routeParams) {
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
   };
 
-  // Get the vendor information
+  // Get the brand information
   client
-    .get(param.decode($routeParams.vendor))
+    .get(param.decode($routeParams.brand))
     .on("error", onError)
     .end(function(res) {
       $scope.$apply(function() {
-        $scope.vendorRes = res.body;
+        $scope.brandRes = res.body;
       });
 
-      // Get the vendor items listing
+      // Get the brand items listing
       res
         .follow("items")
         .on("error", onError)
@@ -38,13 +38,13 @@ function VendorController($scope, $routeParams) {
 /**
  * Register it with angular
  */
-app.controller("VendorController", [
+app.controller("BrandController", [
   '$scope',
   '$routeParams',
-  VendorController
+  BrandController
 ]);
 
 /**
  * Let others know where to find it
  */
-module.exports = "VendorController";
+module.exports = "BrandController";

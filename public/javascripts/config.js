@@ -13,8 +13,8 @@ var AccountController = require("./controllers/account")
   , HFController = require("./controllers/hf")
   , SalesController = require("./controllers/sales")
   , SidenavController = require("./controllers/sidenav")
-  , VendorsController = require("./controllers/vendors")
-  , VendorController = require("./controllers/vendor");
+  , BrandsController = require("./controllers/brands")
+  , BrandController = require("./controllers/brand");
 
 /**
  * Load the partials
@@ -22,14 +22,14 @@ var AccountController = require("./controllers/account")
 var notFound = require("../partials/404.js")
   , about = require("../partials/about.js")
   , account = require("../partials/account.js")
+  , brand = require("../partials/brand.js")
+  , brands = require("../partials/brands.js")
   , category = require("../partials/category.js")
   , contact = require("../partials/contact.js")
   , copyright = require("../partials/copyright.js")
   , item = require("../partials/item.js")
   , sales = require("../partials/sales.js")
-  , sidenav = require("../partials/sidenav.js")
-  , vendor = require("../partials/vendor.js")
-  , vendors = require("../partials/vendors.js")
+  , sidenav = require("../partials/sidenav.js");
 
 /**
  * Initialize the directives used outside of the controllers
@@ -69,13 +69,13 @@ app.config([
         templateUrl: category,
         controller: CategoryController
       })
-      .when("/vendors", {
-        templateUrl: vendors,
-        controller: VendorsController
+      .when("/brands", {
+        templateUrl: brands,
+        controller: BrandsController
       })
-      .when("/vendors/:vendor", {
-        templateUrl: vendor,
-        controller: VendorController
+      .when("/brands/:brand", {
+        templateUrl: brand,
+        controller: BrandController
       })
       .when("/items/:item", {
         templateUrl: item,

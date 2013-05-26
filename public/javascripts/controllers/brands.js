@@ -5,9 +5,9 @@ var app = require("..")
   , client = require("../lib/client");
 
 /**
- * VendorsController
+ * BrandsController
  */
-function VendorsController($scope) {
+function BrandsController($scope) {
   function onError(err) {
     console.error(err.stack || err.message || err);
   };
@@ -15,7 +15,7 @@ function VendorsController($scope) {
   client()
     .on("error", onError)
     .end(function(res) {
-      // We can't see the vendors
+      // We can't see the brands
       if(!res.body.vendors) return;
 
       res
@@ -33,12 +33,12 @@ function VendorsController($scope) {
 /**
  * Register it with angular
  */
-app.controller("VendorsController", [
+app.controller("BrandsController", [
   '$scope',
-  VendorsController
+  BrandsController
 ]);
 
 /**
  * Let others know where to find it
  */
-module.exports = "VendorsController";
+module.exports = "BrandsController";

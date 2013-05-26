@@ -10,6 +10,6 @@
   </ul>
   <ul class="nav nav-list" data-ng-show="root.vendors">
     <li class="divider"></li>
-    <li class="nav-header" data-ng-class="{active: path=='/vendors'}"><a href="/vendors" data-i18n-bind="'Vendors' | i18n:'vendors'"></a></li>
+    <li class="nav-header" data-ng-class="{active: path=='/brands'}"><a href="/brands" data-i18n-bind="'Brands' | i18n:'brands'"></a></li>
   </ul>
 </div>

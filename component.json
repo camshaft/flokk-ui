@@ -37,8 +37,8 @@
     "public/javascripts/controllers/item.js",
     "public/javascripts/controllers/sidenav.js",
     "public/javascripts/controllers/sales.js",
-    "public/javascripts/controllers/vendors.js",
-    "public/javascripts/controllers/vendor.js",
+    "public/javascripts/controllers/brands.js",
+    "public/javascripts/controllers/brand.js",
     "public/javascripts/directives/i18n-bind.js",
     "public/javascripts/directives/lazy-load.js",
     "public/javascripts/directives/remaining.js",
@@ -77,7 +77,7 @@
     "public/partials/remaining.nghtml",
     "public/partials/sales.nghtml",
     "public/partials/sidenav.nghtml",
-    "public/partials/vendor.nghtml",
-    "public/partials/vendors.nghtml"
+    "public/partials/brand.nghtml",
+    "public/partials/brands.nghtml"
   ]
 }
