@@ -71,7 +71,7 @@ function fetch (href, $scope) {
           $scope.sale = sale;
 
           // The item isn't on sale
-          if(!sale.ending) return;
+          if(!sale.ending) return $scope.$digest();
 
           // Update the remaining time
           function updateRemaining (time) {
