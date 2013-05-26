@@ -7,7 +7,7 @@
       <a href="/about" data-i18n-bind="'How it works' | i18n:'how_it_works'"></a>
     </li>
     <li data-ng-show="root['vendor-invite']">
-      <a data-ng-href="root['vendor-invite'].href" data-i18n-bind="'Want to see your stuff on flokk?' | i18n:'vendor_invite'"></a>
+      <a data-ng-href="{{root['vendor-invite'].href}}" data-i18n-bind="'Want to see your stuff on flokk?' | i18n:'vendor_invite'"></a>
     </li>
   </ul>
   <ul class="nav pull-right">
