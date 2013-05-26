@@ -76,6 +76,11 @@ function fetch (href, $scope) {
           // Update the remaining time
           function updateRemaining (time) {
             $scope.$apply(function() {
+              // TODO find out if there is clock skew between the client and server.
+              //      people might get angry if theirs says it has 5 minutes left
+              //      when in reality the sale has ended. We may end up having to be
+              //      generous on the time restrictions...
+
               var remaining = sale.remaining = sale.ending - time;
               sale.onSale = remaining > 0;
             });

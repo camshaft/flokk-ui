@@ -49,8 +49,6 @@
     "public/javascripts/lib/log.js",
     "public/javascripts/lib/subscribe.js",
     "public/javascripts/lib/url-param.js",
-    "public/javascripts/services/api.js",
-    "public/javascripts/services/experiments.js",
     "public/javascripts/services/translations.js"
   ],
   "styles": [

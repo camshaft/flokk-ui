@@ -25,7 +25,6 @@ function i18nBind(translations) {
  * Register it with angular
  */
 app.directive(i18nBind.name, [
-  translations,
   i18nBind
 ]);
 
