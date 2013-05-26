@@ -5,13 +5,18 @@ var app = require("..")
   , param = require("../lib/url-param")
   , accessToken = require("../lib/access-token")
   , subscribe = require("../lib/subscribe")
-  , timer = require("../lib/timer")
+  , clock = require("clock")
   , superagent = require("superagent");
 
 /**
  * Directives
  */
 require("../directives/remaining");
+
+/**
+ * Start the clock
+ */
+clock.start();
 
 /*
  * ItemController
@@ -76,8 +81,8 @@ function fetch (href, $scope) {
             });
           };
 
-          // Listen to the global timer
-          timer.on("update", updateRemaining);
+          // Listen to the global clock
+          clock.on(updateRemaining);
 
           // subscribe to price changes
           var subscription = subscribe(sale.href, function(newInfo) {
@@ -89,7 +94,7 @@ function fetch (href, $scope) {
 
           // Unsubscribe we're done here
           $scope.$on('$destroy', function() {
-            timer.off("update", updateRemaining);
+            clock.off(updateRemaining);
             subscribe.clear(subscription);
           });
         });
