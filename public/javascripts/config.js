@@ -34,7 +34,8 @@ var notFound = require("../partials/404.js")
 /**
  * Initialize the directives used outside of the controllers
  */
-var i18nBind = require("./directives/i18n-bind");
+var i18nBind = require("./directives/i18n-bind")
+  , lazyLoad = require("./directives/lazy-load");
 
 /**
  * Initialize the directives used outside of the controllers
