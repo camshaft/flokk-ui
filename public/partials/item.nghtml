@@ -1,4 +1,4 @@
-<div class="row-fluid item">
+<div class="row-fluid item" data-ng-controller="ItemController">
   <div class="span6">
     <img data-ng-src="{{item.images[selectedImage || 0].src}}" />
   </div>

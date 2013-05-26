@@ -1,4 +1,4 @@
-<div class="thumbnail">
+<div class="thumbnail" data-ng-controller="ItemController">
 
   <a href="/items/{{item.href | param}}">
     <img class="image" data-ng-src="{{item.thumbnail.src}}" alt="">
