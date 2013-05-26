@@ -1,8 +1,7 @@
 /**
  * Module dependencies
  */
-var superagent = require("superagent")
-  , accessToken = require("../lib/access-token");
+var client = require("./client");
 
 // TODO implement with ws
 
@@ -13,9 +12,8 @@ module.exports = function(href, callback) {
   }
 
   return setInterval(function() {
-    superagent
+    client
       .get(href)
-      .set(accessToken.auth())
       .on("error", onError)
       .end(function(res) {
         if(res.ok) callback(res.body);
