@@ -56,7 +56,7 @@
 
 @media (min-width: 767px) and (max-width: 979px) {
   .items .item {
-    padding: 10px;
+    padding: 5px;
   }
 
   .items .item .item-info .time-remaining {
