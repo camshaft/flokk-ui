@@ -53,3 +53,26 @@
 .items .item .item-info .price .retail-price {
   text-decoration: line-through;
 }
+
+@media (min-width: 767px) and (max-width: 979px) {
+  .items .item {
+    padding: 10px;
+  }
+
+  .items .item .item-info .time-remaining {
+    font-size: 1em;
+  }
+
+  .items .item .item-info .btn {
+    font-size: .8em;
+  }
+
+  .items .item .item-info .price .sale-price {
+    font-size: .9em;
+  }
+
+  .items .item .item-info .price .no-sale,
+  .items .item .item-info .price .retail-price {
+    font-size: .8em;
+  }
+}
