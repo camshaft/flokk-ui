@@ -78,6 +78,9 @@
 }
 
 @media (max-width: 768px) {
+  .items .item {
+    padding: 0;
+  }
   .thumbnail [class*="span"] {
     display: inline-block;
   }
