@@ -54,7 +54,7 @@
   text-decoration: line-through;
 }
 
-@media (min-width: 767px) and (max-width: 979px) {
+@media (max-width: 979px) and (min-width: 768px) {
   .items .item {
     padding: 5px;
   }
@@ -76,3 +76,21 @@
     font-size: .8em;
   }
 }
+
+@media (max-width: 768px) {
+  .thumbnail [class*="span"] {
+    display: inline-block;
+  }
+  .thumbnail .span3 {
+    width: 23.404255319148934%;
+  }
+  .thumbnail .span6 {
+    width: 48.93617021276595%;
+  }
+  .items .item .item-info .time-remaining {
+    font-size: 2.2em;
+    position: relative;
+    top: -4px;
+  }
+}
+
