@@ -22,7 +22,8 @@
     "component/favicon": "*",
     "CamShaft/clock": "*",
     "CamShaft/metric-log": "*",
-    "component/preloader": "*"
+    "component/preloader": "*",
+    "component/swipe": "*"
   },
   "development": {},
   "license": "MIT",
@@ -42,6 +43,7 @@
     "public/javascripts/directives/i18n-bind.js",
     "public/javascripts/directives/lazy-load.js",
     "public/javascripts/directives/remaining.js",
+    "public/javascripts/directives/swipe.js",
     "public/javascripts/filters/param.js",
     "public/javascripts/filters/i18n.js",
     "public/javascripts/filters/pad.js",
@@ -61,6 +63,7 @@
     "public/stylesheets/button.css",
     "public/stylesheets/time-remaining.css",
     "public/stylesheets/category.css",
+    "public/stylesheets/swipe.css",
     "public/stylesheets/item.css"
   ],
   "templates": [

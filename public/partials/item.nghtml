@@ -1,13 +1,19 @@
 <div class="row-fluid item" data-ng-controller="ItemController">
-  <div class="span6">
+  <div class="span6 hidden-phone">
     <img data-ng-src="{{item.images[selectedImage || 0].src}}" />
   </div>
-  <div class="span1">
+  <div class="span1 hidden-phone">
     <ul class="thumbnails">
       <li class="span12" data-ng-repeat="image in item.images" data-ng-class="{active: image == $index}">
         <a data-ng-href="#image-{{$index}}">
           <img data-ng-src="{{image.src}}" />
         </a>
+      </li>
+    </ul>
+  </div>
+  <div class="swipe-container visible-phone" data-swipe="item.images">
+    <ul class="swipe">
+      <li data-ng-repeat="image in item.images" data-ng-style="{'background-image': 'url('+image.src+')'}">
       </li>
     </ul>
   </div>

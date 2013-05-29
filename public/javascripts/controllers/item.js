@@ -11,6 +11,7 @@ var app = require("..")
  * Directives
  */
 require("../directives/remaining");
+require("../directives/swipe");
 
 /**
  * Load the partials
