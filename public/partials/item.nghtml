@@ -1,6 +1,9 @@
 <div class="row-fluid item" data-ng-controller="ItemController">
-  <div class="span6 hidden-phone">
-    <img data-ng-src="{{item.images[selectedImage || 0].src}}" />
+  <div class="span6 swipe-container" data-swipe="item.images">
+    <ul class="swipe">
+      <li data-ng-repeat="image in item.images" data-ng-style="{'background-image': 'url('+image.src+')'}">
+      </li>
+    </ul>
   </div>
   <div class="span1 hidden-phone">
     <ul class="thumbnails">
@@ -11,15 +14,9 @@
       </li>
     </ul>
   </div>
-  <div class="swipe-container visible-phone" data-swipe="item.images">
-    <ul class="swipe">
-      <li data-ng-repeat="image in item.images" data-ng-style="{'background-image': 'url('+image.src+')'}">
-      </li>
-    </ul>
-  </div>
   <div class="span5 item-info">
-    <h2 class="title"><a href="/items/{{item.href | param}}" data-i18n-bind="item.title | i18n:'item.'+item.sku+'.title'"></a></h2>
-    <h3 class="vendor"><a href="/brands/{{item.vendor.href | param}}" data-i18n-bind="item.vendor.title"></a></h3>
+    <h2 class="title"><a href="/items/{{item.href | param}}" data-i18n-bind="item.name | i18n:'item.'+item.sku+'.name'"></a></h2>
+    <h3 class="vendor"><a href="/brands/{{item.publisher.href | param}}" data-i18n-bind="item.publisher.title"></a></h3>
     <p class="description" data-i18n-bind="item.description | i18n:'item.'+item.sku+'.description'"></p>
 
     <div class="controls">

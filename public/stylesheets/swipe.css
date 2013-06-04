@@ -1,12 +1,12 @@
 .swipe-container {
   overflow: hidden;
-  width: 300px;
+  width: 468px;
 }
 
 .swipe {
   margin: 0;
   padding: 0;
-  height: 300px;
+  height: 473px;
 }
 
 .swipe li {
@@ -16,8 +16,8 @@
   background-size: cover;
   background-position: 50% 0;
   color: #434343;
-  width: 300px;
-  height: 300px;
+  width: 473px;
+  height: 473px;
   line-height: 200px;
   text-align: center;
   list-style: none;

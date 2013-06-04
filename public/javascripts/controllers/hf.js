@@ -7,7 +7,7 @@ var app = require("..")
 /**
  * Load the partials
  */
-require("../../partials/nav.js");
+require("../../partials/nav");
 
 /**
  * HFController

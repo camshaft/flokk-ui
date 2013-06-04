@@ -16,7 +16,7 @@ require("../directives/swipe");
 /**
  * Load the partials
  */
-require("../../partials/item-thumb.js");
+require("../../partials/item-thumb");
 
 /**
  * Start the clock
@@ -56,11 +56,11 @@ function fetch (href, $scope) {
       });
 
       // We can't see any sales for the item
-      if(!item.sale) return;
+      if(!item.offers) return;
 
       // Fetch the sale info
       res
-        .follow("sale")
+        .follow("offers")
         .on("error", onError)
         .end(function(res) {
           // The sale isn't available

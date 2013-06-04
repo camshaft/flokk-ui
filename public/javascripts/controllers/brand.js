@@ -25,7 +25,7 @@ function BrandController($scope, $routeParams) {
 
       // Get the brand items listing
       res
-        .follow("items")
+        .follow("makesOffer")
         .on("error", onError)
         .end(function(res) {
           $scope.$apply(function() {

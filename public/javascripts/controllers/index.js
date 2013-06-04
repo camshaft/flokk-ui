@@ -6,7 +6,7 @@ var app = require("..");
 /**
  * Load the partials
  */
-require("../../partials/footer.js");
+require("../../partials/footer");
 
 /**
  * IndexController

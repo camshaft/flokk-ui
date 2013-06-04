@@ -7,7 +7,7 @@ var app = require("..")
 /**
  * Load the partials
  */
-var template = require("../../partials/remaining.js");
+var template = require("../../partials/remaining");
 
 /*
  * remaining
