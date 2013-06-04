@@ -10,15 +10,20 @@ var app = require("..")
 function lazyLoad() {
   return {
     link: function($scope, elem, attrs) {
+      // Add a lazy-load class
+      elem.addClass("lazy-load");
+
       $scope.$watch(attrs.lazyLoad, function(img) {
         if(!img) return;
+        elem.addClass("loading");
 
         var loader = new Preloader;
 
         loader.add(img);
 
         loader.end(function() {
-          elem.attr("src", img);
+          elem.removeClass("loading");
+          elem.css("background-image", "url("+img+")");
         });
       });
     }
