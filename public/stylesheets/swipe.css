@@ -14,7 +14,8 @@
   vertical-align: top;
   background: #f8f8f8;
   background-size: cover;
-  background-position: 50% 0;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #434343;
   width: 473px;
   height: 473px;
