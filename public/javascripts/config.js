@@ -38,10 +38,11 @@ var i18nBind = require("./directives/i18n-bind")
   , lazyLoad = require("./directives/lazy-load");
 
 /**
- * Initialize the directives used outside of the controllers
+ * Initialize the filters used outside of the controllers
  */
 var i18n = require("./filters/i18n")
-  , param = require("./filters/param");
+  , param = require("./filters/param")
+  , slugify = require("./filters/slugify");
 
 /**
  * Initialize the loading icon
@@ -65,7 +66,7 @@ app.config([
         templateUrl: account,
         controller: AccountController
       })
-      .when("/categories/:category", {
+      .when("/categories/:slug/:category", {
         templateUrl: category,
         controller: CategoryController
       })
@@ -73,11 +74,11 @@ app.config([
         templateUrl: brands,
         controller: BrandsController
       })
-      .when("/brands/:brand", {
+      .when("/brands/:slug/:brand", {
         templateUrl: brand,
         controller: BrandController
       })
-      .when("/items/:item", {
+      .when("/items/:slug/:item", {
         templateUrl: item,
         controller: ItemController
       })

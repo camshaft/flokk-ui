@@ -2,6 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
+  , analytics = require("../lib/analytics")
   , param = require("../lib/url-param")
   , subscribe = require("../lib/subscribe")
   , clock = require("clock")
@@ -28,11 +29,15 @@ clock.start();
  */
 function ItemController($scope, $routeParams, $location) {
   // Be able to load this within a route or in a list
-  if($routeParams.item) return fetch(param.decode($routeParams.item), $scope);
-
-  $scope.$watch('itemLink', function(link) {
+  if(!$routeParams.item) return $scope.$watch('itemLink', function(link) {
     if(link) fetch(link.href, $scope);
   });
+
+  // Track the page view
+  analytics.pageview();
+
+  // Fetch the item
+  fetch(param.decode($routeParams.item), $scope);
 };
 
 function fetch (href, $scope) {

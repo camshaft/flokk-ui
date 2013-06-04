@@ -1,4 +1,4 @@
 <h3 data-i18n-bind="'Oops...' | i18n:'oops'"></h3>
-<p data-i18n-bind="'We couldn\'t seem to find that page' | i18n:'not_found'"></p>
+<p data-i18n-bind="'We couldn\\\'t seem to find that page' | i18n:'not_found'"></p>
 
 <pre data-ng-bind="path"></pre>

@@ -3,7 +3,7 @@
     <li class="span4" data-ng-repeat="brand in body.vendors">
       <div class="thumbnail">
 
-        <a href="/brands/{{brand.href | param}}">
+        <a href="/brands/{{brand.title | slugify}}/{{brand.href | param}}">
           <img class="image" data-ng-src="{{brand.thumbnail}}" alt="">
           <h4 data-ng-bind="brand.title"></h4>
         </a>

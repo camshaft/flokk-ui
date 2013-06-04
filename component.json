@@ -23,7 +23,8 @@
     "CamShaft/clock": "*",
     "CamShaft/metric-log": "*",
     "component/preloader": "*",
-    "component/swipe": "*"
+    "component/swipe": "*",
+    "yields/slug": "*"
   },
   "development": {},
   "license": "MIT",
@@ -47,7 +48,9 @@
     "public/javascripts/filters/param.js",
     "public/javascripts/filters/i18n.js",
     "public/javascripts/filters/pad.js",
+    "public/javascripts/filters/slugify.js",
     "public/javascripts/lib/access-token.js",
+    "public/javascripts/lib/analytics.js",
     "public/javascripts/lib/client.js",
     "public/javascripts/lib/loading.js",
     "public/javascripts/lib/log.js",

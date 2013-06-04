@@ -23,3 +23,11 @@ var ctx = metric.context(options);
  * Expose the context
  */
 module.exports = ctx;
+
+/**
+ * Setup an error logger
+ */
+module.exports.error = function() {
+  // TODO log to the server
+  console.error.apply(console, arguments);
+};

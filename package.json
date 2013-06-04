@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "startup": "~0.1.0",
+    "component": "~0.16.2",
     "simple-stack-common": "~0.1.3",
-    "component": "~0.13.2",
     "nghtml": "CamShaft/nghtml"
   },
   "devDependencies": {

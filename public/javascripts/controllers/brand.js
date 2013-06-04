@@ -2,6 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
+  , analytics = require("../lib/analytics")
   , param = require("../lib/url-param")
   , client = require("../lib/client");
 
@@ -9,6 +10,9 @@ var app = require("..")
  * BrandController
  */
 function BrandController($scope, $routeParams) {
+  // Track the page view
+  analytics.pageview();
+
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);

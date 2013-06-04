@@ -2,6 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
+  , analytics = require("../lib/analytics")
   , client = require("../lib/client");
 
 /**

@@ -1,6 +1,6 @@
 <div class="thumbnail" data-ng-controller="ItemController">
 
-  <a href="/items/{{item.href | param}}">
+  <a href="/items/{{item.name | slugify}}/{{item.href | param}}">
     <img class="image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAABbUlEQVR4Xu3VUQkAMAzE0NW/11rYYCry8aogJByd3b3HZQyMIJkWH0SQVg9BYj0EEaRmIMbjhwgSMxDDsRBBYgZiOBYiSMxADMdCBIkZiOFYiCAxAzEcCxEkZiCGYyGCxAzEcCxEkJiBGI6FCBIzEMOxEEFiBmI4FiJIzEAMx0IEiRmI4ViIIDEDMRwLESRmIIZjIYLEDMRwLESQmIEYjoUIEjMQw7EQQWIGYjgWIkjMQAzHQgSJGYjhWIggMQMxHAsRJGYghmMhgsQMxHAsRJCYgRiOhQgSMxDDsRBBYgZiOBYiSMxADMdCBIkZiOFYiCAxAzEcCxEkZiCGYyGCxAzEcCxEkJiBGI6FCBIzEMOxEEFiBmI4FiJIzEAMx0IEiRmI4ViIIDEDMRwLESRmIIZjIYLEDMRwLESQmIEYjoUIEjMQw7EQQWIGYjgWIkjMQAzHQgSJGYjhWIggMQMxHAsRJGYghmMhgsQMxHAejdB6+P0PnQkAAAAASUVORK5CYII=" data-lazy-load="item.thumbnail.src" title="{{item.name}}">
   </a>
   <div data-ng-show="sale.remaining > 0" class="row-fluid item-info">
