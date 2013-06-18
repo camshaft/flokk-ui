@@ -1,15 +1,14 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , translations = require("../services/translations");
+var app = require("..");
 
 /**
  * i18n-bind
  *
  * Content-editable binding for editing translations
  */
-function i18nBind(translations) {
+function i18nBind() {
   return function($scope, elem, attrs) {
     // TODO Enable editing mode
     // TODO add translations to backend
