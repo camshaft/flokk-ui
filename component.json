@@ -18,8 +18,6 @@
     "ForbesLindesay/base64-decode": "*",
     "visionmedia/batch": "*",
     "component/cookie": "*",
-    "component/piecon": "*",
-    "component/favicon": "*",
     "CamShaft/clock": "*",
     "CamShaft/metric-log": "*",
     "component/preloader": "*",
