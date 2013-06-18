@@ -1,18 +1,6 @@
 <div class="row-fluid item" data-ng-controller="ItemController">
-  <div class="span6 swipe-container" data-swipe="item.images">
-    <ul class="swipe">
-      <li data-ng-repeat="image in item.images" data-ng-style="{'background-image': 'url('+image.src+')'}">
-      </li>
-    </ul>
-  </div>
-  <div class="span1 hidden-phone">
-    <ul class="thumbnails">
-      <li class="span12" data-ng-repeat="image in item.images" data-ng-class="{active: image == $index}">
-        <a data-ng-href="#image-{{$index}}">
-          <img data-ng-src="{{image.src}}" />
-        </a>
-      </li>
-    </ul>
+  <div class="span6">
+    <img data-ng-src="item.image">
   </div>
   <div class="span5 item-info">
     <h2 class="title"><a href="/items/{{item.name | slugify}}/{{item.href | param}}" data-i18n-bind="item.name | i18n:'item.'+item.sku+'.name'"></a></h2>
