@@ -2,7 +2,8 @@
  * Module dependencies
  */
 var base64decode = require("base64-decode")
-  , base64encode = require("base64-encode");
+  , base64encode = require("base64-encode")
+  , pad = require("pad");
 
 exports.encode = function(url) {
   return url
@@ -15,9 +16,9 @@ exports.encode = function(url) {
 
 exports.decode = function(url) {
   return url
-    ? padString(base64decode(url))
+    ? base64decode(padString(url)
         .replace(/\-/, '+')
-        .replace(/_/, '/')
+        .replace(/_/, '/'))
     : '';
 };
 
@@ -32,9 +33,5 @@ function padString(string) {
   // See how much padding we need
   var rem = 4-mod;
 
-  // Add it
-  while (rem--) {
-    string += "=";
-  }
-  return string;
+  return pad(string, rem, "=");
 };
