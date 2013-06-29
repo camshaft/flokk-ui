@@ -14,7 +14,14 @@ var API_URL = envs("API_URL", "https://api.theflokk.com");
 /**
  * Expose the app
  */
-var app = module.exports = stack();
+var app = module.exports = stack({
+  base: {
+    host: 'x-orig-host',
+    path: 'x-orig-path',
+    port: 'x-orig-path',
+    proto: 'x-orig-proto'
+  }
+});
 
 /**
  * Serve the static assets
