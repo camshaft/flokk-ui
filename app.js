@@ -12,15 +12,20 @@ var stack = require("simple-stack-common")
 var API_URL = envs("API_URL", "https://api.theflokk.com");
 
 /**
+ * Forwarding headers
+ */
+var headers = {
+  host: 'x-orig-host',
+  path: 'x-orig-path',
+  port: 'x-orig-port',
+  proto: 'x-orig-proto'
+};
+
+/**
  * Expose the app
  */
 var app = module.exports = stack({
-  base: {
-    host: 'x-orig-host',
-    path: 'x-orig-path',
-    port: 'x-orig-path',
-    proto: 'x-orig-proto'
-  }
+  base: headers
 });
 
 /**
@@ -44,7 +49,7 @@ app.useBefore("router", "/auth/logout", "auth:logout", auth.logout);
  * Proxy the api
  */
 app.configure("development", function() {
-  app.useBefore("base", "/api", "api-proxy", proxy(API_URL, {xforward: true}));
+  app.useBefore("base", "/api", "api-proxy", proxy(API_URL, {xforward: headers}));
 });
 
 /**
