@@ -8,6 +8,10 @@
     <meta name="description" content="">
     <link rel="icon" type="text/css" href="/favicon.ico">
     <link href="/public/build.css" rel="stylesheet">
+    <script type="text/javascript">
+      // Stupid hack for facebook login
+      if (window.location.hash === '#_=_') window.location.hash = '';
+    </script>
   </head>
   <body data-ng-controller="IndexController">
     <div class="navbar navbar-fixed-top" data-ng-include="" src="'/partials/nav.nghtml'"></div>
