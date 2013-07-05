@@ -1,7 +1,7 @@
 <div class="thumbnail" data-ng-controller="ItemController">
 
   <a href="/items/{{item.name | slugify}}/{{item.href | param}}">
-    <div class="image" data-lazy-load="item.thumbnail.src" title="{{item.name}}"></div>
+    <div class="image" data-lazy-load="item.thumbnail.src || item.image.src" title="{{item.name}}"></div>
   </a>
   <div data-ng-show="sale.remaining > 0" class="row-fluid item-info">
     <div class="span3 price">

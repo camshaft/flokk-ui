@@ -1,6 +1,6 @@
 <div class="row-fluid item" data-ng-controller="ItemController">
   <div class="span6">
-    <img data-ng-src="item.image">
+    <img data-ng-src="{{item.image.src}}">
   </div>
   <div class="span5 item-info">
     <h2 class="title"><a href="/items/{{item.name | slugify}}/{{item.href | param}}" data-i18n-bind="item.name | i18n:'item.'+item.sku+'.name'"></a></h2>

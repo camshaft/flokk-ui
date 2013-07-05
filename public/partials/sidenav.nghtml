@@ -8,8 +8,4 @@
       <a data-i18n-bind="category.title | i18n:'category.'+category.href" data-ng-href="/categories/{{category.title | slugify}}/{{category.items | param}}"></a>
     </li>
   </ul>
-  <ul class="nav nav-list" data-ng-show="root.vendors">
-    <li class="divider"></li>
-    <li class="nav-header" data-ng-class="{active: path=='/brands'}"><a href="/brands" data-i18n-bind="'Brands' | i18n:'brands'"></a></li>
-  </ul>
 </div>

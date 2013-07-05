@@ -3,8 +3,7 @@
  */
 var stack = require("simple-stack-common")
   , envs = require("envs")
-  , auth = require("./lib/auth")
-  , proxy = require("simple-http-proxy");
+  , auth = require("./lib/auth");
 
 /**
  * Defines
@@ -49,6 +48,7 @@ app.useBefore("router", "/auth/logout", "auth:logout", auth.logout);
  * Proxy the api
  */
 app.configure("development", function() {
+  var proxy = require("simple-http-proxy");
   app.useBefore("base", "/api", "api-proxy", proxy(API_URL, {xforward: headers}));
 });
 
