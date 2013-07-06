@@ -2,7 +2,7 @@
  * Module dependencies
  */
 var app = require("..")
-  , param = require("../lib/url-param")
+  , websafe = require("websafe-base64")
   , client = require("../lib/client");
 
 /**
@@ -17,7 +17,7 @@ function SidenavController($scope, $routeParams) {
   $scope.$watch(function() {
     return $routeParams.category;
   }, function(val) {
-    $scope.current = param.decode($routeParams.category);
+    $scope.current = websafe.decode($routeParams.category);
   });
 
   function onError(err) {

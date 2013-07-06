@@ -3,7 +3,7 @@
  */
 var app = require("..")
   , analytics = require("../lib/analytics")
-  , param = require("../lib/url-param")
+  , websafe = require("websafe-base64")
   , client = require("../lib/client");
 
 /**
@@ -20,7 +20,7 @@ function CategoryController($scope, $routeParams) {
 
   // Get the category information
   client
-    .get(param.decode($routeParams.category))
+    .get(websafe.decode($routeParams.category))
     .on("error", onError)
     .end(function(res) {
 

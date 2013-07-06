@@ -3,7 +3,7 @@
  */
 var app = require("..")
   , analytics = require("../lib/analytics")
-  , param = require("../lib/url-param")
+  , websafe = require("websafe-base64")
   , subscribe = require("../lib/subscribe")
   , clock = require("clock")
   , client = require("../lib/client");
@@ -36,7 +36,7 @@ function ItemController($scope, $routeParams, $location) {
   analytics.pageview();
 
   // Fetch the item
-  fetch(param.decode($routeParams.item), $scope);
+  fetch(websafe.decode($routeParams.item), $scope);
 };
 
 function fetch (href, $scope) {

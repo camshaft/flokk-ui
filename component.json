@@ -11,11 +11,10 @@
     "CamShaft/bootstrap-navs": "*",
     "CamShaft/bootstrap-thumbnails": "*",
     "CamShaft/bootstrap-responsive": "*",
+    "CamShaft/websafe-base64": "*",
     "component/pad": "*",
     "airbnb/polyglot.js": "*",
     "visionmedia/superagent": "*",
-    "ForbesLindesay/base64-encode": "*",
-    "ForbesLindesay/base64-decode": "*",
     "component/cookie": "*",
     "CamShaft/clock": "*",
     "CamShaft/metric-log": "*",
@@ -50,7 +49,6 @@
     "public/javascripts/lib/loading.js",
     "public/javascripts/lib/log.js",
     "public/javascripts/lib/subscribe.js",
-    "public/javascripts/lib/url-param.js",
     "public/javascripts/services/translations.js"
   ],
   "styles": [

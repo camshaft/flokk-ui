@@ -3,7 +3,7 @@
  */
 var app = require("..")
   , analytics = require("../lib/analytics")
-  , param = require("../lib/url-param")
+  , websafe = require("websafe-base64")
   , client = require("../lib/client");
 
 /**
@@ -20,7 +20,7 @@ function BrandController($scope, $routeParams) {
 
   // Get the brand information
   client
-    .get(param.decode($routeParams.brand))
+    .get(websafe.decode($routeParams.brand))
     .on("error", onError)
     .end(function(res) {
       $scope.$apply(function() {
