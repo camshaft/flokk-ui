@@ -1,11 +1,13 @@
-/*
+/**
  * Module dependencies
  */
+
 var app = require(".");
 
 /**
  * Initialize the controllers
  */
+
 var AccountController = require("./controllers/account")
   , IndexController = require("./controllers/index")
   , CategoryController = require("./controllers/category")
@@ -19,6 +21,7 @@ var AccountController = require("./controllers/account")
 /**
  * Load the partials
  */
+
 var notFound = require("../partials/404.js")
   , about = require("../partials/about.js")
   , account = require("../partials/account.js")
@@ -34,12 +37,14 @@ var notFound = require("../partials/404.js")
 /**
  * Initialize the directives used outside of the controllers
  */
+
 var i18nBind = require("./directives/i18n-bind")
   , lazyLoad = require("./directives/lazy-load");
 
 /**
  * Initialize the filters used outside of the controllers
  */
+
 var i18n = require("./filters/i18n")
   , param = require("./filters/param")
   , slugify = require("./filters/slugify");
@@ -47,11 +52,13 @@ var i18n = require("./filters/i18n")
 /**
  * Initialize the loading icon
  */
+
 require("./lib/loading");
 
-/*
+/**
  * Configure the app
  */
+
 app.config([
   '$routeProvider',
   '$locationProvider',
