@@ -24,7 +24,8 @@
     "nghtml": "CamShaft/nghtml",
     "passport": "~0.1.17",
     "passport-flokk": "flokk/passport-flokk",
-    "envs": "~0.1.0"
+    "envs": "~0.1.0",
+    "flokk-angular": "git+https://github.com/CamShaft/flokk-angular"
   },
   "devDependencies": {
     "should": "~1.2.1",
