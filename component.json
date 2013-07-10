@@ -16,6 +16,8 @@
     "airbnb/polyglot.js": "*",
     "visionmedia/superagent": "*",
     "component/cookie": "*",
+    "component/each": "*",
+    "component/type": "*",
     "CamShaft/clock": "*",
     "CamShaft/metric-log": "*",
     "component/preloader": "*",

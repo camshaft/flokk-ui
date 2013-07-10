@@ -31,6 +31,21 @@ function AccountController($scope) {
           });
         });
     });
+
+  client()
+    .on("error", onError)
+    .end(function(res) {
+      if(!res.body.cart) return onError(new Error("No cart found"));
+
+      res
+        .follow('cart')
+        .on("error", onError)
+        .end(function(res) {
+          $scope.$apply(function() {
+            $scope.cart = res.body;
+          });
+        });
+    });
 };
 
 /**

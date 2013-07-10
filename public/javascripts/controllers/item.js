@@ -6,6 +6,7 @@ var app = require("..")
   , websafe = require("websafe-base64")
   , subscribe = require("../lib/subscribe")
   , clock = require("clock")
+  , each = require('each')
   , client = require("../lib/client");
 
 /**
@@ -32,11 +33,18 @@ function ItemController($scope, $routeParams, $location) {
     if(link) fetch(link.href, $scope);
   });
 
+  // Initialize the purchase form on the page
+  $scope.purchaseForm = {};
+
   // Track the page view
   analytics.pageview();
 
   // Fetch the item
   fetch(websafe.decode($routeParams.item), $scope);
+
+  $scope.onadd = function() {
+    // TODO handle adding an item to the cart
+  };
 };
 
 function fetch (href, $scope) {
@@ -74,6 +82,11 @@ function fetch (href, $scope) {
 
           // Display the sale info
           $scope.sale = sale;
+
+          $scope.purchaseForm = {};
+          if (sale.purchase) each(sale.purchase.input, function(key, conf) {
+            if (conf.value) $scope.purchaseForm[key] = conf.value;
+          });
 
           // The item isn't on sale
           if(!sale.ending) return $scope.$digest();

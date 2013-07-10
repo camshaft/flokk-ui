@@ -1,7 +1,10 @@
 /**
  * Module dependencies
  */
-var app = require("..");
+var app = require("..")
+  , client = require('../lib/client')
+  , each = require('each')
+  , type = require('type');
 
 /**
  * Load the partials
@@ -19,8 +22,24 @@ function IndexController($scope, $location) {
   });
 
   // TODO expose an easy way to submit a form
-  $scope.submit = function() {
-    
+  $scope.submit = function(form, values, cb) {
+    if (type(values) === 'function') {
+      cb = values;
+      values = {};
+    }
+
+    var method = (form.method || 'post').toLowerCase();
+
+    each(form.input, function(key, conf) {
+      if (conf.name) key = conf.name;
+      if (!values[key]) values[key] = conf.value;
+    });
+
+    (client[method])(form.action)
+      .send(values)
+      .end(function(err, res){
+        cb(err, res);
+      })
   };
 };
 

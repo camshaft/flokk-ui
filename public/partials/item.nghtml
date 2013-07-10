@@ -11,7 +11,7 @@
 
       <!-- <div class="in-stock" data-i18n-bind="'%{smart_count} left' | i18n:'item.in_stock':{smart_count: sale.quantity}"></div> -->
 
-      <form class="form-horizontal">
+      <form class="form-horizontal" name="purchase" data-ng-submit="submit(sale.purchase, purchaseForm, onadd)">
         <div class="control-group">
           <div class="control-label price">
             <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(sale.price || item.retail)}"></p>
@@ -23,19 +23,10 @@
             <div data-ng-hide="sale.onSale" data-i18n-bind="'Go ahead and start a sale. Shipping is on us' | i18n:'why_start_sale'"></div>
           </div>
         </div>
-        <div class="control-group" data-ng-repeat="field in item.addToCart.fields">
-          <label class="control-label" for="field-{{field.prompt}}" data-i18n-bind="field.prompt | i18n:'item.'+item.sku+'.field.'+field.id"></label>
-          <div class="controls">
-            <select name="{{field.name}}">
-              <option data-ng-repeat="option in field.options" data-i18n-bind="option.prompt | i18n:'item.'+item.sku+'.field.'+field.id+'.option.'+option.id"></option>
-            </select>
-          </div>
-        </div>
         <div class="control-group">
-          <label class="control-label" for="field-quantity" data-i18n-bind="'Quantity' | i18n:'item.quantity'"></label>
+          <label class="control-label" for="field-quantity" data-i18n-bind="sale.purchase.input.quantity.prompt"></label>
           <div class="controls">
-            <select name="quantity">
-              <option data-ng-repeat="quantity in [1,2,3,4,5,6,7,8,9]" data-i18n-bind="quantity"></option>
+            <select name="quantity" id="field-quantity" data-ng-model="purchaseForm.quantity" data-ng-options="option.value as (option.prompt || option.value) for option in sale.purchase.input.quantity.options">
             </select>
           </div>
         </div>
