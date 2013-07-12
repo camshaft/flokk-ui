@@ -1,10 +1,11 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , analytics = require("../lib/analytics")
+var app = require('..')
+  , each = require('each')
+  , analytics = require('../lib/analytics')
   , subscribe = require('../lib/subscribe')
-  , client = require("../lib/client");
+  , client = require('../lib/client');
 
 /**
  * CartController
@@ -15,20 +16,27 @@ function CartController($scope) {
     console.error(err.stack || err.message || err);
   };
 
+  $scope.count = 0;
+
   client()
-    .on("error", onError)
+    .on('error', onError)
     .end(function(res) {
-      if(!res.body.cart) return onError(new Error("No cart found"));
+      if(!res.body.cart) return onError(new Error('No cart found'));
 
       res
         .follow('cart')
-        .on("error", onError)
+        .on('error', onError)
         .end(function(res) {
           if (res.error) return onError(new Error(res.text));
 
           function update(cart) {
             $scope.$apply(function() {
               $scope.cart = cart;
+
+              $scope.count = 0;
+              each(cart.offer, function(offer) {
+                $scope.count += offer.quantity || 0;
+              });
             });
           };
 
@@ -45,7 +53,7 @@ function CartController($scope) {
 /**
  * Register it with angular
  */
-app.controller("CartController", [
+app.controller('CartController', [
   '$scope',
   CartController
 ]);
@@ -53,4 +61,4 @@ app.controller("CartController", [
 /**
  * Let others know where to find it
  */
-module.exports = "CartController";
+module.exports = 'CartController';

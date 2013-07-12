@@ -42,7 +42,6 @@ function IndexController($scope, $location) {
       .send(values)
       .on('error', cb)
       .end(function(res){
-        console.log(res);
         if (res.ok && res.body.href === form.action) subscribe.publish(form.action);
         if (cb) cb(null, res);
       })
