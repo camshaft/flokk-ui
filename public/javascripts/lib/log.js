@@ -22,7 +22,7 @@ var ctx = metric.context(options);
 /**
  * Expose the context
  */
-module.exports = ctx;
+window.metric = module.exports = ctx;
 
 /**
  * Setup an error logger

@@ -8,9 +8,10 @@
     <meta name="description" content="">
     <link rel="icon" type="text/css" href="/favicon.ico">
     <link href="/public/build.css" rel="stylesheet">
-    <script type="text/javascript">
+    <script>
       // Stupid hack for facebook login
       if (window.location.hash === '#_=_') window.location.hash = '';
+      var startTime = Date.now();
     </script>
   </head>
   <body data-ng-controller="IndexController">
@@ -28,5 +29,8 @@
 
     <footer data-ng-include="" src="'/partials/footer.nghtml'"></footer>
     <script src="/public/build.js"></script>
+    <script>
+      if (window.metric) metric({'measure': 'page_load_time', val: (Date.now() - startTime), units: 'ms'});
+    </script>
   </body>
 </html>
