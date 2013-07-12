@@ -29,6 +29,8 @@ function IndexController($scope, $location) {
       values = {};
     }
 
+    if (!values) values = {};
+
     var method = (form.method || 'post').toLowerCase();
 
     each(form.input, function(key, conf) {

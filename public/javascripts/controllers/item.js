@@ -38,10 +38,6 @@ function ItemController($scope, $routeParams, $location) {
 
   // Fetch the item
   fetch(websafe.decode($routeParams.item), $scope);
-
-  $scope.onadd = function() {
-    // TODO handle adding an item to the cart
-  };
 };
 
 function fetch (href, $scope) {

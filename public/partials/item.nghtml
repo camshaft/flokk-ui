@@ -11,7 +11,7 @@
 
       <!-- <div class="in-stock" data-i18n-bind="'%{smart_count} left' | i18n:'item.in_stock':{smart_count: sale.quantity}"></div> -->
 
-      <form class="form-horizontal" name="purchase" data-ng-submit="submit(sale.purchase, purchaseForm, onadd)">
+      <form class="form-horizontal" name="purchase" data-ng-submit="submit(sale.purchase, purchaseForm)">
         <div class="control-group">
           <div class="control-label price">
             <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(sale.price || item.retail)}"></p>

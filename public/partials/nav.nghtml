@@ -5,7 +5,7 @@
     <li data-ng-class="{active: path=='/contact'}"><a href="/contact" data-i18n-bind="'Contact us' | i18n:'contact_us'"></a></li>
     <li data-ng-class="{active: path=='/about'}"><a href="/about" data-i18n-bind="'How it works' | i18n:'how_it_works'"></a></li>
     <li data-ng-class="{active: path=='/cart'}" data-ng-controller="CartController"><a href="/cart" data-i18n-bind="'Cart (%{smart_count})' | i18n:'cart':{smart_count:cart.offer.length || 0}"></a></li>
-    <li data-ng-class="{active: path=='/account'}"><a href="/account" data-i18n-bind="'My Account' | i18n:'account_link'"></a></li>
+    <li data-ng-class="{active: path=='/account'}" data-ng-controller="AccountController"><a href="/account" data-ng-bind="account.name"></a></li>
     <li><a href="/auth/logout" target="_self" data-i18n-bind="'Logout' | i18n:'logout'"></a></li>
   </ul>
   <ul class="pull-right nav ng-cloak account-links" data-ng-hide="root.account">

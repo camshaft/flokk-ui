@@ -5,7 +5,7 @@
       <div data-ng-bind="itemLink.href"></div>
       <div data-ng-bind="itemLink.quantity"></div>
 
-      <form class="form-horizontal" name="purchase" data-ng-submit="submit(itemLink.remove, {}, onupdate)">
+      <form class="form-horizontal" name="purchase" data-ng-submit="submit(itemLink.remove)">
         <div class="control-group">
           <div class="controls">
             <button type="submit" class="btn btn-large btn-action" data-i18n-bind="'REMOVE' | i18n:'cart.remove'"></button>
