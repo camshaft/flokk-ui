@@ -16,6 +16,7 @@ function CartController($scope) {
     console.error(err.stack || err.message || err);
   };
 
+  // Initialize the cart count
   $scope.count = 0;
 
   client()
@@ -37,6 +38,7 @@ function CartController($scope) {
               each(cart.offer, function(offer) {
                 $scope.count += offer.quantity || 0;
               });
+              $scope.loaded = true;
             });
           };
 

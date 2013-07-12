@@ -2,7 +2,8 @@
  * Module dependencies
  */
 
-var app = require(".");
+var app = require(".")
+  , analytics = require('./lib/analytics');
 
 /**
  * Initialize the controllers
@@ -110,5 +111,15 @@ app.config([
       });
 
     $locationProvider.html5Mode(true);
+  }
+]);
+
+app.run([
+  '$rootScope',
+
+  function($rootScope) {
+    $rootScope.$on("$routeChangeSuccess", function(currentRoute, previousRoute){
+      analytics.pageview();
+    });
   }
 ]);

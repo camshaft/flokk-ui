@@ -1,11 +1,13 @@
 <div class="row-fluid">
   <div class="items">
-    <div class="thumbnail" data-ng-controller="ItemController" data-ng-repeat="itemLink in cart.offer" data-ng-init="">
+    <div data-ng-controller="ItemController" data-ng-repeat="itemLink in cart.offer" data-ng-init="">
+      <img class="span2" data-ng-src="{{item.image.src}}">
+      <div class="span6">
+        <div data-ng-bind="item.name"></div>
+        <div data-ng-bind="'Quantity: ' + itemLink.quantity"></div>
+      </div>
 
-      <div data-ng-bind="itemLink.href"></div>
-      <div data-ng-bind="itemLink.quantity"></div>
-
-      <form class="form-horizontal" name="purchase" data-ng-submit="submit(itemLink.remove)">
+      <form class="form-horizontal span4" name="purchase" data-ng-submit="submit(itemLink.remove)">
         <div class="control-group">
           <div class="controls">
             <button type="submit" class="btn btn-large btn-action" data-i18n-bind="'REMOVE' | i18n:'cart.remove'"></button>
@@ -13,5 +15,8 @@
         </div>
       </form>
     </div>
+  </div>
+  <div data-ng-show="!cart.offer.length && loaded">
+    There are no items in your cart. Get shopping!
   </div>
 </div>
