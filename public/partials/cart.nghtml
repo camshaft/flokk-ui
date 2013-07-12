@@ -1,9 +1,12 @@
 <div class="row-fluid">
   <div class="items">
     <div data-ng-controller="ItemController" data-ng-repeat="itemLink in cart.offer" data-ng-init="">
-      <img class="span2" data-ng-src="{{item.image.src}}">
+      <a data-ng-href="/items/{{item.name | slugify}}/{{item.href | param}}">
+        <img class="span2" data-ng-src="{{item.image.src}}">
+      </a>
       <div class="span6">
-        <div data-ng-bind="item.name"></div>
+        <a data-ng-href="/items/{{item.name | slugify}}/{{item.href | param}}" data-ng-bind="item.name"></a>
+        <div data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.retail}"></div>
         <div data-ng-bind="'Quantity: ' + itemLink.quantity"></div>
       </div>
 
@@ -16,7 +19,7 @@
       </form>
     </div>
   </div>
-  <div data-ng-show="!cart.offer.length && loaded">
+  <div data-ng-show="!cart.count && loaded">
     There are no items in your cart. Get shopping!
   </div>
 </div>

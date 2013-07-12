@@ -16,9 +16,6 @@ function CartController($scope) {
     console.error(err.stack || err.message || err);
   };
 
-  // Initialize the cart count
-  $scope.count = 0;
-
   client()
     .on('error', onError)
     .end(function(res) {
@@ -33,11 +30,6 @@ function CartController($scope) {
           function update(cart) {
             $scope.$apply(function() {
               $scope.cart = cart;
-
-              $scope.count = 0;
-              each(cart.offer, function(offer) {
-                $scope.count += offer.quantity || 0;
-              });
               $scope.loaded = true;
             });
           };
