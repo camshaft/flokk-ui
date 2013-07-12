@@ -21,7 +21,8 @@
     "CamShaft/clock": "*",
     "CamShaft/metric-log": "*",
     "component/preloader": "*",
-    "yields/slug": "*"
+    "yields/slug": "*",
+    "component/emitter": "*"
   },
   "development": {},
   "license": "MIT",

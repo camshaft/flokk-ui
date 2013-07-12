@@ -3,6 +3,7 @@
  */
 var app = require("..")
   , client = require('../lib/client')
+  , subscribe = require('../lib/subscribe')
   , each = require('each')
   , type = require('type');
 
@@ -37,8 +38,11 @@ function IndexController($scope, $location) {
 
     (client[method])(form.action)
       .send(values)
-      .end(function(err, res){
-        cb(err, res);
+      .on('error', cb)
+      .end(function(res){
+        console.log(res);
+        if (res.ok && res.body.href === form.action) subscribe.publish(form.action);
+        if (cb) cb(null, res);
       })
   };
 };

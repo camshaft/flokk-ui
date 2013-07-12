@@ -3,6 +3,7 @@
  */
 var app = require("..")
   , analytics = require("../lib/analytics")
+  , subscribe = require('../lib/subscribe')
   , client = require("../lib/client");
 
 /**
@@ -14,30 +15,31 @@ function CartController($scope) {
     console.error(err.stack || err.message || err);
   };
 
-  function onupdate(force) {
-    if (typeof force === 'undefined') force = true;
+  client()
+    .on("error", onError)
+    .end(function(res) {
+      if(!res.body.cart) return onError(new Error("No cart found"));
 
-    client()
-      .on("error", onError)
-      .end(function(res) {
-        if(!res.body.cart) return onError(new Error("No cart found"));
+      res
+        .follow('cart')
+        .on("error", onError)
+        .end(function(res) {
+          if (res.error) return onError(new Error(res.text));
 
-        var req = res
-          .follow('cart')
-
-        if (force) req.forceLoad();
-
-        req
-          .on("error", onError)
-          .end(function(res) {
+          function update(cart) {
             $scope.$apply(function() {
-              $scope.cart = res.body;
+              $scope.cart = cart;
             });
+          };
+
+          update(res.body);
+          var subscription = subscribe(res.body.href, update);
+
+          $scope.$on('$destroy', function() {
+            subscribe.clear(subscription);
           });
-      });
-  };
-  $scope.onupdate = onupdate;
-  onupdate(false);
+        });
+    });
 };
 
 /**
