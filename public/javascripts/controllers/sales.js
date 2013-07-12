@@ -9,9 +9,6 @@ var app = require("..")
  * SalesController
  */
 function SalesController($scope) {
-  // Track the page view
-  analytics.pageview();
-
   function onError(err) {
     console.error(err.stack || err.message || err);
   };

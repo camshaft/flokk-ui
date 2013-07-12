@@ -4,6 +4,7 @@
   <ul class="pull-right nav ng-cloak account-links" data-ng-show="root.account">
     <li data-ng-class="{active: path=='/contact'}"><a href="/contact" data-i18n-bind="'Contact us' | i18n:'contact_us'"></a></li>
     <li data-ng-class="{active: path=='/about'}"><a href="/about" data-i18n-bind="'How it works' | i18n:'how_it_works'"></a></li>
+    <li data-ng-class="{active: path=='/cart'}"><a href="/cart" data-i18n-bind="'Cart' | i18n:'cart'"></a></li>
     <li data-ng-class="{active: path=='/account'}"><a href="/account" data-i18n-bind="'My Account' | i18n:'account_link'"></a></li>
     <li><a href="/auth/logout" target="_self" data-i18n-bind="'Logout' | i18n:'logout'"></a></li>
   </ul>

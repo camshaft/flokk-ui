@@ -33,6 +33,11 @@ exports.del = function() {
 function defaults(req) {
   req.set(accessToken.auth());
 
+  req.skipCache = function() {
+    this.set('cache-control', 'no-cache');
+    return this;
+  };
+
   // Patch the `end` function
   var _end = req.end;
   req.end = function(fn) {

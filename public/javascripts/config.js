@@ -10,6 +10,7 @@ var app = require(".");
 
 var AccountController = require("./controllers/account")
   , IndexController = require("./controllers/index")
+  , CartController = require("./controllers/cart")
   , CategoryController = require("./controllers/category")
   , ItemController = require("./controllers/item")
   , HFController = require("./controllers/hf")
@@ -27,6 +28,7 @@ var notFound = require("../partials/404.js")
   , account = require("../partials/account.js")
   , brand = require("../partials/brand.js")
   , brands = require("../partials/brands.js")
+  , cart = require("../partials/cart.js")
   , category = require("../partials/category.js")
   , contact = require("../partials/contact.js")
   , copyright = require("../partials/copyright.js")
@@ -90,13 +92,17 @@ app.config([
         controller: ItemController
       })
       .when("/contact", {
-        templateUrl: contact,
+        templateUrl: contact
+      })
+      .when("/cart", {
+        templateUrl: cart,
+        controller: CartController
       })
       .when("/about", {
-        templateUrl: about,
+        templateUrl: about
       })
       .when("/copyright", {
-        templateUrl: copyright,
+        templateUrl: copyright
       })
       .otherwise({
         templateUrl: notFound,

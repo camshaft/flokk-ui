@@ -7,8 +7,4 @@
     <h3 data-ng-bind="account.name"></h3>
     <p data-ng-bind="account.email"></p>
   </div>
-  <div class="cart">
-    <h4>Cart</h4>
-    <div data-ng-repeat="offer in cart.offer" data-ng-bind="offer | json"></div>
-  </div>
 </div>

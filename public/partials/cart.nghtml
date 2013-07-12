@@ -1,0 +1,17 @@
+<div class="row-fluid">
+  <div class="items">
+    <div class="thumbnail" data-ng-controller="ItemController" data-ng-repeat="itemLink in cart.offer" data-ng-init="">
+
+      <div data-ng-bind="itemLink.href"></div>
+      <div data-ng-bind="itemLink.quantity"></div>
+
+      <form class="form-horizontal" name="purchase" data-ng-submit="submit(itemLink.remove, {}, onupdate)">
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn btn-large btn-action" data-i18n-bind="'REMOVE' | i18n:'cart.remove'"></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

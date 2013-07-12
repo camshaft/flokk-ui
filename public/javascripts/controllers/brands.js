@@ -9,9 +9,6 @@ var app = require("..")
  * BrandsController
  */
 function BrandsController($scope) {
-  // Track the page view
-  analytics.pageview();
-
   function onError(err) {
     console.error(err.stack || err.message || err);
   };

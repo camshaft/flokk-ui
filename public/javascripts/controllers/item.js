@@ -36,9 +36,6 @@ function ItemController($scope, $routeParams, $location) {
   // Initialize the purchase form on the page
   $scope.purchaseForm = {};
 
-  // Track the page view
-  analytics.pageview();
-
   // Fetch the item
   fetch(websafe.decode($routeParams.item), $scope);
 
