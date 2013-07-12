@@ -14,15 +14,20 @@ function CartController($scope) {
     console.error(err.stack || err.message || err);
   };
 
-  function onupdate() {
+  function onupdate(force) {
+    if (typeof force === 'undefined') force = true;
+
     client()
       .on("error", onError)
       .end(function(res) {
         if(!res.body.cart) return onError(new Error("No cart found"));
 
-        res
+        var req = res
           .follow('cart')
-          .skipCache()
+
+        if (force) req.forceLoad();
+
+        req
           .on("error", onError)
           .end(function(res) {
             $scope.$apply(function() {
@@ -32,7 +37,7 @@ function CartController($scope) {
       });
   };
   $scope.onupdate = onupdate;
-  onupdate();
+  onupdate(false);
 };
 
 /**
