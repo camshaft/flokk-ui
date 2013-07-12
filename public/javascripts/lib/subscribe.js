@@ -26,7 +26,7 @@ exports = module.exports = function(href, callback) {
       .get(href)
       .on("error", onError)
       .end(function(res) {
-        if(res.ok) events.emit(href, res.body);
+        events.emit(href, res.body);
       });
   }, 10000);
 
@@ -46,6 +46,6 @@ exports.publish = function(href) {
     .forceLoad()
     .on("error", onError)
     .end(function(res) {
-      if (res.ok) events.emit(href, res.body);
+      events.emit(href, res.body);
     });
 };
