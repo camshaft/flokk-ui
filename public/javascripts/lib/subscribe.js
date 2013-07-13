@@ -24,9 +24,9 @@ exports = module.exports = function(href, callback) {
   if (events.listeners(href).length !== 1) return id;
 
   subscribeToPusher(href, function() {
-    console.log('Updating', href);
     client
       .get(href)
+      .forceLoad()
       .on("error", onError)
       .end(function(res) {
         events.emit(href, res.body);
