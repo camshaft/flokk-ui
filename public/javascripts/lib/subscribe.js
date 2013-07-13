@@ -51,7 +51,8 @@ exports.publish = function(href) {
 };
 
 function subscribeToPusher(href, cb) {
-  if (!pusher) pusher = new window.Pusher('d0fe0a7926eadcd62773');
+  // TODO pull this from the env
+  if (!pusher) pusher = new window.Pusher('d49649a56559e77e3bf6');
   var channel = pusher.subscribe(websafe.encode(href));
   channel.bind('update', cb);
 };
