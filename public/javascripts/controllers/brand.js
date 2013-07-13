@@ -1,14 +1,16 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , analytics = require("../lib/analytics")
-  , websafe = require("websafe-base64")
-  , client = require("../lib/client");
+
+var app = require('..')
+  , analytics = require('../lib/analytics')
+  , websafe = require('websafe-base64')
+  , client = require('../lib/client');
 
 /**
  * BrandController
  */
+
 function BrandController($scope, $routeParams) {
   function onError(err) {
     // TODO show a graceful error to the user
@@ -18,7 +20,7 @@ function BrandController($scope, $routeParams) {
   // Get the brand information
   client
     .get(websafe.decode($routeParams.brand))
-    .on("error", onError)
+    .on('error', onError)
     .end(function(res) {
       $scope.$apply(function() {
         $scope.brandRes = res.body;
@@ -26,8 +28,8 @@ function BrandController($scope, $routeParams) {
 
       // Get the brand items listing
       res
-        .follow("makesOffer")
-        .on("error", onError)
+        .follow('makesOffer')
+        .on('error', onError)
         .end(function(res) {
           $scope.$apply(function() {
             $scope.itemsRes = res.body;
@@ -39,7 +41,8 @@ function BrandController($scope, $routeParams) {
 /**
  * Register it with angular
  */
-app.controller("BrandController", [
+
+app.controller('BrandController', [
   '$scope',
   '$routeParams',
   BrandController
@@ -48,4 +51,5 @@ app.controller("BrandController", [
 /**
  * Let others know where to find it
  */
-module.exports = "BrandController";
+
+module.exports = 'BrandController';

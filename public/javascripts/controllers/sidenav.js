@@ -1,18 +1,21 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , websafe = require("websafe-base64")
-  , client = require("../lib/client");
+
+var app = require('..')
+  , websafe = require('websafe-base64')
+  , client = require('../lib/client');
 
 /**
  * Load the partials
  */
-require("../../partials/sidenav");
+
+require('../../partials/sidenav');
 
 /**
  * SidenavController
  */
+
 function SidenavController($scope, $routeParams) {
   $scope.$watch(function() {
     return $routeParams.category;
@@ -25,7 +28,7 @@ function SidenavController($scope, $routeParams) {
   };
 
   client()
-    .on("error", onError)
+    .on('error', onError)
     .end(function(res) {
 
       // Expose the root
@@ -35,8 +38,8 @@ function SidenavController($scope, $routeParams) {
 
       // Fetch the categories
       res
-        .follow("categories")
-        .on("error", onError)
+        .follow('categories')
+        .on('error', onError)
         .end(function(res) {
           $scope.$apply(function() {
             $scope.body = res.body;
@@ -48,7 +51,8 @@ function SidenavController($scope, $routeParams) {
 /**
  * Register it with angular
  */
-app.controller("SidenavController", [
+
+app.controller('SidenavController', [
   '$scope',
   '$routeParams',
   SidenavController
@@ -57,4 +61,5 @@ app.controller("SidenavController", [
 /**
  * Let others know where to find it
  */
-module.exports = "SidenavController";
+
+module.exports = 'SidenavController';

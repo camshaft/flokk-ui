@@ -1,14 +1,16 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , analytics = require("../lib/analytics")
-  , websafe = require("websafe-base64")
-  , client = require("../lib/client");
+
+var app = require('..')
+  , analytics = require('../lib/analytics')
+  , websafe = require('websafe-base64')
+  , client = require('../lib/client');
 
 /**
  * CategoryController
  */
+
 function CategoryController($scope, $routeParams) {
   function onError(err) {
     // TODO show a graceful error to the user
@@ -18,7 +20,7 @@ function CategoryController($scope, $routeParams) {
   // Get the category information
   client
     .get(websafe.decode($routeParams.category))
-    .on("error", onError)
+    .on('error', onError)
     .end(function(res) {
 
       // Expose the category info to the view
@@ -31,7 +33,8 @@ function CategoryController($scope, $routeParams) {
 /**
  * Register it with angular
  */
-app.controller("CategoryController", [
+
+app.controller('CategoryController', [
   '$scope',
   '$routeParams',
   CategoryController
@@ -40,4 +43,5 @@ app.controller("CategoryController", [
 /**
  * Let others know where to find it
  */
-module.exports = "CategoryController";
+
+module.exports = 'CategoryController';

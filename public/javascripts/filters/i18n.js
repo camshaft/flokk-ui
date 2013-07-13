@@ -1,12 +1,14 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , translations = require("../services/translations");
+
+var app = require('..')
+  , translations = require('../services/translations');
 
 /**
  * i18n
  */
+
 function i18n(polygot) {
   return function(input, key, options) {
     if(!options) options = {};
@@ -19,7 +21,8 @@ function i18n(polygot) {
 /**
  * Register it with angular
  */
-app.filter("i18n", [
+
+app.filter('i18n', [
   translations,
   i18n
 ]);
@@ -27,4 +30,5 @@ app.filter("i18n", [
 /**
  * Let others know where to find it
  */
-module.exports = "i18n";
+
+module.exports = 'i18n';

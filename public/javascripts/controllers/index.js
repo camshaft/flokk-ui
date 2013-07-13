@@ -1,7 +1,8 @@
 /**
  * Module dependencies
  */
-var app = require("..")
+
+var app = require('..')
   , client = require('../lib/client')
   , subscribe = require('../lib/subscribe')
   , each = require('each')
@@ -10,11 +11,13 @@ var app = require("..")
 /**
  * Load the partials
  */
-require("../../partials/footer");
+
+require('../../partials/footer');
 
 /**
  * IndexController
  */
+
 function IndexController($scope, $location) {
   $scope.$watch(function() {
     return $location.path()
@@ -51,7 +54,8 @@ function IndexController($scope, $location) {
 /**
  * Register it with angular
  */
-app.controller("IndexController", [
+
+app.controller('IndexController', [
   '$scope',
   '$location',
   IndexController
@@ -60,4 +64,5 @@ app.controller("IndexController", [
 /**
  * Let others know where to find it
  */
-module.exports = "IndexController";
+
+module.exports = 'IndexController';

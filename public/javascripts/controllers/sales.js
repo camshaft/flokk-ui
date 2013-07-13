@@ -1,27 +1,29 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , analytics = require("../lib/analytics")
-  , client = require("../lib/client");
+
+var app = require('..')
+  , analytics = require('../lib/analytics')
+  , client = require('../lib/client');
 
 /**
  * SalesController
  */
+
 function SalesController($scope) {
   function onError(err) {
     console.error(err.stack || err.message || err);
   };
 
   client()
-    .on("error", onError)
+    .on('error', onError)
     .end(function(res) {
       // We can't see the sales
       if(!res.body.sales) return;
 
       res
-        .follow("sales")
-        .on("error", onError)
+        .follow('sales')
+        .on('error', onError)
         .end(function(res) {
           $scope.$apply(function() {
             $scope.itemRes = res.body;
@@ -34,7 +36,8 @@ function SalesController($scope) {
 /**
  * Register it with angular
  */
-app.controller("SalesController", [
+
+app.controller('SalesController', [
   '$scope',
   SalesController
 ]);
@@ -42,4 +45,5 @@ app.controller("SalesController", [
 /**
  * Let others know where to find it
  */
-module.exports = "SalesController";
+
+module.exports = 'SalesController';

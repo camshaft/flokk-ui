@@ -1,6 +1,7 @@
 /**
  * Module dependencies
  */
+
 var app = require('..')
   , each = require('each')
   , analytics = require('../lib/analytics')
@@ -10,6 +11,7 @@ var app = require('..')
 /**
  * CartController
  */
+
 function CartController($scope) {
   function onError(err) {
     // TODO show a graceful error to the user
@@ -47,6 +49,7 @@ function CartController($scope) {
 /**
  * Register it with angular
  */
+
 app.controller('CartController', [
   '$scope',
   CartController
@@ -55,4 +58,5 @@ app.controller('CartController', [
 /**
  * Let others know where to find it
  */
+
 module.exports = 'CartController';

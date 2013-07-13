@@ -1,13 +1,15 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , analytics = require("../lib/analytics")
-  , client = require("../lib/client");
+
+var app = require('..')
+  , analytics = require('../lib/analytics')
+  , client = require('../lib/client');
 
 /**
  * AccountController
  */
+
 function AccountController($scope) {
   function onError(err) {
     // TODO show a graceful error to the user
@@ -15,13 +17,13 @@ function AccountController($scope) {
   };
 
   client()
-    .on("error", onError)
+    .on('error', onError)
     .end(function(res) {
-      if(!res.body.account) return onError(new Error("No account found"));
+      if(!res.body.account) return onError(new Error('No account found'));
 
       res
         .follow('account')
-        .on("error", onError)
+        .on('error', onError)
         .end(function(res) {
           $scope.$apply(function() {
             $scope.account = res.body;
@@ -33,7 +35,8 @@ function AccountController($scope) {
 /**
  * Register it with angular
  */
-app.controller("AccountController", [
+
+app.controller('AccountController', [
   '$scope',
   AccountController
 ]);
@@ -41,4 +44,5 @@ app.controller("AccountController", [
 /**
  * Let others know where to find it
  */
-module.exports = "AccountController";
+
+module.exports = 'AccountController';

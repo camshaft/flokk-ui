@@ -1,25 +1,28 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , analytics = require("../lib/analytics")
-  , client = require("../lib/client");
+
+var app = require('..')
+  , analytics = require('../lib/analytics')
+  , client = require('../lib/client');
 
 /**
  * Load the partials
  */
-require("../../partials/nav");
+
+require('../../partials/nav');
 
 /**
  * HFController
  */
+
 function HFController($scope) {
   function onError(err) {
     console.error(err.stack || err.message || err);
   };
 
   client()
-    .on("error", onError)
+    .on('error', onError)
     .end(function(res) {
       $scope.$apply(function() {
         $scope.root = res.body;
@@ -30,7 +33,8 @@ function HFController($scope) {
 /**
  * Register it with angular
  */
-app.controller("HFController", [
+
+app.controller('HFController', [
   '$scope',
   HFController
 ]);
@@ -38,4 +42,5 @@ app.controller("HFController", [
 /**
  * Let others know where to find it
  */
-module.exports = "HFController";
+
+module.exports = 'HFController';

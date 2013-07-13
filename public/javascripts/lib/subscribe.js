@@ -2,8 +2,8 @@
  * Module dependencies
  */
 
-var client = require("./client")
-  , websafe = require("websafe-base64")
+var client = require('./client')
+  , websafe = require('websafe-base64')
   , Emitter = require('emitter')
   , envs = require('envs');
 
@@ -35,7 +35,7 @@ exports = module.exports = function(href, callback) {
     client
       .get(href)
       .forceLoad()
-      .on("error", onError)
+      .on('error', onError)
       .end(function(res) {
         events.emit(href, res.body);
       });
@@ -52,7 +52,7 @@ exports.publish = function(href) {
   client
     .get(href)
     .forceLoad()
-    .on("error", onError)
+    .on('error', onError)
     .end(function(res) {
       events.emit(href, res.body);
     });

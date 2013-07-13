@@ -1,12 +1,14 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , websafe = require("websafe-base64");
+
+var app = require('..')
+  , websafe = require('websafe-base64');
 
 /**
  * param
  */
+
 function param() {
   return function(url) {
     if(!url) return;
@@ -17,11 +19,13 @@ function param() {
 /**
  * Register it with angular
  */
-app.filter("param", [
+
+app.filter('param', [
   param
 ]);
 
 /**
  * Let others know where to find it
  */
-module.exports = "param";
+
+module.exports = 'param';

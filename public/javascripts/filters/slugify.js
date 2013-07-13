@@ -1,12 +1,14 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , slug = require("slug");
+
+var app = require('..')
+  , slug = require('slug');
 
 /**
  * slugify
  */
+
 function slugify() {
   return function(str, opts) {
     if(!str) return '';
@@ -17,11 +19,13 @@ function slugify() {
 /**
  * Register it with angular
  */
-app.filter("slugify", [
+
+app.filter('slugify', [
   slugify
 ]);
 
 /**
  * Let others know where to find it
  */
-module.exports = "slugify";
+
+module.exports = 'slugify';

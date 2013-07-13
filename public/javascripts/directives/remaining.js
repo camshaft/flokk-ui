@@ -1,17 +1,20 @@
-/*
+/**
  * Module dependencies
  */
-var app = require("..")
-  , pad = require("../filters/pad");
+
+var app = require('..')
+  , pad = require('../filters/pad');
 
 /**
  * Load the partials
  */
-var template = require("../../partials/remaining");
 
-/*
+var template = require('../../partials/remaining');
+
+/**
  * remaining
  */
+
 function remaining() {
   return {
     templateUrl: template,
@@ -30,14 +33,16 @@ function remaining() {
   }
 };
 
-/*
+/**
  * Register it with angular
  */
-app.directive("remaining", [
+
+app.directive('remaining', [
   remaining
 ]);
 
-/*
+/**
  * Let others know where to find it
  */
-module.exports = "remaining";
+
+module.exports = 'remaining';

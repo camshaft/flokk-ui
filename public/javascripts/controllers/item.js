@@ -1,32 +1,37 @@
 /**
  * Module dependencies
  */
-var app = require("..")
-  , analytics = require("../lib/analytics")
-  , websafe = require("websafe-base64")
-  , subscribe = require("../lib/subscribe")
-  , clock = require("clock")
+
+var app = require('..')
+  , analytics = require('../lib/analytics')
+  , websafe = require('websafe-base64')
+  , subscribe = require('../lib/subscribe')
+  , clock = require('clock')
   , each = require('each')
-  , client = require("../lib/client");
+  , client = require('../lib/client');
 
 /**
  * Directives
  */
-require("../directives/remaining");
+
+require('../directives/remaining');
 
 /**
  * Load the partials
  */
-require("../../partials/item-thumb");
+
+require('../../partials/item-thumb');
 
 /**
  * Start the clock
  */
+
 clock.start();
 
 /**
  * ItemController
  */
+
 function ItemController($scope, $routeParams, $location) {
   // Be able to load this within a route or in a list
   if(!$routeParams.item) return $scope.$watch('itemLink', function(link) {
@@ -48,7 +53,7 @@ function fetch (href, $scope) {
 
   client
     .get(href)
-    .on("error", onError)
+    .on('error', onError)
     .end(function(res) {
       var item = res.body;
 
@@ -65,8 +70,8 @@ function fetch (href, $scope) {
 
       // Fetch the sale info
       res
-        .follow("offers")
-        .on("error", onError)
+        .follow('offers')
+        .on('error', onError)
         .end(function(res) {
           // The sale isn't available
           if(!res.body) return;
@@ -120,7 +125,8 @@ function fetch (href, $scope) {
 /**
  * Register it with angular
  */
-app.controller("ItemController", [
+
+app.controller('ItemController', [
   '$scope',
   '$routeParams',
   '$location',
@@ -130,4 +136,5 @@ app.controller("ItemController", [
 /**
  * Let others know where to find it
  */
-module.exports = "ItemController";
+
+module.exports = 'ItemController';

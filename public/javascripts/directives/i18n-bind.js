@@ -1,13 +1,15 @@
 /**
  * Module dependencies
  */
-var app = require("..");
+
+var app = require('..');
 
 /**
  * i18n-bind
  *
  * Content-editable binding for editing translations
  */
+
 function i18nBind() {
   return function($scope, elem, attrs) {
     // TODO Enable editing mode
@@ -23,11 +25,13 @@ function i18nBind() {
 /**
  * Register it with angular
  */
-app.directive("i18nBind", [
+
+app.directive('i18nBind', [
   i18nBind
 ]);
 
 /**
  * Let others know where to find it
  */
-module.exports = "i18nBind";
+
+module.exports = 'i18nBind';
