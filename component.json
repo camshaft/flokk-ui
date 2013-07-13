@@ -15,7 +15,6 @@
     "component/pad": "*",
     "airbnb/polyglot.js": "*",
     "visionmedia/superagent": "*",
-    "component/cookie": "*",
     "component/each": "*",
     "component/type": "*",
     "CamShaft/clock": "*",
@@ -23,7 +22,8 @@
     "component/preloader": "*",
     "yields/slug": "*",
     "component/emitter": "*",
-    "CamShaft/envs": "*"
+    "CamShaft/envs": "*",
+    "CamShaft/access-token": "*"
   },
   "development": {},
   "license": "MIT",
@@ -48,7 +48,6 @@
     "public/javascripts/filters/i18n.js",
     "public/javascripts/filters/pad.js",
     "public/javascripts/filters/slugify.js",
-    "public/javascripts/lib/access-token.js",
     "public/javascripts/lib/analytics.js",
     "public/javascripts/lib/client.js",
     "public/javascripts/lib/loading.js",

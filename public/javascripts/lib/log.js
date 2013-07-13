@@ -1,7 +1,7 @@
 /**
  * Module dependencies
  */
-var accessToken = require("./access-token")()
+var accessToken = require("access-token")()
   , metric = require("metric-log");
 
 /**

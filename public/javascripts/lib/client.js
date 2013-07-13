@@ -4,7 +4,7 @@
 
 var superagent = require('superagent')
   , envs = require('envs')
-  , accessToken = require('./access-token')
+  , token = require('access-token')
   , log = require('./log');
 
 /**
@@ -38,7 +38,7 @@ exports.del = function() {
 };
 
 function defaults(req) {
-  req.set(accessToken.auth());
+  req.set(token.auth());
 
   req.forceLoad = function() {
     this.set('cache-control', 'no-cache');
