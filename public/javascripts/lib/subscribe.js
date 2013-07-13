@@ -2,42 +2,42 @@
  * Module dependencies
  */
 var client = require("./client")
+  , websafe = require("websafe-base64")
   , Emitter = require('emitter');
 
-// TODO implement with ws
 var events = new Emitter;
-
-var intervals = {};
+var pusher;
 
 function onError (err) {
   console.error(err.stack || err);
 }
 
 exports = module.exports = function(href, callback) {
-
   events.on(href, callback);
 
-  var id = {href: href, callback: callback};
+  function id() {
+    events.off(href, callback);
+    if (events.hasListeners(href) || !pusher) return;
+    pusher.unsubscribe(websafe.encode(href));
+  };
 
   if (events.listeners(href).length !== 1) return id;
 
-  intervals[href] = setInterval(function() {
+  subscribeToPusher(href, function() {
+    console.log('Updating', href);
     client
       .get(href)
       .on("error", onError)
       .end(function(res) {
         events.emit(href, res.body);
       });
-  }, 10000);
+  });
 
   return id;
 };
 
 exports.clear = function(id) {
-  events.off(id.href, id.callback);
-  if (events.hasListeners()) return;
-  clearInterval(intervals[id.href]);
-  delete intervals[id.href];
+  id();
 };
 
 exports.publish = function(href) {
@@ -48,4 +48,10 @@ exports.publish = function(href) {
     .end(function(res) {
       events.emit(href, res.body);
     });
+};
+
+function subscribeToPusher(href, cb) {
+  if (!pusher) pusher = new window.Pusher('d0fe0a7926eadcd62773');
+  var channel = pusher.subscribe(websafe.encode(href));
+  channel.bind('update', cb);
 };
