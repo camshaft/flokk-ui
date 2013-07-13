@@ -1,9 +1,17 @@
 /**
  * Module dependencies
  */
+
 var client = require("./client")
   , websafe = require("websafe-base64")
-  , Emitter = require('emitter');
+  , Emitter = require('emitter')
+  , envs = require('envs');
+
+/**
+ * Defines
+ */
+
+var PUSHER_KEY = envs('PUSHER_KEY');
 
 var events = new Emitter;
 var pusher;
@@ -52,7 +60,7 @@ exports.publish = function(href) {
 
 function subscribeToPusher(href, cb) {
   // TODO pull this from the env
-  if (!pusher) pusher = new window.Pusher('d49649a56559e77e3bf6');
+  if (!pusher) pusher = new window.Pusher(PUSHER_KEY);
   var channel = pusher.subscribe(websafe.encode(href));
   channel.bind('update', cb);
 };

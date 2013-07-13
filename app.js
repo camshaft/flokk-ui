@@ -21,7 +21,8 @@ app.locals({
   title: envs('INDEX_TITLE', 'Home'),
   description: envs('SITE_DESCRIPTION', ''),
   env: {
-    BROWSER_ENV: envs('NODE_ENV', 'production')
+    BROWSER_ENV: envs('NODE_ENV', 'production'),
+    PUSHER_KEY: envs('PUSHER_KEY')
   }
 });
 

@@ -3,7 +3,14 @@
  */
 
 var app = require(".")
-  , analytics = require('./lib/analytics');
+  , analytics = require('./lib/analytics')
+  , envs = require('envs');
+
+/**
+ * Load the environment
+ */
+
+if (window.env) envs.set(window.env);
 
 /**
  * Initialize the controllers
