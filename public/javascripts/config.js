@@ -127,6 +127,7 @@ app.run([
   function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function(currentRoute, previousRoute){
       analytics.pageview();
+      $rootScope.title = currentRoute.title || 'You start the sales';
     });
   }
 ]);
