@@ -1,17 +1,24 @@
 /**
  * Module dependencies
  */
-var superagent = require("superagent")
-  , accessToken = require("./access-token")
-  , log = require("./log");
+
+var superagent = require('superagent')
+  , envs = require('envs')
+  , accessToken = require('./access-token')
+  , log = require('./log');
+
+/**
+ * Defines
+ */
+
+var API_URL = envs('API_URL', '/api');
 
 // TODO come up with a retry strategy
 // TODO come up with a reasonable timeout
 // TODO should we cache things in localStorage?
-// TODO make it so we only call the root endpoint once
 
 module.exports = exports = function() {
-  return exports.get("/api");
+  return exports.get(API_URL);
 };
 
 exports.get = function() {
@@ -41,7 +48,7 @@ function defaults(req) {
   // Patch the `end` function
   var _end = req.end;
   req.end = function(fn) {
-    var done = log.profile("response_time")
+    var done = log.profile('response_time')
       , self = this;
 
     _end.call(self, function(res) {
@@ -56,12 +63,12 @@ function defaults(req) {
       done(info);
 
       // If the response was not ok return an error
-      if (!res.ok) return self.emit("error", res.body || new Error(res.text));
+      if (!res.ok) return self.emit('error', res.body || new Error(res.text));
 
       // Patch the res to allow following
       // TODO should we emit an error if the rel is not found?
       res.follow = function(rel) {
-        var href = typeof res.body[rel] === "object"
+        var href = typeof res.body[rel] === 'object'
           ? res.body[rel].href
           : res.body[rel];
 

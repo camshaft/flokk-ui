@@ -22,6 +22,7 @@ app.locals({
   description: envs('SITE_DESCRIPTION', ''),
   env: {
     BROWSER_ENV: envs('NODE_ENV', 'production'),
+    API_URL: envs('API_URL', '/api'),
     PUSHER_KEY: envs('PUSHER_KEY')
   }
 });
