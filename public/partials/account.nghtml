@@ -1,10 +1,46 @@
-<h2 data-i18n-bind="'My Account' | i18n:'account'"></h2>
-<div class="media">
-  <a class="pull-left" href="#">
-    <img class="media-object" data-ng-src="{{account.avatar}}" />
-  </a>
-  <div class="media-body">
-    <h3 data-ng-bind="account.name"></h3>
-    <p data-ng-bind="account.email"></p>
-  </div>
+<div class="account vcard">
+
+  <section class="basic">
+    <h3 data-i18n-bind="'ACCOUNT INFORMATION' | i18n:'account.basic'"></h3>
+    <div class="nickname" data-ng-bind="account.username"></div>
+    <div class="password" data-ng-bind="account.password"></div>
+    <div class="email" data-ng-bind="account.email"></div>
+  </section>
+
+  <section class="optional">
+    <h3 data-i18n-bind="'WE\'D LOVE TO GET TO KNOW YOU' | i18n:'account.optional'"></h3>
+    <div class="fn" data-ng-bind="account.name"></div>
+    <div class="gender" data-ng-bind="account.gender"></div>
+    <div class="bday" data-ng-bind="account.birthday"></div>
+  </section>
+
+  <section class="social">
+    <h3 data-i18n-bind="'SOCIAL MEDIA PREFERENCES' | i18n:'account.social'"></h3>
+    <div data-ng-show="!!account.facebook" data-ng-bind="account.facebook"></div>
+  </section>
+
+  <section class="shipping">
+    <h3 data-i18n-bind="'SHIPPING' | i18n:'account.shipping'"></h3>
+    <div data-ng-repeat="address in account.address">
+      <div class="street-address" data-ng-bind="address.street"></div>
+      <div class="locality" data-ng-bind="address.city"></div>
+      <abbr class="region" data-ng-bind="address.state"></abbr>
+      <span class="postal-code" data-ng-bind="address.zipcode"></span>
+      <div class="county-name" data-ng-bind="address.country"></div>
+    </div>
+  </section>
+
+  <section class="billing">
+    <h3 data-i18n-bind="'BILLING' | i18n:'account.billing'"></h3>
+    <div data-ng-repeat="cc in account.cc">
+      <div class="name" data-ng-bind="cc.name"></div>
+      <div class="last-digits" data-ng-bind="cc.last-digits"></div>
+    </div>
+  </section>
+
+  <form class="delete">
+    <h3 data-i18n-bind="'DELETE ACCOUNT' | i18n:'account.delete'"></h3>
+    <div class="warning" data-i18n-bind="'why would you want to do that?' | i18n:'account.delete.warning'"></div>
+  </form>
+
 </div>

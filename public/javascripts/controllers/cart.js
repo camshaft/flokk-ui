@@ -35,6 +35,7 @@ function CartController($scope) {
 
           function update(cart) {
             $scope.$apply(function() {
+              // TODO use splice on the item list so things don't jump
               $scope.cart = cart;
               $scope.loaded = true;
             });
