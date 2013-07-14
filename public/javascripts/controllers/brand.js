@@ -3,18 +3,22 @@
  */
 
 var app = require('..')
-  , analytics = require('../lib/analytics')
+  , start = require('in-progress')
   , websafe = require('websafe-base64')
-  , client = require('hyperagent');
+  , client = require('hyperagent')
+  , analytics = require('../lib/analytics');
 
 /**
  * BrandController
  */
 
 function BrandController($scope, $routeParams) {
+  var done = start();
+
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
+    done();
   };
 
   // Get the brand information
@@ -33,6 +37,7 @@ function BrandController($scope, $routeParams) {
         .end(function(res) {
           $scope.$apply(function() {
             $scope.itemsRes = res.body;
+            done();
           });
         });
     });

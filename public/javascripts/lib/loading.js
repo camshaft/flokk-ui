@@ -2,16 +2,12 @@
  * Module dependencies
  */
 
-var loading = false;
+var loading = module.exports = require('in-progress');
 
-exports.start = function() {
-  loading = true;
-};
+/**
+ * Listen for progress updates
+ */
 
-exports.update = function(progress) {
-
-};
-
-exports.end = function() {
-  loading = false;
-};
+loading.on('update', function(count) {
+  // TOOD give user feedback on the progress
+});

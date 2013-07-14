@@ -3,17 +3,21 @@
  */
 
 var app = require('..')
-  , analytics = require('../lib/analytics')
-  , client = require('hyperagent');
+  , start = require('in-progress')
+  , client = require('hyperagent')
+  , analytics = require('../lib/analytics');
 
 /**
  * AccountController
  */
 
 function AccountController($scope) {
+  var done = start();
+
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
+    done();
   };
 
   client()
@@ -27,6 +31,7 @@ function AccountController($scope) {
         .end(function(res) {
           $scope.$apply(function() {
             $scope.account = res.body;
+            done();
           });
         });
     });

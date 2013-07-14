@@ -3,15 +3,18 @@
  */
 
 var app = require('..')
-  , analytics = require('../lib/analytics')
+  , start = require('in-progress')
   , websafe = require('websafe-base64')
-  , client = require('hyperagent');
+  , client = require('hyperagent')
+  , analytics = require('../lib/analytics');
 
 /**
  * CategoryController
  */
 
 function CategoryController($scope, $routeParams) {
+  var done = start();
+
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
@@ -26,6 +29,7 @@ function CategoryController($scope, $routeParams) {
       // Expose the category info to the view
       $scope.$apply(function() {
         $scope.category = res.body;
+        done();
       });
     });
 };

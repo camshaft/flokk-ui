@@ -4,9 +4,10 @@
 
 var app = require('..')
   , client = require('hyperagent')
-  , subscribe = require('../lib/subscribe')
+  , start = require('in-progress')
   , each = require('each')
-  , type = require('type');
+  , type = require('type')
+  , subscribe = require('../lib/subscribe');
 
 /**
  * Load the partials
@@ -25,8 +26,10 @@ function IndexController($scope, $location) {
     $scope.path = val;
   });
 
-  // TODO expose an easy way to submit a form
+  // expose an easy way to submit a form
   $scope.submit = function(form, values, cb) {
+    var done = start();
+
     if (type(values) === 'function') {
       cb = values;
       values = {};
@@ -43,8 +46,12 @@ function IndexController($scope, $location) {
 
     (client[method])(form.action)
       .send(values)
-      .on('error', cb)
+      .on('error', function(err) {
+        done();
+        cb(err);
+      })
       .end(function(res){
+        done();
         if (res.ok && res.body.href === form.action) subscribe.publish(form.action);
         if (cb) cb(null, res);
       })

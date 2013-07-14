@@ -3,9 +3,9 @@
     <img data-ng-src="{{item.image.src}}">
   </div>
   <div class="span5 item-info">
-    <h2 class="title"><a href="/items/{{item.name | slugify}}/{{item.href | param}}" data-i18n-bind="item.name | i18n:'item.'+item.sku+'.name'"></a></h2>
+    <h2 class="title"><a href="/items/{{item.name | slugify}}/{{item.href | param}}" data-i18n-bind="item.name | i18n:item.href"></a></h2>
     <h3 class="vendor"><a href="/brands/{{item.publisher.title | slugify}}/{{item.publisher.href | param}}" data-i18n-bind="item.publisher.title"></a></h3>
-    <p class="description" data-i18n-bind="item.description | i18n:'item.'+item.sku+'.description'"></p>
+    <p class="description" data-i18n-bind="item.description | i18n:item.href"></p>
 
     <div class="controls">
 

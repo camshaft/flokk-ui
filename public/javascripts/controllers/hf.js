@@ -3,8 +3,9 @@
  */
 
 var app = require('..')
-  , analytics = require('../lib/analytics')
-  , client = require('hyperagent');
+  , start = require('in-progress')
+  , client = require('hyperagent')
+  , analytics = require('../lib/analytics');
 
 /**
  * Load the partials
@@ -17,8 +18,11 @@ require('../../partials/nav');
  */
 
 function HFController($scope) {
+  var done = start();
+
   function onError(err) {
     console.error(err.stack || err.message || err);
+    done();
   };
 
   client()
@@ -26,6 +30,7 @@ function HFController($scope) {
     .end(function(res) {
       $scope.$apply(function() {
         $scope.root = res.body;
+        done();
       });
     });
 };

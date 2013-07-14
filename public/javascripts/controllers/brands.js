@@ -3,16 +3,20 @@
  */
 
 var app = require('..')
-  , analytics = require('../lib/analytics')
-  , client = require('hyperagent');
+  , start = require('in-progress')
+  , client = require('hyperagent')
+  , analytics = require('../lib/analytics');
 
 /**
  * BrandsController
  */
 
 function BrandsController($scope) {
+  var done = start();
+
   function onError(err) {
     console.error(err.stack || err.message || err);
+    done();
   };
 
   client()
@@ -27,6 +31,7 @@ function BrandsController($scope) {
         .end(function(res) {
           $scope.$apply(function() {
             $scope.body = res.body;
+            done();
           });
         });
 

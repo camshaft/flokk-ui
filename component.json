@@ -17,6 +17,7 @@
     "CamShaft/clock": "*",
     "CamShaft/metric-log": "*",
     "CamShaft/hyperagent": "*",
+    "CamShaft/in-progress": "*",
     "component/pad": "*",
     "component/each": "*",
     "component/type": "*",

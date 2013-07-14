@@ -11,6 +11,7 @@ var app = require('..')
 
 function i18n(polygot) {
   return function(input, key, options) {
+    if (!input || !key) return '';
     if(!options) options = {};
     options._ = input;
 

@@ -4,8 +4,9 @@
 
 var app = require('..')
   , analytics = require('../lib/analytics')
-  , websafe = require('websafe-base64')
+  , start = require('in-progress')
   , subscribe = require('../lib/subscribe')
+  , websafe = require('websafe-base64')
   , clock = require('clock')
   , each = require('each')
   , client = require('hyperagent');
@@ -46,9 +47,12 @@ function ItemController($scope, $routeParams, $location) {
 };
 
 function fetch (href, $scope) {
+  var done = start();
+
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
+    done();
   };
 
   client
@@ -58,7 +62,7 @@ function fetch (href, $scope) {
       var item = res.body;
 
       // We can't see this item
-      if(!item) return;
+      if(!item) return done();
 
       // Display it to the view
       $scope.$apply(function() {
@@ -66,7 +70,7 @@ function fetch (href, $scope) {
       });
 
       // We can't see any sales for the item
-      if(!item.offers) return;
+      if(!item.offers) return done();
 
       // Fetch the sale info
       res
@@ -74,7 +78,7 @@ function fetch (href, $scope) {
         .on('error', onError)
         .end(function(res) {
           // The sale isn't available
-          if(!res.body) return;
+          if(!res.body) return done();
 
           var sale = res.body;
 
@@ -87,6 +91,7 @@ function fetch (href, $scope) {
           });
 
           // The item isn't on sale
+          done();
           if(!sale.ending) return $scope.$digest();
 
           // Update the remaining time

@@ -4,18 +4,22 @@
 
 var app = require('..')
   , each = require('each')
+  , start = require('in-progress')
+  , client = require('hyperagent')
   , analytics = require('../lib/analytics')
-  , subscribe = require('../lib/subscribe')
-  , client = require('hyperagent');
+  , subscribe = require('../lib/subscribe');
 
 /**
  * CartController
  */
 
 function CartController($scope) {
+  var done = start();
+
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
+    done();
   };
 
   client()
@@ -37,6 +41,7 @@ function CartController($scope) {
           };
 
           update(res.body);
+          done();
           var subscription = subscribe(res.body.href, update);
 
           $scope.$on('$destroy', function() {

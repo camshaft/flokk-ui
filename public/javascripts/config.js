@@ -93,7 +93,7 @@ var i18n = require('./filters/i18n')
  * Initialize the loading icon
  */
 
-require('./lib/loading');
+var loading = require('./lib/loading');
 
 /**
  * Configure the app
@@ -157,11 +157,19 @@ app.config([
 
 app.run([
   '$rootScope',
+  '$location',
 
-  function($rootScope) {
-    $rootScope.$on('$routeChangeSuccess', function(currentRoute, previousRoute){
+  function($rootScope, $location) {
+    var done;
+
+    $rootScope.$on('$routeChangeStart', function(currentRoute, nextRoute) {
+      done = log.profile('route_time');
+    });
+
+    $rootScope.$on('$routeChangeSuccess', function(currentRoute, previousRoute) {
       analytics.pageview();
       $rootScope.title = currentRoute.title || 'You start the sales';
+      done({path: $location.path()});
     });
   }
 ]);

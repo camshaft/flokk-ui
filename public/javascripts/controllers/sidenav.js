@@ -3,6 +3,7 @@
  */
 
 var app = require('..')
+  , start = require('in-progress')
   , websafe = require('websafe-base64')
   , client = require('hyperagent');
 
@@ -17,6 +18,8 @@ require('../../partials/sidenav');
  */
 
 function SidenavController($scope, $routeParams) {
+  var done = start();
+
   $scope.$watch(function() {
     return $routeParams.category;
   }, function(val) {
@@ -25,6 +28,7 @@ function SidenavController($scope, $routeParams) {
 
   function onError(err) {
     console.error(err.stack || err.message || err);
+    done();
   };
 
   client()
@@ -43,6 +47,7 @@ function SidenavController($scope, $routeParams) {
         .end(function(res) {
           $scope.$apply(function() {
             $scope.body = res.body;
+            done();
           });
         });
     });

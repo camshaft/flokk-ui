@@ -4,6 +4,7 @@
 
 var app = require('..')
   , analytics = require('../lib/analytics')
+  , start = require('in-progress')
   , client = require('hyperagent');
 
 /**
@@ -11,8 +12,11 @@ var app = require('..')
  */
 
 function SalesController($scope) {
+  var done = start();
+
   function onError(err) {
     console.error(err.stack || err.message || err);
+    done();
   };
 
   client()
@@ -27,6 +31,7 @@ function SalesController($scope) {
         .end(function(res) {
           $scope.$apply(function() {
             $scope.itemRes = res.body;
+            done();
           });
         });
 
