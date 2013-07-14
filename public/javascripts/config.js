@@ -3,14 +3,44 @@
  */
 
 var app = require('.')
-  , analytics = require('./lib/analytics')
-  , envs = require('envs');
+  , envs = require('envs')
+  , token = require('access-token');
 
 /**
  * Load the environment
  */
 
 if (window.env) envs.set(window.env);
+
+/**
+ * Initialize the logger
+ */
+
+var log = require('./lib/log');
+
+/**
+ * Initialize the analytics
+ */
+
+var analytics = require('./lib/analytics');
+
+/**
+ * Initialize the client
+ */
+
+var client = require('hyperagent');
+
+/**
+ * Pass the access token on all of the requests
+ */
+
+client.set(token.auth());
+
+/**
+ * Profile the requests
+ */
+
+client.profile = log.profile.bind(log);
 
 /**
  * Initialize the controllers
@@ -120,6 +150,10 @@ app.config([
     $locationProvider.html5Mode(true);
   }
 ]);
+
+/**
+ * Listen for route changes
+ */
 
 app.run([
   '$rootScope',

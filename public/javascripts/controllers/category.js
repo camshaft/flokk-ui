@@ -5,7 +5,7 @@
 var app = require('..')
   , analytics = require('../lib/analytics')
   , websafe = require('websafe-base64')
-  , client = require('../lib/client');
+  , client = require('hyperagent');
 
 /**
  * CategoryController

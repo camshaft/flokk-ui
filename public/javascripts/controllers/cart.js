@@ -6,7 +6,7 @@ var app = require('..')
   , each = require('each')
   , analytics = require('../lib/analytics')
   , subscribe = require('../lib/subscribe')
-  , client = require('../lib/client');
+  , client = require('hyperagent');
 
 /**
  * CartController

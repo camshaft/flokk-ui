@@ -2,7 +2,7 @@
  * Module dependencies
  */
 
-var client = require('./client')
+var client = require('hyperagent')
   , websafe = require('websafe-base64')
   , Emitter = require('emitter')
   , envs = require('envs');

@@ -8,7 +8,7 @@ var app = require('..')
   , subscribe = require('../lib/subscribe')
   , clock = require('clock')
   , each = require('each')
-  , client = require('../lib/client');
+  , client = require('hyperagent');
 
 /**
  * Directives
