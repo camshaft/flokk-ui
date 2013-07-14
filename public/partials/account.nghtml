@@ -8,7 +8,7 @@
   </section>
 
   <section class="optional">
-    <h3 data-i18n-bind="'WE\'D LOVE TO GET TO KNOW YOU' | i18n:'account.optional'"></h3>
+    <h3 data-i18n-bind="'WE\\\'D LOVE TO GET TO KNOW YOU' | i18n:'account.optional'"></h3>
     <div class="fn" data-ng-bind="account.name"></div>
     <div class="gender" data-ng-bind="account.gender"></div>
     <div class="bday" data-ng-bind="account.birthday"></div>
