@@ -15,10 +15,10 @@
   width: 100%;
   list-style: none;
   position: relative;
-  -webkit-transition: left 0.4s ease-in-out;
-     -moz-transition: left 0.4s ease-in-out;
-       -o-transition: left 0.4s ease-in-out;
-          transition: left 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+     -moz-transition: all 0.4s ease-in-out;
+       -o-transition: all 0.4s ease-in-out;
+          transition: all 0.4s ease-in-out;
   -webkit-touch-callout: none;
     -webkit-user-select: none;
      -khtml-user-select: none;
@@ -53,15 +53,27 @@
 
 @media (min-width: 768px) {
   .checkout.shipping .steps {
-    left: 0;
+    -webkit-transform: translate(0, 0);
+       -moz-transform: translate(0, 0);
+         -o-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
 
   .checkout.billing .steps {
-    left: -150px;
+    -webkit-transform: translate(-150px, 0);
+       -moz-transform: translate(-150px, 0);
+         -o-transform: translate(-150px, 0);
+        -ms-transform: translate(-150px, 0);
+            transform: translate(-150px, 0);
   }
 
   .checkout.confirmation .steps {
-    left: -300px;
+    -webkit-transform: translate(-300px, 0);
+       -moz-transform: translate(-300px, 0);
+         -o-transform: translate(-300px, 0);
+        -ms-transform: translate(-300px, 0);
+            transform: translate(-300px, 0);
   }
 }
 
@@ -72,22 +84,34 @@
 .checkout .forms {
   position: relative;
   white-space: nowrap;
-  -webkit-transition: left 0.4s ease-in-out;
-     -moz-transition: left 0.4s ease-in-out;
-       -o-transition: left 0.4s ease-in-out;
-          transition: left 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+     -moz-transition: all 0.4s ease-in-out;
+       -o-transition: all 0.4s ease-in-out;
+          transition: all 0.4s ease-in-out;
 }
 
 .checkout.shipping .forms {
-  left: 0;
+  -webkit-transform: translate(0, 0);
+     -moz-transform: translate(0, 0);
+       -o-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 
 .checkout.billing .forms {
-  left: -100%;
+  -webkit-transform: translate(-100%, 0);
+     -moz-transform: translate(-100%, 0);
+       -o-transform: translate(-100%, 0);
+      -ms-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
 }
 
 .checkout.confirmation .forms {
-  left: -200%;
+  -webkit-transform: translate(-200%, 0);
+     -moz-transform: translate(-200%, 0);
+       -o-transform: translate(-200%, 0);
+      -ms-transform: translate(-200%, 0);
+          transform: translate(-200%, 0);
 }
 
 .checkout .forms .form {
