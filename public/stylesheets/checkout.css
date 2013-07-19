@@ -100,6 +100,7 @@
 }
 
 .checkout.billing .forms {
+  margin-left: -5px;
   -webkit-transform: translate(-100%, 0);
      -moz-transform: translate(-100%, 0);
        -o-transform: translate(-100%, 0);
@@ -108,6 +109,7 @@
 }
 
 .checkout.confirmation .forms {
+  margin-left: -20px;
   -webkit-transform: translate(-200%, 0);
      -moz-transform: translate(-200%, 0);
        -o-transform: translate(-200%, 0);

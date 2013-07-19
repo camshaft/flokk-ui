@@ -16,13 +16,12 @@
     <div class="forms">
       <div class="form">
         <form class="shipping">
-          <input name="description" type="text" placeholder="Address description">
-          <input name="name" type="text" placeholder="Recipient name">
-          <input name="street" type="text" placeholder="Street">
-          <input name="city" type="text" placeholder="City">
-          <input name="state" type="text" placeholder="State">
-          <input name="zip" type="text" placeholder="Zip">
-          <input name="country" type="text" placeholder="Country">
+          <input data-ng-model="shippingName" name="name" type="text" placeholder="Recipient name">
+          <input data-ng-model="shippingStreet" name="street" type="text" placeholder="Street">
+          <input data-ng-model="shippingCity" name="city" type="text" placeholder="City">
+          <input data-ng-model="shippingState" name="state" type="text" placeholder="State">
+          <input data-ng-model="shippingPostal" name="zip" type="text" placeholder="Zip">
+          <input data-ng-model="shippingCountry" name="country" type="text" placeholder="Country">
 
           <a href="#billing" class="btn btn-action">Next</a>
           <!-- <input type="submit" value="Next" class="btn btn-action"> -->
@@ -30,12 +29,11 @@
       </div>
       <div class="form">
         <form class="billing">
-          <input name="description" type="text" placeholder="Card description">
-
-          <input name="name" type="text" placeholder="Name on card">
-          <input name="csv" type="text" placeholder="CSV">
-          <input name="cc" type="text" placeholder="****-****-****-****">
-          <input name="expiration" type="text" placeholder="Expiration">
+          <input class="cc" name="cc" type="text" placeholder="****-****-****-****" maxlength="16">
+          <input class="name" name="name" type="text" placeholder="Name on card">
+          <input class="csv" name="csv" type="text" placeholder="CSV">
+          <input class="expiration-month" name="expiration-month" type="text" placeholder="Expiration month">
+          <input class="expiration-year" name="expiration-year" type="text" placeholder="Expiration year">
 
           <a href="#shipping" class="btn btn-action">Previous</a>
           <a href="#confirmation" class="btn btn-action">Next</a>
@@ -43,8 +41,26 @@
         </form>
       </div>
       <div class="form">
-        <form class="confirmation">
-          <h4>Confirm your order</h4>
+        <form class="confirmation container-fluid">
+          <div class="row">
+            <div class="span4">
+              <h4>Shipping Info</h4>
+              <div data-ng-bind="shippingName"></div>
+              <div data-ng-bind="shippingStreet"></div>
+              <div>
+                <span data-ng-bind="shippingCity"></span>
+                <span data-ng-bind="shippingState"></span>
+                <span data-ng-bind="shippingPostal"></span>
+              </div>
+              <div data-ng-bind="shippingCountry"></div>
+            </div>
+            <div class="span4">
+              <h4>Billing Info</h4>
+            </div>
+            <div class="span4">
+
+            </div>
+          </div>
           <a href="#billing" class="btn btn-action">Previous</a>
         </form>
       </div>
