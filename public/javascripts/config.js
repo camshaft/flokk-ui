@@ -50,6 +50,7 @@ var AccountController = require('./controllers/account')
   , IndexController = require('./controllers/index')
   , CartController = require('./controllers/cart')
   , CategoryController = require('./controllers/category')
+  , CheckoutController = require('./controllers/checkout')
   , ItemController = require('./controllers/item')
   , HFController = require('./controllers/hf')
   , SalesController = require('./controllers/sales')
@@ -139,7 +140,7 @@ app.config([
       })
       .when('/cart/checkout', {
         templateUrl: checkout,
-        controller: CartController,
+        controller: CheckoutController,
         reloadOnSearch: false
       })
       .when('/about', {

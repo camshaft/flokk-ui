@@ -28,16 +28,15 @@
         </form>
       </div>
       <div class="form">
-        <form class="billing">
-          <input class="cc" name="cc" type="text" placeholder="****-****-****-****" maxlength="16">
-          <input class="name" name="name" type="text" placeholder="Name on card">
-          <input class="csv" name="csv" type="text" placeholder="CSV">
-          <input class="expiration-month" name="expiration-month" type="text" placeholder="Expiration month">
-          <input class="expiration-year" name="expiration-year" type="text" placeholder="Expiration year">
+        <form class="billing" name="billing" data-ng-init="cc" data-ng-submit="createCard(cc)">
+          <input class="cc" name="cc" type="text" placeholder="****-****-****-****" maxlength="16" data-ng-model="cc.num" data-credit-card required>
+          <input class="name" name="name" type="text" placeholder="Name on card" data-ng-model="cc.name" required>
+          <input class="csc" name="csc" type="text" placeholder="CSC" data-ng-model="cc.csc" data-csc="cc.num" required>
+          <input class="expiration-month" name="expiration-month" type="text" placeholder="Expiration month" data-ng-model="cc.month" required>
+          <input class="expiration-year" name="expiration-year" type="text" placeholder="Expiration year" data-ng-model="cc.year" required>
 
           <a href="#shipping" class="btn btn-action">Previous</a>
-          <a href="#confirmation" class="btn btn-action">Next</a>
-          <!-- <input type="submit" value="Next" class="btn btn-action"> -->
+          <input type="submit" value="Next" class="btn btn-action">
         </form>
       </div>
       <div class="form">
