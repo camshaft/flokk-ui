@@ -1,0 +1,47 @@
+<div class="checkout container-fluid" data-ng-class="step">
+  <div class="steps-container row">
+    <ul class="steps span12">
+      <li class="step shipping">SHIPPING</li>
+      <li class="step billing">BILLING</li>
+      <li class="step confirmation">CONFIRMATION</li>
+    </ul>
+  </div>
+  <div class="forms-container row">
+    <div class="forms">
+      <div class="form">
+        <form class="shipping">
+          <input name="description" type="text" placeholder="Address description">
+          <input name="name" type="text" placeholder="Recipient name">
+          <input name="street" type="text" placeholder="Street">
+          <input name="city" type="text" placeholder="City">
+          <input name="state" type="text" placeholder="State">
+          <input name="zip" type="text" placeholder="Zip">
+          <input name="country" type="text" placeholder="Country">
+
+          <a href="#billing" class="btn btn-action">Next</a>
+          <!-- <input type="submit" value="Next" class="btn btn-action"> -->
+        </form>
+      </div>
+      <div class="form">
+        <form class="billing">
+          <input name="description" type="text" placeholder="Card description">
+
+          <input name="name" type="text" placeholder="Name on card">
+          <input name="csv" type="text" placeholder="CSV">
+          <input name="cc" type="text" placeholder="****-****-****-****">
+          <input name="expiration" type="text" placeholder="Expiration">
+
+          <a href="#shipping" class="btn btn-action">Previous</a>
+          <a href="#confirmation" class="btn btn-action">Next</a>
+          <!-- <input type="submit" value="Next" class="btn btn-action"> -->
+        </form>
+      </div>
+      <div class="form">
+        <form class="confirmation">
+          <h4>Confirm your order</h4>
+          <a href="#billing" class="btn btn-action">Previous</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

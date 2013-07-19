@@ -63,6 +63,7 @@
     "public/stylesheets/button.css",
     "public/stylesheets/time-remaining.css",
     "public/stylesheets/category.css",
+    "public/stylesheets/checkout.css",
     "public/stylesheets/swipe.css",
     "public/stylesheets/item.css"
   ],
@@ -72,6 +73,7 @@
     "public/partials/account.nghtml",
     "public/partials/cart.nghtml",
     "public/partials/category.nghtml",
+    "public/partials/checkout.nghtml",
     "public/partials/contact.nghtml",
     "public/partials/copyright.nghtml",
     "public/partials/footer.nghtml",

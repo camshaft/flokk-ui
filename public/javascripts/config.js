@@ -67,6 +67,7 @@ var notFound = require('../partials/404.js')
   , brand = require('../partials/brand.js')
   , brands = require('../partials/brands.js')
   , cart = require('../partials/cart.js')
+  , checkout = require('../partials/checkout.js')
   , category = require('../partials/category.js')
   , contact = require('../partials/contact.js')
   , copyright = require('../partials/copyright.js')
@@ -135,6 +136,11 @@ app.config([
       .when('/cart', {
         templateUrl: cart,
         controller: CartController
+      })
+      .when('/cart/checkout', {
+        templateUrl: checkout,
+        controller: CartController,
+        reloadOnSearch: false
       })
       .when('/about', {
         templateUrl: about

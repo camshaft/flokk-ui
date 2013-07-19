@@ -13,7 +13,7 @@ var app = require('..')
  * CartController
  */
 
-function CartController($scope) {
+function CartController($scope, $location) {
   var done = start();
 
   function onError(err) {
@@ -50,6 +50,12 @@ function CartController($scope) {
           });
         });
     });
+
+  $scope.$watch(function() {
+    return $location.hash();
+  }, function(hash) {
+    $scope.step = hash || 'shipping';
+  });
 };
 
 /**
@@ -58,6 +64,7 @@ function CartController($scope) {
 
 app.controller('CartController', [
   '$scope',
+  '$location',
   CartController
 ]);
 

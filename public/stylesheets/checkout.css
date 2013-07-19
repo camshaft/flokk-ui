@@ -1,0 +1,107 @@
+.checkout {
+  position: relative;
+}
+
+.checkout .steps-container {
+  overflow: hidden;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.checkout .steps {
+  letter-spacing: .2em;
+  padding-left: 50%;
+  margin-left: -70px;
+  width: 100%;
+  list-style: none;
+  position: relative;
+  -webkit-transition: left 0.4s ease-in-out;
+     -moz-transition: left 0.4s ease-in-out;
+       -o-transition: left 0.4s ease-in-out;
+          transition: left 0.4s ease-in-out;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: moz-none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.checkout .steps .step {
+  float: left;
+  width: 150px;
+  text-align: center;
+  font-size: 1.2em;
+  color: #EEEEEE;
+  -webkit-transition: color 0.4s ease-in-out;
+     -moz-transition: color 0.4s ease-in-out;
+       -o-transition: color 0.4s ease-in-out;
+          transition: color 0.4s ease-in-out;
+}
+
+.checkout.shipping .steps .step.shipping {
+  color: #E13C32;
+}
+
+.checkout.billing .steps .step.billing {
+  color: #E13C32;
+}
+
+.checkout.confirmation .steps .step.confirmation {
+  color: #E13C32;
+}
+
+@media (min-width: 768px) {
+  .checkout.shipping .steps {
+    left: 0;
+  }
+
+  .checkout.billing .steps {
+    left: -150px;
+  }
+
+  .checkout.confirmation .steps {
+    left: -300px;
+  }
+}
+
+.checkout .forms-container {
+  overflow: hidden;
+}
+
+.checkout .forms {
+  position: relative;
+  white-space: nowrap;
+  -webkit-transition: left 0.4s ease-in-out;
+     -moz-transition: left 0.4s ease-in-out;
+       -o-transition: left 0.4s ease-in-out;
+          transition: left 0.4s ease-in-out;
+}
+
+.checkout.shipping .forms {
+  left: 0;
+}
+
+.checkout.billing .forms {
+  left: -100%;
+}
+
+.checkout.confirmation .forms {
+  left: -200%;
+}
+
+.checkout .forms .form {
+  display: inline-block;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.checkout .forms .form input {
+  padding: 5px;
+  display: block;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  text-align: center;
+}
