@@ -1,9 +1,15 @@
 <div class="checkout container-fluid" data-ng-class="step">
   <div class="steps-container row">
     <ul class="steps span12">
-      <li class="step shipping">SHIPPING</li>
-      <li class="step billing">BILLING</li>
-      <li class="step confirmation">CONFIRMATION</li>
+      <li>
+        <a class="step shipping" href="#shipping">SHIPPING</a>
+      </li>
+      <li>
+        <a class="step billing" href="#billing">BILLING</a>
+      </li>
+      <li>
+        <a class="step confirmation" href="#confirmation">CONFIRMATION</a>
+      </li>
     </ul>
   </div>
   <div class="forms-container row">
