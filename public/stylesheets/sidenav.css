@@ -1,4 +1,11 @@
 
+.sidenav-container {
+  padding-left: 10px;
+  width: 135px;
+  height: 1px;
+  float: left;
+}
+
 .sidenav .nav-subcategory {
   margin-left: 12px;
   text-transform: uppercase;

@@ -5,10 +5,11 @@ block nav
     div(data-ng-include="", src="'/partials/nav.nghtml'")
   
 block content
-  #main.container-fluid
-    .row-fluid
-      div(data-ng-include="", src="'/partials/sidenav.nghtml'").span2
-      div(data-ng-view="").span10
+  #main
+    div(data-ng-include="", src="'/partials/sidenav.nghtml'").sidenav-container
+    .container-fluid.main-container
+      .row-fluid
+        div(data-ng-view="").span12
 
 block prepend scripts
   script(async

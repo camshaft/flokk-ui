@@ -9,3 +9,12 @@ body {
     padding-top: 100px;
   }
 }
+
+.main-container {
+  padding-left: 140px;
+}
+
+.landing img {
+  width: 100%;
+  padding: 10px;
+}

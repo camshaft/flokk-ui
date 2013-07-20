@@ -1,6 +1,78 @@
-<h3 data-i18n-bind="'There are no sales right now. Go ahead and start one!' | i18n:'no_sales'"></h3>
+<!-- <h3 data-i18n-bind="'There are no sales right now. Go ahead and start one!' | i18n:'no_sales'"></h3>
 <div class="row-fluid">
   <ul class="thumbnails items">
     <li class="span4 item" data-ng-repeat="itemLink in itemsRes.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></li>
   </ul>
+</div> -->
+
+<div class="container-fluid landing">
+  <div class="row-fluid">
+    <div class="span6">
+      <img class="" src="https://d30wvy161n1c3v.cloudfront.net/1c5a09ae839d0e0086b134d0ac3c6416-clock.jpg">
+    </div>
+    <div class="span6">
+      <div class="row-fluid">
+        <div class="span6">
+          <img class="" src="http://i49.tinypic.com/2lx5xu.jpg">
+        </div>
+        <div class="span6">
+          <img class="" src="/public/images/kitchen.svg">
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <img class="" src="http://i39.tinypic.com/b64osy.jpg">
+        </div>
+        <div class="span6">
+          <img class="" src="http://i49.tinypic.com/i5ta3l.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="row-fluid">
+        <div class="span6">
+          <img class="" src="http://i39.tinypic.com/b64osy.jpg">
+        </div>
+        <div class="span6">
+          <img class="" src="http://i49.tinypic.com/i5ta3l.jpg">
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <img class="" src="http://i49.tinypic.com/2lx5xu.jpg">
+        </div>
+        <div class="span6">
+          <img class="" src="/public/images/art.svg">
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <img class="" src="https://d30wvy161n1c3v.cloudfront.net/1c5a09ae839d0e0086b134d0ac3c6416-clock.jpg">
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span6">
+      <img class="" src="https://d30wvy161n1c3v.cloudfront.net/1c5a09ae839d0e0086b134d0ac3c6416-clock.jpg">
+    </div>
+    <div class="span6">
+      <div class="row-fluid">
+        <div class="span6">
+          <img class="" src="http://i49.tinypic.com/2lx5xu.jpg">
+        </div>
+        <div class="span6">
+          <img class="" src="/public/images/livingroom.svg">
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <img class="" src="http://i39.tinypic.com/b64osy.jpg">
+        </div>
+        <div class="span6">
+          <img class="" src="http://i49.tinypic.com/i5ta3l.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
