@@ -15,28 +15,27 @@
   <div class="forms-container row">
     <div class="forms">
       <div class="form">
-        <form class="shipping">
-          <input data-ng-model="shippingName" name="name" type="text" placeholder="Recipient name">
-          <input data-ng-model="shippingStreet" name="street" type="text" placeholder="Street">
-          <input data-ng-model="shippingCity" name="city" type="text" placeholder="City">
-          <input data-ng-model="shippingState" name="state" type="text" placeholder="State">
-          <input data-ng-model="shippingPostal" name="zip" type="text" placeholder="Zip">
-          <input data-ng-model="shippingCountry" name="country" type="text" placeholder="Country">
+        <form class="shipping" data-ng-init="shipping" data-ng-submit="createAddress(shipping)">
+          <input data-ng-model="shipping.name" name="name" type="text" placeholder="Recipient name" required>
+          <input data-ng-model="shipping.streetAddress" name="street" type="text" placeholder="Street" required>
+          <input data-ng-model="shipping.addressLocality" name="city" type="text" placeholder="City" required>
+          <input data-ng-model="shipping.addressRegion" name="state" type="text" placeholder="State" required>
+          <input data-ng-model="shipping.postalCode" name="zip" type="text" placeholder="Zip" required>
+          <input data-ng-model="shipping.addressCountry" name="country" type="text" placeholder="Country" required>
 
-          <a href="#billing" class="btn btn-action">Next</a>
-          <!-- <input type="submit" value="Next" class="btn btn-action"> -->
+          <input type="submit" value="Next" class="btn btn-action">
         </form>
       </div>
       <div class="form">
         <form class="billing" name="billing" data-ng-init="cc" data-ng-submit="createCard(cc)">
-          <input class="cc" name="cc" type="text" placeholder="****-****-****-****" maxlength="16" data-ng-model="cc.num" data-credit-card required>
-          <input class="name" name="name" type="text" placeholder="Name on card" data-ng-model="cc.name" required>
-          <input class="csc" name="csc" type="text" placeholder="CSC" data-ng-model="cc.csc" data-csc="cc.num" required>
-          <input class="expiration-month" name="expiration-month" type="text" placeholder="Expiration month" data-ng-model="cc.month" required>
-          <input class="expiration-year" name="expiration-year" type="text" placeholder="Expiration year" data-ng-model="cc.year" required>
+          <input type="text" placeholder="****-****-****-****" maxlength="16" data-ng-model="cc.num" data-credit-card required>
+          <input type="text" placeholder="Name on card" data-ng-model="cc.name" required>
+          <input type="text" placeholder="CSC" data-ng-model="cc.csc" data-csc="cc.num" required>
+          <input type="text" placeholder="Expiration month" data-ng-model="cc.expirationMonth" required>
+          <input type="text" placeholder="Expiration year" data-ng-model="cc.expirationYear" required>
 
-          <a href="#shipping" class="btn btn-action">Previous</a>
           <input type="submit" value="Next" class="btn btn-action">
+          <a href="#shipping" class="btn btn-action">Previous</a>
         </form>
       </div>
       <div class="form">
@@ -44,17 +43,23 @@
           <div class="row">
             <div class="span4">
               <h4>Shipping Info</h4>
-              <div data-ng-bind="shippingName"></div>
-              <div data-ng-bind="shippingStreet"></div>
+              <div data-ng-bind="shipping.name"></div>
+              <div data-ng-bind="shipping.streetAddress"></div>
               <div>
-                <span data-ng-bind="shippingCity"></span>
-                <span data-ng-bind="shippingState"></span>
-                <span data-ng-bind="shippingPostal"></span>
+                <span data-ng-bind="shipping.addressLocality"></span>
+                <span data-ng-bind="shipping.addressRegion"></span>
+                <span data-ng-bind="shipping.postalCode"></span>
               </div>
-              <div data-ng-bind="shippingCountry"></div>
+              <div data-ng-bind="shipping.addressCountry"></div>
             </div>
             <div class="span4">
               <h4>Billing Info</h4>
+              <div data-ng-bind="cc.name"></div>
+              <div data-ng-show="cc.additionalType && cc.lastDigits">
+                <span data-ng-bind="cc.additionalType"></span>
+                ending in
+                <span data-ng-bind="cc.lastDigits"></span>
+              </div>
             </div>
             <div class="span4">
 

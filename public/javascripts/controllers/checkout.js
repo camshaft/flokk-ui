@@ -22,12 +22,23 @@ function CheckoutController($scope, $location) {
     $scope.step = hash || 'shipping';
   });
 
+  $scope.form = {};
+
+  $scope.createAddress = function(shipping) {
+    // TODO save to the api
+
+    // $scope.$apply(function() {
+      shipping.saved = true;
+      $location.hash('billing');
+    // });
+  };
+
   $scope.createCard = function(cc) {
     var data = {
       card_number: cc.num,
       name: cc.name,
-      expiration_month: cc.month,
-      expiration_year: cc.year,
+      expiration_month: cc.expirationMonth,
+      expiration_year: cc.expirationYear,
       security_code: cc.csc
     };
 
@@ -38,12 +49,40 @@ function CheckoutController($scope, $location) {
       // TODO handle errors
       if (res.status !== 201) return;
 
-      client()
+      var apiCopy = {
+        name: res.data.name,
+        hash: res.data.hash,
+        additionalType: res.data.brand,
+        lastDigits: res.data.last_four,
+        url: res.data.uri,
+        expirationMonth: res.data.expiration_month,
+        expirationYear: res.data.expiration_year
+      };
 
-      $scope.$apply(function() {
-        $location.hash('confirmation');
-      });
+      client()
+        .end(function(res) {
+          res
+            .follow('account')
+            .end(function(res) {
+              if (!res.body.createCreditCard) return;
+
+              $scope.submit(res.body.createCreditCard, apiCopy, function(err, res) {
+                if (err) return console.error(err);
+
+                console.log(res);
+
+                $scope.$apply(function() {
+                  cc.saved = true;
+                  $location.hash('confirmation');
+                });
+              });
+            });
+        });
     });
+  };
+
+  $scope.confirm = function() {
+
   };
 };
 
