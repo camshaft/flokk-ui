@@ -20,6 +20,7 @@ app.locals({
   site: envs('SITE_URL', 'https://www.theflokk.com'),
   title: envs('INDEX_TITLE', 'Home'),
   description: envs('SITE_DESCRIPTION', ''),
+  fluid: true,
   balanced: envs('BALANCED_KEY'),
   env: {
     BROWSER_ENV: envs('NODE_ENV', 'production'),

@@ -1,5 +1,5 @@
 <div class="checkout container-fluid" data-ng-class="step">
-  <div class="steps-container row">
+  <div class="steps-container row-fluid">
     <ul class="steps span12">
       <li>
         <a class="step shipping" href="#shipping">SHIPPING</a>
@@ -12,7 +12,7 @@
       </li>
     </ul>
   </div>
-  <div class="forms-container row">
+  <div class="forms-container row-fluid">
     <div class="forms">
       <div class="form">
         <form class="shipping" data-ng-init="shipping" data-ng-submit="createAddress(shipping)">

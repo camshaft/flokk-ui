@@ -5,8 +5,8 @@ block nav
     div(data-ng-include="", src="'/partials/nav.nghtml'")
   
 block content
-  #main.container
-    .row
+  #main.container-fluid
+    .row-fluid
       div(data-ng-include="", src="'/partials/sidenav.nghtml'").span2
       div(data-ng-view="").span10
 
