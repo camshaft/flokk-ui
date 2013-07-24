@@ -24,7 +24,7 @@ app.locals({
   balanced: envs('BALANCED_KEY'),
   env: {
     BROWSER_ENV: envs('NODE_ENV', 'production'),
-    API_URL: envs('API_URL', '/api'),
+    API_URL: envs('API_URL'),
     PUSHER_KEY: envs('PUSHER_KEY')
   }
 });
