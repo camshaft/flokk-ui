@@ -1,42 +1,39 @@
-<div class="row-fluid item" data-ng-controller="ItemController">
-  <div class="span6">
-    <img data-ng-src="{{item.image.src}}">
-  </div>
-  <div class="span5 item-info">
-    <h2 class="title"><a href="/items/{{item.name | slugify}}/{{item.href | param}}" data-i18n-bind="item.name | i18n:item.href"></a></h2>
-    <h3 class="vendor"><a href="/brands/{{item.publisher.title | slugify}}/{{item.publisher.href | param}}" data-i18n-bind="item.publisher.title"></a></h3>
-    <p class="description" data-i18n-bind="item.description | i18n:item.href"></p>
-
-    <div class="controls">
-
-      <!-- <div class="in-stock" data-i18n-bind="'%{smart_count} left' | i18n:'item.in_stock':{smart_count: sale.quantity}"></div> -->
-
-      <form class="form-horizontal" name="purchase" data-ng-submit="submit(sale.purchase, purchaseForm)">
-        <div class="control-group">
-          <div class="control-label price">
-            <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(sale.price || item.retail)}"></p>
-            <p class="retail-price" data-ng-show="sale.onSale" data-i18n-bind="'$%{price}' | i18n:'item.retail':{price:item.retail}"></p>
-            <p class="on-sale" data-ng-hide="sale.onSale" data-i18n-bind="'For now...' | i18n:'item.no_sale'"></p>
-          </div>
-          <div class="controls">
-            <div data-ng-show="sale.onSale" class="time-remaining" data-remaining data-ng-model="sale.remaining"></div>
-            <div data-ng-hide="sale.onSale" data-i18n-bind="'Go ahead and start a sale. Shipping is on us' | i18n:'why_start_sale'"></div>
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="field-quantity" data-i18n-bind="sale.purchase.input.quantity.prompt"></label>
-          <div class="controls">
-            <select name="quantity" id="field-quantity" data-ng-model="purchaseForm.quantity" data-ng-options="option.value as (option.prompt || option.value) for option in sale.purchase.input.quantity.options">
-            </select>
-          </div>
-        </div>
-        <div class="control-group">
-          <div class="controls">
-            <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'BUY' | i18n:'add_to_cart'"></button>
-            <button type="submit" data-ng-hide="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></button>
-          </div>
-        </div>
+<div class="item" data-ng-controller="ItemController">
+  <div class="row-fluid">
+    <div class="span6">
+      <img data-ng-src="{{item.image.src}}">
+    </div>
+    <div class="span6 item-info">
+      <h2 class="title"><a href="/items/{{item.name | slugify}}/{{item.href | param}}" data-i18n-bind="item.name | i18n:item.href"></a></h2>
+      <h3 class="vendor"><a href="/brands/{{item.publisher.title | slugify}}/{{item.publisher.href | param}}" data-i18n-bind="item.publisher.title"></a></h3>
+      <div class="price">
+        <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(sale.price || item.retail)}"></p>
+        <p class="retail-price" data-ng-show="sale.onSale" data-i18n-bind="'$%{price} Retail' | i18n:'item.retail':{price:item.retail}"></p>
+      </div>
+      <div data-ng-show="sale.onSale" class="time-remaining" data-remaining data-ng-model="sale.remaining"></div>
+      <div data-ng-hide="sale.onSale" data-i18n-bind="'Go ahead and start a sale. Shipping is on us' | i18n:'why_start_sale'"></div>
+      <form name="purchase" data-ng-submit="submit(sale.purchase, purchaseForm)">
+        <label for="item-quantity">Quantity</label>
+        <select name="quantity" id="item-quantity" data-ng-model="purchaseForm.quantity" data-ng-options="option.value as (option.prompt || option.value) for option in sale.purchase.input.quantity.options">
+        </select>
+        <hr>
+        <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'BUY' | i18n:'add_to_cart'"></button>
+        <button type="submit" data-ng-hide="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></button>
       </form>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span6">
+      <h5>Details</h5>
+      <p class="description" data-i18n-bind="item.description | i18n:item.href"></p>
+    </div>
+    <div class="span6">
+      <p>
+        <span class="item-stipulations">Shipping</span>: This item ships in 
+      </p>
+      <p>
+        <span class="item-stipulations">Returns</span>: This item is a final sale item and is not eligble for return.
+      </p>
     </div>
   </div>
 </div>
