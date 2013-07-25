@@ -2,7 +2,7 @@
   <div class="items">
     <div class="item row-fluid" data-ng-controller="ItemController" data-ng-repeat="itemLink in cart.offer">
       <a class="span2" data-ng-href="/items/{{item.name | slugify}}/{{item.href | param}}">
-        <img data-ng-src="{{item.image.src}}">
+        <img data-ng-src="{{item.image[0].src}}">
       </a>
       <div class="span6">
         <a data-ng-href="/items/{{item.name | slugify}}/{{item.href | param}}" data-ng-bind="item.name"></a>
