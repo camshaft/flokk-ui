@@ -1,7 +1,7 @@
 <div class="item" data-ng-controller="ItemController">
   <div class="row-fluid">
     <div class="span6">
-      <img data-ng-src="{{item.image.src}}">
+      <img data-ng-src="{{item.image[image || 0].src}}" class="pull-right">
     </div>
     <div class="span6 item-info">
       <h2 class="title"><a href="/items/{{item.name | slugify}}/{{item.href | param}}" data-i18n-bind="item.name | i18n:item.href"></a></h2>
@@ -29,7 +29,7 @@
     </div>
     <div class="span6">
       <p>
-        <span class="item-stipulations">Shipping</span>: This item ships in 
+        <span class="item-stipulations">Shipping</span>: <span data-i18n-bind="'This item ships in %{remaining}' | i18n:'item.shipping':{remaining:item.remaining || 'a few days'}"></span>
       </p>
       <p>
         <span class="item-stipulations">Returns</span>: This item is a final sale item and is not eligble for return.
