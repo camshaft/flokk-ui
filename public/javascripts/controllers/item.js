@@ -42,11 +42,35 @@ function ItemController($scope, $routeParams, $location) {
   // Initialize the purchase form on the page
   $scope.purchaseForm = {};
 
+  var swap = switchImage($scope, $location);
+
+  swap();
+
   // Fetch the item
-  fetch(websafe.decode($routeParams.item), $scope);
+  fetch(websafe.decode($routeParams.item), $scope, swap);
 };
 
-function fetch (href, $scope) {
+function switchImage($scope, $location) {
+  function exec(image) {
+    var image = $scope.image = parseInt(image || '0');
+    var length = $scope.item
+      ? $scope.item.image.length
+      : 0;
+
+    $scope.nextImage = image === length - 1 ? 0 : image + 1;
+    $scope.prevImage = image === 0 ? length - 1 : image - 1;
+  };
+
+  $scope.$watch(function() {
+    return $location.hash();
+  }, exec);
+
+  return function() {
+    exec($location.hash());
+  };
+};
+
+function fetch (href, $scope, swap) {
   var done = start();
 
   function onError(err) {
@@ -67,6 +91,7 @@ function fetch (href, $scope) {
       // Display it to the view
       $scope.$apply(function() {
         $scope.item = item;
+        swap();
       });
 
       // We can't see any sales for the item

@@ -1,7 +1,15 @@
 <div class="item" data-ng-controller="ItemController">
   <div class="row-fluid">
     <div class="span6">
-      <img data-ng-src="{{item.image[image || 0].src}}" class="pull-right">
+      <div class="image" data-ng-style="{'background-image': 'url(' +  + ')'}">
+        <div class="left arrow" data-ng-show="item.image.length > 1">
+          <a data-ng-href="#{{prevImage}}"><</a>
+        </div>
+        <img data-ng-src="{{item.image[image || 0].src}}">
+        <div class="right arrow" data-ng-show="item.image.length > 1">
+          <a data-ng-href="#{{nextImage}}">></a>
+        </div>
+      </div>
     </div>
     <div class="span6 item-info">
       <h2 class="title"><a href="/items/{{item.name | slugify}}/{{item.href | param}}" data-i18n-bind="item.name | i18n:item.href"></a></h2>

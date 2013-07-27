@@ -129,7 +129,8 @@ app.config([
       })
       .when('/items/:slug/:item', {
         templateUrl: item,
-        controller: ItemController
+        controller: ItemController,
+        reloadOnSearch: false
       })
       .when('/contact', {
         templateUrl: contact

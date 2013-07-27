@@ -59,3 +59,35 @@
 .item-stipulations {
   color: #E01533;
 }
+
+.item .image {
+  position: relative;
+}
+
+
+.item .image .arrow {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  transform: scale(.3,1); /* W3C */
+  -webkit-transform: scale(.3,1); /* Safari and Chrome */
+  -moz-transform: scale(.3,1); /* Firefox */
+  -ms-transform: scale(.3,1); /* IE 9 */
+  -o-transform: scale(.3,1); /* Opera */
+}
+.item .image .arrow a {
+  color: rgba(255,255,255,0.6);
+  top: 50%;
+  bottom: 50%;
+  line-height: 0;
+  font-size: 10em;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.item .image .left {
+  left: 0;
+}
+.item .image .right {
+  right: 0;
+}
