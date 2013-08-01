@@ -9,7 +9,8 @@ var app = require('..')
   , websafe = require('websafe-base64')
   , clock = require('clock')
   , each = require('each')
-  , client = require('hyperagent');
+  , client = require('hyperagent')
+  , dialog = require('dialog');
 
 /**
  * Directives
@@ -34,6 +35,13 @@ clock.start();
  */
 
 function ItemController($scope, $routeParams, $location) {
+  $scope.signup = function() {
+    dialog('Hey There!', 'We are still getting ready')
+      .effect('slide')
+      .overlay()
+      .show();
+  };
+
   // Be able to load this within a route or in a list
   if(!$routeParams.item) return $scope.$watch('itemLink', function(link) {
     if(link) fetch(link.href, $scope);

@@ -18,6 +18,7 @@
     "CamShaft/metric-log": "*",
     "CamShaft/hyperagent": "*",
     "CamShaft/in-progress": "*",
+    "CamShaft/dialog": "*",
     "component/pad": "*",
     "component/each": "*",
     "component/type": "*",
@@ -67,7 +68,7 @@
     "public/stylesheets/time-remaining.css",
     "public/stylesheets/category.css",
     "public/stylesheets/checkout.css",
-    "public/stylesheets/swipe.css",
+    "public/stylesheets/modal.css",
     "public/stylesheets/item.css"
   ],
   "templates": [

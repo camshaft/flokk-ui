@@ -25,8 +25,9 @@
         <select name="quantity" id="item-quantity" data-ng-model="purchaseForm.quantity" data-ng-options="option.value as (option.prompt || option.value) for option in sale.purchase.input.quantity.options">
         </select>
         <hr>
-        <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'BUY' | i18n:'add_to_cart'"></button>
-        <button type="submit" data-ng-hide="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></button>
+        <a data-ng-click="signup()" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></a>
+        <!-- <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'BUY' | i18n:'add_to_cart'"></button> -->
+        <!-- <button type="submit" data-ng-hide="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></button> -->
       </form>
     </div>
   </div>
