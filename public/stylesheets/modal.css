@@ -6,3 +6,7 @@
   color: #E01533;
   font-size: 2em;
 }
+
+.overlay {
+  position: fixed;
+}
