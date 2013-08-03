@@ -4,7 +4,7 @@
     <li class="divider"></li>
   </ul>
   <ul data-ng-show="root.categories" data-ng-repeat="category in body.categories" class="nav nav-list">
-    <li class="nav-header" data-ng-class="{active: category.items==current}">
+    <li class="nav-header" data-ng-class="{active: current.indexOf(category.items) == 0}">
       <a data-i18n-bind="category.title | i18n:'category.'+category.href" data-ng-href="/categories/{{category.title | slugify}}/{{category.items | param}}"></a>
     </li>
   </ul>
