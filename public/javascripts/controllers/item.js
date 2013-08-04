@@ -99,7 +99,7 @@ function fetch (href, $scope, swap) {
       // Display it to the view
       $scope.$apply(function() {
         $scope.item = item;
-        swap();
+        if (swap) swap();
       });
 
       // We can't see any sales for the item
