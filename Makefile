@@ -12,7 +12,7 @@ build/build.min.js: build/build.js
 build/build.min.css: build/build.css
 	@./node_modules/.bin/styl --compress < $< > $@
 
-hash: build/**
+hash: $(wildcard build/*)
 	@./node_modules/.bin/simple-assets --glob 'build/**/!(cache-)*' --copy --prefix cache-
 
 clean:
