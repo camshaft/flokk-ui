@@ -53,7 +53,7 @@ function lookup(file) {
 
 app.locals({
   styles: [
-    lookup('build/build.min.css')
+    lookup('build/build.css')
   ]
 });
 
