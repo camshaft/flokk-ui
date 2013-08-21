@@ -3,7 +3,8 @@
  */
 
 var stack = require('flokk-angular')
-  , envs = require('envs');
+var envs = require('envs');
+var assets = require('simple-assets');
 
 /**
  * Expose the app
@@ -33,27 +34,31 @@ app.locals({
 
 app.useBefore('router', function envLocals(req, res, next) {
   var locals = req.get('x-env') === 'production'
-    ? {
-      balanced: envs('BALANCED_KEY_PROD')
-    }
-    : {
-      balanced: envs('BALANCED_KEY_TEST')
-    };
+    ? { balanced: envs('BALANCED_KEY_PROD') }
+    : { balanced: envs('BALANCED_KEY_TEST') };
 
   res.locals(locals);
   next();
 });
 
-// TODO pull these from the cdn
+/**
+ * Put a cdn in front
+ */
+
+var CDN_URL = envs('CDN_URL', '');
+
+function lookup(file) {
+  return [CDN_URL, assets(file)].join('/');
+};
 
 app.locals({
   styles: [
-    '/public/build.css'
+    lookup('build/build.min.css')
   ]
 });
 
 app.locals({
   scripts: [
-    '/public/build.js'
+    lookup('build/build.min.js')
   ]
 });
