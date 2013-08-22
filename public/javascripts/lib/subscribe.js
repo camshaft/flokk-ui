@@ -59,7 +59,6 @@ exports.publish = function(href) {
 };
 
 function subscribeToPusher(href, cb) {
-  // TODO pull this from the env
   if (!pusher) pusher = new window.Pusher(PUSHER_KEY);
   var channel = pusher.subscribe(websafe.encode(href));
   channel.bind('update', cb);

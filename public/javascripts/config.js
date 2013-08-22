@@ -52,9 +52,9 @@ var AccountController = require('./controllers/account')
   , CategoryController = require('./controllers/category')
   , CheckoutController = require('./controllers/checkout')
   , ItemController = require('./controllers/item')
-  , HFController = require('./controllers/hf')
+  , NavController = require('./controllers/nav')
   , SalesController = require('./controllers/sales')
-  , SidenavController = require('./controllers/sidenav')
+  , SecondaryNavController = require('./controllers/secondary-nav')
   , BrandsController = require('./controllers/brands')
   , BrandController = require('./controllers/brand');
 
@@ -74,7 +74,7 @@ var notFound = require('../partials/404.js')
   , copyright = require('../partials/copyright.js')
   , item = require('../partials/item.js')
   , sales = require('../partials/sales.js')
-  , sidenav = require('../partials/sidenav.js');
+  , secondaryNav = require('../partials/secondary-nav.js');
 
 /**
  * Initialize the directives used outside of the controllers

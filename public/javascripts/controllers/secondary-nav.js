@@ -11,13 +11,13 @@ var app = require('..')
  * Load the partials
  */
 
-require('../../partials/sidenav');
+require('../../partials/secondary-nav');
 
 /**
- * SidenavController
+ * SecondaryNavController
  */
 
-function SidenavController($scope, $routeParams) {
+function SecondaryNavController($scope, $routeParams) {
   var done = start();
 
   $scope.$watch(function() {
@@ -57,14 +57,14 @@ function SidenavController($scope, $routeParams) {
  * Register it with angular
  */
 
-app.controller('SidenavController', [
+app.controller('SecondaryNavController', [
   '$scope',
   '$routeParams',
-  SidenavController
+  SecondaryNavController
 ]);
 
 /**
  * Let others know where to find it
  */
 
-module.exports = 'SidenavController';
+module.exports = 'SecondaryNavController';

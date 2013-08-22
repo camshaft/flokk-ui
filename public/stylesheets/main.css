@@ -3,18 +3,17 @@ body {
   overflow-y: scroll;
 }
 
-@media (min-width: 980px) {
-  #main {
-    position: relative;
+input, body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  body {
     padding-top: 100px;
   }
-}
-
-.main-container {
-  padding-left: 140px;
-}
-
-.landing img {
-  width: 100%;
-  padding: 10px;
 }

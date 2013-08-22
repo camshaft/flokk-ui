@@ -1,19 +1,21 @@
-extends ../node_modules/theme-origami/layout.jade
+extends ./layout.jade
 
 block nav
-  div(data-ng-controller="HFController")
-    div(data-ng-include="", src="'/partials/nav.nghtml'")
+  nav(data-ng-controller="NavController"
+      data-ng-include
+      src="'/partials/nav.nghtml'")
+
+block secondary-nav
+  nav(data-ng-controller="SecondaryNavController"
+      data-ng-include
+      src="'/partials/secondary-nav.nghtml'").secondary-nav
   
 block content
-  #main
-    div(data-ng-include="", src="'/partials/sidenav.nghtml'").sidenav-container
-    .container-fluid.main-container
-      .row-fluid
-        div(data-ng-view="").span12
+  div(data-ng-view)
 
 block prepend scripts
   script(async
-         src="//js.balancedpayments.com/v1/balanced.min.js"
+         src="https://js.balancedpayments.com/v1/balanced.min.js"
          onload="balanced.init('#{balanced}')")
-  script(src="//d3dy5gmtp8yhk7.cloudfront.net/2.1.1/sockjs.min.js")
-  script(src="//d3dy5gmtp8yhk7.cloudfront.net/2.1/pusher.min.js")
+  script(src="https://d3dy5gmtp8yhk7.cloudfront.net/2.1.1/sockjs.min.js")
+  script(src="https://d3dy5gmtp8yhk7.cloudfront.net/2.1/pusher.min.js")

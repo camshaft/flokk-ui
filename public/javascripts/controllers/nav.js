@@ -14,10 +14,10 @@ var app = require('..')
 require('../../partials/nav');
 
 /**
- * HFController
+ * NavController
  */
 
-function HFController($scope) {
+function NavController($scope) {
   var done = start();
 
   function onError(err) {
@@ -39,13 +39,13 @@ function HFController($scope) {
  * Register it with angular
  */
 
-app.controller('HFController', [
+app.controller('NavController', [
   '$scope',
-  HFController
+  NavController
 ]);
 
 /**
  * Let others know where to find it
  */
 
-module.exports = 'HFController';
+module.exports = 'NavController';

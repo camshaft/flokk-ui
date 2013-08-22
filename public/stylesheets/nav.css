@@ -1,8 +1,13 @@
-.navbar {
-  background: white;
-  z-index: 499;
+/* http://jsfiddle.net/nicooprat/Aahqh/ */
+
+.account-links {
+  list-style: none;
+  padding-left: 1em;
+  text-indent: -1em;
 }
 
-.navbar .brand.brand-flokk {
-  margin-left: 145px;
+.account-links li {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
 }
