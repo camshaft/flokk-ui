@@ -57,17 +57,7 @@
     "public/javascripts/services/translations.js"
   ],
   "styles": [
-    "public/stylesheets/main.css",
-    "public/stylesheets/header.css",
-    "public/stylesheets/nav.css",
-    "public/stylesheets/secondary-nav.css",
-    "public/stylesheets/footer.css",
-    "public/stylesheets/button.css",
-    "public/stylesheets/time-remaining.css",
-    "public/stylesheets/category.css",
-    "public/stylesheets/checkout.css",
-    "public/stylesheets/modal.css",
-    "public/stylesheets/item.css"
+    "public/stylesheets/index.styl"
   ],
   "templates": [
     "public/partials/404.nghtml",
