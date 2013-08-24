@@ -47,8 +47,6 @@ app.useBefore('router', function envLocals(req, res, next) {
 
 var CDN_URL = envs('CDN_URL', '');
 
-console.log('', CDN_URL);
-
 function lookup(file) {
   return [CDN_URL, assets(file)].join('/');
 };
@@ -61,6 +59,6 @@ app.locals({
 
 app.locals({
   scripts: [
-    lookup('build/build.min.js')
+    lookup('build/build.js')
   ]
 });

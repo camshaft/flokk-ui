@@ -78,7 +78,6 @@
     "public/partials/checkout.nghtml",
     "public/partials/contact.nghtml",
     "public/partials/copyright.nghtml",
-    "public/partials/footer.nghtml",
     "public/partials/item-thumb.nghtml",
     "public/partials/item.nghtml",
     "public/partials/nav.nghtml",

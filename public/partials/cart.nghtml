@@ -1,25 +1,8 @@
-<div class="row-fluid">
-  <div class="items">
-    <div class="item row-fluid" data-ng-controller="ItemController" data-ng-repeat="itemLink in cart.offer">
-      <a class="span2" data-ng-href="/items/{{item.name | slugify}}/{{item.href | param}}">
-        <img data-ng-src="{{item.image[0].src}}">
-      </a>
-      <div class="span6">
-        <a data-ng-href="/items/{{item.name | slugify}}/{{item.href | param}}" data-ng-bind="item.name"></a>
-        <div data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.retail}"></div>
-        <div data-ng-bind="'Quantity: ' + itemLink.quantity"></div>
-      </div>
-
-      <form class="form-horizontal span4" name="purchase" data-ng-submit="submit(itemLink.remove)">
-        <div class="control-group">
-          <div class="controls">
-            <button type="submit" class="btn btn-large btn-action" data-i18n-bind="'REMOVE' | i18n:'cart.remove'"></button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-  <a class="checkout btn btn-action" data-ng-show="cart.checkout" href="/cart/checkout">Checkout</a>
+<div class="cart">
+  <ul class="items">
+    <li class="item" data-ng-repeat="itemLink in cart.offer" data-ng-include="" src="'/partials/cart-item.nghtml'"></li>
+  </ul>
+  <a class="checkout action" data-ng-show="cart.checkout" href="/cart/checkout">Checkout</a>
   <div data-ng-show="!cart.count && loaded">
     There are no items in your cart. Get shopping!
   </div>
