@@ -8,12 +8,12 @@
         <div class="item" data-ng-repeat="itemLink in section.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
       </div>
       <div class="main-image">
-        <img src="section.main">
+        <img src="{{section.main}}">
       </div>
     </div>
     <div data-ng-switch-default class="odd">
       <div class="main-image">
-        <img src="section.main">
+        <img src="{{section.main}}">
       </div>
       <div class="group">
         <div class="item" data-ng-repeat="itemLink in section.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
