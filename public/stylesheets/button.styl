@@ -7,22 +7,15 @@
   cursor: pointer
   border: 0
   background: #BAACAC
-  -webkit-transition: background-color 70ms linear
-  -moz-transition: background-color 70ms linear
-  -ms-transition: background-color 70ms linear
-  -o-transition: background-color 70ms linear
   transition: background-color 70ms linear
+  &.btn-action
+    background: #E01533
+    color: white
+    &:hover
+      background: #CA132E
+    &:active
+      background: #B61129
 
-.btn.btn-action
-  background: #E01533
-  color: white
-
-.btn.btn-action:hover
-  background: #CA132E
-
-.btn.btn-action:active
-  background: #B61129
-
-.btn.pull-right
-  float: right
+  &.pull-right
+    float: right
 

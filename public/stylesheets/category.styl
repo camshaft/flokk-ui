@@ -1,58 +1,58 @@
 .row-fluid .span4.item
   margin-left: 0
 
-.items .item
-  padding: 20px
+.items
+  .item
+    padding: 20px
 
-.items .item .thumbnail
-  border: 1px solid #eee
-  -webkit-border-radius: 0px
-  -moz-border-radius: 0px
-  border-radius: 0px
+    .thumbnail
+      border: 1px solid #eee
+      border-radius: 0px
 
-.items .item .thumbnail:hover
-  border: 1px solid #ccc
+    &:hover
+      border: 1px solid #ccc
 
-.items .item .image
-  border-bottom: #eee 1px solid
-  background-size: contain
-  background-repeat: no-repeat
-  background-position: center
+    .image
+      border-bottom: #eee 1px solid
+      background-size: contain
+      background-repeat: no-repeat
+      background-position: center
 
-.items .item .item-info
-  margin-top: 10px
+    .item-info
+      margin-top: 10px
 
-.items .item .item-info .time-remaining
-  text-align: center
-  font-size: 1.2em
-  margin-top: 8px
+      .time-remaining
+        text-align: center
+        font-size: 1.2em
+        margin-top: 8px
 
-.items .item .item-info .btn
-  margin-top: 4px
+      .btn
+        margin-top: 4px
 
-.items .item .item-info .price p
-  margin: 0
+      .price
+        p
+          margin: 0
 
-.items .item .item-info .price .sale-price
-  font-size: 1.1em
+        .sale-price
+          font-size: 1.1em
 
-.items .item .item-info .price .no-sale,
-.items .item .item-info .price .retail-price
-  font-size: .9em
-  color: #CCCCCC
+        .no-sale,
+        .retail-price
+          font-size: .9em
+          color: #CCCCCC
 
-.items .item .item-info .price .retail-price
-  text-decoration: line-through
+        .retail-price
+          text-decoration: line-through
 
-@media (min-width: 1200px)
+@media $media_large
   .items .item .image
     height: 257px
 
-@media (min-width: 980px) and (max-width: 1199px)
+@media $media_medium
   .items .item .image
     height: 199px
 
-@media (max-width: 979px) and (min-width: 768px)
+@media $media_small
   .items .item
     padding: 5px
 
@@ -72,7 +72,7 @@
   .items .item .item-info .price .retail-price
     font-size: .8em
 
-@media (max-width: 767px)
+@media $media_tiny
   .items .item
     padding: 0
 
