@@ -3,22 +3,22 @@
     <div data-ng-switch-when="0" class="even">
       <div class="group">
         <div class="label">
-          <img data-ng-src="{{category.label}}">
+          <img data-ng-src="{{category.label.href}}">
         </div>
         <div class="item" data-ng-repeat="itemLink in category.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
       </div>
       <div class="promo-image">
-        <img data-ng-src="{{category.promo}}">
+        <img data-ng-src="{{category.promo.href}}">
       </div>
     </div>
     <div data-ng-switch-default class="odd">
       <div class="promo-image">
-        <img data-ng-src="{{category.promo}}">
+        <img data-ng-src="{{category.promo.href}}">
       </div>
       <div class="group">
         <div class="item" data-ng-repeat="itemLink in category.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
         <div class="label">
-          <img data-ng-src="{{category.label}}">
+          <img data-ng-src="{{category.label.href}}">
         </div>
       </div>
     </div>
