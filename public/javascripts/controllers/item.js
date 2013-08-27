@@ -111,7 +111,7 @@ function fetch (href, $scope, swap) {
         .on('error', onError)
         .end(function(res) {
           // The sale isn't available
-          if(!res.body) return done();
+          if (!res.body) return done();
 
           var sale = res.body;
 
@@ -154,6 +154,33 @@ function fetch (href, $scope, swap) {
           // Unsubscribe we're done here
           $scope.$on('$destroy', function() {
             clock.off(updateRemaining);
+            subscribe.clear(subscription);
+          });
+        });
+
+      res
+        .follow('watchers')
+        .on('error', onError)
+        .end(function(res) {
+          // We can't see watcher info
+          if (!res.body) return done();
+
+          $scope.watchers = res.body;
+          // $scope.$apply(function() {
+          // });
+          $scope.$digest();
+
+          console.log($scope.watchers);
+
+          // subscribe to price changes
+          var subscription = subscribe(res.body.href, function(watchers) {
+            $scope.$apply(function() {
+              $scope.watchers = watchers;
+            });
+          });
+
+          // Unsubscribe we're done here
+          $scope.$on('$destroy', function() {
             subscribe.clear(subscription);
           });
         });
