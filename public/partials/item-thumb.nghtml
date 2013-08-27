@@ -37,7 +37,6 @@
     <form data-ng-submit="submit(watchers.unwatch)" data-ng-show="watchers.unwatch" class="watchers">
       <button class="btn btn-action">Unwatch</button>
     </form>
-
   </div>
 
 </div>

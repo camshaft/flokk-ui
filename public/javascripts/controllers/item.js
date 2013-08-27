@@ -165,12 +165,9 @@ function fetch (href, $scope, swap) {
           // We can't see watcher info
           if (!res.body) return done();
 
-          $scope.watchers = res.body;
-          // $scope.$apply(function() {
-          // });
-          $scope.$digest();
-
-          console.log($scope.watchers);
+          $scope.$apply(function() {
+            $scope.watchers = res.body;
+          });
 
           // subscribe to price changes
           var subscription = subscribe(res.body.href, function(watchers) {
