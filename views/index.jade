@@ -1,15 +1,16 @@
 extends ./layout.jade
 
 block nav
-  nav(data-ng-controller="NavController"
-      data-ng-include
-      src="'/partials/nav.nghtml'")
+  header.navbar.navbar-fixed-top: .container
+    nav(data-ng-controller="NavController"
+        data-ng-include
+        src="'/partials/nav.nghtml'")
 
 block secondary-nav
   nav(data-ng-controller="SecondaryNavController"
       data-ng-include
       src="'/partials/secondary-nav.nghtml'").secondary-nav
-  
+
 block content
   div(data-ng-view)
 

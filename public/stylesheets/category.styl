@@ -44,52 +44,54 @@
         .retail-price
           text-decoration: line-through
 
-@media $media_large
+@media $media-min-lg-desktop
   .items .item .image
     height: 257px
 
-@media $media_medium
+@media $media-desktop
   .items .item .image
     height: 199px
 
-@media $media_small
+@media $media-tablet
   .items .item
     padding: 5px
 
-  .items .item .image
+  .image
     height: 169px
 
-  .items .item .item-info .time-remaining
-    font-size: 1em
+  .item-info
+    .time-remaining
+      font-size: 1em
 
-  .items .item .item-info .btn
+  .btn
     font-size: .8em
 
-  .items .item .item-info .price .sale-price
-    font-size: .9em
+  .price
+    .sale-price
+      font-size: .9em
 
-  .items .item .item-info .price .no-sale,
-  .items .item .item-info .price .retail-price
-    font-size: .8em
+    .no-sale
+    .retail-price
+      font-size: .8em
 
-@media $media_tiny
+@media $media-max-phone
   .items .item
     padding: 0
 
-  .items .item .image
-    height: 300px
+    .image
+      height: 300px
+
+    .item-info .time-remaining
+      font-size: 2.2em
+      position: relative
+      top: -4px
 
   .thumbnail [class*="span"]
     display: inline-block
 
-  .thumbnail .span3
-    width: 23.404255319148934%
+    .span3
+      width: 23.404255319148934%
 
-  .thumbnail .span6
-    width: 48.93617021276595%
-
-  .items .item .item-info .time-remaining
-    font-size: 2.2em
-    position: relative
-    top: -4px
+    .span6
+      width: 48.93617021276595%
 
