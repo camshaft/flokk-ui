@@ -13,6 +13,16 @@ var app = require('..')
  */
 
 function CategoryController($scope, $routeParams) {
+  // Be able to load this within a route or in a list
+  if(!$routeParams.category) return $scope.$watch('categoryLink', function(link) {
+    if(link) fetch(link.href, $scope);
+  });
+
+  // Fetch the item
+  fetch(websafe.decode($routeParams.category), $scope);
+};
+
+function fetch (href, $scope) {
   var done = start();
 
   function onError(err) {
@@ -22,17 +32,18 @@ function CategoryController($scope, $routeParams) {
 
   // Get the category information
   client
-    .get(websafe.decode($routeParams.category))
+    .get(href)
     .on('error', onError)
     .end(function(res) {
 
       // Expose the category info to the view
       $scope.$apply(function() {
+        console.log(res.body);
         $scope.category = res.body;
         done();
       });
     });
-};
+}
 
 /**
  * Register it with angular

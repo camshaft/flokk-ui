@@ -1,24 +1,24 @@
 <div class="landing">
-  <section class="category" data-ng-repeat="section in sales.sections" data-ng-switch on="($index + 2) % 2">
+  <section class="category" data-ng-repeat="categoryLink in sales.sections" data-ng-switch on="($index + 2) % 2" data-ng-controller="CategoryController">
     <div data-ng-switch-when="0" class="even">
       <div class="group">
         <div class="label">
-          <img data-ng-src="{{section.image}}">
+          <img data-ng-src="{{category.label}}">
         </div>
-        <div class="item" data-ng-repeat="itemLink in section.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
+        <div class="item" data-ng-repeat="itemLink in category.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
       </div>
-      <div class="main-image">
-        <img data-ng-src="{{section.main}}">
+      <div class="promo-image">
+        <img data-ng-src="{{category.promo}}">
       </div>
     </div>
     <div data-ng-switch-default class="odd">
-      <div class="main-image">
-        <img data-ng-src="{{section.main}}">
+      <div class="promo-image">
+        <img data-ng-src="{{category.promo}}">
       </div>
       <div class="group">
-        <div class="item" data-ng-repeat="itemLink in section.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
+        <div class="item" data-ng-repeat="itemLink in category.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
         <div class="label">
-          <img data-ng-src="{{section.image}}">
+          <img data-ng-src="{{category.label}}">
         </div>
       </div>
     </div>
