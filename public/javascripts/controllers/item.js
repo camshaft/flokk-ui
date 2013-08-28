@@ -88,11 +88,15 @@ function fetch (href, $scope, swap) {
   };
 
   $scope.watch = function() {
+    if ($scope.watchers.loading) return;
     $scope.watchers.count++;
+    $scope.watchers.loading = true;
   };
 
   $scope.unwatch = function() {
+    if ($scope.watchers.loading) return;
     $scope.watchers.count--;
+    $scope.watchers.loading = true;
   };
 
   client
