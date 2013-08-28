@@ -5,6 +5,7 @@
 var stack = require('flokk-angular')
 var envs = require('envs');
 var assets = require('simple-assets');
+var ui = require('./ui.json')
 
 /**
  * Expose the app
@@ -17,6 +18,7 @@ var app = module.exports = stack();
  */
 
 app.locals({
+  ui: ui,
   ngapp: envs('APP_NAME', 'flokk'),
   title: envs('INDEX_TITLE', 'Home'),
   description: envs('SITE_DESCRIPTION', ''),

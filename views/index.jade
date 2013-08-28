@@ -1,18 +1,37 @@
 extends ./layout.jade
 
-block nav
-  header.navbar.navbar-fixed-top: .container
-    nav(data-ng-controller="NavController"
-        data-ng-include
-        src="'/partials/nav.nghtml'")
+block brand
+  h1.brand
+    a(href=site).company FLOKK
+    // small.slogan DESIGN YOUR LIFE. UP TO 70% OFF.
 
-block secondary-nav
-  nav(data-ng-controller="SecondaryNavController"
-      data-ng-include
-      src="'/partials/secondary-nav.nghtml'").secondary-nav
+block topmenu
+  mixin label(name, icon)
+    label(for='handler-#{name}').btn.btn-primary
+      i(class="icon-#{icon}")
+  +label("primary", "tag")
+  +label("secondary", "cart")
+
+block sidenav-handlers
+  mixin checkbox(name)
+    input(type="checkbox"
+          name="handler-#{name}"
+          id="handler-#{name}"
+          onclick="null").handler
+  +checkbox("primary")
+  +checkbox("secondary")
+
+block sidenav-contents
+  mixin sidenav(cont, partial, name)
+    nav(data-ng-controller=cont
+        src=partial
+        class="sidenav sidenav-#{name}"
+        data-ng-include)
+  +sidenav("NavController", "/partials/nav.nghtml", "primary")
+  +sidenav("SecondaryNavController", "/partials/secondary-nav.nghtml", "secondary")
 
 block content
-  div(data-ng-view)
+  div(data-ng-view).content
 
 block prepend scripts
   script(async

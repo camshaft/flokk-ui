@@ -35,27 +35,26 @@ html(data-ng-app=ngapp)
       if (window.location.hash === '#_=_') window.location.hash = '';
       var s = Date.now ? Date.now() : new Date().getTime();
       window.env = !{JSON.stringify(env)};
+
   body(data-ng-controller="IndexController")
     //if lt IE 10
       p.browsehappy
         | You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
 
-    header
-      block brand
-        h1.brand
-          a(href=site).company FLOKK
-          small.slogan DESIGN YOUR LIFE. UP TO 70% OFF.
-      block nav
+    block sidenav-handlers
 
-    section
-      block secondary-nav
-      div(role="main")
-        block content
+    header
+      block sidenav-contents
+
+    main(role="main")
+      menu
+        block brand
+        block topmenu
+      block content
 
     footer
       block footer
-        p
-          a(href=site+"/copyright") © 2013 The Flokk, LLC. All rights reserved
+        p: a(href=site+"/copyright") © 2013 The Flokk, LLC. All rights reserved
 
     block scripts
       each script in scripts

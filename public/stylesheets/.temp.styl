@@ -1,0 +1,58 @@
+
+// html
+//   transform: scale(0.5)
+//   box-shadow 0 0 20px rgba(black, 0.3)
+
+.sidenav
+  fixed top bottom left
+  z-index $zindex-sidenav
+  background $gray-darker
+  opacity 0
+
+.handler
+  display none
+  _handler(name, shift)
+    &#handler-{name}:checked
+      ~ .sidenav-{name}
+        opacity 1
+        transition opacity 0s 0s
+      ~ main
+        transform translate3D(shift, 0, 0)
+        .content
+          overflow hidden
+
+  _shift_amount = 80%
+  _handler(nav_lt,  (_shift_amount))
+  _handler(nav_rt, -(_shift_amount))
+
+
+menu
+  display flex
+  margin 0
+  padding 0
+  flex-direction row
+  .brand
+    flex 1 auto
+    order 2
+    text-align center
+  label
+    _size = $font-size-large * 2
+    flex 1 auto
+    max-height _size
+    max-width _size
+    &:first-child
+      order 1
+    &:last-child
+      order 3
+
+
+main
+  position relative
+  height 100%
+  transform translate3D(0%, 0, 0)
+  transition transform 0.5s ease-in-out
+  z-index $zindex-main
+  background $body-bg
+  box-shadow 0 0 10px black
+  .content
+    relative top
