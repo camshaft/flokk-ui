@@ -87,6 +87,14 @@ function fetch (href, $scope, swap) {
     done();
   };
 
+  $scope.watch = function() {
+    $scope.watchers.count++;
+  };
+
+  $scope.unwatch = function() {
+    $scope.watchers.count--;
+  };
+
   client
     .get(href)
     .on('error', onError)
