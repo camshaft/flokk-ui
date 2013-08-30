@@ -1,29 +1,42 @@
-<form class="thumbnail" data-ng-controller="ItemController" data-ng-submit="submit(sale.purchase)">
+<div class="thumbnail" data-ng-controller="ItemController">
 
   <a href="/items/{{item.name | slugify}}/{{item.href | param}}">
     <div class="image" data-lazy-load="item.image[0].src" title="{{item.name}}"></div>
   </a>
-  <div data-ng-show="sale.remaining > 0" class="row-fluid item-info">
-    <div class="span3 price">
-      <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:sale.price}"></p>
-      <p class="retail-price" data-i18n-bind="'$%{price}' | i18n:'item.retail':{price:item.retail}"></p>
+  <form data-ng-submit="submit(sale.purchase)" class="item-info">
+    <div data-ng-show="sale.remaining > 0" class="row-fluid">
+      <div class="span3 price">
+        <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:sale.price}"></p>
+        <p class="retail-price" data-i18n-bind="'$%{price}' | i18n:'item.retail':{price:item.retail}"></p>
+      </div>
+      <div class="span6 time-remaining" data-remaining data-ng-model="sale.remaining">
+      </div>
+      <div class="span3" data-ng-show="sale.purchase">
+        <a data-ng-click="signup()" class="btn btn-action pull-right" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></a>
+        <!-- <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'BUY' | i18n:'item.start_sale'"></button> -->
+      </div>
     </div>
-    <div class="span6 time-remaining" data-remaining data-ng-model="sale.remaining">
+    <div data-ng-hide="sale.remaining > 0"  class="row-fluid item-info">
+      <div class="span6 price">
+        <p class="sale-price" data-ng-show="item" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.retail}"></p>
+        <p class="no-sale" data-ng-show="sale.purchase" data-i18n-bind="'For now...' | i18n:'item.no_sale'"></p>
+      </div>
+      <div class="span6" data-ng-show="sale.purchase">
+        <a data-ng-click="signup()" class="btn btn-action pull-right" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></a>
+        <!-- <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'START SALE' | i18n:'item.start_sale'"></button> -->
+      </div>
     </div>
-    <div class="span3" data-ng-show="sale.purchase">
-      <a data-ng-click="signup()" class="btn btn-action pull-right" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></a>
-      <!-- <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'BUY' | i18n:'item.start_sale'"></button> -->
-    </div>
-  </div>
-  <div data-ng-hide="sale.remaining > 0"  class="row-fluid item-info">
-    <div class="span6 price">
-      <p class="sale-price" data-ng-show="item" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.retail}"></p>
-      <p class="no-sale" data-ng-show="sale.purchase" data-i18n-bind="'For now...' | i18n:'item.no_sale'"></p>
-    </div>
-    <div class="span6" data-ng-show="sale.purchase">
-      <a data-ng-click="signup()" class="btn btn-action pull-right" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></a>
-      <!-- <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'START SALE' | i18n:'item.start_sale'"></button> -->
-    </div>
+  </form>
+
+  <div class="watchers">
+    <div class="count" data-ng-bind="watchers.count"></div>
+    <form data-ng-submit="submit(watchers.watch)" data-ng-show="watchers.watch" class="watchers">
+      <button class="btn btn-action" data-ng-click="watch()">Watch</button>
+    </form>
+
+    <form data-ng-submit="submit(watchers.unwatch)" data-ng-show="watchers.unwatch" class="watchers">
+      <button class="btn btn-action" data-ng-click="unwatch()">Unwatch</button>
+    </form>
   </div>
 
-</form>
+</div>

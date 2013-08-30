@@ -5,12 +5,9 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "flokk/theme-origami": "*",
+    "necolas/normalize.css": "*",
+    "flokk/brand-egg": "*",
     "CamShaft/component-angular": "*",
-    "CamShaft/bootstrap-navbar": "*",
-    "CamShaft/bootstrap-navs": "*",
-    "CamShaft/bootstrap-thumbnails": "*",
-    "CamShaft/bootstrap-responsive": "*",
     "CamShaft/websafe-base64": "*",
     "CamShaft/envs": "*",
     "CamShaft/access-token": "*",
@@ -38,9 +35,9 @@
     "public/javascripts/controllers/cart.js",
     "public/javascripts/controllers/category.js",
     "public/javascripts/controllers/checkout.js",
-    "public/javascripts/controllers/hf.js",
     "public/javascripts/controllers/item.js",
-    "public/javascripts/controllers/sidenav.js",
+    "public/javascripts/controllers/nav.js",
+    "public/javascripts/controllers/secondary-nav.js",
     "public/javascripts/controllers/sales.js",
     "public/javascripts/controllers/brands.js",
     "public/javascripts/controllers/brand.js",
@@ -60,16 +57,7 @@
     "public/javascripts/services/translations.js"
   ],
   "styles": [
-    "public/stylesheets/main.css",
-    "public/stylesheets/nav.css",
-    "public/stylesheets/sidenav.css",
-    "public/stylesheets/footer.css",
-    "public/stylesheets/button.css",
-    "public/stylesheets/time-remaining.css",
-    "public/stylesheets/category.css",
-    "public/stylesheets/checkout.css",
-    "public/stylesheets/modal.css",
-    "public/stylesheets/item.css"
+    "public/stylesheets/index.styl"
   ],
   "templates": [
     "public/partials/404.nghtml",
@@ -80,13 +68,12 @@
     "public/partials/checkout.nghtml",
     "public/partials/contact.nghtml",
     "public/partials/copyright.nghtml",
-    "public/partials/footer.nghtml",
     "public/partials/item-thumb.nghtml",
     "public/partials/item.nghtml",
     "public/partials/nav.nghtml",
     "public/partials/remaining.nghtml",
     "public/partials/sales.nghtml",
-    "public/partials/sidenav.nghtml",
+    "public/partials/secondary-nav.nghtml",
     "public/partials/brand.nghtml",
     "public/partials/brands.nghtml"
   ]

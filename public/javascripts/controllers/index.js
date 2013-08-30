@@ -10,12 +10,6 @@ var app = require('..')
   , subscribe = require('../lib/subscribe');
 
 /**
- * Load the partials
- */
-
-require('../../partials/footer');
-
-/**
  * IndexController
  */
 

@@ -1,0 +1,121 @@
+
+// Grays
+
+$gray-darker =            lighten(#000, 13.5%); // #222
+$gray-dark =              lighten(#000, 20%);   // #333
+$gray =                   lighten(#000, 33.5%); // #555
+$gray-light =             lighten(#000, 60%);   // #999
+$gray-lighter =           lighten(#000, 93.5%); // #eee
+
+// Brand colors
+
+$brand-primary =         #428bca;
+$brand-success =         #5cb85c;
+$brand-warning =         #f0ad4e;
+$brand-danger =          #d9534f;
+$brand-info =            #5bc0de;
+
+// Scaffolding
+
+$body-bg =               #fff;
+$text-color =            $gray-dark;
+
+// Links
+
+$link-color =            $brand-primary;
+$link-hover-color =      darken($link-color, 15%);
+
+// Navs
+
+$nav-link-padding =                          10px 15px;
+$nav-link-hover-bg =                         $gray-lighter;
+
+$nav-disabled-link-color =                   $gray-light;
+$nav-disabled-link-hover-color =             $gray-light;
+
+$nav-open-link-hover-color =                 #fff;
+$nav-open-caret-border-color =               #fff;
+
+// Tabs
+$nav-tabs-border-color =                     #ddd;
+
+$nav-tabs-link-hover-border-color =          $gray-lighter;
+
+$nav-tabs-active-link-hover-bg =             $body-bg;
+$nav-tabs-active-link-hover-color =          $gray;
+$nav-tabs-active-link-hover-border-color =   #ddd;
+
+$nav-tabs-justified-link-border-color =            #ddd;
+$nav-tabs-justified-active-link-border-color =     $body-bg;
+
+
+// Media sizes
+
+$screen-xs =                  480px;
+$screen-phone =               $screen-xs;
+
+$screen-sm =                  768px;
+$screen-tablet =              $screen-sm;
+
+$screen-md =                  992px;
+$screen-desktop =             $screen-md;
+
+$screen-lg =                  1200px;
+$screen-lg-desktop =          $screen-lg;
+
+$screen-xs-max =              ($screen-sm - 1);
+$screen-sm-max =              ($screen-md - 1);
+$screen-md-max =              ($screen-lg - 1);
+
+// Grid
+
+$grid-columns =              12;
+$grid-gutter-width =         30px;
+$grid-float-breakpoint =     $screen-tablet;
+
+
+// Media helpers
+
+minw(w)
+  '(min-width:' + w +')'
+
+maxw(w)
+  '(max-width:' + w +')'
+
+min-max(min-w, max-w)
+  minw(min-w) +  ' and ' + maxw(max-w)
+
+screen-min(w)
+  'screen and ' + minw(w)
+
+screen-max(w)
+  'screen and ' + maxw(w)
+
+screen-min-max(min-w, max-w)
+  'screen and ' + min-max(min-w, max-w)
+
+
+// Media query shorthands
+
+$media-min-phone                 = minw($screen-xs)
+$media-min-tablet                = minw($screen-sm)
+$media-min-desktop               = minw($screen-md)
+$media-min-lg-desktop            = minw($screen-lg)
+$media-min-grid-float-breakpoint = minw($grid-float-breakpoint)
+
+$media-max-sm                    = maxw($screen-sm)
+
+$media-max-phone                 = maxw($screen-xs-max)                // (max-width: 767px)
+$media-max-tablet                = maxw($screen-sm-max)
+$media-max-desktop               = maxw($screen-md-max)
+
+
+$media-screen-min-phone          = screen-min($screen-xs)
+$media-screen-min-tablet         = screen-min($screen-sm)
+$media-screen-min-desktop        = screen-min($screen-md)
+$media-screen-min-lg-desktop     = screen-min($screen-lg)              // (max-width: 1200px)
+
+$media-tablet                    = min-max($screen-sm, $screen-sm-max) // (min-width: 768px) and (max-width: 991px)
+$media-desktop                   = min-max($screen-md, $screen-md-max) // (min-width: 992px) and (max-width: 1199px)
+
+

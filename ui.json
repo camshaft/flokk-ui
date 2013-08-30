@@ -1,0 +1,9 @@
+{
+  "derp":"orange",
+
+  "nav_lt"      : "primary",
+  "nav_lt_icon" : "tag",
+
+  "nav_rt"      : "secondary",
+  "nav_rt_icon" : "cart"
+}

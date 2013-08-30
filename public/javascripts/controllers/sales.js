@@ -23,14 +23,14 @@ function SalesController($scope) {
     .on('error', onError)
     .end(function(res) {
       // We can't see the sales
-      if(!res.body.sales) return;
+      if (!res.body.sales) return;
 
       res
         .follow('sales')
         .on('error', onError)
         .end(function(res) {
           $scope.$apply(function() {
-            $scope.itemRes = res.body;
+            $scope.sales = res.body;
             done();
           });
         });

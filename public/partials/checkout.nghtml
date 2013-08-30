@@ -1,6 +1,6 @@
-<div class="checkout container-fluid" data-ng-class="step">
-  <div class="steps-container row-fluid">
-    <ul class="steps span12">
+<div class="checkout" data-ng-class="step">
+  <div class="steps-container">
+    <ul class="steps">
       <li>
         <a class="step shipping" href="#shipping">SHIPPING</a>
       </li>
@@ -12,7 +12,7 @@
       </li>
     </ul>
   </div>
-  <div class="forms-container row-fluid">
+  <div class="forms-container">
     <div class="forms">
       <div class="form">
         <form class="shipping" data-ng-init="shipping" data-ng-submit="createAddress(shipping)">
@@ -39,9 +39,9 @@
         </form>
       </div>
       <div class="form">
-        <form class="confirmation container-fluid">
-          <div class="row">
-            <div class="span4">
+        <form class="confirmation">
+          <div class="header">
+            <div class="shipping">
               <h4>Shipping Info</h4>
               <div data-ng-bind="shipping.name"></div>
               <div data-ng-bind="shipping.streetAddress"></div>
@@ -52,7 +52,10 @@
               </div>
               <div data-ng-bind="shipping.addressCountry"></div>
             </div>
-            <div class="span4">
+            <div class="card">
+              
+            </div>
+            <div class="billing">
               <h4>Billing Info</h4>
               <div data-ng-bind="cc.name"></div>
               <div data-ng-show="cc.additionalType && cc.lastDigits">
@@ -60,9 +63,6 @@
                 ending in
                 <span data-ng-bind="cc.lastDigits"></span>
               </div>
-            </div>
-            <div class="span4">
-
             </div>
           </div>
           <a href="#billing" class="btn btn-action">Previous</a>
