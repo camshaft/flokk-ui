@@ -1,15 +1,14 @@
 extends ./layout.jade
 
-block brand
-  h1.brand
-    a(href=site).company FLOKK
-    // small.slogan DESIGN YOUR LIFE. UP TO 70% OFF.
 
 block topmenu
   mixin label(name, icon)
-    label(for='handler-#{name}').btn.btn-primary
+    label(for='handler-#{name}')
       i(class="icon-#{icon}")
   +label("primary", "tag")
+  figure.brand
+    a(href=site).company FLOKK
+    // small.slogan DESIGN YOUR LIFE. UP TO 70% OFF.
   +label("secondary", "cart")
 
 block sidenav-handlers
@@ -22,13 +21,17 @@ block sidenav-handlers
   +checkbox("secondary")
 
 block sidenav-contents
-  mixin sidenav(cont, partial, name)
+  - var _dummy_prim=[ 'asd','zxc','qwe']
+  mixin sidenav(cont, partial, name, dummy)
     nav(data-ng-controller=cont
         src=partial
         class="sidenav sidenav-#{name}"
         data-ng-include)
-  +sidenav("NavController", "/partials/nav.nghtml", "primary")
-  +sidenav("SecondaryNavController", "/partials/secondary-nav.nghtml", "secondary")
+      ul
+        for d in dummy
+          li: a=d
+  +sidenav("NavController", "/partials/nav.nghtml", "primary", _dummy_prim)
+  +sidenav("SecondaryNavController", "/partials/secondary-nav.nghtml", "secondary", _dummy_prim)
 
 block content
   div(data-ng-view).content
