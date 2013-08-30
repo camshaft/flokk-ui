@@ -21,7 +21,7 @@ block sidenav-handlers
   +checkbox("secondary")
 
 block sidenav-contents
-  - var _dummy_prim=[ 'asd','zxc','qwe']
+  - var _dummy=[ 'asd','zxc','qwe']
   mixin sidenav(cont, partial, name, dummy)
     nav(data-ng-controller=cont
         src=partial
@@ -30,8 +30,8 @@ block sidenav-contents
       ul
         for d in dummy
           li: a=d
-  +sidenav("NavController", "/partials/nav.nghtml", "primary", _dummy_prim)
-  +sidenav("SecondaryNavController", "/partials/secondary-nav.nghtml", "secondary", _dummy_prim)
+  +sidenav("NavController", "/partials/nav.nghtml", "primary", _dummy)
+  +sidenav("SecondaryNavController", "/partials/secondary-nav.nghtml", "secondary", _dummy)
 
 block content
   div(data-ng-view).content

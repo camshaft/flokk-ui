@@ -16,7 +16,6 @@ _shift_amount = 200px
   transition opacity 0s $transition-speed-fast
   &.sidenav-primary
     left 0
-    top $navbar-height
   &.sidenav-secondary
     right 0
   ul
@@ -44,11 +43,11 @@ _shift_amount = 200px
   .sidenav
     opacity 1
     z-index 99999
-    &.sidenav-secondary
-      width inherit
-      ul
-        li
-          display inline-block
+    width inherit
+    &.sidenav-primary
+      top $navbar-height
+    &.sidenav-secondary ul li
+      display inline-block
 
   menu.topmenu label
     display none
