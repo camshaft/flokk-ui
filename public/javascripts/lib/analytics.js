@@ -2,22 +2,15 @@
  * Module dependencies
  */
 
-exports.identify = function(userId, traits, options, callback) {
+var envs = require('envs');
 
-};
+var analytics = module.exports = require('analytics');
 
-exports.group = function(groupId, properties, options, callback) {
-
-};
-
-exports.track = function(event, properties, options, callback) {
-
-};
-
-exports.pageview = function(url) {
-  url = url || window.location+"";
-};
-
-exports.alias = function(newId, originalId, options) {
-
-};
+analytics.initialize({
+  'Mixpanel': {
+    token: envs('MIXPANEL_KEY')
+  },
+  'Google Analytics': {
+    token: envs('GOOGLE_KEY')
+  }
+});

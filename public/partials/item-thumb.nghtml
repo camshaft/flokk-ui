@@ -31,11 +31,11 @@
   <div class="watchers">
     <div class="count" data-ng-bind="watchers.count"></div>
     <form data-ng-submit="submit(watchers.watch)" data-ng-show="watchers.watch" class="watchers">
-      <button class="btn btn-action" data-ng-click="watch()">Watch</button>
+      <button class="btn btn-action" data-ng-click="watch()" data-track="{event: 'watch', item: item.href}">Watch</button>
     </form>
 
     <form data-ng-submit="submit(watchers.unwatch)" data-ng-show="watchers.unwatch" class="watchers">
-      <button class="btn btn-action" data-ng-click="unwatch()">Unwatch</button>
+      <button class="btn btn-action" data-ng-click="unwatch()" data-track="{event: 'unwatch', item: item.href}">Unwatch</button>
     </form>
   </div>
 

@@ -22,7 +22,8 @@
     "component/preloader": "*",
     "component/emitter": "*",
     "airbnb/polyglot.js": "*",
-    "yields/slug": "*"
+    "yields/slug": "*",
+    "flokk/analytics.js": "*"
   },
   "development": {},
   "license": "MIT",
@@ -46,6 +47,7 @@
     "public/javascripts/directives/csc.js",
     "public/javascripts/directives/lazy-load.js",
     "public/javascripts/directives/remaining.js",
+    "public/javascripts/directives/track.js",
     "public/javascripts/filters/param.js",
     "public/javascripts/filters/i18n.js",
     "public/javascripts/filters/pad.js",

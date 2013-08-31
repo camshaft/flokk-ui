@@ -26,7 +26,9 @@ app.locals({
   env: {
     BROWSER_ENV: envs('NODE_ENV', 'production'),
     API_URL: envs('API_URL'),
-    PUSHER_KEY: envs('PUSHER_KEY')
+    PUSHER_KEY: envs('PUSHER_KEY'),
+    MIXPANEL_KEY: envs('MIXPANEL_KEY'),
+    GOOGLE_KEY: envs('GOOGLE_KEY')
   }
 });
 

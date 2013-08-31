@@ -81,7 +81,8 @@ var notFound = require('../partials/404.js')
  */
 
 var i18nBind = require('./directives/i18n-bind')
-  , lazyLoad = require('./directives/lazy-load');
+  , lazyLoad = require('./directives/lazy-load')
+  , track = require('./directives/track');
 
 /**
  * Initialize the filters used outside of the controllers
