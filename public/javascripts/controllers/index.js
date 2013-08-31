@@ -2,12 +2,14 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , client = require('hyperagent')
-  , start = require('in-progress')
-  , each = require('each')
-  , type = require('type')
-  , subscribe = require('../lib/subscribe');
+var app = require('..');
+var client = require('hyperagent');
+var start = require('in-progress');
+var each = require('each');
+var type = require('type');
+var subscribe = require('../lib/subscribe');
+var slug = require('slug');
+var websafe = require('websafe-base64').encode;
 
 /**
  * IndexController
@@ -24,6 +26,17 @@ function IndexController($scope, $location) {
   $scope.resetSidenav = function() {
     $scope.sidenav.primary = false;
     $scope.sidenav.secondary = false;
+  };
+
+  $scope.urlFor = function(obj, root) {
+    if (!obj) return;
+    return [
+      'https:/',
+      $location.host(),
+      root,
+      slug(obj.name || obj.title),
+      websafe(obj.href)
+    ].join('/');
   };
 
   // expose an easy way to submit a form

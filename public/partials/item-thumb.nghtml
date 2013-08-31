@@ -1,6 +1,6 @@
 <div class="thumbnail" data-ng-controller="ItemController">
 
-  <a href="/items/{{item.name | slugify}}/{{item.href | param}}">
+  <a data-ng-href="{{urlFor(item, 'items')}}">
     <div class="image" data-lazy-load="item.image[0].src" title="{{item.name}}"></div>
   </a>
   <form data-ng-submit="submit(sale.purchase)" class="item-info">
@@ -31,11 +31,11 @@
   <div class="watchers">
     <div class="count" data-ng-bind="watchers.count"></div>
     <form data-ng-submit="submit(watchers.watch)" data-ng-show="watchers.watch" class="watchers">
-      <button class="btn btn-action" data-ng-click="watch()" data-track="{event: 'watch', item: item.href}">Watch</button>
+      <button class="btn btn-action" data-ng-click="watch()" data-track="{event: 'watch', item: urlFor(item, 'items')}">Watch</button>
     </form>
 
     <form data-ng-submit="submit(watchers.unwatch)" data-ng-show="watchers.unwatch" class="watchers">
-      <button class="btn btn-action" data-ng-click="unwatch()" data-track="{event: 'unwatch', item: item.href}">Unwatch</button>
+      <button class="btn btn-action" data-ng-click="unwatch()" data-track="{event: 'unwatch', item: urlFor(item, 'items')}">Unwatch</button>
     </form>
   </div>
 
