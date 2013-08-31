@@ -5,7 +5,12 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "necolas/normalize.css": "*",
+    "flokk/theme-origami": "*",
+    "CamShaft/component-angular": "*",
+    "CamShaft/bootstrap-navbar": "*",
+    "CamShaft/bootstrap-navs": "*",
+    "CamShaft/bootstrap-thumbnails": "*",
+    "CamShaft/bootstrap-responsive": "*",
     "flokk/brand-egg": "*",
     "CamShaft/component-angular": "*",
     "CamShaft/websafe-base64": "*",
@@ -59,7 +64,16 @@
     "public/javascripts/services/translations.js"
   ],
   "styles": [
-    "public/stylesheets/index.styl"
+    "public/stylesheets/main.css",
+    "public/stylesheets/nav.css",
+    "public/stylesheets/sidenav.css",
+    "public/stylesheets/footer.css",
+    "public/stylesheets/button.css",
+    "public/stylesheets/time-remaining.css",
+    "public/stylesheets/category.css",
+    "public/stylesheets/checkout.css",
+    "public/stylesheets/modal.css",
+    "public/stylesheets/item.css"
   ],
   "templates": [
     "public/partials/404.nghtml",
@@ -74,8 +88,8 @@
     "public/partials/item.nghtml",
     "public/partials/remaining.nghtml",
     "public/partials/sales.nghtml",
-    "public/partials/nav-categories.nghtml",
-    "public/partials/nav-links.nghtml",
+    "public/partials/sidenav.nghtml",
+    "public/partials/nav.nghtml",
     "public/partials/brand.nghtml",
     "public/partials/brands.nghtml"
   ]

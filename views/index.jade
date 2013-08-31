@@ -1,41 +1,19 @@
-extends ./layout.jade
+extends ../node_modules/theme-origami/layout.jade
 
-block brand
-  figure.brand
-    a(href=site).company FLOKK
-    // small.slogan DESIGN YOUR LIFE. UP TO 70% OFF.
-
-block handlers
-  mixin checkbox(name)
-    input(type="checkbox"
-          name="handler-#{name}"
-          id="handler-#{name}"
-          onclick="null").handler
-  +checkbox("categories")
-  +checkbox("links")
-
-block labels
-  mixin label(name, icon)
-    label(for='handler-#{name}')
-      i(class="icon-#{icon}")
-  +label("categories", "tag")
-  +label("links", "cart")
-
-block sidenavs
-  mixin sidenav(cont, name)
-    nav(data-ng-controller=cont
-        src="'/partials/nav-" + name + ".nghtml'"
-        class="sidenav sidenav-#{name}"
-        data-ng-include)
-  +sidenav("NavCategoriesController", "categories")
-  +sidenav("NavLinksController", "links")
-
+block nav
+  div(data-ng-controller="NavLinksController")
+    div(data-ng-include="", src="'/partials/nav.nghtml'")
+  
 block content
-  div(data-ng-view).content
+  #main
+    div(data-ng-include="", src="'/partials/sidenav.nghtml'").sidenav-container
+    .container-fluid.main-container
+      .row-fluid
+        div(data-ng-view="").span12
 
 block prepend scripts
   script(async
-         src="https://js.balancedpayments.com/v1/balanced.min.js"
+         src="//js.balancedpayments.com/v1/balanced.min.js"
          onload="balanced.init('#{balanced}')")
-  script(src="https://d3dy5gmtp8yhk7.cloudfront.net/2.1.1/sockjs.min.js")
-  script(src="https://d3dy5gmtp8yhk7.cloudfront.net/2.1/pusher.min.js")
+  script(src="//d3dy5gmtp8yhk7.cloudfront.net/2.1.1/sockjs.min.js")
+  script(src="//d3dy5gmtp8yhk7.cloudfront.net/2.1/pusher.min.js")

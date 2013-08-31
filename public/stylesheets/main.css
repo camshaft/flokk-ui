@@ -1,0 +1,19 @@
+body {
+  background: white;
+  overflow-y: scroll;
+}
+
+@media (min-width: 980px) {
+  #main {
+    position: relative;
+    padding-top: 100px;
+  }
+
+  .main-container {
+    padding-left: 140px;
+  }
+}
+
+.landing .item .item-info {
+  display: none;
+}

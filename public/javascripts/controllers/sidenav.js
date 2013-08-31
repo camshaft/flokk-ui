@@ -14,10 +14,10 @@ var app = require('..')
 require('../../partials/sidenav');
 
 /**
- * NavCategoriesController
+ * SidenavController
  */
 
-function NavCategoriesController($scope, $routeParams) {
+function SidenavController($scope, $routeParams) {
   var done = start();
 
   $scope.$watch(function() {
@@ -57,14 +57,14 @@ function NavCategoriesController($scope, $routeParams) {
  * Register it with angular
  */
 
-app.controller('NavCategoriesController', [
+app.controller('SidenavController', [
   '$scope',
   '$routeParams',
-  NavCategoriesController
+  SidenavController
 ]);
 
 /**
  * Let others know where to find it
  */
 
-module.exports = 'NavCategoriesController';
+module.exports = 'SidenavController';

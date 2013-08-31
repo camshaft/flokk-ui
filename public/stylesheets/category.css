@@ -1,0 +1,141 @@
+/* We want to control our own spacing */
+.row-fluid .span4.item {
+  margin-left: 0;
+}
+
+.items .item {
+  padding: 20px;
+}
+
+.items .item .square {
+  opacity: 0;
+}
+
+.items .item .image {
+  position: absolute;
+  height: 90%;
+  width: 90%;
+  top: 0;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+/* Make the radius sqaure */
+.items .item .thumbnail {
+  padding: 0;
+  position: relative;
+  border: 1px solid #eee;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
+.items .item .thumbnail:hover {
+  border: 1px solid #ccc;
+}
+
+.items .item .image {
+  /*border-bottom: #eee 1px solid;*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.items .item .item-info {
+  margin-top: 10px;
+}
+
+.items .item .item-info .time-remaining {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 8px;
+}
+
+.items .item .item-info .btn {
+  margin-top: 4px;
+}
+
+.items .item .item-info .price p {
+  margin: 0;
+}
+
+.items .item .item-info .price .sale-price {
+  font-size: 1.1em;
+}
+
+.items .item .item-info .price .no-sale,
+.items .item .item-info .price .retail-price {
+  font-size: .9em;
+  color: #CCCCCC;
+}
+
+.items .item .item-info .price .retail-price {
+  text-decoration: line-through;
+}
+
+/*@media (min-width: 1200px) {
+  .items .item .image {
+    height: 257px;
+  }
+}
+
+@media (min-width: 980px) and (max-width: 1199px) {
+  .items .item .image {
+    height: 199px;
+  }
+}*/
+
+@media (max-width: 979px) and (min-width: 768px) {
+  .items .item {
+    padding: 5px;
+  }
+
+/*  .items .item .image {
+    height: 169px;
+  }*/
+
+  .items .item .item-info .time-remaining {
+    font-size: 1em;
+  }
+
+  .items .item .item-info .btn {
+    font-size: .8em;
+  }
+
+  .items .item .item-info .price .sale-price {
+    font-size: .9em;
+  }
+
+  .items .item .item-info .price .no-sale,
+  .items .item .item-info .price .retail-price {
+    font-size: .8em;
+  }
+}
+
+@media (max-width: 767px) {
+  .items .item {
+    padding: 0;
+  }
+
+  .items .item .image {
+    height: 300px;
+  }
+
+  .thumbnail [class*="span"] {
+    display: inline-block;
+  }
+
+  .thumbnail .span3 {
+    width: 23.404255319148934%;
+  }
+
+  .thumbnail .span6 {
+    width: 48.93617021276595%;
+  }
+
+  .items .item .item-info .time-remaining {
+    font-size: 2.2em;
+    position: relative;
+    top: -4px;
+  }
+}
+

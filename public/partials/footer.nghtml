@@ -1,0 +1,7 @@
+<div class="navbar container" data-ng-controller="HFController">
+  <ul class="nav pull-right">
+    <li>
+      <a href="/copyright" data-i18n-bind="'© 2013 The Flokk, LLC. All rights reserved' | i18n:'copyright'"></a>
+    </li>
+  </ul>
+</div>

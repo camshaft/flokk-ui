@@ -1,0 +1,10 @@
+.navbar {
+  background: white;
+  z-index: 499;
+}
+
+@media (min-width: 980px) {
+  .navbar .brand.brand-flokk {
+    margin-left: 145px;
+  }
+}

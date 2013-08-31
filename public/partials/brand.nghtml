@@ -1,6 +1,6 @@
 <h3 data-ng-bind="brandRes.name"></h3>
-<div class="">
-  <ul class="brands">
-    <li class="brand" data-ng-repeat="itemLink in itemsRes.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></li>
+<div class="row-fluid">
+  <ul class="thumbnails items">
+    <li class="span4 item" data-ng-repeat="itemLink in itemsRes.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></li>
   </ul>
 </div>
