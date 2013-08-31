@@ -11,13 +11,13 @@ var app = require('..')
  * Load the partials
  */
 
-require('../../partials/secondary-nav');
+require('../../partials/nav-categories');
 
 /**
- * SecondaryNavController
+ * NavCategoriesController
  */
 
-function SecondaryNavController($scope, $routeParams) {
+function NavCategoriesController($scope, $routeParams) {
   var done = start();
 
   $scope.$watch(function() {
@@ -57,14 +57,14 @@ function SecondaryNavController($scope, $routeParams) {
  * Register it with angular
  */
 
-app.controller('SecondaryNavController', [
+app.controller('NavCategoriesController', [
   '$scope',
   '$routeParams',
-  SecondaryNavController
+  NavCategoriesController
 ]);
 
 /**
  * Let others know where to find it
  */
 
-module.exports = 'SecondaryNavController';
+module.exports = 'NavCategoriesController';

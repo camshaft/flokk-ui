@@ -11,13 +11,13 @@ var app = require('..')
  * Load the partials
  */
 
-require('../../partials/nav');
+require('../../partials/nav-links');
 
 /**
- * NavController
+ * NavLinksController
  */
 
-function NavController($scope) {
+function NavLinksController($scope) {
   var done = start();
 
   function onError(err) {
@@ -39,13 +39,13 @@ function NavController($scope) {
  * Register it with angular
  */
 
-app.controller('NavController', [
+app.controller('NavLinksController', [
   '$scope',
-  NavController
+  NavLinksController
 ]);
 
 /**
  * Let others know where to find it
  */
 
-module.exports = 'NavController';
+module.exports = 'NavLinksController';

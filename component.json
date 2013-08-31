@@ -37,8 +37,8 @@
     "public/javascripts/controllers/category.js",
     "public/javascripts/controllers/checkout.js",
     "public/javascripts/controllers/item.js",
-    "public/javascripts/controllers/nav.js",
-    "public/javascripts/controllers/secondary-nav.js",
+    "public/javascripts/controllers/nav-categories.js",
+    "public/javascripts/controllers/nav-links.js",
     "public/javascripts/controllers/sales.js",
     "public/javascripts/controllers/brands.js",
     "public/javascripts/controllers/brand.js",
@@ -72,10 +72,10 @@
     "public/partials/copyright.nghtml",
     "public/partials/item-thumb.nghtml",
     "public/partials/item.nghtml",
-    "public/partials/nav.nghtml",
     "public/partials/remaining.nghtml",
     "public/partials/sales.nghtml",
-    "public/partials/secondary-nav.nghtml",
+    "public/partials/nav-categories.nghtml",
+    "public/partials/nav-links.nghtml",
     "public/partials/brand.nghtml",
     "public/partials/brands.nghtml"
   ]

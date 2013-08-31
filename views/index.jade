@@ -1,34 +1,34 @@
 extends ./layout.jade
 
-
-block topmenu
-  mixin label(name, icon)
-    label(for='handler-#{name}')
-      i(class="icon-#{icon}")
-  +label("primary", "tag")
+block brand
   figure.brand
     a(href=site).company FLOKK
     // small.slogan DESIGN YOUR LIFE. UP TO 70% OFF.
-  +label("secondary", "cart")
 
-block sidenav-handlers
+block handlers
   mixin checkbox(name)
     input(type="checkbox"
           name="handler-#{name}"
           id="handler-#{name}"
-          onclick="null"
-          data-ng-model="sidenav.#{name}").handler
-  +checkbox("primary")
-  +checkbox("secondary")
+          onclick="null").handler
+  +checkbox("categories")
+  +checkbox("links")
 
-block sidenav-contents
-  mixin sidenav(cont, partial, name)
+block labels
+  mixin label(name, icon)
+    label(for='handler-#{name}')
+      i(class="icon-#{icon}")
+  +label("categories", "tag")
+  +label("links", "cart")
+
+block sidenavs
+  mixin sidenav(cont, name)
     nav(data-ng-controller=cont
-        src=partial
+        src="'/partials/nav-" + name + ".nghtml'"
         class="sidenav sidenav-#{name}"
         data-ng-include)
-  +sidenav("NavController", "'/partials/nav.nghtml'", "primary")
-  +sidenav("SecondaryNavController", "'/partials/secondary-nav.nghtml'", "secondary")
+  +sidenav("NavCategoriesController", "categories")
+  +sidenav("NavLinksController", "links")
 
 block content
   div(data-ng-view).content

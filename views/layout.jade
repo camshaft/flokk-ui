@@ -41,14 +41,17 @@ html(data-ng-app=ngapp)
       p.browsehappy
         | You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
 
-    block sidenav-handlers
 
-    header
-      block sidenav-contents
+    block handlers
+
+    block brand
+
+    menu.topmenu
+      block labels
+
+    block sidenavs
 
     main(role="main")
-      menu.topmenu
-        block topmenu
       block content
 
     footer
