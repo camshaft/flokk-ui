@@ -23,6 +23,7 @@ app.locals({
   title: envs('INDEX_TITLE', 'Home'),
   description: envs('SITE_DESCRIPTION', ''),
   fluid: true,
+  balanced: envs('BALANCED_KEY_PROD'),
   env: {
     BROWSER_ENV: envs('NODE_ENV', 'production'),
     API_URL: envs('API_URL'),
@@ -37,11 +38,7 @@ app.locals({
  */
 
 app.useBefore('router', function envLocals(req, res, next) {
-  var locals = req.get('x-env') === 'production'
-    ? { balanced: envs('BALANCED_KEY_PROD') }
-    : { balanced: envs('BALANCED_KEY_TEST') };
-
-  res.locals(locals);
+  if (req.get('x-env') !== 'production') res.locals.balanced = envs('BALANCED_KEY_TEST');
   next();
 });
 
