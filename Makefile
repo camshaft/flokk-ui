@@ -3,7 +3,7 @@ CSS_FILES=$(shell find public -type f -name '*.css')
 STYL_FILES=$(shell find public -type f -name '*.styl')
 PARTIAL_FILES=$(shell find public -type f -name '*.nghtml')
 
-prod: build build/build.min.js hash
+prod: build build/build.min.js build/build.min.css hash
 
 build: components build/build.js build/build.css
 
@@ -19,8 +19,8 @@ build/build.css: $(CSS_FILES) $(STYL_FILES) $(PARTIAL_FILES)
 	@./node_modules/.bin/component build --copy --use nghtml,stylus --standalone flokk
 
 # Minify the css
-# build/build.min.css: build/build.css
-# 	@./node_modules/.bin/styl --compress < $< > $@
+build/build.min.css: build/build.css
+	@./node_modules/.bin/cleancss --remove-empty --s0 --skip-import --output $@ $<
 
 components: component.json
 	@./node_modules/.bin/component install

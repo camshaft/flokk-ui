@@ -26,9 +26,9 @@
     "theme-origami": "flokk/theme-origami",
     "simple-assets": "~0.1.0",
     "uglify-js": "~2.3.6",
-    "styl": "CamShaft/styl",
     "component-builder": "~0.8.3",
-    "component-stylus": "~1.1.3"
+    "component-stylus": "~1.1.3",
+    "clean-css": "~1.0.12"
   },
   "devDependencies": {
     "should": "~1.2.1",
