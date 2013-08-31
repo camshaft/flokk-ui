@@ -12,7 +12,7 @@
       <div class="span6 time-remaining" data-remaining data-ng-model="sale.remaining">
       </div>
       <div class="span3" data-ng-show="sale.purchase">
-        <a data-ng-click="signup()" class="btn btn-action pull-right" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></a>
+        <a data-ng-click="signup()" class="btn btn-action pull-right" data-i18n-bind="'START SALE' | i18n:'add_to_cart'" data-track="{event: 'start sale', item: urlFor(item, 'items')}"></a>
         <!-- <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'BUY' | i18n:'item.start_sale'"></button> -->
       </div>
     </div>
@@ -22,7 +22,7 @@
         <p class="no-sale" data-ng-show="sale.purchase" data-i18n-bind="'For now...' | i18n:'item.no_sale'"></p>
       </div>
       <div class="span6" data-ng-show="sale.purchase">
-        <a data-ng-click="signup()" class="btn btn-action pull-right" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></a>
+        <a data-ng-click="signup()" class="btn btn-action pull-right" data-i18n-bind="'START SALE' | i18n:'add_to_cart'" data-track="{event: 'start sale', item: urlFor(item, 'items')}"></a>
         <!-- <button class="btn btn-action pull-right" data-ng-click="" data-i18n-bind="'START SALE' | i18n:'item.start_sale'"></button> -->
       </div>
     </div>

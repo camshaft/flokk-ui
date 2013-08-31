@@ -12,8 +12,8 @@
       </div>
     </div>
     <div class="span6 item-info">
-      <h2 class="title"><a href="/items/{{item.name | slugify}}/{{item.href | param}}" data-i18n-bind="item.name | i18n:item.href"></a></h2>
-      <h3 class="vendor"><a href="/brands/{{item.brand.title | slugify}}/{{item.brand.href | param}}" data-i18n-bind="item.brand.title"></a></h3>
+      <h2 class="title"><a data-ng-href="{{urlFor(item, 'items')}}" data-i18n-bind="item.name | i18n:item.href"></a></h2>
+      <h3 class="vendor"><a href="{{urlFor(item.brand, 'brands')}}" data-i18n-bind="item.brand.title"></a></h3>
       <div class="price">
         <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(sale.price || item.retail)}"></p>
         <p class="retail-price" data-ng-show="sale.onSale" data-i18n-bind="'$%{price} Retail' | i18n:'item.retail':{price:item.retail}"></p>
@@ -25,7 +25,7 @@
         <select name="quantity" id="item-quantity" data-ng-model="purchaseForm.quantity" data-ng-options="option.value as (option.prompt || option.value) for option in sale.purchase.input.quantity.options">
         </select>
         <hr>
-        <a data-ng-click="signup()" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></a>
+        <a data-ng-click="signup()" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'" data-track="{event: 'start sale', item: urlFor(item, 'items')}"></a>
         <!-- <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'BUY' | i18n:'add_to_cart'"></button> -->
         <!-- <button type="submit" data-ng-hide="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></button> -->
       </form>
