@@ -50,7 +50,6 @@ app.useBefore('router', function envLocals(req, res, next) {
 var CDN_URL = envs('CDN_URL', '');
 
 function lookup(file) {
-  if (!CDN_URL) return assets(file);
   return [CDN_URL, assets(file)].join('/');
 };
 

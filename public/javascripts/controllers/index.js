@@ -20,6 +20,12 @@ function IndexController($scope, $location) {
     $scope.path = val;
   });
 
+  $scope.sidenav = {primary: false, secondary: false};
+  $scope.resetSidenav = function() {
+    $scope.sidenav.primary = false;
+    $scope.sidenav.secondary = false;
+  };
+
   // expose an easy way to submit a form
   $scope.submit = function(form, values, cb) {
     var done = start();
