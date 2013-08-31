@@ -30,8 +30,8 @@ block sidenav-contents
       ul
         for d in dummy
           li: a=d
-  +sidenav("NavController", "/partials/nav.nghtml", "primary", _dummy)
-  +sidenav("SecondaryNavController", "/partials/secondary-nav.nghtml", "secondary", _dummy)
+  +sidenav("NavController", "'/partials/nav.nghtml'", "primary", _dummy)
+  +sidenav("SecondaryNavController", "'/partials/secondary-nav.nghtml'", "secondary", _dummy)
 
 block content
   div(data-ng-view).content
