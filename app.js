@@ -60,6 +60,7 @@ app.locals({
 
 app.locals({
   scripts: [
-    lookup('build/build.js')
+    lookup('build/build.js'),
+    '//assets.pinterest.com/js/pinit.js'
   ]
 });

@@ -31,15 +31,22 @@ function IndexController($scope, $location) {
   $scope.urlFor = function(obj, root) {
     if (!obj) return;
 
+    return $scope.absUrl('/' + [
+      root,
+      slug(obj.name || obj.title || ''),
+      websafe(obj.href)
+    ].join('/'));
+  };
+
+  $scope.absUrl = function(path) {
+    if (!path) return;
+
     var port = $location.port() ? ':' + $location.port() : '';
 
     return [
       $location.protocol() + ':/',
       $location.host() + port,
-      root,
-      slug(obj.name || obj.title || ''),
-      websafe(obj.href)
-    ].join('/');
+    ].join('/') + path;
   };
 
   // expose an easy way to submit a form

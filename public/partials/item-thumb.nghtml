@@ -13,6 +13,7 @@
       <form data-ng-submit="submit(watchers.unwatch)" data-ng-show="watchers.unwatch" class="pull-left">
         <button class="btn btn-primary btn-small" data-ng-click="unwatch()" data-track="{event: 'unwatch', item: urlFor(item, 'items')}">Unwatch</button>
       </form>
+      <a class="pull-left btn btn-primary btn-small" data-ng-hide="watchers.watch || watchers.unwatch" href="/auth/login" target="_self">Watch</a>
       <div class="count pull-left" title="{{watchers.count}}"></div>
     </div>
     <div class="span6">
