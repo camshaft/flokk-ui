@@ -1,4 +1,45 @@
-<div class="item" data-ng-controller="ItemController">
+<div class="row">
+  <div class="span12">
+    <h1 data-ng-bind="item.name"></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <img class="product-image" data-ng-src="{{item.image[image || 0].src}}">
+    <div class="row">
+      <div class="span2" data-ng-repeat="image in item.image">
+        <a data-ng-href="#{{$index}}">
+          <img data-ng-src="{{image.src}}">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="add-basket-box clearfix">
+      <img data-ng-src="{{item.image[0].src}}" alt="{{item.name}}">
+      <p><span data-ng-bind="item.name"></span><br /><span data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(sale.price || item.retail)}"></span></p>
+      <a class="btn btn-addcart btn-primary" data-ng-click="signup()"><span class="entypo cart"></span></a>
+    </div>
+    <p data-ng-bind="item.description"></p>
+    <h3>Stock</h3>
+    <p>Pending</p>
+    <p>Watch this item to become notified of future sales</p>
+    <div class="watchers">
+      <form data-ng-submit="submit(watchers.watch)" data-ng-show="watchers.watch" class="pull-left">
+        <button class="btn btn-grey btn-small" data-ng-click="watch()" data-track="{event: 'watch', item: urlFor(item, 'items')}">Watch</button>
+      </form>
+
+      <form data-ng-submit="submit(watchers.unwatch)" data-ng-show="watchers.unwatch" class="pull-left">
+        <button class="btn btn-grey btn-small" data-ng-click="unwatch()" data-track="{event: 'unwatch', item: urlFor(item, 'items')}">Unwatch</button>
+      </form>
+      <div class="count pull-left" title="{{watchers.count}}"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div class="item" >
   <div class="row-fluid">
     <div class="span6">
       <div class="image" data-ng-style="{'background-image': 'url(' +  + ')'}">
@@ -26,8 +67,8 @@
         </select>
         <hr>
         <a data-ng-click="signup()" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></a>
-        <!-- <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'BUY' | i18n:'add_to_cart'"></button> -->
-        <!-- <button type="submit" data-ng-hide="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></button> -->
+        <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'BUY' | i18n:'add_to_cart'"></button>
+        <button type="submit" data-ng-hide="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></button>
       </form>
     </div>
   </div>
@@ -46,3 +87,4 @@
     </div>
   </div>
 </div>
+ -->

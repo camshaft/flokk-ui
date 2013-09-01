@@ -1,153 +1,22 @@
-<div class="container-fluid landing">
-  <div class="category row-fluid" data-ng-repeat="categoryLink in sales.sections" data-ng-switch on="($index + 2) % 2" data-ng-controller="CategoryController">
-    <div data-ng-switch-when="0" class="even">
-      <div class="group items thumbnails span6">
-        <div class="row-fluid">
-          <div class="item span6">
-            <div class="thumbnail">
-              <img data-ng-src="{{category.label.href}}">
-            </div>
-          </div>
-          <div class="item span6" data-ng-repeat="itemLink in categoryLink.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
-        </div>
+<div class="row">
+  <div class="span12">
+    <h1>Popular Items</h1>
+  </div>
+</div>
+
+<div>
+  <div class="row" data-ng-repeat="categoryLink in sales.sections" data-ng-switch on="($index + 2) % 2" data-ng-controller="CategoryController">
+    <div data-ng-switch-when="0" class="odd">
+      <div class="span4 product-listing">
+        <a data-ng-href="{{urlFor(category.items, 'categories')}}"><img class="image" data-ng-src="{{category.label.href}}" alt="{{item.name}}"></a>
       </div>
-      <div class="promo-image span6">
-        <img data-ng-src="{{category.promo.href}}">
-      </div>
+      <div data-ng-repeat="itemLink in categoryLink.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
     </div>
-    <div data-ng-switch-default class="odd">
-      <div class="promo-image span6">
-        <img data-ng-src="{{category.promo.href}}">
-      </div>
-      <div class="group items thumbnails span6">
-        <div class="row-fluid">
-          <div class="item span6">
-            <div class="thumbnail">
-              <img data-ng-src="{{category.label.href}}">
-            </div>
-          </div>
-          <div class="item span6" data-ng-repeat="itemLink in categoryLink.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
-        </div>
+    <div data-ng-switch-when="1" class="even">
+      <div data-ng-repeat="itemLink in categoryLink.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
+      <div class="span4 product-listing">
+        <a data-ng-href="{{urlFor(category.items, 'categories')}}"><img class="image" data-ng-src="{{category.label.href}}" alt="{{item.name}}"></a>
       </div>
     </div>
   </div>
 </div>
-<!-- 
-<div class="container-fluid landing">
-  <div class="row-fluid">
-    <div class="span6">
-      <img class="" src="https://d30wvy161n1c3v.cloudfront.net/1c5a09ae839d0e0086b134d0ac3c6416-clock.jpg">
-    </div>
-    <div class="span6">
-      <div class="row-fluid">
-        <div class="span6">
-          <img class="" src="http://i49.tinypic.com/2lx5xu.jpg">
-        </div>
-        <div class="span6">
-          <img class="" src="https://d30wvy161n1c3v.cloudfront.net/livingroom.svg">
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span6">
-          <img class="" src="http://i39.tinypic.com/b64osy.jpg">
-        </div>
-        <div class="span6">
-          <img class="" src="http://i48.tinypic.com/pvewh.jpg">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row-fluid">
-    <div class="span6">
-      <div class="row-fluid">
-        <div class="span6">
-          <img class="" src="http://i39.tinypic.com/b64osy.jpg">
-        </div>
-        <div class="span6">
-          <img class="" src="http://i48.tinypic.com/pvewh.jpg">
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span6">
-          <img class="" src="http://i49.tinypic.com/2lx5xu.jpg">
-        </div>
-        <div class="span6">
-          <img class="" src="https://d30wvy161n1c3v.cloudfront.net/bathroom.svg">
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <img class="" src="https://d30wvy161n1c3v.cloudfront.net/1c5a09ae839d0e0086b134d0ac3c6416-clock.jpg">
-    </div>
-  </div>
-  <div class="row-fluid">
-    <div class="span6">
-      <img class="" src="https://d30wvy161n1c3v.cloudfront.net/1c5a09ae839d0e0086b134d0ac3c6416-clock.jpg">
-    </div>
-    <div class="span6">
-      <div class="row-fluid">
-        <div class="span6">
-          <img class="" src="http://i49.tinypic.com/2lx5xu.jpg">
-        </div>
-        <div class="span6">
-          <img class="" src="https://d30wvy161n1c3v.cloudfront.net/kitchen.svg">
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span6">
-          <img class="" src="http://i39.tinypic.com/b64osy.jpg">
-        </div>
-        <div class="span6">
-          <img class="" src="http://i48.tinypic.com/pvewh.jpg">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row-fluid">
-    <div class="span6">
-      <div class="row-fluid">
-        <div class="span6">
-          <img class="" src="http://i39.tinypic.com/b64osy.jpg">
-        </div>
-        <div class="span6">
-          <img class="" src="http://i48.tinypic.com/pvewh.jpg">
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span6">
-          <img class="" src="http://i49.tinypic.com/2lx5xu.jpg">
-        </div>
-        <div class="span6">
-          <img class="" src="https://d30wvy161n1c3v.cloudfront.net/art.svg">
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <img class="" src="https://d30wvy161n1c3v.cloudfront.net/1c5a09ae839d0e0086b134d0ac3c6416-clock.jpg">
-    </div>
-  </div>
-  <div class="row-fluid">
-    <div class="span6">
-      <img class="" src="https://d30wvy161n1c3v.cloudfront.net/1c5a09ae839d0e0086b134d0ac3c6416-clock.jpg">
-    </div>
-    <div class="span6">
-      <div class="row-fluid">
-        <div class="span6">
-          <img class="" src="http://i49.tinypic.com/2lx5xu.jpg">
-        </div>
-        <div class="span6">
-          <img class="" src="https://d30wvy161n1c3v.cloudfront.net/accessories.svg">
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span6">
-          <img class="" src="http://i39.tinypic.com/b64osy.jpg">
-        </div>
-        <div class="span6">
-          <img class="" src="http://i48.tinypic.com/pvewh.jpg">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- -->

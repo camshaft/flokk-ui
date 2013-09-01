@@ -30,11 +30,14 @@ function IndexController($scope, $location) {
 
   $scope.urlFor = function(obj, root) {
     if (!obj) return;
+
+    var port = $location.port() ? ':' + $location.port() : '';
+
     return [
-      'https:/',
-      $location.host(),
+      $location.protocol() + ':/',
+      $location.host() + port,
       root,
-      slug(obj.name || obj.title),
+      slug(obj.name || obj.title || ''),
       websafe(obj.href)
     ].join('/');
   };

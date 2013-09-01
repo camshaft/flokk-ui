@@ -5,12 +5,6 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "flokk/theme-origami": "*",
-    "CamShaft/component-angular": "*",
-    "CamShaft/bootstrap-navbar": "*",
-    "CamShaft/bootstrap-navs": "*",
-    "CamShaft/bootstrap-thumbnails": "*",
-    "CamShaft/bootstrap-responsive": "*",
     "flokk/brand-egg": "*",
     "CamShaft/component-angular": "*",
     "CamShaft/websafe-base64": "*",
@@ -64,16 +58,10 @@
     "public/javascripts/services/translations.js"
   ],
   "styles": [
-    "public/stylesheets/main.css",
-    "public/stylesheets/nav.css",
-    "public/stylesheets/sidenav.css",
-    "public/stylesheets/footer.css",
-    "public/stylesheets/button.css",
-    "public/stylesheets/time-remaining.css",
-    "public/stylesheets/category.css",
-    "public/stylesheets/checkout.css",
-    "public/stylesheets/modal.css",
-    "public/stylesheets/item.css"
+    "public/stylesheets/bootstrap.css",
+    "public/stylesheets/bootstrap-responsive.css",
+    "public/stylesheets/686tees.css",
+    "public/stylesheets/watchers.css"
   ],
   "templates": [
     "public/partials/404.nghtml",

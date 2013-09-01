@@ -38,7 +38,6 @@ function fetch (href, $scope) {
 
       // Expose the category info to the view
       $scope.$apply(function() {
-        console.log(res.body);
         $scope.category = res.body;
         done();
       });

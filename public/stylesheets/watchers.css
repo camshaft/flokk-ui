@@ -1,0 +1,32 @@
+.watchers .count {
+  font-size: .8em;
+  margin-left: 5px;
+  display: inline;
+  position: relative;
+}
+
+/* Display */
+.watchers .count:after{
+  background: #333;
+  background: rgba(0,0,0,.8);
+  border-radius: 5px;
+  color: #fff;
+  content: attr(title);
+  left: 9px;
+  padding: 3px 10px;
+  position: absolute;
+  z-index: 98;
+}
+/* Pointer */
+.watchers .count:before{
+  border: solid;
+  border-color: #333 transparent;
+  border-width: 6px 6px 0 6px;
+  top: 10px;
+  content: "";
+  position: absolute;
+  z-index: 99;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}

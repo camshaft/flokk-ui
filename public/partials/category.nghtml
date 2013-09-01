@@ -1,5 +1,8 @@
-<div class="row-fluid">
-  <ul class="thumbnails items">
-    <li class="span4 item" data-ng-repeat="itemLink in category.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></li>
-  </ul>
+<div class="row">
+  <div class="span12">
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div data-ng-repeat="itemLink in category.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
 </div>
