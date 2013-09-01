@@ -27,11 +27,11 @@
     <p>Watch this item to become notified of future sales</p>
     <div class="watchers">
       <form data-ng-submit="submit(watchers.watch)" data-ng-show="watchers.watch" class="pull-left">
-        <button class="btn btn-grey btn-small" data-ng-click="watch()" data-track="{event: 'watch', item: urlFor(item, 'items')}">Watch</button>
+        <button class="btn btn-primary btn-small" data-ng-click="watch()" data-track="{event: 'watch', item: urlFor(item, 'items')}">Watch</button>
       </form>
 
       <form data-ng-submit="submit(watchers.unwatch)" data-ng-show="watchers.unwatch" class="pull-left">
-        <button class="btn btn-grey btn-small" data-ng-click="unwatch()" data-track="{event: 'unwatch', item: urlFor(item, 'items')}">Unwatch</button>
+        <button class="btn btn-primary btn-small" data-ng-click="unwatch()" data-track="{event: 'unwatch', item: urlFor(item, 'items')}">Unwatch</button>
       </form>
       <div class="count pull-left" title="{{watchers.count}}"></div>
     </div>

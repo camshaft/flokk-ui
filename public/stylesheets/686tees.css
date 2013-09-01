@@ -4,13 +4,13 @@
 ---------------------------------*/
 
 body {
-	background: #F3F3F3;
+	background: #FFFFFF;
 	color: #999;
 	font-size: 12px;
 }
 
 a {
-	color: #ff884c;
+	color: #E01533;
 }
 
 a:hover {
@@ -32,11 +32,11 @@ a:hover {
 }
 
 .btn-primary {
-	background: #ff884c;
+	background: #E01533;
 }
 
 .btn-primary:hover {
-	background: #d35c20;
+	background: #CA132E;
 }
 
 .btn-grey {
