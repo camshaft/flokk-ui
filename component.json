@@ -61,7 +61,18 @@
     "public/stylesheets/bootstrap.css",
     "public/stylesheets/bootstrap-responsive.css",
     "public/stylesheets/686tees.css",
+    "public/stylesheets/entypo.css",
     "public/stylesheets/watchers.css"
+  ],
+  "fonts": [
+    "public/fonts/entypo.eot",
+    "public/fonts/entypo.svg",
+    "public/fonts/entypo.ttf",
+    "public/fonts/entypo.woff",
+    "public/fonts/entypo-social.eot",
+    "public/fonts/entypo-social.svg",
+    "public/fonts/entypo-social.ttf",
+    "public/fonts/entypo-social.woff"
   ],
   "templates": [
     "public/partials/404.nghtml",
