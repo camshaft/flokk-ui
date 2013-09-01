@@ -4,19 +4,6 @@
   </div>
 </div>
 
-<div>
-  <div class="row" data-ng-repeat="categoryLink in sales.sections" data-ng-switch on="($index + 2) % 2" data-ng-controller="CategoryController">
-    <div data-ng-switch-when="0" class="odd">
-      <div class="span4 product-listing">
-        <a data-ng-href="{{urlFor(category.items, 'categories')}}"><img class="image" data-ng-src="{{category.label.href}}" alt="{{item.name}}"></a>
-      </div>
-      <div data-ng-repeat="itemLink in categoryLink.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
-    </div>
-    <div data-ng-switch-when="1" class="even">
-      <div data-ng-repeat="itemLink in categoryLink.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
-      <div class="span4 product-listing">
-        <a data-ng-href="{{urlFor(category.items, 'categories')}}"><img class="image" data-ng-src="{{category.label.href}}" alt="{{item.name}}"></a>
-      </div>
-    </div>
-  </div>
+<div class="row" data-ng-repeat="categoryLink in sales.sections" data-ng-controller="CategoryController">
+  <div data-ng-repeat="itemLink in categoryLink.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
 </div>

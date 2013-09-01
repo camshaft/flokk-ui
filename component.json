@@ -62,7 +62,8 @@
     "public/stylesheets/bootstrap-responsive.css",
     "public/stylesheets/686tees.css",
     "public/stylesheets/entypo.css",
-    "public/stylesheets/watchers.css"
+    "public/stylesheets/watchers.css",
+    "public/stylesheets/modal.css"
   ],
   "fonts": [
     "public/fonts/entypo.eot",
