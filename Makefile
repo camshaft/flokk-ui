@@ -8,11 +8,16 @@ prod: build build/build.min.js build/build.min.css hash
 build: components build/build.js build/build.css
 
 # Watch the js files
-build/build.js: $(JS_FILES)
+build/build.js: $(JS_FILES) public/partials/prelaunch-dialog-logged-out.js public/partials/prelaunch-dialog-logged-in.js
 	@./node_modules/.bin/component build --copy --use nghtml,stylus --standalone flokk
 
 build/build.min.js: build/build.js
 	@./node_modules/.bin/uglifyjs --compress --mangle -o build/build.min.js build/build.js
+
+public/partials/prelaunch-dialog-logged-out.js: public/partials/prelaunch-dialog-logged-out.html
+	@./node_modules/.bin/component convert $<
+public/partials/prelaunch-dialog-logged-in.js: public/partials/prelaunch-dialog-logged-in.html
+	@./node_modules/.bin/component convert $<
 
 # Watch the css files
 build/build.css: $(CSS_FILES) $(STYL_FILES) $(PARTIAL_FILES)

@@ -1,10 +1,19 @@
 
+#dialog {
+  margin-left: -150px !important;
+  width: 300px;
+}
+
 #dialog .title {
   width: 100%;
   text-align: center;
   display: block;
   color: #E01533;
   font-size: 2em;
+}
+
+#dialog .body {
+  font-size: 1.2em;
 }
 
 .overlay {

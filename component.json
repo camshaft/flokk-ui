@@ -22,7 +22,8 @@
     "component/emitter": "*",
     "airbnb/polyglot.js": "*",
     "yields/slug": "*",
-    "flokk/analytics.js": "*"
+    "flokk/analytics.js": "*",
+    "component/domify": "*"
   },
   "development": {},
   "license": "MIT",
@@ -55,7 +56,10 @@
     "public/javascripts/lib/loading.js",
     "public/javascripts/lib/log.js",
     "public/javascripts/lib/subscribe.js",
-    "public/javascripts/services/translations.js"
+    "public/javascripts/services/translations.js",
+
+    "public/partials/prelaunch-dialog-logged-out.js",
+    "public/partials/prelaunch-dialog-logged-in.js"
   ],
   "styles": [
     "public/stylesheets/bootstrap.css",

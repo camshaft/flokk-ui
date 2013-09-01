@@ -10,7 +10,10 @@ var app = require('..')
   , clock = require('clock')
   , each = require('each')
   , client = require('hyperagent')
-  , dialog = require('dialog');
+  , dialog = require('dialog')
+  , domify = require('domify')
+  , prelaunchLoggedIn = require('../../partials/prelaunch-dialog-logged-in')
+  , prelaunchLoggedOut = require('../../partials/prelaunch-dialog-logged-out');
 
 /**
  * Directives
@@ -36,7 +39,9 @@ clock.start();
 
 function ItemController($scope, $routeParams, $location) {
   $scope.signup = function() {
-    dialog('Hey There!', 'We are still getting ready')
+    var loggedIn = $scope.watchers.watch || $scope.watchers.unwatch;
+    var message = domify(loggedIn ? prelaunchLoggedIn : prelaunchLoggedOut);
+    dialog('Hey There!', message)
       .effect('slide')
       .overlay()
       .show();

@@ -17,3 +17,4 @@ node_modules
 build
 components
 manifest.json
+public/partials/*.js
