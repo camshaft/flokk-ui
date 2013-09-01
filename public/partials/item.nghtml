@@ -19,11 +19,10 @@
     <div class="add-basket-box clearfix">
       <img data-ng-src="{{item.image[0].src}}" alt="{{item.name}}">
       <p><span data-ng-bind="item.name"></span><br /><span data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(sale.price || item.retail)}"></span></p>
-      <a class="btn btn-addcart btn-primary" data-ng-click="signup()"><span class="entypo cart"></span></a>
+      <a class="btn btn-primary btn-small" data-ng-click="signup()" data-track="{event: 'start sale', item: urlFor(item, 'items')}">START SALE</a>
     </div>
+    <h4>Item Information</h4>
     <p data-ng-bind="item.description"></p>
-    <h3>Stock</h3>
-    <p>Pending</p>
     <p>Watch this item to become notified of future sales</p>
     <div class="watchers">
       <form data-ng-submit="submit(watchers.watch)" data-ng-show="watchers.watch" class="pull-left">
@@ -37,54 +36,3 @@
     </div>
   </div>
 </div>
-
-<!-- 
-<div class="item" >
-  <div class="row-fluid">
-    <div class="span6">
-      <div class="image" data-ng-style="{'background-image': 'url(' +  + ')'}">
-        <div class="left arrow" data-ng-show="item.image.length > 1">
-          <a data-ng-href="#{{prevImage}}"><</a>
-        </div>
-        <img data-ng-src="{{item.image[image || 0].src}}">
-        <div class="right arrow" data-ng-show="item.image.length > 1">
-          <a data-ng-href="#{{nextImage}}">></a>
-        </div>
-      </div>
-    </div>
-    <div class="span6 item-info">
-      <h2 class="title"><a href="/items/{{item.name | slugify}}/{{item.href | param}}" data-i18n-bind="item.name | i18n:item.href"></a></h2>
-      <h3 class="vendor"><a href="/brands/{{item.brand.title | slugify}}/{{item.brand.href | param}}" data-i18n-bind="item.brand.title"></a></h3>
-      <div class="price">
-        <p class="sale-price" data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(sale.price || item.retail)}"></p>
-        <p class="retail-price" data-ng-show="sale.onSale" data-i18n-bind="'$%{price} Retail' | i18n:'item.retail':{price:item.retail}"></p>
-      </div>
-      <div data-ng-show="sale.onSale" class="time-remaining" data-remaining data-ng-model="sale.remaining"></div>
-      <div data-ng-hide="sale.onSale" data-i18n-bind="'Go ahead and start a sale. Shipping is on us' | i18n:'why_start_sale'"></div>
-      <form name="purchase" data-ng-submit="submit(sale.purchase, purchaseForm)">
-        <label for="item-quantity">Quantity</label>
-        <select name="quantity" id="item-quantity" data-ng-model="purchaseForm.quantity" data-ng-options="option.value as (option.prompt || option.value) for option in sale.purchase.input.quantity.options">
-        </select>
-        <hr>
-        <a data-ng-click="signup()" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></a>
-        <button type="submit" data-ng-show="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'BUY' | i18n:'add_to_cart'"></button>
-        <button type="submit" data-ng-hide="sale.onSale" class="btn btn-large btn-action" data-i18n-bind="'START SALE' | i18n:'add_to_cart'"></button>
-      </form>
-    </div>
-  </div>
-  <div class="row-fluid">
-    <div class="span6">
-      <h5>Details</h5>
-      <p class="description" data-i18n-bind="item.description | i18n:item.href"></p>
-    </div>
-    <div class="span6">
-      <p>
-        <span class="item-stipulations">Shipping</span>: <span data-i18n-bind="'This item ships in %{remaining}' | i18n:'item.shipping':{remaining:item.remaining || 'a few days'}"></span>
-      </p>
-      <p>
-        <span class="item-stipulations">Returns</span>: This item is a final sale item and is not eligble for return.
-      </p>
-    </div>
-  </div>
-</div>
- -->

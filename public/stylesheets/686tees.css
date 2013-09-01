@@ -250,7 +250,7 @@ h5 {
 }
 
 .product-listing .price {
-	font-family: "Bree Serif";
+	/*font-family: "Bree Serif";*/
 	font-size: 16px;
 	text-align: right;
 	border-bottom: 1px solid #E6E6E6;

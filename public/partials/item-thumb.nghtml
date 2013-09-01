@@ -18,9 +18,8 @@
     <div class="span6">
       <span data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.retail}"></span>
       <!-- <form data-ng-submit="submit(sale.purchase)"> -->
-        <a class="btn btn-addcart btn-primary" data-ng-click="signup()"><span class="entypo cart"></span></a>
+        <a class="btn btn-primary btn-small" data-ng-click="signup()" data-track="{event: 'start sale', item: urlFor(item, 'items')}">START SALE</a>
       <!-- </form> -->
-      <a class="btn btn-view btn-grey" data-ng-href="{{urlFor(item, 'items')}}"><span class="entypo search"></span></a>
     </div>
   </div>
 </div>
