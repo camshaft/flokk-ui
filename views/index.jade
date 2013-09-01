@@ -39,18 +39,15 @@ html(data-ng-app=ngapp)
   body(data-ng-controller="IndexController")
     
     .container
-      //- Site top
-      .row
-        .span12(data-ng-controller="NavLinksController", data-ng-include="", src="'/partials/nav.nghtml'")
-
       //- Header
       .row
         .span4.brand
           a(href="/")
             .company.logo FLOKK
+        .span8(data-ng-controller="NavLinksController", data-ng-include="", src="'/partials/nav.nghtml'")
 
       //- Menu
-      .row
+      .row.menu
         div(data-ng-include="", src="'/partials/sidenav.nghtml'").span12
 
       div(data-ng-view="")
