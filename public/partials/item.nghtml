@@ -32,7 +32,9 @@
       <form data-ng-submit="submit(watchers.unwatch)" data-ng-show="watchers.unwatch" class="pull-left">
         <button class="btn btn-primary btn-small" data-ng-click="unwatch()" data-track="{event: 'unwatch', item: urlFor(item, 'items')}">Unwatch</button>
       </form>
-      <a class="pull-left btn btn-primary btn-small" data-ng-hide="watchers.watch || watchers.unwatch" href="/auth/login" target="_self">Watch</a>
+      <form class="pull-left">
+        <a class="pull-left btn btn-primary btn-small" data-ng-hide="watchers.watch || watchers.unwatch" href="/auth/login" target="_self">Watch</a>
+      </form>
       <div class="count pull-left" title="{{watchers.count}}" data-ng-show="watchers"></div>
     </div>
     <iframe src="//www.facebook.com/plugins/like.php?href={{absUrl(path)}}&amp;width=450&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;send=false&amp;appId=558895440820665" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
