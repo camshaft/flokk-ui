@@ -61,6 +61,8 @@ app.locals({
 app.locals({
   scripts: [
     lookup('build/build.js'),
+    '//d3dy5gmtp8yhk7.cloudfront.net/2.1.1/sockjs.min.js',
+    '//d3dy5gmtp8yhk7.cloudfront.net/2.1/pusher.min.js',
     '//assets.pinterest.com/js/pinit.js'
   ]
 });
