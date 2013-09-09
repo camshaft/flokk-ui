@@ -23,6 +23,7 @@ var log = require('./lib/log');
  */
 
 var analytics = require('./lib/analytics');
+analytics.track('page load');
 
 /**
  * Initialize the client
