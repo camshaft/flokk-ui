@@ -29,12 +29,7 @@ html(data-ng-app=ngapp)
         link(href=style, rel="stylesheet")
 
     script.
-      // Stupid hack for facebook login
-      if (window.location.hash === '#_=_') window.location.hash = '';
-      // Track page load time
-      var startTime = Date.now();
-      // Initialize the environment
-      window.env = !{JSON.stringify(env)};
+      if (window.location.hash === '#_=_') window.location.hash = ''; var startTime = Date.now();window.env = !{JSON.stringify(env)};
   body(data-ng-controller="IndexController")
     
     .container
@@ -66,5 +61,4 @@ html(data-ng-app=ngapp)
         script(src=script)
 
     script.
-      // End page load timing
       if (window.metric) metric({'measure': 'page_load_time', val: (Date.now() - startTime), units: 'ms'});
