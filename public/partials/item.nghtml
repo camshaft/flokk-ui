@@ -6,7 +6,7 @@
 
 <div class="row" data-ng-show="item">
   <div class="span8">
-    <img class="product-image" data-ng-src="{{item.image[image || 0].src}}">
+    <img class="product-image hidden-phone" data-ng-src="{{item.image[image || 0].src}}">
     <div class="row">
       <div class="span2" data-ng-repeat="image in item.image">
         <a data-ng-href="#{{$index}}">
