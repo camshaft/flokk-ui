@@ -7,7 +7,7 @@
     <div class="email" data-ng-bind="account.email"></div>
   </section>
 
-  <section class="optional">
+<!--  <section class="optional">
     <h3 data-i18n-bind="'WE\\\'D LOVE TO GET TO KNOW YOU' | i18n:'account.optional'"></h3>
     <div class="fn" data-ng-bind="account.name"></div>
     <div class="gender" data-ng-bind="account.gender"></div>
@@ -42,5 +42,5 @@
     <h3 data-i18n-bind="'DELETE ACCOUNT' | i18n:'account.delete'"></h3>
     <div class="warning" data-i18n-bind="'why would you want to do that?' | i18n:'account.delete.warning'"></div>
   </form>
-
+-->
 </div>
