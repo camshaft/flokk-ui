@@ -7,6 +7,7 @@ body {
 	background: #FFFFFF;
 	color: #999;
 	font-size: 12px;
+        font-family: "Helvetica Neue", Helvetica, Arial, san-serif;
 }
 
 a {
@@ -83,7 +84,6 @@ a:hover {
 }
 
 .logo {
-	font-family: "Bree Serif";
 	font-size: 24px;
 }
 
@@ -95,7 +95,6 @@ a:hover {
 }
 
 .strapline {
-	font-family: "Bree Serif";
 	font-size: 17px;
 	line-height: 1.5;
 }
@@ -113,7 +112,6 @@ a:hover {
 ---------------------------------*/
 
 .mini-basket-title {
-	font-family: "Bree Serif";
 	font-size: 18px;
 	line-height: 1.5;
 }
@@ -156,7 +154,6 @@ a:hover {
 
 .main-nav li {
 	float: left;
-	font-family: "Bree Serif";
 	font-size: 14px;
 }
 
@@ -180,7 +177,6 @@ a:hover {
 ---------------------------------*/
 
 h1 {
-	font-family: "Bree Serif";
 	font-size: 32px;
 	font-weight: 400;
 	line-height: 2;
@@ -189,7 +185,6 @@ h1 {
 }
 
 h2 {
-	font-family: "Bree Serif";
 	font-size: 32px;
 	font-weight: 400;
 	line-height: 2;
@@ -198,7 +193,6 @@ h2 {
 }
 
 h3 {
-	font-family: "Bree Serif";
 	font-size: 24px;
 	font-weight: 400;
 	line-height: 2;
@@ -207,7 +201,6 @@ h3 {
 }
 
 h4 {
-	font-family: "Bree Serif";
 	font-size: 24px;
 	font-weight: 400;
 	line-height: 2;
@@ -216,7 +209,6 @@ h4 {
 }
 
 h5 {
-	font-family: "Bree Serif";
 	font-size: 24px;
 	font-weight: 400;
 	line-height: 2;
@@ -229,7 +221,6 @@ h5 {
 ---------------------------------*/
 
 .product-listing .title {
-	font-family: "Bree Serif";
 	font-size: 20px;
 }
 
@@ -254,7 +245,6 @@ h5 {
 }
 
 .product-listing .price {
-	/*font-family: "Bree Serif";*/
 	font-size: 16px;
 	text-align: right;
 	border-bottom: 1px solid #E6E6E6;
@@ -292,7 +282,6 @@ h5 {
 
 .add-basket-box p {
 	float: left;
-	font-family: "Bree Serif";
 	font-size: 16px;
 	margin: 0 0 0 10px;
 	line-height: 1.4;
@@ -377,7 +366,6 @@ h5 {
 }
 
 .basket-table tbody tr td.title {
-	font-family: "Bree Serif";
 	font-size: 18px;
 }
 
@@ -401,14 +389,12 @@ h5 {
 
 .basket-table tbody tr td.price {
 	width: 80px;
-	font-family: "Bree Serif";
 	font-size: 18px;
 	color: #BBB;
 }
 
 .basket-table tbody tr td.total {
 	width: 80px;
-	font-family: "Bree Serif";
 	font-size: 18px;
 	color: #888;
 }
@@ -432,7 +418,6 @@ h5 {
 	background: #FFF;
 	padding: 10px 40px;
 	border: 1px solid #DDD;
-	font-family: "Bree Serif";
 	font-size: 18px;
 	margin-bottom: 30px;
 	float: right;
@@ -452,7 +437,6 @@ h5 {
 }
 
 .actions .btn {
-	font-family: "Bree Serif";
 	font-size: 18px;
 	padding: 8px 16px;
 	margin-left: 10px;
@@ -472,7 +456,6 @@ h5 {
 	float: left;
 	width: 21%;
 	padding: 20px 2%;
-	font-family: "Bree Serif";
 	font-size: 18px;
 	color: #BBB;
 	margin: 0;
@@ -518,7 +501,6 @@ h5 {
 }
 
 .checkout-box label {
-	font-family: "Bree Serif";
 	font-size: 18px;
 }
 
@@ -573,7 +555,6 @@ h5 {
 }
 
 .member-box label {
-	font-family: "Bree Serif";
 	font-size: 18px;
 }
 
@@ -642,12 +623,10 @@ h5 {
 
 .tel {
 	color: #ff884c;
-	font-family: "Bree Serif";
 	font-size: 18px;
 }
 
 .address {
-	font-family: "Bree Serif";
 	font-size: 18px;
 	margin-bottom: 30px;
 }
