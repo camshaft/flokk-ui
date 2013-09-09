@@ -1,0 +1,12 @@
+.about-container {
+  margin: 150px 0;
+}
+
+.about-container .enjoy {
+  font-size: 22px;
+}
+
+.how-it-works li {
+  font-size: 18px;
+  padding-bottom: 15px;
+}

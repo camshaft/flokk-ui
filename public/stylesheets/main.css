@@ -17,3 +17,8 @@ body {
 .landing .item .item-info {
   display: none;
 }
+
+.how-it-works li {
+  font-size: 20px;
+}
+

@@ -1,1 +1,11 @@
 <h2 data-i18n-bind="'How it works' | i18n:'about'"></h2>
+
+<div class="about-container">
+  <ul class="how-it-works unstyled">
+    <li class="text-center">Starting a sale open up a 72 hour window.</li>
+    <li class="text-center">Everyone who purchases that item in that window lowers the price for everyone.</li>
+    <li class="text-center">At the end of the 72 hour window, everyone who purchased is only charged for the final, lowest price.</li>
+  </ul>
+
+  <p class="text-center enjoy">Enjoy!</p>
+</div>
