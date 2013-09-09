@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row" data-ng-show="item">
   <div class="span12">
     <h1 data-ng-bind="item.name"></h1>
   </div>
 </div>
 
-<div class="row">
+<div class="row" data-ng-show="item">
   <div class="span8">
     <img class="product-image" data-ng-src="{{item.image[image || 0].src}}">
     <div class="row">
