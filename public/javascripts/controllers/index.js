@@ -41,7 +41,8 @@ function IndexController($scope, $location) {
   $scope.absUrl = function(path) {
     if (!path) return;
 
-    var port = $location.port() ? ':' + $location.port() : '';
+    //var port = $location.port() ? ':' + $location.port() : '';
+    var port = '';
 
     return [
       $location.protocol() + ':/',
