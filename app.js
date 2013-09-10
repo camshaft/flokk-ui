@@ -25,7 +25,7 @@ app.locals({
   fluid: true,
   balanced: envs('BALANCED_KEY_PROD'),
   env: {
-    BROWSER_ENV: envs('NODE_ENV', 'production'),
+    BROWSER_ENV: envs('NODE_ENV', 'test'),
     API_URL: envs('API_URL'),
     PUSHER_KEY: envs('PUSHER_KEY'),
     MIXPANEL_KEY: envs('MIXPANEL_KEY'),
@@ -40,8 +40,8 @@ app.locals({
 app.useBefore('router', function envLocals(req, res, next) {
   if (req.get('x-env') !== 'production') {
     res.locals.balanced = envs('BALANCED_KEY_TEST');
-    res.locals.scripts[0] = lookup('build/build.js');
-    res.locals.styles[0] = lookup('build/build.css');
+    res.locals.scripts = scripts();
+    res.locals.styles = [lookup('build/build.css')];
   }
   next();
 });
@@ -63,10 +63,14 @@ app.locals({
 });
 
 app.locals({
-  scripts: [
-    lookup('build/build.min.js'),
+  scripts: scripts(true)
+});
+
+function scripts(min) {
+  return [
+    min ? lookup('build/build.min.js') : lookup('build/build.js'),
     '//d3dy5gmtp8yhk7.cloudfront.net/2.1.1/sockjs.min.js',
     '//d3dy5gmtp8yhk7.cloudfront.net/2.1/pusher.min.js',
     '//assets.pinterest.com/js/pinit.js'
-  ]
-});
+  ];
+}
