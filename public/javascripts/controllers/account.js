@@ -23,7 +23,7 @@ function AccountController($scope) {
   client()
     .on('error', onError)
     .end(function(res) {
-      if(!res.body.account) return onError(new Error('No account found'));
+      if (!res.body.account) return;
 
       res
         .follow('account')
