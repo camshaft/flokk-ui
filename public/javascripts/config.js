@@ -152,6 +152,9 @@ app.config([
       .when('/copyright', {
         templateUrl: copyright
       })
+      .when('/auth/login', {
+        redirectTo: '/'
+      })
       .otherwise({
         templateUrl: notFound,
         controller: IndexController
