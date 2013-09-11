@@ -44,6 +44,14 @@ client.set(token.auth());
 client.profile = log.profile.bind(log);
 
 /**
+ * Initialize fastclick
+ */
+
+window.attachFastClick = require('fastclick');
+/* attachFastClick(window.document.body); */
+
+
+/**
  * Initialize the controllers
  */
 

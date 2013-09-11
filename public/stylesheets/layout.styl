@@ -1,15 +1,7 @@
 
-alert(color)
-  html
-  body
-  main .content
-    background color!important
-
 html
 body
 main .content
-  // relative top
-  // height 100%
   overflow-x hidden
 
 
@@ -59,9 +51,11 @@ body > .wrapper
   display none
   _handler(name, shift)
     &#handler-{name}:checked
-      ~ .sidenav-{name}
-        opacity 1
-        transition opacity 0s 0s
+      ~ section.navs
+          .sidenav-{name}
+            opacity 1
+            transition opacity 0s 0s
+            z-index $zindex-sidenav-bg
       ~ main
         transform translate3D(shift, 0, 0)
         .content
@@ -141,13 +135,16 @@ main
   main .content
     border-left _border
     border-right _border
+    padding ($navbar-height + _navbar_pad) _navbar_pad _navbar_pad
 
   section.navs
-    z-index $zindex-sidenav-bg
     height 100%
     background #eee
+    z-index $zindex-sidenav-bg
+
     .sidenav
       width _shift_amount
+      opacity 0
 
 @media $media-screen-min-tablet
 
@@ -193,16 +190,3 @@ main
 @media $media-screen-min-lg-desktop
   _wrap $container-desktop
 
-  // // alert(yellow)
-
-  // // menu.topmenu
-  // //   display none
-
-  // main .content
-  //   _margin = _shift_amount
-  //   margin-right _margin
-  //   margin-left _margin
-  //   top 0
-
-  // .sidenav-links
-  //   top 0

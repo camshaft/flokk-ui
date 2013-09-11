@@ -24,9 +24,10 @@
     "yields/slug": "*",
     "flokk/analytics.js": "*",
     "component/domify": "*",
-    "component/jquery": "*"
+    "component/jquery": "*",
+    "ftlabs/fastclick": "*"
   },
-  "paths": ["locals"],
+  "paths": [ "locals" ],
   "local": [
     "modal",
     "transition-end"

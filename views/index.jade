@@ -83,4 +83,7 @@ html(data-ng-app=ngapp)
       script(src=script)
 
   script.
+    window.attachFastClick(document.body)
+
+  script.
     if (window.metric) metric({'measure': 'page_load_time', val: (Date.now() - startTime), units: 'ms'});
