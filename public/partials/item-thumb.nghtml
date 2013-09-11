@@ -28,7 +28,7 @@
     <div class="col-md-6 col-sm-6">
       <!-- <form data-ng-submit="submit(sale.purchase)"> -->
         <!-- <a class="btn btn-default btn-small" data-ng-click="signup()" data-track="{event: 'start sale', item: urlFor(item, 'items')}">START SALE</a> -->
-        <a class="btn btn-default btn-small" data-ng-click="signup()" data-track="{event: 'start sale', item: urlFor(item, 'items')}">START SALE</a>
+        <a class="btn btn-default btn-small pull-right" data-ng-click="signup()" data-track="{event: 'start sale', item: urlFor(item, 'items')}">START SALE</a>
       <!-- </form> -->
     </div>
 
