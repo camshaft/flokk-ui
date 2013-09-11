@@ -155,6 +155,9 @@ app.config([
       .when('/auth/login', {
         redirectTo: '/'
       })
+      .when('/unsubscribe', {
+        redirectTo: '/'
+      })
       .otherwise({
         templateUrl: notFound,
         controller: IndexController
