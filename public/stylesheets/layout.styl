@@ -2,12 +2,12 @@
 alert(color)
   html
   body
-  .content
+  main .content
     background color!important
 
 html
 body
-.content
+main .content
   // relative top
   // height 100%
   overflow-x hidden
@@ -123,8 +123,8 @@ main
   z-index $zindex-main
   background $body-bg
 
-.content
-  padding 50px
+  .content
+    padding 50px
 
 @media $media-max-phone
 
@@ -138,7 +138,7 @@ main
     .company
       relative top $navbar-height
 
-  .content
+  main .content
     border-left _border
     border-right _border
 
@@ -159,7 +159,7 @@ main
   menu.topmenu label
     display none
 
-  .content
+  main .content
     padding-top _categories_height + $navbar-height
 
   section.navs
@@ -198,7 +198,7 @@ main
   // // menu.topmenu
   // //   display none
 
-  // .content
+  // main .content
   //   _margin = _shift_amount
   //   margin-right _margin
   //   margin-left _margin

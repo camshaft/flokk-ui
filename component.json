@@ -23,8 +23,14 @@
     "airbnb/polyglot.js": "*",
     "yields/slug": "*",
     "flokk/analytics.js": "*",
-    "component/domify": "*"
+    "component/domify": "*",
+    "component/jquery": "*"
   },
+  "paths": ["locals"],
+  "local": [
+    "modal",
+    "transition-end"
+  ],
   "development": {},
   "license": "MIT",
   "main": "public/javascripts/config.js",
@@ -57,7 +63,6 @@
     "public/javascripts/lib/log.js",
     "public/javascripts/lib/subscribe.js",
     "public/javascripts/services/translations.js",
-
     "public/partials/prelaunch-dialog-logged-out.js",
     "public/partials/prelaunch-dialog-logged-in.js"
   ],

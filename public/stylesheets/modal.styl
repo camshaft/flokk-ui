@@ -1,0 +1,28 @@
+@keyframes fade-slide-in
+  0%
+    opacity 0
+    margin-top -50px
+  100%
+    opacity 1
+    margin-top 0
+
+#dialog
+  margin-left: -150px !important;
+  width: 300px;
+  z-index $zindex-modal
+
+  animation fade-slide-in 0.3s
+
+  .title
+    width: 100%;
+    text-align: center;
+    display: block;
+    color: #E01533;
+    font-size: 2em;
+
+  .body
+    font-size: 1.2em;
+
+.overlay
+  position: fixed
+  z-index $zindex-modal-background

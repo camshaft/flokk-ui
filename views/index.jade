@@ -63,49 +63,24 @@ html(data-ng-app=ngapp)
           class="sidenav sidenav-categories"
           data-ng-include="")
 
-
     main
 
       div(data-ng-view="").content
 
     footer.row
-      .span6
+      .col-md-6
         ul.footer-nav
-          li
-            a(href="/contact") Terms &amp; Conditions
-          li
-            a(href="/contact") Contact
-      .span6.footer-right
+          li: a(href="/contact") Terms &amp; Conditions
+          li: a(href="/contact") Contact
+      .col-md-6.footer-right
         p &copy; The Flokk
 
-    // .container
-    //   //- Header
-    //   .row
-    //     .span4.brand
-    //       a(href="/")
-    //         .company.logo FLOKK
-    //     .span8(data-ng-controller="NavLinksController", data-ng-include="", src="'/partials/nav.nghtml'")
 
-    // //- Menu
-    // .row.menu
-    //   div(data-ng-include="", src="'/partials/sidenav.nghtml'").span12
+    include modal.jade
 
-    // div(data-ng-view="")
+  block scripts
+    each script in scripts
+      script(src=script)
 
-    // .row.footer
-    //   .span6
-    //     ul.footer-nav
-    //       li
-    //         a(href="/contact") Terms &amp; Conditions
-    //       li
-    //         a(href="/contact") Contact
-    //   .span6.footer-right
-    //     p &copy; The Flokk
-
-
-    block scripts
-      each script in scripts
-        script(src=script)
-
-    script.
-      if (window.metric) metric({'measure': 'page_load_time', val: (Date.now() - startTime), units: 'ms'});
+  script.
+    if (window.metric) metric({'measure': 'page_load_time', val: (Date.now() - startTime), units: 'ms'});

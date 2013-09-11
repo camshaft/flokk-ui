@@ -1,3 +1,6 @@
+// @import "spinly-vars"
+// @import "spinly-animations"
+
 //
 // Modals
 // --------------------------------------------------
@@ -13,11 +16,11 @@
 
 
   // Account for hiding of scrollbar
-  // body&,
-  // .navbar-fixed-top,
-  // .navbar-fixed-bottom {
-  //   margin-right: 15px
-  // }
+  body&,
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    margin-right: 15px
+  }
 }
 
 // Container that the modal scrolls within
@@ -40,12 +43,6 @@
   &.in .modal-dialog
     translate(0, 0)
 
-  .center
-    text-align center
-
-  .lead
-    padding-top ($modal-inner-padding / 2)
-
 // Shell div to position the modal with bottom padding
 .modal-dialog {
   margin-left: auto;
@@ -59,9 +56,9 @@
 .modal-content {
   position: relative;
   background-color: $modal-content-bg;
-  // border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
-  // border: 1px solid $modal-content-border-color;
-  // border-radius: $border-radius-large;
+  border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
+  border: 1px solid $modal-content-border-color;
+  border-radius: $border-radius-large;
   box-shadow 0 3px 9px rgba(0,0,0,.5);
   background-clip: padding-box;
   // Remove focus outline from opened modal
@@ -87,9 +84,8 @@
 // Top section of the modal w/ title and dismiss
 .modal-header {
   padding: $modal-title-padding;
-  // border-bottom: 1px solid $modal-header-border-color;
+  border-bottom: 1px solid $modal-header-border-color;
   min-height: ($modal-title-padding + $modal-title-line-height);
-  text-align center
 }
 // Close icon
 .modal-header .close {
@@ -104,31 +100,33 @@
 
 // Modal body
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
-.modal-body
-  position relative
-  padding $modal-inner-padding
-  font-size $font-size-large
+.modal-body {
+  position: relative;
+  padding: $modal-inner-padding;
+}
 
 // Footer (for actions)
-.modal-footer
-  // margin-top: 15px;
+.modal-footer {
+  margin-top: 15px;
   padding: ($modal-inner-padding - 1) $modal-inner-padding $modal-inner-padding;
-  padding-top 0
-  text-align center
-  // border-top: 1px solid $modal-footer-border-color;
+  text-align: right; // right align buttons
+  border-top: 1px solid $modal-footer-border-color;
   clearfix(); // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
-  .btn + .btn
+  .btn + .btn {
     margin-left: 5px;
     margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+  }
   // but override that for button groups
-  .btn-group .btn + .btn
+  .btn-group .btn + .btn {
     margin-left: -1px;
-
+  }
   // and override it for block buttons as well
-  .btn-block + .btn-block
+  .btn-block + .btn-block {
     margin-left: 0;
+  }
+}
 
 // Scale up the modal
 @media $media-screen-min-tablet {

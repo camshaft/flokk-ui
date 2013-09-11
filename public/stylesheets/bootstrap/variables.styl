@@ -54,7 +54,7 @@ $line-height-base =        1.428571429; // 20/14
 $line-height-computed =    floor($font-size-base * $line-height-base); // ~20px
 
 $headings-font-family =    $font-family-base;
-$headings-font-weight =    500;
+$headings-font-weight =    300;
 $headings-line-height =    1.1;
 
 // Iconography
@@ -106,15 +106,19 @@ $table-border-color =                 #ddd; // table and cell border
 // Buttons
 // -------------------------
 
-$btn-font-weight =                normal;
+$btn-font-weight =                300
 
-$btn-default-color =              #fff;
-$btn-default-bg =                 #f00;
-$btn-default-border =             #f00;
+$btn-default-color =              #444;
+$btn-default-bg =                 #fff;
+$btn-default-border =             darken($btn-default-bg, 15%);
 
-$btn-categories-color =              #fff;
-$btn-categories-bg =                 $brand-categories;
-$btn-categories-border =             darken($btn-categories-bg, 5%);
+$btn-primary-color =              #fff;
+$btn-primary-bg =                 #f00;
+$btn-primary-border =             #f00;
+
+$btn-categories-color =           #fff;
+$btn-categories-bg =              $brand-categories;
+$btn-categories-border =          darken($btn-categories-bg, 5%);
 
 $btn-success-color =              #fff;
 $btn-success-bg =                 $brand-success;
@@ -193,7 +197,7 @@ $dropdown-caret-color =           #000;
 $zindex-sidenav-bg =        900;
 $zindex-sidenav-fg =        $zindex-sidenav-bg + 100;
 $zindex-main =              950;
-$zindex-brand =             1060;
+$zindex-brand =             1035;
 
 $zindex-navbar =            1000;
 $zindex-dropdown =          1000;
