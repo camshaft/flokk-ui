@@ -30,35 +30,57 @@ html(data-ng-app=ngapp)
 
     script.
       if (window.location.hash === '#_=_') window.location.hash = ''; var startTime = Date.now();window.env = !{JSON.stringify(env)};
-  body(data-ng-controller="IndexController")
-    
-    .container
-      //- Header
-      .row
-        .span4.brand
-          a(href="/")
-            .company.logo FLOKK
-        .span8(data-ng-controller="NavLinksController", data-ng-include="", src="'/partials/nav.nghtml'")
 
-      //- Menu
-      .row.menu
-        div(data-ng-include="", src="'/partials/sidenav.nghtml'").span12
+  body(data-ng-controller="IndexController"): .wrapper
 
-      div(data-ng-view="")
+    mixin checkbox(name)
+      input(type="checkbox"
+            name="handler-#{name}"
+            id="handler-#{name}"
+            onclick="null").handler
+    +checkbox("categories")
+    +checkbox("links")
 
-      .row.footer
-        .span6
-          ul.footer-nav
-            li
-              a(href="/contact") Terms &amp; Conditions
-            li
-              a(href="/contact") Contact
-        .span6.footer-right
-          p &copy; The Flokk
 
-    block scripts
-      each script in scripts
-        script(src=script)
+    menu.topmenu
+      mixin label(name, icon)
+        label(for='handler-#{name}')
+          i(class="icon-#{icon}")
+      +label("categories", "tag")
+      +label("links", "cart")
 
-    script.
-      if (window.metric) metric({'measure': 'page_load_time', val: (Date.now() - startTime), units: 'ms'});
+    figure.brand
+      a(href=site).company FLOKK
+
+    section.navs
+
+      div(data-ng-controller="NavLinksController"
+          src="'/partials/nav-links.nghtml'"
+          class="sidenav sidenav-links"
+          data-ng-include="")
+
+      div(src="'/partials/nav-categories.nghtml'"
+          class="sidenav sidenav-categories"
+          data-ng-include="")
+
+    main
+
+      div(data-ng-view="").content
+
+    footer.row
+      .col-md-6
+        ul.footer-nav
+          li: a(href="/contact") Terms &amp; Conditions
+          li: a(href="/contact") Contact
+      .col-md-6.footer-right
+        p &copy; The Flokk
+
+
+    include modal.jade
+
+  block scripts
+    each script in scripts
+      script(src=script)
+
+  script.
+    if (window.metric) metric({'measure': 'page_load_time', val: (Date.now() - startTime), units: 'ms'});

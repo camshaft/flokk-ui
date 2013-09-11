@@ -13,7 +13,11 @@ var app = require('..')
   , dialog = require('dialog')
   , domify = require('domify')
   , prelaunchLoggedIn = require('../../partials/prelaunch-dialog-logged-in')
-  , prelaunchLoggedOut = require('../../partials/prelaunch-dialog-logged-out');
+  , prelaunchLoggedOut = require('../../partials/prelaunch-dialog-logged-out')
+  , $ = require("jquery");
+
+require("modal");
+
 
 /**
  * Directives
@@ -38,14 +42,23 @@ clock.start();
  */
 
 function ItemController($scope, $routeParams, $location) {
-  $scope.signup = function() {
+  $scope.signup = function () {
     var loggedIn = $scope.watchers.watch || $scope.watchers.unwatch;
-    var message = domify(loggedIn ? prelaunchLoggedIn : prelaunchLoggedOut);
-    dialog('Hey There!', message)
-      .effect('slide')
-      .overlay()
-      .show();
+    console.log("LOG STATUS", loggedIn);
+
+    $(loggedIn ? "#prelaunch-logged-in" : "#prelaunch-logged-out")
+      .modal('show');
+
   };
+
+  // $scope.signup = function() {
+  //   var loggedIn = $scope.watchers.watch || $scope.watchers.unwatch;
+  //   var message = domify(loggedIn ? prelaunchLoggedIn : prelaunchLoggedOut);
+  //   dialog('Hey There!', message)
+  //     .effect('slide')
+  //     .overlay()
+  //     .show();
+  // };
 
   // Be able to load this within a route or in a list
   if(!$routeParams.item) return $scope.$watch('itemLink', function(link) {

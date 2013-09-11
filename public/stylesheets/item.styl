@@ -1,0 +1,39 @@
+.product-listing
+  border-bottom 1px solid #ccc
+  _pad = 10px
+  padding-top _pad
+  padding-bottom _pad
+
+  .title
+    font-size $font-size-large
+    span
+      float right
+
+  .image
+    max-width 100%
+    height 320px
+
+    background-size cover
+    background-position 50%
+
+    @media $media-screen-min-phone
+      height 550px
+
+    @media $media-screen-min-tablet
+      height 260px
+
+    @media $media-screen-min-desktop
+      height 200px
+
+  .price
+    padding 10px 0
+
+.add-basket-box
+  padding 10px
+  border 1px solid #ddd
+
+// img.product-image
+
+.content img
+  max-width 100%
+  margin-bottom 20px

@@ -75,7 +75,7 @@ var notFound = require('../partials/404.js')
   , copyright = require('../partials/copyright.js')
   , item = require('../partials/item.js')
   , sales = require('../partials/sales.js')
-  , linksNav = require('../partials/nav.js');
+  , linksNav = require('../partials/nav-links.js');
 
 /**
  * Initialize the directives used outside of the controllers

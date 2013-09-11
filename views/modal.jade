@@ -1,0 +1,42 @@
+
+mixin modal-header
+  .modal-header
+    button(type="button"
+      data-dismiss="modal"
+      aria-hidden="true").close ×
+    h2.modal-title
+      block
+
+mixin modal
+  .modal.fade(role="dialog"
+              aria-hidden="true"
+              )(attributes)
+    .modal-dialog
+      .modal-content
+        block
+
+
+mixin modal-body
+  .modal-body
+    p
+      ol
+        li Starting a sale opens a 24 hour window
+        li Each purchase within that window lowers the sales price
+        li At the end of the sale everyone is only charged the lowest sale price
+    br
+    p.center.lead You control the sale. Up to <strong>80%</strong> off.
+
+
++modal#prelaunch-logged-in
+  +modal-header We are still getting ready!
+  +modal-body
+  .modal-footer
+    button(type="button").btn.btn-default How this works
+
+
++modal#prelaunch-logged-out
+  +modal-header We are still getting ready!
+  +modal-body
+  .modal-footer
+    button(type="button").btn.btn-default How this works
+    button(type="button").btn.btn-primary Sign-up for early access

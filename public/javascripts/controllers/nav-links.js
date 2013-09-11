@@ -11,7 +11,7 @@ var app = require('..')
  * Load the partials
  */
 
-require('../../partials/nav');
+require('../../partials/nav-links');
 
 /**
  * NavLinksController
