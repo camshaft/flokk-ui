@@ -62,13 +62,7 @@
     "public/partials/prelaunch-dialog-logged-in.js"
   ],
   "styles": [
-    "public/stylesheets/bootstrap.css",
-    "public/stylesheets/bootstrap-responsive.css",
-    "public/stylesheets/686tees.css",
-    "public/stylesheets/entypo.css",
-    "public/stylesheets/watchers.css",
-    "public/stylesheets/modal.css",
-    "public/stylesheets/about.css"
+    "public/stylesheets/index.styl"
   ],
   "fonts": [
     "public/fonts/entypo.eot",
@@ -93,8 +87,8 @@
     "public/partials/item.nghtml",
     "public/partials/remaining.nghtml",
     "public/partials/sales.nghtml",
-    "public/partials/sidenav.nghtml",
-    "public/partials/nav.nghtml",
+    "public/partials/nav-categories.nghtml",
+    "public/partials/nav-links.nghtml",
     "public/partials/brand.nghtml",
     "public/partials/brands.nghtml"
   ]

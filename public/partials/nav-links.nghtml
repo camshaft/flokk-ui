@@ -5,6 +5,7 @@
   <li data-ng-class="{active: path=='/account'}" data-ng-controller="AccountController"><a href="/account" data-ng-bind="account.name || 'My Account'"></a></li>
   <li><a href="/auth/logout" target="_self" data-i18n-bind="'Logout' | i18n:'logout'"></a></li>
 </ul>
+
 <ul class="top-nav" data-ng-hide="root.account">
 <!--   <li data-ng-class="{active: path=='/contact'}"><a href="/contact" data-i18n-bind="'Contact us' | i18n:'contact_us'"></a></li> -->
   <li data-ng-class="{active: path=='/about'}"><a href="/about" data-i18n-bind="'How it works' | i18n:'how_it_works'"></a></li>

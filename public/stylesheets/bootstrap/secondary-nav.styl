@@ -1,0 +1,35 @@
+.nav-links
+  width: 300px
+  display: inline-block
+  font-weight: bold
+
+.nav-links .category
+  list-style: none
+
+@media $media-max-phone
+  .nav-links
+    position: fixed
+    background: #f3f3f3
+    border-top: 1px #ccc solid
+    border-bottom: 1px #ccc solid
+    width: 100%
+    top: 45px
+    right: 0
+    left: 0
+    z-index: 100
+    height: 45px
+    margin: 0
+    overflow-x: scroll
+    white-space: nowrap
+    padding: 0 10px
+
+  .nav-links .category
+    display: inline-block
+    font-size: .8em
+    text-transform: uppercase
+    margin-right: 20px
+    padding-left: 1em
+    text-indent: -1em
+
+  // .nav-links .category .active
+

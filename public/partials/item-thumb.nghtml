@@ -1,28 +1,35 @@
-<div class="span4 product-listing" data-ng-controller="ItemController" data-ng-show="item">
+<div class="col-md-4 col-sm-6 product-listing" data-ng-controller="ItemController" data-ng-show="item">
 
-  <p class="title"><a data-ng-href="{{urlFor(item, 'items')}}" data-ng-bind="item.name"></a></p>
+  <p class="title">
+    <a data-ng-href="{{urlFor(item, 'items')}}" data-ng-bind="item.name"></a>
+    <span data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.retail}"></span>
+  </p>
 
-  <a data-ng-href="{{urlFor(item, 'items')}}"><img class="image" data-ng-src="{{item.image[0].src}}" alt="{{item.name}}"></a>
+  <a data-ng-href="{{urlFor(item, 'items')}}">
+    <!-- <img class="image" data-ng-src="{{item.image[0].src}}" alt="{{item.name}}"> -->
+    <div class="image" style="background-image: url({{item.image[0].src}})"></div>
+  </a>
 
-  <div class="price row-fluid">
-    <div class="watchers span6">
+  <div class="price row">
+    <div class="watchers col-md-6 col-sm-6">
       <form data-ng-submit="submit(watchers.watch)" data-ng-show="watchers.watch" class="pull-left">
-        <button class="btn btn-primary btn-small" data-ng-click="watch()" data-track="{event: 'watch', item: urlFor(item, 'items')}">Watch</button>
+        <button class="btn btn-default btn-small" data-ng-click="watch()" data-track="{event: 'watch', item: urlFor(item, 'items')}">Watch</button>
       </form>
 
       <form data-ng-submit="submit(watchers.unwatch)" data-ng-show="watchers.unwatch" class="pull-left">
-        <button class="btn btn-primary btn-small" data-ng-click="unwatch()" data-track="{event: 'unwatch', item: urlFor(item, 'items')}">Unwatch</button>
+        <button class="btn btn-default btn-small" data-ng-click="unwatch()" data-track="{event: 'unwatch', item: urlFor(item, 'items')}">Unwatch</button>
       </form>
       <form class="pull-left">
-        <a class="pull-left btn btn-primary btn-small" data-ng-hide="watchers.watch || watchers.unwatch" href="/auth/login" target="_self">Watch</a>
+        <a class="pull-left btn btn-default btn-small" data-ng-hide="watchers.watch || watchers.unwatch" href="/auth/login" target="_self">Watch</a>
       </form>
       <div class="count pull-left" title="{{watchers.count || 0}}" data-ng-show="watchers"></div>
     </div>
-    <div class="span6">
-      <span data-i18n-bind="'$%{price}' | i18n:'item.price':{price:item.retail}"></span>
+
+    <div class="col-md-6 col-sm-6">
       <!-- <form data-ng-submit="submit(sale.purchase)"> -->
-        <a class="btn btn-primary btn-small" data-ng-click="signup()" data-track="{event: 'start sale', item: urlFor(item, 'items')}">START SALE</a>
+        <a class="btn btn-default btn-small" data-ng-click="signup()" data-track="{event: 'start sale', item: urlFor(item, 'items')}">START SALE</a>
       <!-- </form> -->
     </div>
+
   </div>
 </div>

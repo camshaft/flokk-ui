@@ -1,0 +1,208 @@
+
+alert(color)
+  html
+  body
+  .content
+    background color!important
+
+html
+body
+.content
+  // relative top
+  // height 100%
+  overflow-x hidden
+
+
+_navbar_pad = 10px
+_shift_amount = 200px
+_categories_height = $navbar-height
+_border = 1px solid #ccc
+
+_wrap(size)
+  section.navs
+  body > .wrapper
+    width size
+
+body > .wrapper
+  margin-left auto
+  margin-right auto
+
+.sidenav
+  fixed top $navbar-height
+  transition opacity 0s $transition-speed-fast
+  &.sidenav-categories
+    left 0
+    ul
+      padding 0
+      margin 0
+      text-transform uppercase
+  &.sidenav-links
+    right 0
+  ul
+    display block
+    overflow-y scroll
+    padding 10px
+    li
+      font-family $headings-font-family
+      font-weight $headings-font-weight
+      list-style none
+      float none
+      display block
+      a
+        text-decoration none
+        display block
+        padding 10px
+        &:hover
+          color $brand-color
+
+.handler
+  display none
+  _handler(name, shift)
+    &#handler-{name}:checked
+      ~ .sidenav-{name}
+        opacity 1
+        transition opacity 0s 0s
+      ~ main
+        transform translate3D(shift, 0, 0)
+        .content
+          overflow hidden
+
+  _handler("categories",  (_shift_amount))
+  _handler("links", -(_shift_amount))
+
+.brand
+  fixed top
+  z-index $zindex-brand
+  .company
+    height $navbar-height
+    background-size auto ($navbar-height - _navbar_pad)
+    background-position 50%
+
+.promo-image
+  overflow hidden
+
+menu.topmenu
+  fixed top
+  left 0
+  height $navbar-height
+  width 100%
+  // flex-direction row
+  // justify-content space-between
+  // display flex
+  margin 0
+  padding 0
+  box-sizing content-box
+  border-bottom _border
+  background $body-bg
+  z-index $zindex-navbar
+  label
+    height $navbar-height
+    width $navbar-height
+    padding _navbar_pad
+    margin 0
+    text-align center
+    cursor pointer
+    color $navbar-default-brand-color
+    i
+      font-size $navbar-height - (_navbar_pad * 2)
+    &:hover
+      color $navbar-default-brand-hover-color
+    &:nth-child(2)
+      float right
+
+section.navs
+  fixed top
+  transform translate3D(0%, 0, 0)
+  z-index $zindex-sidenav-fg
+
+main
+  position relative
+  height 100%
+  transform translate3D(0%, 0, 0)
+  transition transform $transition-speed-fast ease-in-out
+  z-index $zindex-main
+  background $body-bg
+
+.content
+  padding 50px
+
+@media $media-max-phone
+
+  _wrap 100%
+
+  .brand
+    fixed top (-($navbar-height))
+    text-align center
+    width 100%
+    background-position 50%
+    .company
+      relative top $navbar-height
+
+  .content
+    border-left _border
+    border-right _border
+
+  section.navs
+    z-index $zindex-sidenav-bg
+    height 100%
+    background #eee
+    .sidenav
+      width _shift_amount
+
+@media $media-screen-min-tablet
+
+  _wrap $container-tablet
+
+  .brand .company
+    background-position _navbar_pad
+
+  menu.topmenu label
+    display none
+
+  .content
+    padding-top _categories_height + $navbar-height
+
+  section.navs
+    z-index $zindex-sidenav-fg
+    .sidenav
+      top 0
+      opacity 1
+      ul
+        padding-top 0
+        li
+          display inline-block
+          a
+            padding (_navbar_pad * 1.5) _navbar_pad
+
+
+      &.sidenav-categories
+        top $navbar-height + 1
+        height $navbar-height
+        width 100%
+        ul
+          width 100%
+          display inline-block
+          text-align center
+          box-shadow 0 10px 27px -17px black
+          background white
+      &.sidenav-links
+        width auto
+        height $navbar-height
+
+
+@media $media-screen-min-lg-desktop
+  _wrap $container-desktop
+
+  // // alert(yellow)
+
+  // // menu.topmenu
+  // //   display none
+
+  // .content
+  //   _margin = _shift_amount
+  //   margin-right _margin
+  //   margin-left _margin
+  //   top 0
+
+  // .sidenav-links
+  //   top 0
