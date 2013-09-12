@@ -4,8 +4,15 @@
   </div>
 </div>
 
-<div class="row">
-  <div data-ng-repeat="categoryLink in sales.sections" data-ng-controller="CategoryController">
-    <div data-ng-repeat="itemLink in categoryLink.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
+<div
+  class="row category-items">
+  <div
+    data-ng-repeat="categoryLink in sales.sections"
+    data-ng-controller="CategoryController">
+    <div
+      data-ng-repeat="itemLink in categoryLink.items"
+      data-ng-include=""
+      src="'/partials/item-thumb.nghtml'"
+      ></div>
   </div>
 </div>

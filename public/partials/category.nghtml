@@ -4,5 +4,10 @@
   </div>
 </div>
 <div class="row">
-  <div data-ng-repeat="itemLink in category.items" data-ng-include="" src="'/partials/item-thumb.nghtml'"></div>
+  <div
+    data-ng-repeat="itemLink in category.items"
+    data-ng-include=""
+    src="'/partials/item-thumb.nghtml'"
+    class="category items"
+    ></div>
 </div>
