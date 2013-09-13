@@ -22,10 +22,10 @@ function IndexController($scope, $location) {
     $scope.path = val;
   });
 
-  $scope.sidenav = {primary: false, secondary: false};
+  $scope.sidenav = {categories: false, links: false};
   $scope.resetSidenav = function() {
-    $scope.sidenav.primary = false;
-    $scope.sidenav.secondary = false;
+    $scope.sidenav.categories = false;
+    $scope.sidenav.links = false;
   };
 
   $scope.urlFor = function(obj, root) {

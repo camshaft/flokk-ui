@@ -3,6 +3,6 @@
     <a href="/" data-i18n-bind="'Popular' | i18n:'category.sales'"></a>
   </li>
   <li data-ng-show="root.categories" data-ng-repeat="category in body.categories" data-ng-class="{active: current.indexOf(category.items) == 0}">
-    <a data-i18n-bind="category.title | i18n:'category.'+category.href" data-ng-href="/categories/{{category.title | slugify}}/{{category.items | param}}"></a>
+    <a data-i18n-bind="category.title | i18n:'category.'+category.href" data-ng-href="/categories/{{category.title | slugify}}/{{category.items | param}}" data-ng-click="resetSidenav()"></a>
   </li>
 </ul>

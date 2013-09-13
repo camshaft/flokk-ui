@@ -37,6 +37,7 @@ html(data-ng-app=ngapp)
       input(type="checkbox"
             name="handler-#{name}"
             id="handler-#{name}"
+            data-ng-model="sidenav.#{name}"
             onclick="null").handler
     +checkbox("categories")
     +checkbox("links")
@@ -44,10 +45,10 @@ html(data-ng-app=ngapp)
 
     menu.topmenu
       mixin label(name, icon)
-        label(for='handler-#{name}')
-          i(class="icon-#{icon}")
-      +label("categories", "tag")
-      +label("links", "cart")
+        label(for='handler-#{name}')(attributes)
+        i(class="icon-#{icon}")(attributes)
+      +label("categories", "tag").left
+      +label("links", "cart").right
 
     figure.brand
       a(href=site).company FLOKK
