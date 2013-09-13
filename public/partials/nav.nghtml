@@ -8,6 +8,6 @@
 <ul class="top-nav" data-ng-hide="root.account">
 <!--   <li data-ng-class="{active: path=='/contact'}"><a href="/contact" data-i18n-bind="'Contact us' | i18n:'contact_us'"></a></li> -->
   <li data-ng-class="{active: path=='/about'}"><a href="/about" data-i18n-bind="'How it works' | i18n:'how_it_works'"></a></li>
-  <li><a href="/auth/login" target="_self" data-i18n-bind="'Signup' | i18n:'signup'"></a></li>
+  <li><a href="/auth/register" target="_self" data-i18n-bind="'Signup' | i18n:'signup'"></a></li>
   <li><a href="/auth/login" target="_self" data-i18n-bind="'Login' | i18n:'login'"></a></li>
 </ul>

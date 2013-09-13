@@ -1,7 +1,7 @@
 
 #dialog {
   margin-left: -150px !important;
-  width: 300px;
+  width: 320px;
 }
 
 #dialog .title {
@@ -13,7 +13,28 @@
 }
 
 #dialog .body {
-  font-size: 1.2em;
+  font-size: 1.25em;
+  position: relative;
+}
+
+#dialog .body .steps {
+  color: #E01533;
+}
+
+#dialog .body .steps .step {
+  color: #333;
+}
+
+#dialog .btn-action {
+  width: 100%;
+  position: relative;
+  left: -5px;
+  padding: 5px;
+}
+
+#dialog p {
+  padding: 5px;
+  text-align: center;
 }
 
 .overlay {
