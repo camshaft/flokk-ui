@@ -57,8 +57,10 @@ body > .wrapper
             z-index $zindex-sidenav-bg
       ~ main
         transform translate3D(shift, 0, 0)
+        height 100%
         .content
           overflow hidden
+          height 100%
 
   _handler("categories",  (_shift_amount))
   _handler("links", -(_shift_amount))

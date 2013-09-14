@@ -1,6 +1,6 @@
 <div class="checkout container-fluid" data-ng-class="step">
   <div class="steps-container row-fluid">
-    <ul class="steps span12">
+    <ul class="steps col-md-12">
       <li>
         <a class="step shipping" href="#shipping">SHIPPING</a>
       </li>
@@ -41,7 +41,7 @@
       <div class="form">
         <form class="confirmation container-fluid">
           <div class="row">
-            <div class="span4">
+            <div class="col-md-4">
               <h4>Shipping Info</h4>
               <div data-ng-bind="shipping.name"></div>
               <div data-ng-bind="shipping.streetAddress"></div>
@@ -52,7 +52,7 @@
               </div>
               <div data-ng-bind="shipping.addressCountry"></div>
             </div>
-            <div class="span4">
+            <div class="col-md-4">
               <h4>Billing Info</h4>
               <div data-ng-bind="cc.name"></div>
               <div data-ng-show="cc.additionalType && cc.lastDigits">
@@ -61,7 +61,7 @@
                 <span data-ng-bind="cc.lastDigits"></span>
               </div>
             </div>
-            <div class="span4">
+            <div class="col-md-4">
 
             </div>
           </div>

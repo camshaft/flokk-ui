@@ -6,7 +6,7 @@
 
 <div class="row" data-ng-show="item">
   <div class="col-md-8">
-    <img class="product-image hidden-phone" data-ng-src="{{item.image[image || 0].src}}">
+    <img class="product-image hidden-xs" data-ng-src="{{item.image[image || 0].src}}">
   </div>
 
   <div class="col-md-4">
@@ -35,7 +35,7 @@
     <a href="//pinterest.com/pin/create/button/?url={{absUrl(path)}}&amp;media={{item.image[0].src}}&amp;description={{item.name}}" data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
   </div>
 
-  <div class="row">
+  <div class="row hidden-xs">
     <div class="col-md-2" data-ng-repeat="image in item.image">
       <a data-ng-href="#{{$index}}">
         <img data-ng-src="{{image.src}}">
