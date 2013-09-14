@@ -66,7 +66,7 @@ body > .wrapper
   _handler("links", -(_shift_amount))
 
 .brand
-  fixed top
+  absolute top
   z-index $zindex-brand
   .company
     height $navbar-height
@@ -133,13 +133,12 @@ main
 
   _wrap 100%
 
-  .brand
+  .brand .company
     fixed top (-($navbar-height))
-    text-align center
-    width 100%
-    background-position 50%
-    .company
-      relative top $navbar-height
+    height $navbar-height
+    margin-top $navbar-height
+    width 50%
+    left 25%
 
   main .content
     border-left _border
