@@ -31,7 +31,7 @@ html(data-ng-app=ngapp)
     script.
       if (window.location.hash === '#_=_') window.location.hash = ''; var startTime = Date.now();window.env = !{JSON.stringify(env)};
 
-  body(data-ng-controller="IndexController"): .wrapper
+  body(data-ng-controller="IndexController")
 
     mixin checkbox(name)
       input(type="checkbox"
@@ -42,6 +42,16 @@ html(data-ng-app=ngapp)
     +checkbox("categories")
     +checkbox("links")
 
+    section.navs
+      .bg
+
+      mixin nav(name)
+        div(src="'/partials/nav-#{name}.nghtml'"
+            class="sidenav sidenav-#{name}"
+            data-ng-include="")(attributes)
+
+      +nav("links")(data-ng-controller="NavLinksController")
+      +nav("categories")
 
     menu.topmenu
       mixin label(name, icon)
@@ -50,31 +60,27 @@ html(data-ng-app=ngapp)
       +label("categories", "tag").left
       +label("links", "cart").right
 
-    figure.brand
-      a(href=site).company FLOKK
 
-    section.navs
+    mixin brand
+      figure.brand(attributes)
+        a(href=site).company FLOKK
+    // +brand.desktop
 
-      div(data-ng-controller="NavLinksController"
-          src="'/partials/nav-links.nghtml'"
-          class="sidenav sidenav-links"
-          data-ng-include="")
+    +brand
 
-      div(src="'/partials/nav-categories.nghtml'"
-          class="sidenav sidenav-categories"
-          data-ng-include="")
+    .wrapper
 
-    main
+      // +brand.mobile
 
-      div(data-ng-view="").content
+      main(data-ng-view="")
 
-    footer.row
-      .col-md-6
-        ul.footer-nav
-          li: a(href="/contact") Terms &amp; Conditions
-          li: a(href="/contact") Contact
-      .col-md-6.footer-right
-        p &copy; The Flokk
+      footer.row
+        .col-md-6
+          ul.footer-nav
+            li: a(href="/contact") Terms &amp; Conditions
+            li: a(href="/contact") Contact
+        .col-md-6.footer-right
+          p &copy; The Flokk
 
 
     include modal.jade

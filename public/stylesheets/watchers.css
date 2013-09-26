@@ -1,3 +1,7 @@
+.watchers {
+  padding-bottom: 7px;
+}
+
 .watchers .count {
   display: inline;
   position: relative;

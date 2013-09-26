@@ -1,0 +1,32 @@
+
+.watchers
+  form
+    padding-bottom 20px
+
+  .count
+    display: inline;
+    position: relative;
+
+    &:after
+      background: #333;
+      background: rgba(0,0,0,.8);
+      border-radius: 5px;
+      color: #fff;
+      content: attr(title);
+      left: 9px;
+      padding: 4px 10px;
+      position: absolute;
+      z-index: 98;
+
+    &:before
+      content: "";
+      border: solid;
+      border-color: #333 transparent;
+      border-width: 6px 6px 0 6px;
+      top: 10px;
+      position: absolute;
+      z-index: 99;
+      // -webkit-transform: rotate(90deg);
+      // -moz-transform: rotate(90deg);
+      // -ms-transform: rotate(90deg);
+      // transform: rotate(90deg);

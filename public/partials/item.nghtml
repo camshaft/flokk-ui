@@ -5,11 +5,11 @@
 </div>
 
 <div class="row" data-ng-show="item">
-  <div class="col-md-8">
-    <img class="product-image hidden-xs" data-ng-src="{{item.image[image || 0].src}}">
+  <div class="col-md-8 hidden-xs hidden-sm">
+    <img class="product-image" data-ng-src="{{item.image[image || 0].src}}">
   </div>
 
-  <div class="col-md-4">
+  <div class="col-lg-4 col-sm-12">
     <div class="add-basket-box clearfix">
       <img data-ng-src="{{item.image[0].src}}" alt="{{item.name}}">
       <p><span data-ng-bind="item.name"></span><br /><span data-i18n-bind="'$%{price}' | i18n:'item.price':{price:(sale.price || item.retail)}"></span></p>
@@ -35,8 +35,8 @@
     <a href="//pinterest.com/pin/create/button/?url={{absUrl(path)}}&amp;media={{item.image[0].src}}&amp;description={{item.name}}" data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
   </div>
 
-  <div class="row hidden-xs">
-    <div class="col-md-2" data-ng-repeat="image in item.image">
+  <div class="col-md-8 hidden-xs hidden-sm thumbs">
+    <div data-ng-repeat="image in item.image">
       <a data-ng-href="#{{$index}}">
         <img data-ng-src="{{image.src}}">
       </a>

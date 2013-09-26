@@ -1,17 +1,17 @@
 
 html
 body
-main .content
+main
   overflow-x hidden
 
 
 _navbar_pad = 10px
 _shift_amount = 200px
-_categories_height = $navbar-height
 _border = 1px solid #ccc
+_horizontal_pad = 10%
+_horizontal_width = (100% - (_horizontal_pad * 2))
 
 _wrap(size)
-  section.navs
   body > .wrapper
     width size
 
@@ -20,7 +20,7 @@ body > .wrapper
   margin-right auto
 
 .sidenav
-  fixed top $navbar-height
+  fixed top
   transition opacity 0s $transition-speed-fast
   &.sidenav-categories
     left 0
@@ -46,29 +46,13 @@ body > .wrapper
         &:hover
           color $brand-color
 
-.handler
-  display none
-  _handler(name, shift)
-    &#handler-{name}:checked
-      ~ section.navs
-          .sidenav-{name}
-            opacity 1
-            transition opacity 0s 0s
-            z-index $zindex-sidenav-bg
-      ~ main
-        transform translate3D(shift, 0, 0)
-        height 100%
-        .content
-          overflow hidden
-          height 100%
-
-  _handler("categories",  (_shift_amount))
-  _handler("links", -(_shift_amount))
-
 .brand
-  absolute top
+  fixed top
   z-index $zindex-brand
+
   .company
+    absolute top (-($navbar-height))
+    margin-top $navbar-height
     height $navbar-height
     background-size auto ($navbar-height - _navbar_pad)
     background-position 50%
@@ -76,14 +60,17 @@ body > .wrapper
 .promo-image
   overflow hidden
 
+.brand
+.wrapper
+.topmenu
+  transform translate3D(0%, 0, 0)
+  transition transform $transition-speed-fast ease-in-out
+
 menu.topmenu
   fixed top
   left 0
   height $navbar-height
   width 100%
-  // flex-direction row
-  // justify-content space-between
-  // display flex
   margin 0
   padding 0
   box-sizing content-box
@@ -91,6 +78,8 @@ menu.topmenu
   background $body-bg
   z-index $zindex-navbar
 
+  i
+    z-index -1
   label
     z-index 10
     &:hover
@@ -117,32 +106,29 @@ section.navs
   fixed top
   transform translate3D(0%, 0, 0)
   z-index $zindex-sidenav-fg
+  width 100%
 
-main
+.wrapper
   position relative
   height 100%
-  transform translate3D(0%, 0, 0)
-  transition transform $transition-speed-fast ease-in-out
-  z-index $zindex-main
   background $body-bg
+  z-index $zindex-main
 
-  .content
-    padding 50px
+.handler
+  display none
 
 @media $media-max-phone
 
   _wrap 100%
 
-  .brand .company
-    fixed top (-($navbar-height))
+  .brand
     height $navbar-height
-    margin-top $navbar-height
     width 50%
     left 25%
+    .company
+      width 100%
 
-  main .content
-    border-left _border
-    border-right _border
+  main
     padding ($navbar-height + _navbar_pad) _navbar_pad _navbar_pad
 
   section.navs
@@ -155,22 +141,51 @@ main
       background _bg
       opacity 0
 
+  _handler(name, shift)
+    #handler-{name}:checked
+      ~ section.navs
+        .sidenav-{name}
+          opacity 1
+          transition opacity 0s 0s
+          z-index $zindex-sidenav-bg
+      ~ .brand
+      ~ .topmenu
+      ~ .wrapper
+        transform translate3D(shift, 0, 0)
+        &.wrapper
+          box-shadow 0 0 20px rgba(black, .3)
+
+  _handler("categories",  (_shift_amount))
+  _handler("links", -(_shift_amount))
+
 @media $media-screen-min-tablet
 
   _wrap $container-tablet
 
-  .brand .company
-    background-position _navbar_pad
+  .brand
+    background-position 0 50%
+    left _horizontal_pad
 
-  menu.topmenu *
+  menu.topmenu
     display none
 
-  main .content
-    padding-top _categories_height + $navbar-height
+  main
+    padding ($navbar-height * 2) $navbar-height
 
   section.navs
     z-index $zindex-sidenav-fg
+    height ($navbar-height * 2)
+
+    .bg
+      relative left _horizontal_pad
+      background white
+      box-shadow 0 10px 27px -17px black
+      height 100%
+      width _horizontal_width
+
     .sidenav
+      width _horizontal_width
+      left _horizontal_pad
       top 0
       opacity 1
       ul
@@ -180,21 +195,17 @@ main
           a
             padding (_navbar_pad * 1.5) _navbar_pad
 
-
       &.sidenav-categories
         top $navbar-height + 1
         height $navbar-height
-        width 100%
         ul
           width 100%
           display inline-block
           text-align center
-          box-shadow 0 10px 27px -17px black
-          background white
-      &.sidenav-links
-        width auto
-        height $navbar-height
 
+      &.sidenav-links
+        height $navbar-height
+        text-align right
 
 @media $media-screen-min-lg-desktop
   _wrap $container-desktop
