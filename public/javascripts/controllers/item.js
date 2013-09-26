@@ -44,21 +44,11 @@ clock.start();
 function ItemController($scope, $routeParams, $location) {
   $scope.signup = function () {
     var loggedIn = $scope.watchers.watch || $scope.watchers.unwatch;
-    console.log("LOG STATUS", loggedIn);
 
     $(loggedIn ? "#prelaunch-logged-in" : "#prelaunch-logged-out")
       .modal('show');
 
   };
-
-  // $scope.signup = function() {
-  //   var loggedIn = $scope.watchers.watch || $scope.watchers.unwatch;
-  //   var message = domify(loggedIn ? prelaunchLoggedIn : prelaunchLoggedOut);
-  //   dialog('Hey There!', message)
-  //     .effect('slide')
-  //     .overlay()
-  //     .show();
-  // };
 
   // Be able to load this within a route or in a list
   if(!$routeParams.item) return $scope.$watch('itemLink', function(link) {

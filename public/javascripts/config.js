@@ -48,8 +48,6 @@ client.profile = log.profile.bind(log);
  */
 
 window.attachFastClick = require('fastclick');
-/* attachFastClick(window.document.body); */
-
 
 /**
  * Initialize the controllers

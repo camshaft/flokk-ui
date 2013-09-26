@@ -1,5 +1,4 @@
 <div class="col-md-4 col-sm-6 product-listing" data-ng-controller="ItemController" data-ng-show="item">
-<!-- <div class="product-listing" data-ng-controller="ItemController" data-ng-show="item"> -->
 
   <p class="title">
     <a data-ng-href="{{urlFor(item, 'items')}}" data-ng-bind="item.name"></a>
@@ -7,7 +6,6 @@
   </p>
 
   <a data-ng-href="{{urlFor(item, 'items')}}">
-    <!-- <img class="image" data-ng-src="{{item.image[0].src}}" alt="{{item.name}}"> -->
     <div class="image" style="background-image: url({{item.image[0].src}})"></div>
   </a>
 
@@ -28,7 +26,6 @@
 
     <div class="col-md-6 col-sm-6">
       <!-- <form data-ng-submit="submit(sale.purchase)"> -->
-        <!-- <a class="btn btn-default btn-small" data-ng-click="signup()" data-track="{event: 'start sale', item: urlFor(item, 'items')}">START SALE</a> -->
         <a class="btn btn-primary btn-small pull-right" data-ng-click="signup()" data-track="{event: 'start sale', item: urlFor(item, 'items')}">START SALE</a>
       <!-- </form> -->
     </div>
