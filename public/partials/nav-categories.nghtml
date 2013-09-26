@@ -1,6 +1,6 @@
 <ul class="main-nav clearfix" data-ng-show="root.sales" data-ng-controller="NavCategoriesController">
   <li data-ng-class="{active: path=='/'}">
-    <a href="/" data-i18n-bind="'Popular' | i18n:'category.sales'"></a>
+    <a href="/" data-i18n-bind="'Popular' | i18n:'category.sales'" data-ng-click="resetSidenav()"></a>
   </li>
   <li data-ng-show="root.categories" data-ng-repeat="category in body.categories" data-ng-class="{active: current.indexOf(category.items) == 0}">
     <a data-i18n-bind="category.title | i18n:'category.'+category.href" data-ng-href="/categories/{{category.title | slugify}}/{{category.items | param}}" data-ng-click="resetSidenav()"></a>

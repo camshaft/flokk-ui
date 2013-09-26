@@ -1,17 +1,3 @@
-//- block content
-//-   #main
-//-     div(data-ng-include="", src="'/partials/sidenav.nghtml'").sidenav-container
-//-     .container-fluid.main-container
-//-       .row-fluid
-//-         div(data-ng-view="").span12
-
-//- block prepend scripts
-//-   script(async
-//-          src="//js.balancedpayments.com/v1/balanced.min.js"
-//-          onload="balanced.init('#{balanced}')")
-//-   script(src="//d3dy5gmtp8yhk7.cloudfront.net/2.1.1/sockjs.min.js")
-//-   script(src="//d3dy5gmtp8yhk7.cloudfront.net/2.1/pusher.min.js")
-
 !!! 5
 html(data-ng-app=ngapp)
   head
@@ -64,13 +50,10 @@ html(data-ng-app=ngapp)
     mixin brand
       figure.brand(attributes)
         a(href=site).company FLOKK
-    // +brand.desktop
 
     +brand
 
     .wrapper
-
-      // +brand.mobile
 
       main(data-ng-view="")
 
