@@ -89,6 +89,7 @@ var notFound = require('../partials/404.js')
 
 var i18nBind = require('./directives/i18n-bind')
   , lazyLoad = require('./directives/lazy-load')
+  , feature = require('./directives/feature')
   , track = require('./directives/track');
 
 /**
@@ -195,3 +196,9 @@ app.run([
     });
   }
 ]);
+
+/**
+ * Enable the feature-ui
+ */
+
+require('feature-ui')();
