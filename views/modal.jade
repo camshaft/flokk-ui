@@ -26,17 +26,21 @@ mixin modal-body
     br
     p.center.lead You control the sale. Up to <strong>80%</strong> off.
 
+mixin modal-button(href, button)
+  a(href=href, class= button)(attributes).btn
+    block
+
 
 +modal#prelaunch-logged-in
   +modal-header We are still getting ready!
   +modal-body
   .modal-footer
-    button(type="button").btn.btn-default How this works
+    +modal-button("/about", "btn-default") How this works
 
 
 +modal#prelaunch-logged-out
   +modal-header We are still getting ready!
   +modal-body
   .modal-footer
-    button(type="button").btn.btn-default How this works
-    button(type="button").btn.btn-primary Sign-up for early access
+    +modal-button("/about", "btn-default") How this works
+    +modal-button("/auth/register", "btn-primary")(target="_self") Sign-up for early access
