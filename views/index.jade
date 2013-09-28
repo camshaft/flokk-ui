@@ -58,12 +58,13 @@ html(data-ng-app=ngapp)
       main(data-ng-view="")
 
       footer.row
-        .col-md-6
+        .col-md-6.col-sm-6
           ul.footer-nav
             li: a(href="/contact") Terms &amp; Conditions
             li: a(href="/contact") Contact
-        .col-md-6.footer-right
-          p &copy; The Flokk
+        .col-md-6.col-sm-6
+          .footer-brand
+            p &copy; The Flokk
 
 
     include modal.jade
