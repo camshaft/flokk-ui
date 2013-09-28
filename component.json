@@ -25,9 +25,13 @@
     "flokk/analytics.js": "*",
     "component/domify": "*",
     "component/jquery": "*",
-    "ftlabs/fastclick": "*"
+    "ftlabs/fastclick": "*",
+    "CamShaft/feature-ui": "*",
+    "CamShaft/feature": "*"
   },
-  "paths": [ "locals" ],
+  "paths": [
+    "locals"
+  ],
   "local": [
     "modal",
     "transition-end"
@@ -52,6 +56,7 @@
     "public/javascripts/directives/i18n-bind.js",
     "public/javascripts/directives/credit-card.js",
     "public/javascripts/directives/csc.js",
+    "public/javascripts/directives/feature.js",
     "public/javascripts/directives/lazy-load.js",
     "public/javascripts/directives/remaining.js",
     "public/javascripts/directives/track.js",
