@@ -2,10 +2,10 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , start = require('in-progress')
-  , websafe = require('websafe-base64')
-  , client = require('hyperagent');
+var app = require('..');
+var start = require('in-progress');
+var websafe = require('websafe-base64');
+var client = require('hyperagent');
 
 /**
  * Load the partials
@@ -23,13 +23,13 @@ function NavCategoriesController($scope, $routeParams) {
   $scope.$watch(function() {
     return $routeParams.category;
   }, function(val) {
-    $scope.current = websafe.decode($routeParams.category);
+    $scope.current = websafe.decode(val);
   });
 
   function onError(err) {
     console.error(err.stack || err.message || err);
     done();
-  };
+  }
 
   client()
     .on('error', onError)
@@ -51,7 +51,7 @@ function NavCategoriesController($scope, $routeParams) {
           });
         });
     });
-};
+}
 
 /**
  * Register it with angular

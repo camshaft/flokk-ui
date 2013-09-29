@@ -2,10 +2,9 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , analytics = require('../lib/analytics')
-  , start = require('in-progress')
-  , client = require('hyperagent');
+var app = require('..');
+var start = require('in-progress');
+var client = require('hyperagent');
 
 /**
  * SalesController
@@ -17,7 +16,7 @@ function SalesController($scope) {
   function onError(err) {
     console.error(err.stack || err.message || err);
     done();
-  };
+  }
 
   client()
     .on('error', onError)
@@ -36,7 +35,7 @@ function SalesController($scope) {
         });
 
     });
-};
+}
 
 /**
  * Register it with angular

@@ -2,8 +2,8 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , Preloader = require('preloader');
+var app = require('..');
+var Preloader = require('preloader');
 
 /**
  * lazyLoad
@@ -19,18 +19,18 @@ function lazyLoad() {
         if(!img) return;
         elem.addClass('loading');
 
-        var loader = new Preloader;
+        var loader = new Preloader();
 
         loader.add(img);
 
         loader.end(function() {
           elem.removeClass('loading');
-          elem.css('background-image', 'url('+img+')');
+          elem.css('background-image', 'url(' + img + ')');
         });
       });
     }
-  }
-};
+  };
+}
 
 /**
  * Register it with angular

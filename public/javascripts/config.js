@@ -2,9 +2,9 @@
  * Module dependencies
  */
 
-var app = require('.')
-  , envs = require('envs')
-  , token = require('access-token');
+var app = require('.');
+var envs = require('envs');
+var token = require('access-token');
 
 /**
  * Load the environment
@@ -53,58 +53,68 @@ window.attachFastClick = require('fastclick');
  * Initialize the controllers
  */
 
-var AccountController = require('./controllers/account')
-  , IndexController = require('./controllers/index')
-  , CartController = require('./controllers/cart')
-  , CategoryController = require('./controllers/category')
-  , CheckoutController = require('./controllers/checkout')
-  , ItemController = require('./controllers/item')
-  , NavCategoriesController = require('./controllers/nav-categories')
-  , SalesController = require('./controllers/sales')
-  , NavLinksController = require('./controllers/nav-links')
-  , BrandsController = require('./controllers/brands')
-  , BrandController = require('./controllers/brand');
+var AccountController = require('./controllers/account');
+var IndexController = require('./controllers/index');
+var CartController = require('./controllers/cart');
+var CategoryController = require('./controllers/category');
+var CheckoutController = require('./controllers/checkout');
+var ItemController = require('./controllers/item');
+var SalesController = require('./controllers/sales');
+var BrandsController = require('./controllers/brands');
+var BrandController = require('./controllers/brand');
+
+/**
+ * Initialize the aux controllers
+ */
+
+require('./controllers/nav-categories');
+require('./controllers/nav-links');
 
 /**
  * Load the partials
  */
 
-var notFound = require('../partials/404.js')
-  , about = require('../partials/about.js')
-  , account = require('../partials/account.js')
-  , brand = require('../partials/brand.js')
-  , brands = require('../partials/brands.js')
-  , cart = require('../partials/cart.js')
-  , checkout = require('../partials/checkout.js')
-  , category = require('../partials/category.js')
-  , contact = require('../partials/contact.js')
-  , copyright = require('../partials/copyright.js')
-  , item = require('../partials/item.js')
-  , sales = require('../partials/sales.js')
-  , linksNav = require('../partials/nav-links.js');
+var notFound = require('../partials/404.js');
+var about = require('../partials/about.js');
+var account = require('../partials/account.js');
+var brand = require('../partials/brand.js');
+var brands = require('../partials/brands.js');
+var cart = require('../partials/cart.js');
+var checkout = require('../partials/checkout.js');
+var category = require('../partials/category.js');
+var contact = require('../partials/contact.js');
+var copyright = require('../partials/copyright.js');
+var item = require('../partials/item.js');
+var sales = require('../partials/sales.js');
+
+/**
+ * Load the aux partials
+ */
+
+require('../partials/nav-links.js');
 
 /**
  * Initialize the directives used outside of the controllers
  */
 
-var i18nBind = require('./directives/i18n-bind')
-  , lazyLoad = require('./directives/lazy-load')
-  , feature = require('./directives/feature')
-  , track = require('./directives/track');
+require('./directives/i18n-bind');
+require('./directives/lazy-load');
+require('./directives/feature');
+require('./directives/track');
 
 /**
  * Initialize the filters used outside of the controllers
  */
 
-var i18n = require('./filters/i18n')
-  , param = require('./filters/param')
-  , slugify = require('./filters/slugify');
+require('./filters/i18n');
+require('./filters/param');
+require('./filters/slugify');
 
 /**
  * Initialize the loading icon
  */
 
-var loading = require('./lib/loading');
+require('./lib/loading');
 
 /**
  * Configure the app
@@ -185,11 +195,11 @@ app.run([
   function($rootScope, $location) {
     var done;
 
-    $rootScope.$on('$routeChangeStart', function(currentRoute, nextRoute) {
+    $rootScope.$on('$routeChangeStart', function() {
       done = log.profile('route_time');
     });
 
-    $rootScope.$on('$routeChangeSuccess', function(currentRoute, previousRoute) {
+    $rootScope.$on('$routeChangeSuccess', function(currentRoute) {
       analytics.pageview();
       $rootScope.title = currentRoute.title || 'You start the sales';
       done({path: $location.path()});

@@ -2,10 +2,9 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , start = require('in-progress')
-  , client = require('hyperagent')
-  , analytics = require('../lib/analytics');
+var app = require('..');
+var start = require('in-progress');
+var client = require('hyperagent');
 
 /**
  * Load the partials
@@ -23,7 +22,7 @@ function NavLinksController($scope) {
   function onError(err) {
     console.error(err.stack || err.message || err);
     done();
-  };
+  }
 
   client()
     .on('error', onError)
@@ -33,7 +32,7 @@ function NavLinksController($scope) {
         done();
       });
     });
-};
+}
 
 /**
  * Register it with angular

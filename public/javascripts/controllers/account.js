@@ -2,10 +2,9 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , start = require('in-progress')
-  , client = require('hyperagent')
-  , analytics = require('../lib/analytics');
+var app = require('..');
+var start = require('in-progress');
+var client = require('hyperagent');
 
 /**
  * AccountController
@@ -18,7 +17,7 @@ function AccountController($scope) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
     done();
-  };
+  }
 
   client()
     .on('error', onError)
@@ -35,7 +34,7 @@ function AccountController($scope) {
           });
         });
     });
-};
+}
 
 /**
  * Register it with angular

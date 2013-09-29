@@ -25,8 +25,8 @@ function csc() {
         }
       });
     }
-  }
-};
+  };
+}
 
 /**
  * Register it with angular

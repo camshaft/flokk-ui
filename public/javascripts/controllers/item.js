@@ -2,21 +2,16 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , analytics = require('../lib/analytics')
-  , start = require('in-progress')
-  , subscribe = require('../lib/subscribe')
-  , websafe = require('websafe-base64')
-  , clock = require('clock')
-  , each = require('each')
-  , client = require('hyperagent')
-  , dialog = require('dialog')
-  , domify = require('domify')
-  , prelaunchLoggedIn = require('../../partials/prelaunch-dialog-logged-in')
-  , prelaunchLoggedOut = require('../../partials/prelaunch-dialog-logged-out')
-  , $ = require("jquery");
+var app = require('..');
+var start = require('in-progress');
+var subscribe = require('../lib/subscribe');
+var websafe = require('websafe-base64');
+var clock = require('clock');
+var each = require('each');
+var client = require('hyperagent');
+var $ = require('jquery');
 
-require("modal");
+require('modal');
 
 
 /**
@@ -45,37 +40,40 @@ function ItemController($scope, $routeParams, $location) {
   $scope.signup = function () {
     var loggedIn = $scope.watchers.watch || $scope.watchers.unwatch;
 
-    $(loggedIn ? "#prelaunch-logged-in" : "#prelaunch-logged-out")
+    $(loggedIn ? '#prelaunch-logged-in' : '#prelaunch-logged-out')
       .modal('show');
 
   };
 
   // Be able to load this within a route or in a list
-  if(!$routeParams.item) return $scope.$watch('itemLink', function(link) {
-    if(link) fetch(link.href, $scope);
+  if ($routeParams.item) {
+    // Initialize the purchase form on the page
+    $scope.purchaseForm = {};
+
+    var swap = switchImage($scope, $location);
+
+    swap();
+
+    // Fetch the item
+    return fetch(websafe.decode($routeParams.item), $scope, swap);
+  }
+
+  $scope.$watch('itemLink', function(link) {
+    if (link) fetch(link.href, $scope);
   });
-
-  // Initialize the purchase form on the page
-  $scope.purchaseForm = {};
-
-  var swap = switchImage($scope, $location);
-
-  swap();
-
-  // Fetch the item
-  fetch(websafe.decode($routeParams.item), $scope, swap);
-};
+}
 
 function switchImage($scope, $location) {
   function exec(image) {
-    var image = $scope.image = parseInt(image || '0');
+    image = $scope.image = parseInt(image || '0', 10);
+
     var length = $scope.item
       ? $scope.item.image.length
       : 0;
 
     $scope.nextImage = image === length - 1 ? 0 : image + 1;
     $scope.prevImage = image === 0 ? length - 1 : image - 1;
-  };
+  }
 
   $scope.$watch(function() {
     return $location.hash();
@@ -84,7 +82,7 @@ function switchImage($scope, $location) {
   return function() {
     exec($location.hash());
   };
-};
+}
 
 function fetch (href, $scope, swap) {
   var done = start();
@@ -93,7 +91,7 @@ function fetch (href, $scope, swap) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
     done();
-  };
+  }
 
   $scope.watch = function() {
     if ($scope.watchers.loading) return;
@@ -139,9 +137,11 @@ function fetch (href, $scope, swap) {
           $scope.sale = sale;
 
           $scope.purchaseForm = {};
-          if (sale.purchase) each(sale.purchase.input, function(key, conf) {
-            if (conf.value) $scope.purchaseForm[key] = conf.value;
-          });
+          if (sale.purchase) {
+            each(sale.purchase.input, function(key, conf) {
+              if (conf.value) $scope.purchaseForm[key] = conf.value;
+            });
+          }
 
           // The item isn't on sale
           done();
@@ -158,7 +158,7 @@ function fetch (href, $scope, swap) {
               var remaining = sale.remaining = sale.ending - time;
               sale.onSale = remaining > 0;
             });
-          };
+          }
 
           // Listen to the global clock
           clock.on(updateRemaining);
