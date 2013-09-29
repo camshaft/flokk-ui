@@ -14,8 +14,8 @@ function feature() {
     link: function($scope, elem, attrs) {
       if (!enabled(attrs.feature)) elem.css({display: 'none'});
     }
-  }
-};
+  };
+}
 
 /**
  * Register it with angular

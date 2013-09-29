@@ -2,9 +2,9 @@
  * Module dependencies
  */
 
-var accessToken = require('access-token')()
-  , envs = require('envs')
-  , metric = require('metric-log');
+var accessToken = require('access-token')();
+var envs = require('envs');
+var metric = require('metric-log');
 
 /**
  * Options
@@ -51,4 +51,4 @@ module.exports.error = function() {
  * noop
  */
 
-function noop() {};
+function noop() {}

@@ -24,8 +24,8 @@ function creditCard() {
         }
       });
     }
-  }
-};
+  };
+}
 
 /**
  * Register it with angular

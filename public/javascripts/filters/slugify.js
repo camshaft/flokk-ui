@@ -2,8 +2,8 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , slug = require('slug');
+var app = require('..');
+var slug = require('slug');
 
 /**
  * slugify
@@ -14,7 +14,7 @@ function slugify() {
     if(!str) return '';
     return slug(str, opts);
   };
-};
+}
 
 /**
  * Register it with angular

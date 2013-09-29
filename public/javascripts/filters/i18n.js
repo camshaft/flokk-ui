@@ -2,8 +2,8 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , translations = require('../services/translations');
+var app = require('..');
+var translations = require('../services/translations');
 
 /**
  * i18n
@@ -17,7 +17,7 @@ function i18n(polygot) {
 
     return polygot.t(key, options);
   };
-};
+}
 
 /**
  * Register it with angular

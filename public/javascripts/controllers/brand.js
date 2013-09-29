@@ -2,11 +2,10 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , start = require('in-progress')
-  , websafe = require('websafe-base64')
-  , client = require('hyperagent')
-  , analytics = require('../lib/analytics');
+var app = require('..');
+var start = require('in-progress');
+var websafe = require('websafe-base64');
+var client = require('hyperagent');
 
 /**
  * BrandController
@@ -19,7 +18,7 @@ function BrandController($scope, $routeParams) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
     done();
-  };
+  }
 
   // Get the brand information
   client
@@ -41,7 +40,7 @@ function BrandController($scope, $routeParams) {
           });
         });
     });
-};
+}
 
 /**
  * Register it with angular

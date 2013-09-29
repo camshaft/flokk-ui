@@ -2,11 +2,10 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , start = require('in-progress')
-  , websafe = require('websafe-base64')
-  , client = require('hyperagent')
-  , analytics = require('../lib/analytics');
+var app = require('..');
+var start = require('in-progress');
+var websafe = require('websafe-base64');
+var client = require('hyperagent');
 
 /**
  * CategoryController
@@ -14,13 +13,12 @@ var app = require('..')
 
 function CategoryController($scope, $routeParams) {
   // Be able to load this within a route or in a list
-  if(!$routeParams.category) return $scope.$watch('categoryLink', function(link) {
-    if(link) fetch(link.href, $scope);
-  });
+  if ($routeParams.category) return fetch(websafe.decode($routeParams.category), $scope);
 
-  // Fetch the item
-  fetch(websafe.decode($routeParams.category), $scope);
-};
+  $scope.$watch('categoryLink', function(link) {
+    if (link) fetch(link.href, $scope);
+  });
+}
 
 function fetch (href, $scope) {
   var done = start();
@@ -28,7 +26,7 @@ function fetch (href, $scope) {
   function onError(err) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
-  };
+  }
 
   // Get the category information
   client
