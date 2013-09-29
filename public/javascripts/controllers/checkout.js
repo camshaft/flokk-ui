@@ -2,14 +2,15 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , each = require('each')
-  , start = require('in-progress')
-  , client = require('hyperagent')
-  , creditCard = require('../directives/credit-card')
-  , csc = require('../directives/csc')
-  , analytics = require('../lib/analytics')
-  , subscribe = require('../lib/subscribe');
+var app = require('..');
+var client = require('hyperagent');
+
+/**
+ * Require the directives
+ */
+
+require('../directives/credit-card');
+require('../directives/csc');
 
 /**
  * CheckoutController
@@ -28,8 +29,8 @@ function CheckoutController($scope, $location) {
     // TODO save to the api
 
     // $scope.$apply(function() {
-      shipping.saved = true;
-      $location.hash('billing');
+    shipping.saved = true;
+    $location.hash('billing');
     // });
   };
 
@@ -84,7 +85,7 @@ function CheckoutController($scope, $location) {
   $scope.confirm = function() {
 
   };
-};
+}
 
 /**
  * Register it with angular

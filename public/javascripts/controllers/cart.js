@@ -2,12 +2,10 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , each = require('each')
-  , start = require('in-progress')
-  , client = require('hyperagent')
-  , analytics = require('../lib/analytics')
-  , subscribe = require('../lib/subscribe');
+var app = require('..');
+var start = require('in-progress');
+var client = require('hyperagent');
+var subscribe = require('../lib/subscribe');
 
 /**
  * CartController
@@ -20,7 +18,7 @@ function CartController($scope, $location) {
     // TODO show a graceful error to the user
     console.error(err.stack || err.message || err);
     done();
-  };
+  }
 
   client()
     .on('error', onError)
@@ -39,7 +37,7 @@ function CartController($scope, $location) {
               $scope.cart = cart;
               $scope.loaded = true;
             });
-          };
+          }
 
           update(res.body);
           done();
@@ -56,7 +54,7 @@ function CartController($scope, $location) {
   }, function(hash) {
     $scope.step = hash || 'shipping';
   });
-};
+}
 
 /**
  * Register it with angular

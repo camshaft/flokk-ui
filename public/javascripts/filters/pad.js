@@ -2,8 +2,8 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , _pad = require('pad');
+var app = require('..');
+var _pad = require('pad');
 
 /**
  * pad
@@ -13,7 +13,7 @@ function pad() {
   return function(value, length, padding) {
     return _pad(''+value, length, ''+padding);
   };
-};
+}
 
 /**
  * Register it with angular

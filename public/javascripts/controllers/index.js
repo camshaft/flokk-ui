@@ -17,7 +17,7 @@ var websafe = require('websafe-base64').encode;
 
 function IndexController($scope, $location) {
   $scope.$watch(function() {
-    return $location.path()
+    return $location.path();
   }, function(val) {
     $scope.path = val;
   });
@@ -78,9 +78,9 @@ function IndexController($scope, $location) {
         done();
         if (res.ok && res.body.href === form.action) subscribe.publish(form.action);
         if (cb) cb(null, res);
-      })
+      });
   };
-};
+}
 
 /**
  * Register it with angular

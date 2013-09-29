@@ -5,7 +5,7 @@ PARTIAL_FILES=$(shell find public -type f -name '*.nghtml')
 
 prod: build build/build.min.js build/build.min.css hash
 
-build: components build/build.js build/build.css
+build: components lint build/build.js build/build.css
 
 # Watch the js files
 build/build.js: $(JS_FILES) public/partials/prelaunch-dialog-logged-out.js public/partials/prelaunch-dialog-logged-in.js
@@ -30,10 +30,13 @@ build/build.min.css: build/build.css
 components: component.json
 	@./node_modules/.bin/component install
 
+lint: $(JS_FILES)
+	@./node_modules/.bin/jshint public/javascripts/*
+
 hash: $(wildcard build/*)
 	@./node_modules/.bin/simple-assets --glob 'build/**/!(cache-)*' --copy --prefix cache-
 
 clean:
 	rm -fr build components
 
-.PHONY: clean build prod
+.PHONY: clean build prod lint

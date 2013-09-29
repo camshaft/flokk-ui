@@ -1,0 +1,31 @@
+{
+    // Enforcing
+    "eqeqeq"        : true,
+    "indent"        : 2,
+    "newcap"        : true,
+    "noarg"         : true,
+    "noempty"       : true,
+    "quotmark"      : true,
+    "undef"         : true,
+    "unused"        : true,
+    "trailing"      : true,
+    "maxparams"     : false,    // {int} Max number of formal params allowed per function
+    "maxdepth"      : false,    // {int} Max depth of nested blocks (within functions)
+    "maxstatements" : false,    // {int} Max number statements per function
+    "maxcomplexity" : false,    // {int} Max cyclomatic complexity per function
+    "maxlen"        : false,    // {int} Max number of characters per line
+
+    // Relaxing
+    "debug"         : true,
+    "laxbreak"      : true,
+
+    // Environments
+    "browser"       : true,
+    "node"          : true,
+    "devel"         : true,
+
+    // Custom Globals
+    "globals"       : {
+        "balanced": true
+    }
+}

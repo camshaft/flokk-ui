@@ -2,8 +2,8 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , Polyglot = require('polyglot');
+var app = require('..');
+var Polyglot = require('polyglot');
 
 /**
  * Translations service
@@ -20,7 +20,7 @@ function translations() {
   });
 
   return polyglot;
-};
+}
 
 /**
  * Register it with angular

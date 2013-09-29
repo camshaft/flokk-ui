@@ -2,8 +2,13 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , pad = require('../filters/pad');
+var app = require('..');
+
+/**
+ * Require filters
+ */
+
+require('../filters/pad');
 
 /**
  * Load the partials
@@ -30,8 +35,8 @@ function remaining() {
         $scope.hours = Math.floor(remaining / 60 / 60);
       });
     }
-  }
-};
+  };
+}
 
 /**
  * Register it with angular

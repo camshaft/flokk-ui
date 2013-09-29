@@ -2,10 +2,10 @@
  * Module dependencies
  */
 
-var client = require('hyperagent')
-  , websafe = require('websafe-base64')
-  , Emitter = require('emitter')
-  , envs = require('envs');
+var client = require('hyperagent');
+var websafe = require('websafe-base64');
+var Emitter = require('emitter');
+var envs = require('envs');
 
 /**
  * Defines
@@ -13,7 +13,7 @@ var client = require('hyperagent')
 
 var PUSHER_KEY = envs('PUSHER_KEY');
 
-var events = new Emitter;
+var events = new Emitter();
 var pusher;
 
 function onError (err) {
@@ -27,7 +27,7 @@ exports = module.exports = function(href, callback) {
     events.off(href, callback);
     if (events.hasListeners(href) || !pusher) return;
     pusher.unsubscribe(websafe.encode(href));
-  };
+  }
 
   if (events.listeners(href).length !== 1) return id;
 
@@ -62,4 +62,4 @@ function subscribeToPusher(href, cb) {
   if (!pusher) pusher = new window.Pusher(PUSHER_KEY);
   var channel = pusher.subscribe(websafe.encode(href));
   channel.bind('update', cb);
-};
+}

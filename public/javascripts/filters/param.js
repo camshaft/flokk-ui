@@ -2,8 +2,8 @@
  * Module dependencies
  */
 
-var app = require('..')
-  , websafe = require('websafe-base64');
+var app = require('..');
+var websafe = require('websafe-base64');
 
 /**
  * param
@@ -14,7 +14,7 @@ function param() {
     if(!url) return;
     return websafe.encode(url);
   };
-};
+}
 
 /**
  * Register it with angular

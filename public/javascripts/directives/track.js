@@ -23,8 +23,8 @@ function track() {
         analytics.track(event, opts);
       });
     }
-  }
-};
+  };
+}
 
 /**
  * Register it with angular
