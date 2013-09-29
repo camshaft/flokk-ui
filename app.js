@@ -38,8 +38,8 @@ app.locals({
 app.useBefore('router', function envLocals(req, res, next) {
   if (req.get('x-env') !== 'production') {
     res.locals.balanced = envs('BALANCED_KEY_TEST');
+    res.locals.styles = styles();
     res.locals.scripts = scripts();
-    res.locals.styles = [lookup('build/build.css')];
   }
   next();
 });
@@ -55,14 +55,18 @@ function lookup(file) {
 };
 
 app.locals({
-  styles: [
-    lookup('build/build.min.css')
-  ]
+  styles: styles(true)
 });
 
 app.locals({
   scripts: scripts(true)
 });
+
+function styles(min) {
+  return [
+    min ? lookup('build/build.min.css') : lookup('build/build.css')
+  ];
+};
 
 function scripts(min) {
   return [
