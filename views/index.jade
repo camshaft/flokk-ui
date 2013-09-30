@@ -31,13 +31,13 @@ html(data-ng-app=ngapp)
     section.navs
       .bg
 
-      mixin nav(name)
-        div(src="'/partials/nav-#{name}.nghtml'"
+      mixin nav(name, ext)
+        div(src="'/partials/nav-#{name}.#{ext}'"
             class="sidenav sidenav-#{name}"
             data-ng-include="")(attributes)
 
-      +nav("links")(data-ng-controller="NavLinksController")
-      +nav("categories")
+      +nav("links", "ngjade")(data-ng-controller="NavLinksController")
+      +nav("categories", "nghtml")
 
     menu.topmenu
       mixin label(name, icon)

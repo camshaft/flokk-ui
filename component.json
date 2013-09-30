@@ -76,7 +76,7 @@
   "fonts": [],
   "templates": [
     "public/partials/404.nghtml",
-    "public/partials/about.nghtml",
+    "public/partials/about.ngjade",
     "public/partials/account.nghtml",
     "public/partials/cart.nghtml",
     "public/partials/category.nghtml",
@@ -88,7 +88,7 @@
     "public/partials/remaining.nghtml",
     "public/partials/sales.nghtml",
     "public/partials/nav-categories.nghtml",
-    "public/partials/nav-links.nghtml",
+    "public/partials/nav-links.ngjade",
     "public/partials/brand.nghtml",
     "public/partials/brands.nghtml"
   ]

@@ -1,0 +1,8 @@
+h2(data-i18n-bind="'How it works' | i18n:'about'")
+  .about-container
+    ul.how-it-works.list-unstyled
+      li.text-center Starting a sale open up a 72 hour window.
+      li.text-center Everyone who purchases that item in that window lowers the price for everyone.
+      li.text-center
+        | At the end of the 72 hour window, everyone who purchased is only charged for the final, lowest price.
+    p.text-center.enjoy Enjoy!

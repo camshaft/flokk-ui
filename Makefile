@@ -1,15 +1,16 @@
 JS_FILES=$(shell find public -type f -name '*.js')
 CSS_FILES=$(shell find public -type f -name '*.css')
 STYL_FILES=$(shell find public -type f -name '*.styl')
-PARTIAL_FILES=$(shell find public -type f -name '*.nghtml')
+NGJADE_FILES=$(shell find public -type f -name '*.ngjade')
+NGHTML_FILES=$(shell find public -type f -name '*.nghtml')
 
 prod: build build/build.min.js build/build.min.css hash
 
 build: components lint build/build.js build/build.css
 
 # Watch the js files
-build/build.js: $(JS_FILES) public/partials/prelaunch-dialog-logged-out.js public/partials/prelaunch-dialog-logged-in.js
-	@./node_modules/.bin/component build --copy --use nghtml,stylus --standalone flokk
+build/build.js: $(JS_FILES) $(NGJADE_FILES) $(NGHTML_FILES)
+	@./node_modules/.bin/component build --copy --use ngjade,nghtml,stylus --standalone flokk
 
 build/build.min.js: build/build.js
 	@./node_modules/.bin/uglifyjs --compress --mangle -o build/build.min.js build/build.js
@@ -20,8 +21,8 @@ public/partials/prelaunch-dialog-logged-in.js: public/partials/prelaunch-dialog-
 	@./node_modules/.bin/component convert $<
 
 # Watch the css files
-build/build.css: $(CSS_FILES) $(STYL_FILES) $(PARTIAL_FILES)
-	@./node_modules/.bin/component build --copy --use nghtml,stylus --standalone flokk
+build/build.css: $(CSS_FILES) $(STYL_FILES) $(NGJADE_FILES) $(NGHTML_FILES)
+	@./node_modules/.bin/component build --copy --use ngjade,nghtml,stylus --standalone flokk
 
 # Minify the css
 build/build.min.css: build/build.css
