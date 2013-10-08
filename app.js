@@ -27,7 +27,8 @@ app.locals({
     API_URL: envs('API_URL'),
     PUSHER_KEY: envs('PUSHER_KEY'),
     MIXPANEL_KEY: envs('MIXPANEL_KEY'),
-    GOOGLE_KEY: envs('GOOGLE_KEY')
+    GOOGLE_KEY: envs('GOOGLE_KEY'),
+    SYSLOG_PIPELINE: envs('SYSLOG_PIPELINE')
   }
 });
 

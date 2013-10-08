@@ -25,7 +25,8 @@
     "component/jquery": "*",
     "ftlabs/fastclick": "*",
     "CamShaft/feature-ui": "*",
-    "CamShaft/feature": "*"
+    "CamShaft/feature": "*",
+    "CamShaft/log": "*"
   },
   "paths": [
     "locals"

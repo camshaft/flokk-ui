@@ -5,6 +5,7 @@
 var accessToken = require('access-token')();
 var envs = require('envs');
 var metric = require('metric-log');
+var log = require('log');
 
 /**
  * Options
@@ -32,11 +33,11 @@ window.metric = module.exports = ctx;
 
 /**
  * Only enable logging in prod
- *
- * @todo hook this up to the syslog pipeline
  */
 
-if (envs('BROWSER_ENV') === 'production') ctx.log = noop;
+var PIPELINE = envs('SYSLOG_PIPELINE');
+
+if (PIPELINE) ctx.log = log(PIPELINE, {app: 'flokk-ui'});
 
 /**
  * Setup an error logger
@@ -46,9 +47,3 @@ module.exports.error = function() {
   // TODO log to the server
   console.error.apply(console, arguments);
 };
-
-/**
- * noop
- */
-
-function noop() {}
