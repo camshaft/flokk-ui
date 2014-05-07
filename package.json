@@ -21,6 +21,7 @@
     "startup": "~0.2.2",
     "component": "0.16.4",
     "nghtml": "CamShaft/nghtml",
+    "ngjade": "mvanasse/ngjade",
     "envs": "~0.1.0",
     "flokk-angular": "git+https://github.com/CamShaft/flokk-angular",
     "theme-origami": "flokk/theme-origami",
